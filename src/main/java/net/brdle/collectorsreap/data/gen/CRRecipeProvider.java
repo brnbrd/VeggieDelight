@@ -712,16 +712,7 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('i', Items.ICE)
                 .define('s', Tags.Items.RODS_WOODEN)
                 .unlockedBy("has_lime", has(CRItemTags.FRUITS_LIME)),
-            "food/lime_popsicle", finished, enabled(CRItems.LIME), enabled(CRItems.LIME_POPSICLE), tagEmpty(CRItemTags.ICE_CUBES));
-        wrap(shaped(RecipeCategory.FOOD, CRItems.LIME_POPSICLE)
-                .pattern(" ll")
-                .pattern("ill")
-                .pattern("si ")
-                .define('l', CRItemTags.FRUITS_LIME)
-                .define('i', CRItemTags.ICE_CUBES)
-                .define('s', Tags.Items.RODS_WOODEN)
-                .unlockedBy("has_lime", has(CRItemTags.FRUITS_LIME)),
-            "food/lime_popsicle_from_ice_cubes", finished, enabled(CRItems.LIME), enabled(CRItems.LIME_POPSICLE), not(tagEmpty(CRItemTags.ICE_CUBES)));
+            "food/lime_popsicle", finished, enabled(CRItems.LIME), enabled(CRItems.LIME_POPSICLE));
         wrap(shaped(RecipeCategory.FOOD, CRItems.LIME_COOKIE, 8)
                 .pattern("wlw")
                 .define('l', CRItemTags.FRUITS_LIME)
