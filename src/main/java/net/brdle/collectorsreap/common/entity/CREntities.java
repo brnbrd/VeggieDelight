@@ -13,7 +13,7 @@ public class CREntities {
 	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, CollectorsReap.MODID);
 
 	public static final RegistryObject<EntityType<TigerPrawn>> TIGER_PRAWN = reg("tiger_prawn",
-		EntityType.Builder.of(TigerPrawn::new, MobCategory.WATER_AMBIENT).sized(1.0F, 0.5F));
+		EntityType.Builder.of(TigerPrawn::new, MobCategory.WATER_AMBIENT).sized(0.8F, 0.4F));
 	public static final RegistryObject<EntityType<Urchin>> URCHIN = reg("urchin",
 		EntityType.Builder.of(Urchin::new, MobCategory.WATER_AMBIENT).sized(0.5F, 0.5F));
 	public static final RegistryObject<EntityType<PlatinumBass>> PLATINUM_BASS = reg("platinum_bass",
