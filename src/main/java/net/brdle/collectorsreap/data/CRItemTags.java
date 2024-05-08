@@ -53,7 +53,7 @@ public class CRItemTags {
 	public static final TagKey<Item> YUCCA_FRUIT = Util.it("atmospheric", "yucca_fruit");
 
 	// Seasonals
-	public static final TagKey<Item> ROASTED_PUMPKIN = Util.it("seasonals", "roasted_pumpkin");
+	public static final TagKey<Item> PUMPKIN_PUREE = Util.it("seasonals", "pumpkin_puree");
 
 	// Serene Seasons
 	public static final TagKey<Item> WINTER_CROPS = Util.it("sereneseasons", "winter_crops");

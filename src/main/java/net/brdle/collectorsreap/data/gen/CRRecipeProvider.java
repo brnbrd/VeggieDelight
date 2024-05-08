@@ -118,7 +118,7 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
             "food/stuffed_portobello_cap", finished, enabled("stuffed_portobello_cap"));
         wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.PORTOBELLO_PASTA.get(), 1, 200, 1.0F, Items.BOWL)
                 .addIngredient(CRItems.BAKED_PORTOBELLO_CAP.get())
-                .addIngredient(ForgeTags.PASTA_RAW_PASTA)
+                .addIngredient(ForgeTags.PASTA)
                 .addIngredient(Items.BROWN_MUSHROOM)
                 .addIngredient(ForgeTags.CROPS_ONION)
                 .addIngredient(ForgeTags.MILK)
@@ -227,7 +227,7 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
             "food/crab_lasagna", finished, enabled(CRItems.CRAB_LASAGNA));
         wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.CRAB_NOODLES.get(), 1, 200, 1.0F, Items.BOWL)
                 .addIngredient(Ingredient.of(CRItemTags.CRAB_MEAT), 2)
-                .addIngredient(ForgeTags.PASTA_RAW_PASTA)
+                .addIngredient(ForgeTags.PASTA)
                 .addIngredient(ForgeTags.MILK)
                 .addIngredient(ForgeTags.CROPS_TOMATO)
                 .addIngredient(ForgeTags.CROPS_ONION)
@@ -247,7 +247,7 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
             "food/clam_chowder", finished, enabled(CRItems.CLAM_CHOWDER));
         wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.CLAM_PASTA.get(), 1, 200, 1.0F, Items.BOWL)
                 .addIngredient(CRItemTags.RAW_CLAM)
-                .addIngredient(ModItems.RAW_PASTA.get())
+                .addIngredient(ForgeTags.PASTA)
                 .addIngredient(ForgeTags.MILK)
                 .addIngredient(ForgeTags.EGGS)
                 .addIngredient(ForgeTags.CROPS_TOMATO)
@@ -264,7 +264,7 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
             "food/clam_meatball_stew", finished, enabled(CRItems.CLAM_MEATBALL_STEW));
         wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.PRAWN_NOODLES.get(), 1, 200, 1.0F, Items.BOWL)
                 .addIngredient(CRItemTags.COOKED_PRAWN)
-                .addIngredient(ModItems.RAW_PASTA.get())
+                .addIngredient(ForgeTags.PASTA)
                 .addIngredient(ForgeTags.CROPS_ONION)
                 .addIngredient(Items.DRIED_KELP)
                 .unlockedBy("has_cooked_prawn", has(CRItemTags.COOKED_PRAWN)),
@@ -576,7 +576,7 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_pomegranate_seeds", has(CRItemTags.SEEDS_POMEGRANATE)),
             "food/chocolate_arils", finished, enabled(CRItems.CHOCOLATE_ARILS), not(tagEmpty(CRItemTags.CHOCOLATE_BAR)), modLoaded("neapolitan"), not(modLoaded("create")));
         wrap(shapeless(RecipeCategory.FOOD, CRItems.STRAWBERRY_JAM_BUN)
-                .requires(ForgeTags.GRAIN_WHEAT)
+                .requires(ForgeTags.DOUGH)
                 .requires(ForgeTags.MILK)
                 .requires(CRItemTags.RED_STRAWBERRIES)
                 .requires(CRItemTags.LIME_OR_SLICE)

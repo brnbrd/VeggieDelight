@@ -29,7 +29,7 @@
         "category": "misc",
         "ingredients": [
           {
-            "tag": "forge:grain/wheat"
+            "tag": "forge:dough"
           },
           {
             "tag": "forge:milk"

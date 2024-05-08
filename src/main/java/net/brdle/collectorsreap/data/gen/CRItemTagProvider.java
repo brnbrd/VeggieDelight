@@ -126,7 +126,7 @@ public class CRItemTagProvider extends ItemTagsProvider {
 		this.addSelf(CRItemTags.PASSION_FRUIT);
 
 		// Seasonals
-		this.addSelf(CRItemTags.ROASTED_PUMPKIN);
+		this.addSelf(CRItemTags.PUMPKIN_PUREE);
 
 		// Serene Seasons
 		this.tag(CRItemTags.WINTER_CROPS)

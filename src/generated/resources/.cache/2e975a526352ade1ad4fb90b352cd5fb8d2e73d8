@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-22T15:55:37.848221	Tags for minecraft:item mod id collectorsreap
+// 1.20.1	2024-03-31T11:30:22.896038	Tags for minecraft:item mod id collectorsreap
 ae7e08f92dd075f34544c04d30c8a274b27bd792 data/atmospheric/tags/items/aloe_leaves.json
 b1c02044b6eb4060b19a0ed4f40cbeaca19822c9 data/atmospheric/tags/items/passion_fruit.json
 a740abeb613a7024a35910efe912a50a6ee62045 data/atmospheric/tags/items/yucca_fruit.json
@@ -37,7 +37,7 @@ c2a4f83c6c9240028fc19f82132631f4984e0983 data/neapolitan/tags/items/red_strawber
 52ed71cc15bb3d70d4f3238887079fdb47e8d4d5 data/neapolitan/tags/items/roasted_adzuki_beans.json
 f74237208757ca2409f23a3c64f2b28040f031e5 data/nethersdelight/tags/items/hoglin_loin.json
 63d834b941a810979afe2e28ca14f6fbc8125be4 data/nethersdelight/tags/items/propelpearl.json
-8f253f9bb0634015f3a2433b9f06e4f2f8b5e3bf data/seasonals/tags/items/roasted_pumpkin.json
+3f5c49bbc67be7f6be08c20f1c2628f1683187b9 data/seasonals/tags/items/pumpkin_puree.json
 96dea34ef6e441467b1956f6d015c36950d2cec2 data/sereneseasons/tags/items/autumn_crops.json
 1146d7346da05da57675d3325b7bf1d7d5eee6b8 data/sereneseasons/tags/items/spring_crops.json
 96dea34ef6e441467b1956f6d015c36950d2cec2 data/sereneseasons/tags/items/summer_crops.json
