@@ -1,7 +1,6 @@
 package net.brdle.collectorsreap.common.entity;
 
 import net.brdle.collectorsreap.common.item.CRItems;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -12,23 +11,20 @@ import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.world.entity.ai.goal.PanicGoal;
 import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.fluids.FluidType;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-public class Urchin extends WaterCreature {
+public class Urchin extends WaterGroundCreature {
 
-	public Urchin(EntityType<? extends WaterCreature> type, Level level) {
+	public Urchin(EntityType<? extends Urchin> type, Level level) {
 		super(type, level);
 	}
 
 	public static AttributeSupplier.@NotNull Builder createAttributes() {
 		return Mob.createMobAttributes()
-			.add(Attributes.MOVEMENT_SPEED, 0.2D)
+			.add(Attributes.MOVEMENT_SPEED, 0.1D)
 			.add(Attributes.MAX_HEALTH, 10.0D);
 	}
 
@@ -39,38 +35,15 @@ public class Urchin extends WaterCreature {
 		this.goalSelector.addGoal(4, new RandomSwimmingGoal(this, 0.5D, 40));
 	}
 
-
 	@Override
 	public @NotNull ItemStack getBucketItemStack() {
 		return CRItems.URCHIN_BUCKET.get().getDefaultInstance();
 	}
 
 	@Override
-	public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
-		return false;
-	}
-
-	@Override
-	public void knockback(double pStrength, double pX, double pZ) {
-	}
-
-	@Override
-	public boolean canSwimInFluidType(FluidType type) {
-		return false;
-	}
-
-	@Override
 	public boolean isPushable() {
 		return false;
 	}
-
-	@Override
-	public boolean isPushedByFluid(FluidType type) {
-		return false;
-	}
-
-	@Override
-	public void jumpInFluid(FluidType type) { }
 
 	@Override
 	public void aiStep() {

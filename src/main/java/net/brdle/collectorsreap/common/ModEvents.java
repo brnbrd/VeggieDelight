@@ -2,7 +2,6 @@ package net.brdle.collectorsreap.common;
 
 import net.brdle.collectorsreap.common.block.CRCauldronInteractions;
 import net.brdle.collectorsreap.common.crafting.EnabledCondition;
-import net.brdle.collectorsreap.common.entity.*;
 import net.brdle.collectorsreap.common.item.CRItems;
 import net.brdle.collectorsreap.common.item.food.CompatConsumable;
 import net.minecraft.world.item.CreativeModeTab;
@@ -10,7 +9,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -52,15 +50,6 @@ public class ModEvents {
 
     public void compost(RegistryObject<Item> it, float value) {
         ComposterBlock.COMPOSTABLES.put(it.get(), value);
-    }
-
-    @SubscribeEvent
-    public void registerEntityAttributes(EntityAttributeCreationEvent e) {
-        e.put(CREntities.TIGER_PRAWN.get(), TigerPrawn.createAttributes().build());
-        e.put(CREntities.URCHIN.get(), Urchin.createAttributes().build());
-        e.put(CREntities.PLATINUM_BASS.get(), PlatinumBass.createAttributes().build());
-        e.put(CREntities.CHIEFTAIN_CRAB.get(), ChieftainCrab.createAttributes().build());
-        e.put(CREntities.CLAM.get(), Clam.createAttributes().build());
     }
 
     // Adds collectorsreap:enabled, etc. conditions

@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#collectorsreap:has_spawn/urchin",
+  "spawners": {
+    "type": "collectorsreap:urchin",
+    "maxCount": 7,
+    "minCount": 3,
+    "weight": 13
+  }
+}

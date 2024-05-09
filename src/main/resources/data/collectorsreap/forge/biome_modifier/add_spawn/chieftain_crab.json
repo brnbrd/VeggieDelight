@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#collectorsreap:has_spawn/chieftain_crab",
+  "spawners": {
+    "type": "collectorsreap:chieftain_crab",
+    "maxCount": 4,
+    "minCount": 2,
+    "weight": 4
+  }
+}

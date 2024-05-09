@@ -11,10 +11,6 @@ import java.util.function.Supplier;
 
 public class ModCompat {
 
-	@Nullable public static CreativeModeTab getNDTab() {
-		return ifLoaded("nethersdelight", NDCompat.CREATIVE_TAB);
-	}
-
 	@Nullable public static CreativeModeTab ifLoaded(String modid, CreativeModeTab tab) {
 		return ifLoaded(modid, () -> tab);
 	}

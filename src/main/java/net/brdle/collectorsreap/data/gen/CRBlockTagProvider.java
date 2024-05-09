@@ -8,6 +8,8 @@ import net.brdle.collectorsreap.data.CRBlockTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
@@ -43,6 +45,11 @@ public class CRBlockTagProvider extends BlockTagsProvider {
 		this.tag(CRBlockTags.POMEGRANATE_FAST_ON)
 			.addTag(BlockTags.NYLIUM)
 			.addOptionalTag(Util.rl("nethersdelight", "rich_soul_soil"));
+		this.tag(CRBlockTags.CRAB_SPAWNABLE_ON)
+			.addTag(BlockTags.SAND)
+			.addTag(Tags.Blocks.GRAVEL)
+			.add(Blocks.WATER)
+			.add(Blocks.CLAY);
 
 		// Minecraft
 		this.tag(BlockTags.BEE_GROWABLES)

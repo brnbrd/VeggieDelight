@@ -9,7 +9,6 @@ import net.brdle.collectorsreap.common.entity.CREntities;
 import net.brdle.collectorsreap.common.item.CRItems;
 import net.brdle.collectorsreap.common.loot.CRLootItemConditions;
 import net.brdle.collectorsreap.common.loot.CRLootModifiers;
-import net.brdle.collectorsreap.common.world.CRBiomeModifiers;
 import net.brdle.collectorsreap.common.world.CRFeatures;
 import net.brdle.collectorsreap.data.gen.Generators;
 import net.minecraftforge.common.MinecraftForge;
@@ -31,6 +30,5 @@ public class CommonProxy {
         CRFeatures.create(modBus);
         CRLootItemConditions.create(modBus);
         CRLootModifiers.create(modBus);
-        CRBiomeModifiers.create(modBus);
     }
 }

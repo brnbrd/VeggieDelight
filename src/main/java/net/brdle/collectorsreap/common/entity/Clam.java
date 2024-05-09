@@ -16,16 +16,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.fluids.FluidType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class Clam extends WaterCreature {
+public class Clam extends WaterGroundCreature {
 	public static final int VARIANTS = 4;
 	private static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(Clam.class, EntityDataSerializers.INT);
 	public final AnimationState openAnimationState = new AnimationState();
 
-	public Clam(EntityType<? extends WaterCreature> type, Level level) {
+	public Clam(EntityType<? extends Clam> type, Level level) {
 		super(type, level);
 	}
 
@@ -97,35 +96,14 @@ public class Clam extends WaterCreature {
 		} else if (dataTag.contains("Health", 99)) {
 			this.setHealth(dataTag.getFloat("Health"));
 		}
+		this.setXRot(this.getRandom().nextFloat());
 		return super.finalizeSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
-	}
-
-	@Override
-	public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
-		return false;
-	}
-
-	@Override
-	public void knockback(double pStrength, double pX, double pZ) {
-	}
-
-	@Override
-	public boolean canSwimInFluidType(FluidType type) {
-		return false;
 	}
 
 	@Override
 	public boolean isPushable() {
 		return true;
 	}
-
-	@Override
-	public boolean isPushedByFluid(FluidType type) {
-		return false;
-	}
-
-	@Override
-	public void jumpInFluid(FluidType type) { }
 
 	@Override
 	public void aiStep() {

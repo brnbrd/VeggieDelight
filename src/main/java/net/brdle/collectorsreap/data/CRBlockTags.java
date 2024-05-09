@@ -11,6 +11,7 @@ public class CRBlockTags {
 
 	public static final TagKey<Block> PORTOBELLO_SPAWNS = bind(CollectorsReap.MODID, "portobello_spawns");
 	public static final TagKey<Block> POMEGRANATE_FAST_ON = bind(CollectorsReap.MODID, "pomegranate_fast_on");
+	public static final TagKey<Block> CRAB_SPAWNABLE_ON = bind(CollectorsReap.MODID, "crab_spawnable_on");
 
 	// Serene Seasons
 	public static final TagKey<Block> WINTER_CROPS = bind("sereneseasons", "winter_crops");

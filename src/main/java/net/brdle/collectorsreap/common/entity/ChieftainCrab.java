@@ -1,7 +1,9 @@
 package net.brdle.collectorsreap.common.entity;
 
 import net.brdle.collectorsreap.common.item.CRItems;
+import net.brdle.collectorsreap.data.CRBlockTags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -9,6 +11,8 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.TimeUtil;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.DifficultyInstance;
@@ -26,7 +30,10 @@ import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.fluids.FluidType;
@@ -114,7 +121,8 @@ public class ChieftainCrab extends WaterAnimal implements NeutralMob, Bucketable
 
 	@Override
 	public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
-		return !this.fromBucket() && !this.hasCustomName();
+		//return !this.fromBucket() && !this.hasCustomName();
+		return false;
 	}
 
 	@Override
@@ -189,6 +197,11 @@ public class ChieftainCrab extends WaterAnimal implements NeutralMob, Bucketable
 		} else {
 			this.updatePersistentAnger((ServerLevel)this.level(), true);
 		}
+	}
+
+	public static boolean checkCrabSpawnRules(EntityType<ChieftainCrab> crab, ServerLevelAccessor level, MobSpawnType type, BlockPos pos, RandomSource rand) {
+		return level.getFluidState(pos).is(FluidTags.WATER) ||
+			level.getBlockState(pos.below()).is(CRBlockTags.CRAB_SPAWNABLE_ON);
 	}
 
 	@Override

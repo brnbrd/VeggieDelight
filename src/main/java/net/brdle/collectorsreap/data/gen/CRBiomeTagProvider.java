@@ -35,8 +35,10 @@ public class CRBiomeTagProvider extends BiomeTagsProvider {
 			.addTag(BiomeTags.IS_OCEAN)
 			.addTag(BiomeTags.IS_DEEP_OCEAN);
 		this.tag(CRBiomeTags.CHIEFTAIN_CRAB_SPAWNS)
+			.addTag(BiomeTags.IS_BEACH)
 			.add(Biomes.WARM_OCEAN)
 			.add(Biomes.LUKEWARM_OCEAN)
 			.add(Biomes.DEEP_LUKEWARM_OCEAN);
+
 	}
 }

@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#collectorsreap:has_spawn/clam",
+  "spawners": {
+    "type": "collectorsreap:clam",
+    "maxCount": 5,
+    "minCount": 2,
+    "weight": 5
+  }
+}

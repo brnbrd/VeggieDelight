@@ -95,8 +95,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:configured-457570:${configured_version}")
     implementation fg.deobf("curse.maven:farmers-d-398521:${farmers_delight_version}")
     compileOnly fg.deobf("curse.maven:farmers-respite-551453:${farmers_respite_version}")
-    implementation fg.deobf("curse.maven:nethers-delight-496394:${nethers_delight_version}")
-    implementation fg.deobf("curse.maven:blueprint-382216:${blueprint_version}")
+    compileOnly fg.deobf("curse.maven:blueprint-382216:${blueprint_version}")
     compileOnly fg.deobf("curse.maven:neapolitan-382016:${neapolitan_version}")
     compileOnly fg.deobf("curse.maven:atmospheric-362393:${atmospheric_version}")
 }
