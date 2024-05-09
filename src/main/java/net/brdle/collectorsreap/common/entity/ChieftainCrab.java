@@ -200,8 +200,7 @@ public class ChieftainCrab extends WaterAnimal implements NeutralMob, Bucketable
 	}
 
 	public static boolean checkCrabSpawnRules(EntityType<ChieftainCrab> crab, ServerLevelAccessor level, MobSpawnType type, BlockPos pos, RandomSource rand) {
-		return level.getFluidState(pos).is(FluidTags.WATER) ||
-			level.getBlockState(pos.below()).is(CRBlockTags.CRAB_SPAWNABLE_ON);
+		return level.getBlockState(pos.below()).is(CRBlockTags.CRAB_SPAWNABLE_ON);
 	}
 
 	@Override

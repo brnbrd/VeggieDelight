@@ -26,10 +26,10 @@ public class CREntities {
 		Urchin::new, MobCategory.WATER_AMBIENT, 0.5F, 0.5F);
 	public static final RegistryObject<EntityType<PlatinumBass>> PLATINUM_BASS = reg("platinum_bass",
 		PlatinumBass::new, MobCategory.WATER_AMBIENT, 1.2F, 0.5F);
-	public static final RegistryObject<EntityType<ChieftainCrab>> CHIEFTAIN_CRAB = reg("chieftain_crab",
-		ChieftainCrab::new, MobCategory.WATER_CREATURE, 0.85F, 0.65F);
 	public static final RegistryObject<EntityType<Clam>> CLAM = reg("clam",
 		Clam::new, MobCategory.WATER_AMBIENT, 1.0F, 0.5F);
+	public static final RegistryObject<EntityType<ChieftainCrab>> CHIEFTAIN_CRAB = reg("chieftain_crab",
+		ChieftainCrab::new, MobCategory.CREATURE, 0.85F, 0.65F);
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> reg(String name, EntityType.EntityFactory<T> fact, MobCategory category, float width, float height) {
 		return ENTITY_TYPES.register(name, () -> EntityType.Builder.of(fact, category).sized(width, height).build(CollectorsReap.MODID + "." + name));
@@ -40,8 +40,8 @@ public class CREntities {
 		event.put(TIGER_PRAWN.get(), TigerPrawn.createAttributes().build());
 		event.put(URCHIN.get(), Urchin.createAttributes().build());
 		event.put(PLATINUM_BASS.get(), PlatinumBass.createAttributes().build());
-		event.put(CHIEFTAIN_CRAB.get(), ChieftainCrab.createAttributes().build());
 		event.put(CLAM.get(), Clam.createAttributes().build());
+		event.put(CHIEFTAIN_CRAB.get(), ChieftainCrab.createAttributes().build());
 	}
 
 	@SubscribeEvent
