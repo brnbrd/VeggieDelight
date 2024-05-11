@@ -220,7 +220,7 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
             "food/chieftain_crab", finished, enabled("chieftain_crab"));
         wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.CRAB_LASAGNA.get(), 1, 200, 1.0F, Items.BOWL)
                 .addIngredient(Ingredient.of(CRItemTags.CRAB_MEAT), 3)
-                .addIngredient(ForgeTags.DOUGH_WHEAT)
+                .addIngredient(ForgeTags.DOUGH)
                 .addIngredient(ModItems.TOMATO_SAUCE.get())
                 .addIngredient(ForgeTags.MILK)
                 .unlockedBy("has_crab_meat", has(CRItemTags.CRAB_MEAT)),
