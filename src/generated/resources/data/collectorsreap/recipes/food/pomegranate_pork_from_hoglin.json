@@ -14,7 +14,7 @@
               "type": "forge:not",
               "value": {
                 "type": "forge:tag_empty",
-                "tag": "nethersdelight:hoglin_loin"
+                "tag": "forge:raw_hoglin"
               }
             }
           ]
@@ -29,7 +29,7 @@
         "experience": 1.0,
         "ingredients": [
           {
-            "tag": "nethersdelight:hoglin_loin"
+            "tag": "forge:raw_hoglin"
           },
           {
             "item": "minecraft:honey_bottle"

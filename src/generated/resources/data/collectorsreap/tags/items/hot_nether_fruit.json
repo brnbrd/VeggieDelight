@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "#mynethersdelight:bullet_pepper",
+      "required": false
+    },
+    {
       "id": "nethersdelight:propelpearl",
       "required": false
     }

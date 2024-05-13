@@ -174,13 +174,13 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_pomegranate_slice", has(CRItemTags.FRUITS_POMEGRANATE)),
             "food/pomegranate_pork", finished, enabled(CRItems.POMEGRANATE_PORK));
         wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.POMEGRANATE_PORK.get(), 1, 200, 1.0F, Items.BOWL)
-                .addIngredient(CRItemTags.HOGLIN_LOIN)
+                .addIngredient(CRItemTags.RAW_HOGLIN)
                 .addIngredient(Items.HONEY_BOTTLE)
                 .addIngredient(CRItemTags.FRUITS_POMEGRANATE)
                 .addIngredient(ForgeTags.CROPS_ONION)
                 .addIngredient(Items.CARROT)
-                .unlockedBy("has_hoglin_loin", has(CRItemTags.HOGLIN_LOIN)),
-            "food/pomegranate_pork_from_hoglin", finished, enabled(CRItems.POMEGRANATE_PORK), not(tagEmpty(CRItemTags.HOGLIN_LOIN)));
+                .unlockedBy("has_raw_hoglin", has(CRItemTags.RAW_HOGLIN)),
+            "food/pomegranate_pork_from_hoglin", finished, enabled(CRItems.POMEGRANATE_PORK), not(tagEmpty(CRItemTags.RAW_HOGLIN)));
         wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.POMEGRANATE_CHICKEN.get(), 1, 200, 1.0F, Items.BOWL)
                 .addIngredient(ForgeTags.RAW_CHICKEN)
                 .addIngredient(CRItemTags.FRUITS_POMEGRANATE)
@@ -205,11 +205,11 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_pomegranate_slice", has(CRItemTags.FRUITS_POMEGRANATE)),
             "food/glazed_strider", finished, enabled(CRItems.GLAZED_STRIDER), not(tagEmpty(CRItemTags.RAW_STRIDER)));
         wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.SPICY_GRENADINE_JELLY.get(), 1, 200, 1.0F, Items.BOWL)
-                .addIngredient(Ingredient.of(CRItemTags.PROPELPEARL), 2)
+                .addIngredient(Ingredient.of(CRItemTags.HOT_NETHER_FRUIT), 2)
                 .addIngredient(Items.MAGMA_CREAM, 2)
                 .addIngredient(CRItemTags.FRUITS_POMEGRANATE)
                 .unlockedBy("has_pomegranate_slice", has(CRItemTags.FRUITS_POMEGRANATE)),
-            "food/spicy_grenadine_jelly", finished, enabled(CRItems.SPICY_GRENADINE_JELLY), not(tagEmpty(CRItemTags.PROPELPEARL)));
+            "food/spicy_grenadine_jelly", finished, enabled(CRItems.SPICY_GRENADINE_JELLY), not(tagEmpty(CRItemTags.HOT_NETHER_FRUIT)));
         wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.CHIEFTAIN_CRAB.get(), 1, 600, 6.0F, Items.BOWL)
                 .addIngredient(CRItems.CHIEFTAIN_CRAB_BUCKET.get())
                 .addIngredient(ForgeTags.VEGETABLES_CARROT)

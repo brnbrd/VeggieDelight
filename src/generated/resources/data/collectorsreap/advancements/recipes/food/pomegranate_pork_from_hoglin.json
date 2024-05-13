@@ -4,11 +4,11 @@
       "advancement": {
         "parent": "minecraft:recipes/root",
         "criteria": {
-          "has_hoglin_loin": {
+          "has_raw_hoglin": {
             "conditions": {
               "items": [
                 {
-                  "tag": "nethersdelight:hoglin_loin"
+                  "tag": "forge:raw_hoglin"
                 }
               ]
             },
@@ -23,7 +23,7 @@
         },
         "requirements": [
           [
-            "has_hoglin_loin",
+            "has_raw_hoglin",
             "has_the_recipe"
           ]
         ],
@@ -46,7 +46,7 @@
               "type": "forge:not",
               "value": {
                 "type": "forge:tag_empty",
-                "tag": "nethersdelight:hoglin_loin"
+                "tag": "forge:raw_hoglin"
               }
             }
           ]

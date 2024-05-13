@@ -46,7 +46,7 @@
               "type": "forge:not",
               "value": {
                 "type": "forge:tag_empty",
-                "tag": "nethersdelight:raw_strider"
+                "tag": "forge:raw_strider"
               }
             }
           ]

@@ -104,10 +104,16 @@ public class CRItemTagProvider extends ItemTagsProvider {
 		this.tag(CRItemTags.COOKED_FISHES_BASS)
 			.add(CRItems.COOKED_PLATINUM_BASS.get())
 			.add(CRItems.COOKED_PLATINUM_BASS_SLICE.get());
-
-		// Nether's Delight
-		this.addSelf(CRItemTags.PROPELPEARL);
-		this.addSelf(CRItemTags.HOGLIN_LOIN);
+		this.tag(CRItemTags.HOT_NETHER_FRUIT)
+			.addOptionalTag(Util.rl("mynethersdelight", "bullet_pepper"))
+			.addOptional(Util.rl("nethersdelight", "propelpearl"));
+		this.tag(CRItemTags.RAW_HOGLIN)
+			.addOptionalTag(Util.rl("forge", "hoglin_loin"))
+			.addOptionalTag(Util.rl("mynethersdelight", "raw_hoglin"))
+			.addOptional(Util.rl("nethersdelight", "hoglin_loin"));
+		this.tag(CRItemTags.RAW_STRIDER)
+			.addOptionalTag(Util.rl("mynethersdelight", "strider_meats"))
+			.addOptional(Util.rl("nethersdelight", "raw_strider"));
 
 		// Neapolitan
 		this.addSelf(CRItemTags.BANANA);

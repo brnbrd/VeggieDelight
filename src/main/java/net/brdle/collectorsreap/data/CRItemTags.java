@@ -28,15 +28,13 @@ public class CRItemTags {
 	public static final TagKey<Item> COOKED_PRAWN = forge("cooked_prawn");
 	public static final TagKey<Item> RAW_FISHES_BASS = forge("raw_fishes/bass");
 	public static final TagKey<Item> COOKED_FISHES_BASS = forge("cooked_fishes/bass");
+	public static final TagKey<Item> RAW_HOGLIN = forge("raw_hoglin");
+	public static final TagKey<Item> RAW_STRIDER = forge("raw_strider");
 
 	// CR
 	public static final TagKey<Item> GUMMIES = cr("gummies");
 	public static final TagKey<Item> LIME_OR_SLICE = cr("lime_or_slice");
-
-	// ND
-	public static final TagKey<Item> RAW_STRIDER = Util.it("nethersdelight", "raw_strider");
-	public static final TagKey<Item> PROPELPEARL = Util.it("nethersdelight", "propelpearl");
-	public static final TagKey<Item> HOGLIN_LOIN = Util.it("nethersdelight", "hoglin_loin");
+	public static final TagKey<Item> HOT_NETHER_FRUIT = cr("hot_nether_fruit");
 
 	// Neapolitan
 	public static final TagKey<Item> ICE_CREAM = Util.it("neapolitan", "ice_cream");

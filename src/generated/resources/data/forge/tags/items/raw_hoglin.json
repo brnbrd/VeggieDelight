@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "#forge:hoglin_loin",
+      "required": false
+    },
+    {
+      "id": "#mynethersdelight:raw_hoglin",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:hoglin_loin",
+      "required": false
+    }
+  ]
+}

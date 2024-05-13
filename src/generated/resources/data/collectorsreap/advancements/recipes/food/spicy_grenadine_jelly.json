@@ -46,7 +46,7 @@
               "type": "forge:not",
               "value": {
                 "type": "forge:tag_empty",
-                "tag": "nethersdelight:propelpearl"
+                "tag": "collectorsreap:hot_nether_fruit"
               }
             }
           ]

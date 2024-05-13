@@ -235,16 +235,16 @@ public class CRItems extends ModItems {
     public static final RegistryObject<Item> GLAZED_STRIDER = registerItem("glazed_strider",
         () -> new CompatConsumable((new Item.Properties()).food(
         Nutrition.GLAZED_STRIDER).craftRemainder(Items.BOWL).stacksTo(16),
-        true, false, "nethersdelight"));
+        true, false, "mynethersdelight", "nethersdelight"));
     public static final RegistryObject<Item> SPICY_GRENADINE_JELLY = registerItem("spicy_grenadine_jelly",
         () -> new CompatConsumable((new Item.Properties()).food(
         Nutrition.SPICY_GRENADINE_JELLY).craftRemainder(Items.BOWL).stacksTo(16),
-        true,  false, "nethersdelight"));
+        true,  false, "mynethersdelight", "nethersdelight"));
 
     // Neapolitan Compat
     public static final RegistryObject<Item> STRAWBERRY_JAM_BUN = registerItem("strawberry_jam_bun",
         () -> new CompatConsumable((new Item.Properties()).food(
-            Nutrition.STRAWBERRY_JAM_BUN), true, false, "neapolitan", 1.0F));
+            Nutrition.STRAWBERRY_JAM_BUN), true, false, 1.0F, "neapolitan"));
     public static final RegistryObject<Item> POMEGRANATE_BEAN_SALAD = registerItem("pomegranate_bean_salad",
         () -> new CompatConsumable((new Item.Properties()).food(
                 Nutrition.POMEGRANATE_BEAN_SALAD).craftRemainder(Items.BOWL).stacksTo(16), true, false, "neapolitan"));

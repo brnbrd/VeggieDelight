@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "#mynethersdelight:strider_meats",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:raw_strider",
+      "required": false
+    }
+  ]
+}

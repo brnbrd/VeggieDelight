@@ -65,7 +65,7 @@ public class ModEvents {
         if (event.getTabKey() == ModCreativeTabs.TAB_FARMERS_DELIGHT.getKey()) {
             CRItems.ITEMS.getEntries().stream().filter(RegistryObject::isPresent).forEach((item) -> {
                 Item i = item.get();
-                if (i instanceof CompatConsumable compat && !ModList.get().isLoaded(compat.getModid())) {
+                if (i instanceof CompatConsumable compat && !compat.loaded()) {
                     return;
                 }
                 event.accept(i.getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);

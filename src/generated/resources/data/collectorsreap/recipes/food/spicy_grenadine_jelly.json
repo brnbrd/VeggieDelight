@@ -14,7 +14,7 @@
               "type": "forge:not",
               "value": {
                 "type": "forge:tag_empty",
-                "tag": "nethersdelight:propelpearl"
+                "tag": "collectorsreap:hot_nether_fruit"
               }
             }
           ]
@@ -29,10 +29,10 @@
         "experience": 1.0,
         "ingredients": [
           {
-            "tag": "nethersdelight:propelpearl"
+            "tag": "collectorsreap:hot_nether_fruit"
           },
           {
-            "tag": "nethersdelight:propelpearl"
+            "tag": "collectorsreap:hot_nether_fruit"
           },
           {
             "item": "minecraft:magma_cream"
