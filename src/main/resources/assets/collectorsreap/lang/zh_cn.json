@@ -125,7 +125,7 @@
     "item.collectorsreap.melon_gummy": "西瓜软糖",
     "item.collectorsreap.mint_gummy": "薄荷软糖",
     "item.collectorsreap.mint_limeade": "薄荷青柠汁",
-    "item.collectorsreap.passion_fruit_gummy": "Passion Fruit Gummy",
+    "item.collectorsreap.passion_fruit_gummy": "百香果软糖",
     "item.collectorsreap.pink_limeade": "粉红青柠汁",
     "item.collectorsreap.platinum_bass": "Raw Platinum Bass",
     "item.collectorsreap.platinum_bass_bucket": "Bucket of Platinum Bass",
@@ -179,6 +179,5 @@
     "item.collectorsreap.vanilla_gummy": "香草软糖",
     "item.collectorsreap.yellow_tea_gummy": "黄茶软糖",
     "item.collectorsreap.yucca_gummy": "丝兰果软糖",
-    "tooltip.requires_modid": "缺少模组的modid:",
-    "item.collectorsreap.passionfruit_gummy": "百香果软糖"
+    "tooltip.requires_modid": "缺少模组的modid:"
 }

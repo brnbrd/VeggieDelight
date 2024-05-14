@@ -394,35 +394,6 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_coffee_beans", has(CRItemTags.COFFEE_BEANS)),
             "gummy/coffee", finished, enabled(CRItems.COFFEE_GUMMY), not(tagEmpty(CRItemTags.COFFEE_BEANS)), modLoaded("farmersrespite"));
 
-        /*wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.PUMPKIN_GUMMY.get(), 1, 200, 1.0F)
-                .addIngredient(CRItemTags.ROASTED_PUMPKIN)
-                .addIngredient(Items.SUGAR)
-                .addIngredient(Items.HONEY_BOTTLE)
-                .addIngredient(Items.KELP)
-                .unlockedBy("has_roasted_pumpkin", has(CRItemTags.ROASTED_PUMPKIN)),
-            "food/pumpkin_gummy", finished, enabled(CRItems.PUMPKIN_GUMMY), not(tagEmpty(CRItemTags.ROASTED_PUMPKIN)), modLoaded("seasonals"));
-        wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.ALOE_GUMMY.get(), 1, 200, 1.0F)
-                .addIngredient(CRItemTags.ALOE_LEAVES)
-                .addIngredient(Items.SUGAR)
-                .addIngredient(Items.HONEY_BOTTLE)
-                .addIngredient(Items.KELP)
-                .unlockedBy("has_aloe", has(CRItemTags.ALOE_LEAVES)),
-            "food/aloe_gummy", finished, enabled(CRItems.ALOE_GUMMY), not(tagEmpty(CRItemTags.ALOE_LEAVES)), modLoaded("atmospheric"));
-        wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.PASSIONFRUIT_GUMMY.get(), 1, 200, 1.0F)
-                .addIngredient(CRItemTags.PASSIONFRUIT)
-                .addIngredient(Items.SUGAR)
-                .addIngredient(Items.HONEY_BOTTLE)
-                .addIngredient(Items.KELP)
-                .unlockedBy("has_passionfruit", has(CRItemTags.PASSIONFRUIT)),
-            "food/passionfruit_gummy", finished, enabled(CRItems.PASSIONFRUIT_GUMMY), not(tagEmpty(CRItemTags.PASSIONFRUIT)), modLoaded("atmospheric"));
-        wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.YUCCA_GUMMY.get(), 1, 200, 1.0F)
-                .addIngredient(CRItemTags.YUCCA_FRUIT)
-                .addIngredient(Items.SUGAR)
-                .addIngredient(Items.HONEY_BOTTLE)
-                .addIngredient(Items.KELP)
-                .unlockedBy("has_yucca", has(CRItemTags.YUCCA_FRUIT)),
-            "food/yucca_gummy", finished, enabled(CRItems.YUCCA_GUMMY), not(tagEmpty(CRItemTags.YUCCA_FRUIT)), modLoaded("atmospheric"));*/
-
         // Crafting
         wrap(shapeless(RecipeCategory.BUILDING_BLOCKS, CRItems.LIME, 9)
                 .requires(CRItems.LIME_CRATE.get())

@@ -14,7 +14,7 @@
               "type": "forge:not",
               "value": {
                 "type": "forge:tag_empty",
-                "tag": "seasonals:roasted_pumpkin"
+                "tag": "seasonals:pumpkin_puree"
               }
             },
             {
@@ -33,7 +33,7 @@
         "heatRequirement": "heated",
         "ingredients": [
           {
-            "tag": "seasonals:roasted_pumpkin"
+            "tag": "seasonals:pumpkin_puree"
           },
           {
             "item": "minecraft:sugar"

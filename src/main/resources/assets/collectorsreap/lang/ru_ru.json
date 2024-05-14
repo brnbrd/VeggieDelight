@@ -125,7 +125,7 @@
     "item.collectorsreap.melon_gummy": "Желе из арбуза",
     "item.collectorsreap.mint_gummy": "Желе из мяты",
     "item.collectorsreap.mint_limeade": "Мятный лаймонад",
-    "item.collectorsreap.passion_fruit_gummy": "Passion Fruit Gummy",
+    "item.collectorsreap.passion_fruit_gummy": "Желе из маракуйи",
     "item.collectorsreap.pink_limeade": "Розовый лаймонад",
     "item.collectorsreap.platinum_bass": "Raw Platinum Bass",
     "item.collectorsreap.platinum_bass_bucket": "Bucket of Platinum Bass",
@@ -179,6 +179,5 @@
     "item.collectorsreap.vanilla_gummy": "Желе из ванили",
     "item.collectorsreap.yellow_tea_gummy": "Желе из желтого чая",
     "item.collectorsreap.yucca_gummy": "Желе из юкки",
-    "tooltip.requires_modid": "Необходима модификация:",
-    "item.collectorsreap.passionfruit_gummy": "Желе из маракуйи"
+    "tooltip.requires_modid": "Необходима модификация:"
 }
