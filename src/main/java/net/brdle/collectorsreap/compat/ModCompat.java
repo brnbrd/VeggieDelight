@@ -65,6 +65,12 @@ public class ModCompat {
 			() -> MobEffects.CONFUSION;
 	}
 
+	public static Supplier<MobEffect> getThornResistance() {
+		return (ModList.get().isLoaded("seasonals")) ?
+			() -> ForgeRegistries.MOB_EFFECTS.getValue(Util.rl("seasonals", "thorn_resistance")) :
+			() -> MobEffects.FIRE_RESISTANCE;
+	}
+
 	public static Supplier<MobEffect> getVitality() {
 		return (ModList.get().isLoaded("respiteful")) ?
 			() -> ForgeRegistries.MOB_EFFECTS.getValue(Util.rl("respiteful", "vitality")) :

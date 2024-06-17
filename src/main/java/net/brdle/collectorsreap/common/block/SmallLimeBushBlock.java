@@ -10,8 +10,10 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -57,14 +59,16 @@ public class SmallLimeBushBlock extends BushBlock implements BonemealableBlock {
 	}
 
 	@Override
-	protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
-		return state.is(BlockTags.DIRT);
-	}
-
-	@Override
 	public boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader level, BlockPos pos) {
 		BlockPos below = pos.below();
 		return this.mayPlaceOn(level.getBlockState(below), level, below);
+	}
+
+	@Override
+	public @NotNull BlockState updateShape(BlockState pState, @NotNull Direction pFacing, @NotNull BlockState pFacingState, @NotNull LevelAccessor pLevel, @NotNull BlockPos pCurrentPos, @NotNull BlockPos pFacingPos) {
+		return !pState.canSurvive(pLevel, pCurrentPos) ?
+			Blocks.AIR.defaultBlockState() :
+			super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
 	}
 
 	@Override

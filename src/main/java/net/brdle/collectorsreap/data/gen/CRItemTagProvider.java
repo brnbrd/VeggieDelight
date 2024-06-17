@@ -73,6 +73,7 @@ public class CRItemTagProvider extends ItemTagsProvider {
 			.add(CRItems.POMEGRANATE_GUMMY.get())
 			.add(CRItems.MELON_GUMMY.get())
 			.add(CRItems.APPLE_GUMMY.get())
+			.add(CRItems.GLOW_BERRY_GUMMY.get())
 			.add(CRItems.BANANA_GUMMY.get())
 			.add(CRItems.VANILLA_GUMMY.get())
 			.add(CRItems.CHOCOLATE_GUMMY.get())
@@ -80,6 +81,7 @@ public class CRItemTagProvider extends ItemTagsProvider {
 			.add(CRItems.MINT_GUMMY.get())
 			.add(CRItems.ADZUKI_GUMMY.get())
 			.add(CRItems.PUMPKIN_GUMMY.get())
+			.add(CRItems.SWEET_BERRY_GUMMY.get())
 			.add(CRItems.ALOE_GUMMY.get())
 			.add(CRItems.PASSION_FRUIT_GUMMY.get())
 			.add(CRItems.YUCCA_GUMMY.get());

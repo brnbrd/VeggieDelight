@@ -1,4 +1,4 @@
-// 1.20.1	2024-05-13T12:11:54.6453206	Recipes
+// 1.20.1	2024-05-15T15:01:11.0831798	Recipes
 6bed5b7d715399840f10473875efca57540c42e3 data/collectorsreap/advancements/recipes/chiseled_urchin_test_bricks.json
 ffff41205e9b83cc8ab9d38ce39c06fa7e8f6ae7 data/collectorsreap/advancements/recipes/cutting/chieftain_claw.json
 51d613fd6d246740518e1ed57afea6e6deea518e data/collectorsreap/advancements/recipes/cutting/chieftain_crab.json
@@ -105,12 +105,14 @@ e470ab2d2e87ed0bc5c1c5363d50593f969715cd data/collectorsreap/advancements/recipe
 0108a259c0cbd905f0277973d992a2f06bb95a0a data/collectorsreap/advancements/recipes/gummy/black_tea.json
 31050cca6c3ac3dd7b9fa96075b0c64bf2e9f059 data/collectorsreap/advancements/recipes/gummy/chocolate.json
 ee4f61bf0047b68c3f96017e871627fee53b23fb data/collectorsreap/advancements/recipes/gummy/coffee.json
+e2d286624b9609f878f8b21e2639663a636b6077 data/collectorsreap/advancements/recipes/gummy/glow_berries.json
 0e84a8b564e2ddf6a56a6662cbc21f2c9627b8e6 data/collectorsreap/advancements/recipes/gummy/green_tea.json
 21655a7988296dddfd310dcd95a0567791f94960 data/collectorsreap/advancements/recipes/gummy/lime.json
 6ff232eeff63f7cb294d2c80751059bc9d36d2f3 data/collectorsreap/advancements/recipes/gummy/melon.json
 713cf8ca395b6f458e14b380741c90e78a0269b1 data/collectorsreap/advancements/recipes/gummy/mint.json
 f1f954c74d82a04828727b87da5ea008ef23df21 data/collectorsreap/advancements/recipes/gummy/pomegranate.json
 9a8b3364f01e6402b7fb9f999f5dbdcfd5e3d4e0 data/collectorsreap/advancements/recipes/gummy/strawberry.json
+51bca964b7821f594954ae4620da2ec4bb49f04f data/collectorsreap/advancements/recipes/gummy/sweet_berries.json
 2edaf1b9fe134fcffac4cf2c0af4f0282b747167 data/collectorsreap/advancements/recipes/gummy/vanilla.json
 2f7b2ba23f43c782bf0da421a1dd43075480ccbc data/collectorsreap/advancements/recipes/gummy/yellow_tea.json
 729900eebf5a56a4f1a4aceb37c9a653fc42f84b data/collectorsreap/advancements/recipes/lime_crate.json
@@ -251,12 +253,14 @@ cac24001f72ec68a0d7f6c2769a73b1341100451 data/collectorsreap/recipes/food/stuffe
 6b203d3da60694c2b75d94d26ae28b50cffd288f data/collectorsreap/recipes/gummy/black_tea.json
 5b4630e1468aab466317e34ae28fbdb4239d10c0 data/collectorsreap/recipes/gummy/chocolate.json
 16313403906a36d85f223e1c4e44993ca612353a data/collectorsreap/recipes/gummy/coffee.json
+831a1352a573f3ac03bd6ae6ec0d019a46cafa19 data/collectorsreap/recipes/gummy/glow_berries.json
 d8daebe4c443af6f6df0c4bd0055e2fb2230e42b data/collectorsreap/recipes/gummy/green_tea.json
 e2bc8f9cda3c1437690611bf49872b3a321027ee data/collectorsreap/recipes/gummy/lime.json
 9c9513974bf52a190bfaee206ca3e62449a31e1d data/collectorsreap/recipes/gummy/melon.json
 4e035e38e812cfa447235d192f5028da194db15a data/collectorsreap/recipes/gummy/mint.json
 5b9f98c85c7387d3b72f1012c80bb23e950e8a57 data/collectorsreap/recipes/gummy/pomegranate.json
 c2f9156cf8369b0828314265cc66e14bd82aa87e data/collectorsreap/recipes/gummy/strawberry.json
+7f1c5bd19273423d95af1969481c674ec20f2a66 data/collectorsreap/recipes/gummy/sweet_berries.json
 22b15ba891185f63ab7179d05de04278e0593387 data/collectorsreap/recipes/gummy/vanilla.json
 0ce0b1f8bb560d11d2afe8eafd38f5923585c818 data/collectorsreap/recipes/gummy/yellow_tea.json
 e7c8e956c6abe96d8295788e094a9fab8bcc7a48 data/collectorsreap/recipes/lime_crate.json

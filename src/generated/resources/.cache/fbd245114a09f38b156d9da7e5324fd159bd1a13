@@ -1,4 +1,4 @@
-// 1.20.1	2024-05-13T12:11:54.643319	Item Models: collectorsreap
+// 1.20.1	2024-05-15T14:55:22.2988189	Item Models: collectorsreap
 b183daae948efe76cbf209119af41701e5b72e95 assets/collectorsreap/models/item/adzuki_gummy.json
 56db9a7317e6d5a63c63af71a4011b16c66c00e7 assets/collectorsreap/models/item/aloe_gummy.json
 b27cb012c75da3137768f12a8074eab65874647a assets/collectorsreap/models/item/apple_gummy.json
@@ -39,6 +39,7 @@ a9eacaf29650dd5297e36ce042addb5086185ceb assets/collectorsreap/models/item/crab_
 607b14139019a384422dc58f34b4f71748b2d7d6 assets/collectorsreap/models/item/deluxe_salad.json
 1166c9d7b97213bf472e8eb1bdaaee85f7fe92de assets/collectorsreap/models/item/fish_mix.json
 20d358545ae7a12561cf0bd01d35762e21cdf67f assets/collectorsreap/models/item/glazed_strider.json
+824066299419f1fa231c5242d0168a6ebacbeb3f assets/collectorsreap/models/item/glow_berry_gummy.json
 d38fe28806758cf25f86c122eafa764677f1f721 assets/collectorsreap/models/item/green_tea_gummy.json
 2192f4d9d4bea2b407f39f945a85e6dc973c0760 assets/collectorsreap/models/item/honey_lime_chicken.json
 e8d5b9be9760a736d6d53265db81ef2e0995c6d8 assets/collectorsreap/models/item/land_and_sea_burger.json
@@ -111,6 +112,7 @@ d8ad6caa6919bbd5c300b96fefd0845b284a0daa assets/collectorsreap/models/item/sea_w
 226781c445029a8f1b33b334d03018e09dba6a25 assets/collectorsreap/models/item/strawberry_gummy.json
 7fb6fe8fb5b5ba66c4a4acf564e784fd5fd98ecd assets/collectorsreap/models/item/strawberry_jam_bun.json
 cddcebeb532ce4a936fe7204cffe82c53c30b420 assets/collectorsreap/models/item/stuffed_portobello_cap.json
+e5228d2dfd4bb91cfc3b6b7a9a500682b9603b6f assets/collectorsreap/models/item/sweet_berry_gummy.json
 a4955f6c14565ca6fb1991ef1bf9f6c3da3ac07c assets/collectorsreap/models/item/tiger_prawn.json
 fd32a2fe94ec010eda341c9d00cdff3f6718185f assets/collectorsreap/models/item/tiger_prawn_bucket.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/collectorsreap/models/item/tiger_prawn_spawn_egg.json

@@ -154,6 +154,7 @@ public class CRLanguageProvider extends LanguageProvider {
         addItem(CRItems.POMEGRANATE_GUMMY, "Pomegranate Gummy");
         addItem(CRItems.MELON_GUMMY, "Melon Gummy");
         addItem(CRItems.APPLE_GUMMY, "Apple Gummy");
+        addItem(CRItems.GLOW_BERRY_GUMMY, "Glow Berry Gummy");
         addItem(CRItems.BANANA_GUMMY, "Banana Gummy");
         addItem(CRItems.VANILLA_GUMMY, "Vanilla Gummy");
         addItem(CRItems.CHOCOLATE_GUMMY, "Chocolate Gummy");
@@ -161,6 +162,7 @@ public class CRLanguageProvider extends LanguageProvider {
         addItem(CRItems.MINT_GUMMY, "Mint Gummy");
         addItem(CRItems.ADZUKI_GUMMY, "Adzuki Gummy");
         addItem(CRItems.PUMPKIN_GUMMY, "Pumpkin Gummy");
+        addItem(CRItems.SWEET_BERRY_GUMMY, "Sweet Berry Gummy");
         addItem(CRItems.ALOE_GUMMY, "Aloe Gummy");
         addItem(CRItems.PASSION_FRUIT_GUMMY, "Passion Fruit Gummy");
         addItem(CRItems.YUCCA_GUMMY, "Yucca Gummy");

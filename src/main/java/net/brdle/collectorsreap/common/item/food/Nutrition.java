@@ -185,6 +185,9 @@ public class Nutrition {
     public static final FoodProperties APPLE_GUMMY = (new FoodProperties.Builder())
         .nutrition(2).saturationMod(0.0F).alwaysEat()
         .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 200, 0), 1.0F).build();
+    public static final FoodProperties GLOW_BERRY_GUMMY = (new FoodProperties.Builder())
+        .nutrition(2).saturationMod(0.0F).alwaysEat()
+        .effect(() -> new MobEffectInstance(MobEffects.GLOWING, 600, 0), 1.0F).build();
     public static final FoodProperties BANANA_GUMMY = (new FoodProperties.Builder())
         .nutrition(2).saturationMod(0.0F).alwaysEat()
         .effect(() -> new MobEffectInstance(ModCompat.getAgility().get(), 200, 0), 1.0F)
@@ -206,8 +209,11 @@ public class Nutrition {
         .effect(() -> new MobEffectInstance(ModCompat.getHarmony().get(), 40, 2), 1.0F).build();
     public static final FoodProperties PUMPKIN_GUMMY = (new FoodProperties.Builder())
         .nutrition(2).saturationMod(0.0F).alwaysEat()
-        .effect(() -> new MobEffectInstance(ModCompat.getStuffed().get(), 100, 0), 1.0F)
+        .effect(() -> new MobEffectInstance(ModCompat.getStuffed().get(), 600, 0), 1.0F)
         .effect(() -> new MobEffectInstance(MobEffects.SATURATION, 200, 0), 1.0F).build();
+    public static final FoodProperties SWEET_BERRY_GUMMY = (new FoodProperties.Builder())
+        .nutrition(2).saturationMod(0.0F).alwaysEat()
+        .effect(() -> new MobEffectInstance(ModCompat.getThornResistance().get(), 1200, 0), 1.0F).build();
     public static final FoodProperties ALOE_GUMMY = (new FoodProperties.Builder())
         .nutrition(2).saturationMod(0.0F).alwaysEat()
         .effect(() -> new MobEffectInstance(ModCompat.getRelief().get(), 200, 3), 1.0F).build();

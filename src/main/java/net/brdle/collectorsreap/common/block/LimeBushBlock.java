@@ -77,25 +77,24 @@ public class LimeBushBlock extends CropBlock implements IFruiting {
 		return state.getValue(HALF) == DoubleBlockHalf.UPPER ? SHAPE_UPPER : SHAPE_LOWER;
 	}
 
-	/**
-	 * Update the provided state given the provided neighbor direction and neighbor state, returning a new state.
-	 * For example, fences make their connections to the passed in state if possible, and wet concrete powder immediately
-	 * returns its solidified counterpart.
-	 * Note that this method should ideally consider only the specific direction passed in.
-	 */
 	@Override
-	public @NotNull BlockState updateShape(BlockState state, Direction facing, @NotNull BlockState facingState, @NotNull LevelAccessor world, @NotNull BlockPos pos, @NotNull BlockPos facingPos) {
-		DoubleBlockHalf doubleblockhalf = state.getValue(HALF);
-		if (facing.getAxis() == Direction.Axis.Y && doubleblockhalf == DoubleBlockHalf.LOWER == (facing == Direction.UP)) {
-			return facingState.is(this) && facingState.getValue(HALF) != doubleblockhalf ? state.setValue(AGE, facingState.getValue(AGE)).setValue(STUNTED, facingState.getValue(STUNTED)) : Blocks.AIR.defaultBlockState();
-		} else {
-			return doubleblockhalf == DoubleBlockHalf.LOWER && facing == Direction.DOWN && !state.canSurvive(world, pos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, facing, facingState, world, pos, facingPos);
+	public @NotNull BlockState updateShape(@NotNull BlockState state, @NotNull Direction facing, @NotNull BlockState facingState, @NotNull LevelAccessor world, @NotNull BlockPos pos, @NotNull BlockPos facingPos) {
+		if (
+			facing.getAxis() == Direction.Axis.Y
+		) {
+			if (state.getValue(HALF) == DoubleBlockHalf.LOWER &&
+				(!state.canSurvive(world, pos) || !(facingState.getBlock() instanceof LimeBushBlock))) {
+				return Blocks.AIR.defaultBlockState();
+			} else if (facingState.getBlock() instanceof LimeBushBlock) {
+				state.setValue(AGE, facingState.getValue(AGE)).setValue(STUNTED, facingState.getValue(STUNTED));
+			}
 		}
+		return super.updateShape(state, facing, facingState, world, pos, facingPos);
 	}
 
 	@Override
 	protected boolean mayPlaceOn(BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos) {
-		return pState.is(BlockTags.DIRT);
+		return pState.is(BlockTags.DIRT) || pState.is(Blocks.FARMLAND);
 	}
 
 	@Override
@@ -119,9 +118,6 @@ public class LimeBushBlock extends CropBlock implements IFruiting {
 		builder.add(AGE, STUNTED, HALF);
 	}
 
-	/**
-	 * @return whether this block needs random ticking.
-	 */
 	@Override
 	public boolean isRandomlyTicking(BlockState state) {
 		return state.getValue(AGE) < this.getMaxAge() && state.getValue(HALF) == DoubleBlockHalf.LOWER && !state.getValue(STUNTED);
@@ -165,7 +161,8 @@ public class LimeBushBlock extends CropBlock implements IFruiting {
 
 	@Override
 	public boolean isValidBonemealTarget(@NotNull LevelReader pLevel, @NotNull BlockPos pPos, BlockState pState, boolean pIsClient) {
-		return pState.getValue(AGE) < (this.getMaxAge() - 1);
+		//return pState.getValue(AGE) < (this.getMaxAge() - 1);
+		return pState.getValue(AGE) < (this.getMaxAge());
 	}
 
 	@Override
@@ -191,9 +188,6 @@ public class LimeBushBlock extends CropBlock implements IFruiting {
 			null;
 	}
 
-	/**
-	 * Called by BlockItem after this block has been placed.
-	 */
 	@Override
 	public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, LivingEntity pPlacer, @NotNull ItemStack pStack) {
 		pLevel.setBlock(pPos.above(), pState.setValue(HALF, DoubleBlockHalf.UPPER), 3);
