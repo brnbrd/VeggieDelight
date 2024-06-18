@@ -41,7 +41,7 @@ public class CRBlockLoot extends BlockLootSubProvider {
                     LootPool.lootPool()
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(b)
                             .setProperties(StatePropertiesPredicate.Builder.properties()
-                                .hasProperty(LimeBushBlock.HALF, DoubleBlockHalf.UPPER)))
+                                .hasProperty(LimeBushBlock.HALF, DoubleBlockHalf.LOWER)))
                         .setRolls(ConstantValue.exactly(1.0F))
                         .add(LootItem.lootTableItem(CRItems.LIME_SEEDS.get()))))
                 .withPool(this.applyExplosionCondition(CRItems.LIME.get(),
@@ -49,10 +49,10 @@ public class CRBlockLoot extends BlockLootSubProvider {
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(b)
                             .setProperties(StatePropertiesPredicate.Builder.properties()
                                 .hasProperty(LimeBushBlock.AGE, LimeBushBlock.MAX_AGE)
-                                .hasProperty(LimeBushBlock.HALF, DoubleBlockHalf.UPPER)))
+                                .hasProperty(LimeBushBlock.HALF, DoubleBlockHalf.LOWER)))
                         .setRolls(ConstantValue.exactly(1.0F))
                         .add(LootItem.lootTableItem(CRItems.LIME.get()))
-                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, (float) 3)))))));
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 3.0F)))))));
         this.dropSelf(CRBlocks.SMALL_POMEGRANATE_BUSH.get());
         // Pomegranate Bush drops Seeds and optional Pomegranates
         this.add(CRBlocks.POMEGRANATE_BUSH.get(), (b) -> applyExplosionDecay(b,
@@ -61,7 +61,7 @@ public class CRBlockLoot extends BlockLootSubProvider {
                 LootPool.lootPool()
                     .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(b)
                         .setProperties(StatePropertiesPredicate.Builder.properties()
-                            .hasProperty(PomegranateBushBlock.HALF, DoubleBlockHalf.UPPER)))
+                            .hasProperty(PomegranateBushBlock.HALF, DoubleBlockHalf.LOWER)))
                     .setRolls(ConstantValue.exactly(1.0F))
                     .add(LootItem.lootTableItem(CRItems.POMEGRANATE_SEEDS.get()))))
                 .withPool(this.applyExplosionCondition(CRItems.POMEGRANATE.get(),
@@ -69,10 +69,10 @@ public class CRBlockLoot extends BlockLootSubProvider {
                     .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(b)
                         .setProperties(StatePropertiesPredicate.Builder.properties()
                             .hasProperty(PomegranateBushBlock.AGE, PomegranateBushBlock.MAX_AGE)
-                            .hasProperty(PomegranateBushBlock.HALF, DoubleBlockHalf.UPPER)))
+                            .hasProperty(PomegranateBushBlock.HALF, DoubleBlockHalf.LOWER)))
                     .setRolls(ConstantValue.exactly(1.0F))
                     .add(LootItem.lootTableItem(CRItems.POMEGRANATE.get()))
-                    .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, (float) 3)))))));
+                    .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F)))))));
         this.dropSelf(CRBlocks.LIME_CRATE.get());
         this.dropSelf(CRBlocks.POMEGRANATE_CRATE.get());
         this.empty(CRBlocks.LIME_CAKE);

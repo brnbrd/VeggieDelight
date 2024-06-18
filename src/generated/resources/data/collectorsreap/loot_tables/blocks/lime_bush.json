@@ -13,7 +13,7 @@
           "block": "collectorsreap:lime_bush",
           "condition": "minecraft:block_state_property",
           "properties": {
-            "half": "upper"
+            "half": "lower"
           }
         },
         {
@@ -36,7 +36,7 @@
           "condition": "minecraft:block_state_property",
           "properties": {
             "age": "2",
-            "half": "upper"
+            "half": "lower"
           }
         },
         {
@@ -55,7 +55,7 @@
           "count": {
             "type": "minecraft:uniform",
             "max": 3.0,
-            "min": 1.0
+            "min": 2.0
           },
           "function": "minecraft:set_count"
         }

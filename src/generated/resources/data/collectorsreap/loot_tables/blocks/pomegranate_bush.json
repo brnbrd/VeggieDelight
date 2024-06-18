@@ -13,7 +13,7 @@
           "block": "collectorsreap:pomegranate_bush",
           "condition": "minecraft:block_state_property",
           "properties": {
-            "half": "upper"
+            "half": "lower"
           }
         },
         {
@@ -36,7 +36,7 @@
           "condition": "minecraft:block_state_property",
           "properties": {
             "age": "2",
-            "half": "upper"
+            "half": "lower"
           }
         },
         {

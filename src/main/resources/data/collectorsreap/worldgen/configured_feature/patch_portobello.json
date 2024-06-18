@@ -39,7 +39,7 @@
               },
               {
                 "type": "minecraft:matching_block_tag",
-                "tag": "collectorsreap:portobello_spawns",
+                "tag": "collectorsreap:portobello_spawnable_on",
                 "offset": [
                   0,
                   -1,
@@ -75,7 +75,7 @@
               },
               {
                 "type": "minecraft:matching_block_tag",
-                "tag": "collectorsreap:portobello_spawns",
+                "tag": "collectorsreap:portobello_spawnable_on",
                 "offset": [
                   0,
                   -1,
@@ -87,8 +87,8 @@
         }
       ]
     },
-    "tries": 64,
-    "xz_spread": 6,
+    "tries": 30,
+    "xz_spread": 5,
     "y_spread": 3
   }
 }

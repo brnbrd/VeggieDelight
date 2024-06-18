@@ -5,24 +5,19 @@ import net.brdle.collectorsreap.common.item.CRItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.BonemealableBlock;
-import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -79,7 +74,7 @@ public class SmallLimeBushBlock extends BushBlock implements BonemealableBlock {
 	@SuppressWarnings("deprecation")
 	@Override
 	public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, RandomSource random) {
-		if (ForgeHooks.onCropsGrowPre(level, pos, state, random.nextInt(20) == 0)) {
+		if (ForgeHooks.onCropsGrowPre(level, pos, state, random.nextInt(15) == 0)) {
 			this.performBonemeal(level, random, pos, state);
 			ForgeHooks.onCropsGrowPost(level, pos, state);
 		}
@@ -97,7 +92,7 @@ public class SmallLimeBushBlock extends BushBlock implements BonemealableBlock {
 
 	@Override
 	public boolean isBonemealSuccess(@NotNull Level world, @NotNull RandomSource rand, @NotNull BlockPos pos, @NotNull BlockState state) {
-		return true;
+		return false;
 	}
 
 	@Override
@@ -106,13 +101,11 @@ public class SmallLimeBushBlock extends BushBlock implements BonemealableBlock {
 		if (i < MAX_AGE) {
 			BlockState newState = pState.setValue(AGE, Math.min(MAX_AGE, pState.getValue(AGE) + 1));
 			world.setBlock(pPos, newState, 2);
-			world.gameEvent(GameEvent.BLOCK_CHANGE, pPos, GameEvent.Context.of(newState));
-		} else if (world.isEmptyBlock(pPos.above())) {
-			world.setBlockAndUpdate(pPos, CRBlocks.LIME_BUSH.get().defaultBlockState());
-			world.setBlockAndUpdate(pPos.above(), CRBlocks.LIME_BUSH.get().defaultBlockState().setValue(LimeBushBlock.HALF, DoubleBlockHalf.UPPER));
+		} else if (i == MAX_AGE && world.isEmptyBlock(pPos.above())) {
+			world.setBlock(pPos, CRBlocks.LIME_BUSH.get().defaultBlockState().setValue(LimeBushBlock.HALF, DoubleBlockHalf.LOWER), 2);
+			world.setBlock(pPos.above(), CRBlocks.LIME_BUSH.get().defaultBlockState().setValue(LimeBushBlock.HALF, DoubleBlockHalf.UPPER), 2);
 		}
 	}
-
 
 	@Override
 	public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {

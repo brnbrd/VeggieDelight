@@ -2,15 +2,8 @@
   "feature": "collectorsreap:patch_pomegranate",
   "placement": [
     {
-      "type": "minecraft:rarity_filter",
-      "chance": 50
-    },
-    {
-      "type": "minecraft:in_square"
-    },
-    {
-      "type": "minecraft:heightmap",
-      "heightmap": "MOTION_BLOCKING"
+      "type": "minecraft:count_on_every_layer",
+      "count": 1
     },
     {
       "type": "minecraft:biome"

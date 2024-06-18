@@ -8,8 +8,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
-import net.minecraft.world.level.block.state.properties.EnumProperty;
 
 public interface IFruiting {
 
@@ -19,17 +19,18 @@ public interface IFruiting {
 
 	Item getFruit();
 
-	default void dropResources(Level level, BlockPos pos) {
-		Block.popResource(level, pos, new ItemStack(this.getFruit(), this.getNumFruit(level)));
+	default void dropFruit(Level level, BlockPos pos) {
+		Block.popResource(level, pos, new ItemStack(getFruit(), getNumFruit(level)));
 	}
 
-	default void preventCreativeDropFromBottomPart(EnumProperty<DoubleBlockHalf> half, Level world, BlockPos pos, BlockState state, Player player) {
-		if (state.getValue(half) == DoubleBlockHalf.UPPER) {
-			BlockPos blockpos = pos.below();
-			BlockState blockstate = world.getBlockState(blockpos);
-			if (blockstate.getBlock() == state.getBlock() && blockstate.getValue(half) == DoubleBlockHalf.LOWER) {
-				world.setBlock(blockpos, Blocks.AIR.defaultBlockState(), 35);
-				world.levelEvent(player, 2001, blockpos, Block.getId(blockstate));
+	default void preventCreativeDropFromBottomPart(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
+		DoubleBlockHalf doubleblockhalf = pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF);
+		if (doubleblockhalf == DoubleBlockHalf.UPPER) {
+			BlockPos blockpos = pPos.below();
+			BlockState blockstate = pLevel.getBlockState(blockpos);
+			if (blockstate.is(pState.getBlock()) && blockstate.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
+				pLevel.setBlock(blockpos, Blocks.AIR.defaultBlockState(), 35);
+				pLevel.levelEvent(pPlayer, 2001, blockpos, Block.getId(blockstate));
 			}
 		}
 	}

@@ -22,9 +22,11 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.*;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -79,15 +81,18 @@ public class LimeBushBlock extends CropBlock implements IFruiting {
 
 	@Override
 	public @NotNull BlockState updateShape(@NotNull BlockState state, @NotNull Direction facing, @NotNull BlockState facingState, @NotNull LevelAccessor world, @NotNull BlockPos pos, @NotNull BlockPos facingPos) {
+		BlockState AIR = Blocks.AIR.defaultBlockState();
+		if (state.getValue(HALF) == DoubleBlockHalf.LOWER && !state.canSurvive(world, pos)) {
+			return AIR;
+		}
 		if (
-			facing.getAxis() == Direction.Axis.Y
+			(state.getValue(HALF) == DoubleBlockHalf.UPPER && facing == Direction.DOWN) ||
+			(state.getValue(HALF) == DoubleBlockHalf.LOWER && facing == Direction.UP)
 		) {
-			if (state.getValue(HALF) == DoubleBlockHalf.LOWER &&
-				(!state.canSurvive(world, pos) || !(facingState.getBlock() instanceof LimeBushBlock))) {
-				return Blocks.AIR.defaultBlockState();
-			} else if (facingState.getBlock() instanceof LimeBushBlock) {
-				state.setValue(AGE, facingState.getValue(AGE)).setValue(STUNTED, facingState.getValue(STUNTED));
+			if (!(facingState.getBlock() instanceof LimeBushBlock) || facingState.getValue(HALF) == state.getValue(HALF)) {
+				return AIR;
 			}
+			return state.setValue(AGE, facingState.getValue(AGE)).setValue(STUNTED, facingState.getValue(STUNTED));
 		}
 		return super.updateShape(state, facing, facingState, world, pos, facingPos);
 	}
@@ -99,8 +104,13 @@ public class LimeBushBlock extends CropBlock implements IFruiting {
 
 	@Override
 	public boolean canSurvive(BlockState state, @NotNull LevelReader level, BlockPos pos) {
-		BlockPos blockpos = pos.below();
-		return state.getValue(HALF) == DoubleBlockHalf.LOWER ? this.mayPlaceOn(level.getBlockState(blockpos), level, blockpos) : state.is(this);
+		BlockPos belowPos = pos.below();
+		BlockState below = level.getBlockState(belowPos);
+		return (
+			state.getValue(HALF) == DoubleBlockHalf.LOWER ?
+				this.mayPlaceOn(below, level, belowPos) :
+				below.getBlock() instanceof LimeBushBlock && (level.getRawBrightness(pos, 0) >= 8 || level.canSeeSky(pos))
+		);
 	}
 
 	@Override
@@ -110,7 +120,7 @@ public class LimeBushBlock extends CropBlock implements IFruiting {
 
 	@Override
 	public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockGetter level, BlockPos pos, Player player) {
-		return new ItemStack(this.getBaseSeedId());
+		return new ItemStack(state.getValue(AGE) == this.getMaxAge() ? CRItems.LIME.get() : this.getBaseSeedId());
 	}
 
 	@Override
@@ -126,9 +136,14 @@ public class LimeBushBlock extends CropBlock implements IFruiting {
 	@Override
 	public void randomTick(BlockState state, @NotNull ServerLevel pLevel, @NotNull BlockPos pPos, @NotNull RandomSource pRandom) {
 		int age = state.getValue(AGE);
-		if (((age < (this.getMaxAge() - 1) && CRConfig.LIME_POLLINATION.get()) ||
-			(age < (this.getMaxAge()) && !CRConfig.LIME_POLLINATION.get())) &&
-			state.getValue(HALF) == DoubleBlockHalf.LOWER && !state.getValue(STUNTED) && ForgeHooks.onCropsGrowPre(pLevel, pPos, state, pRandom.nextInt(12) == 0)) {
+		if (
+			(
+				(age < (this.getMaxAge() - 1) && CRConfig.LIME_POLLINATION.get()) ||
+				(age < (this.getMaxAge()) && !CRConfig.LIME_POLLINATION.get())
+			) &&
+			state.getValue(HALF) == DoubleBlockHalf.LOWER && !state.getValue(STUNTED) &&
+			ForgeHooks.onCropsGrowPre(pLevel, pPos, state, pRandom.nextInt(12) == 0)
+		) {
 			this.performBonemeal(pLevel, pRandom, pPos, state);
 			ForgeHooks.onCropsGrowPost(pLevel, pPos, state);
 		}
@@ -143,13 +158,17 @@ public class LimeBushBlock extends CropBlock implements IFruiting {
 	@Override
 	public @NotNull InteractionResult use(BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Player pPlayer, @NotNull InteractionHand pHand, @NotNull BlockHitResult pHit) {
 		if (pState.getValue(AGE) == this.getMaxAge()) {
-			dropResources(pLevel, pPos);
+			dropFruit(pLevel, pPos);
 			pLevel.playSound(null, pPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + pLevel.random.nextFloat() * 0.4F);
-			pLevel.setBlockAndUpdate(pPos, pState.setValue(AGE, 0)); // Revert to pre-flowering
+			BlockState picked = pState.setValue(AGE, 0);
+			pLevel.setBlock(pPos, picked, 2); // Revert to pre-flowering
+			pLevel.gameEvent(GameEvent.BLOCK_CHANGE, pPos, GameEvent.Context.of(pPlayer, picked));
 			return InteractionResult.sidedSuccess(pLevel.isClientSide());
-		} else if (pPlayer.getItemInHand(pHand).getItem() instanceof AxeItem && !pState.getValue(STUNTED)) {
-			pLevel.setBlockAndUpdate(pPos, pState.setValue(STUNTED, true));
+		} else if (pPlayer.getItemInHand(pHand).getItem() instanceof AxeItem && !pState.hasProperty(STUNTED)) {
+			BlockState stunted = pState.setValue(STUNTED, true);
 			pLevel.playSound(pPlayer, pPos, SoundEvents.AXE_STRIP, SoundSource.BLOCKS, 1.0F, 1.0F);
+			pLevel.setBlockAndUpdate(pPos, stunted);
+			pLevel.gameEvent(GameEvent.BLOCK_CHANGE, pPos, GameEvent.Context.of(pPlayer, stunted));
 			pPlayer.getItemInHand(pHand).hurtAndBreak(1, pPlayer, (b) -> b.broadcastBreakEvent(b.getUsedItemHand()));
 			return InteractionResult.sidedSuccess(pLevel.isClientSide());
 		} else if (pPlayer.getItemInHand(pHand).is(Items.BONE_MEAL)) {
@@ -161,8 +180,7 @@ public class LimeBushBlock extends CropBlock implements IFruiting {
 
 	@Override
 	public boolean isValidBonemealTarget(@NotNull LevelReader pLevel, @NotNull BlockPos pPos, BlockState pState, boolean pIsClient) {
-		//return pState.getValue(AGE) < (this.getMaxAge() - 1);
-		return pState.getValue(AGE) < (this.getMaxAge());
+		return pState.getValue(AGE) < (this.getMaxAge() - 1);
 	}
 
 	@Override
@@ -183,28 +201,32 @@ public class LimeBushBlock extends CropBlock implements IFruiting {
 	@Override
 	@Nullable public BlockState getStateForPlacement(BlockPlaceContext pContext) {
 		BlockPos blockpos = pContext.getClickedPos();
-		return blockpos.getY() < 255 && pContext.getLevel().getBlockState(blockpos.above()).canBeReplaced(pContext) ?
-			this.defaultBlockState().setValue(AGE, 0).setValue(STUNTED, false).setValue(HALF, DoubleBlockHalf.LOWER) :
-			null;
+		Level level = pContext.getLevel();
+		return (
+			blockpos.getY() < level.getMaxBuildHeight() - 1 &&
+			level.getBlockState(blockpos.above()).canBeReplaced(pContext) ?
+				this.defaultBlockState().setValue(AGE, 0).setValue(STUNTED, false).setValue(HALF, DoubleBlockHalf.LOWER) :
+				null
+		);
 	}
 
 	@Override
-	public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, LivingEntity pPlacer, @NotNull ItemStack pStack) {
-		pLevel.setBlock(pPos.above(), pState.setValue(HALF, DoubleBlockHalf.UPPER), 3);
+	public void setPlacedBy(@NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull BlockState pState, LivingEntity pPlacer, @NotNull ItemStack pStack) {
+		super.setPlacedBy(pLevel, pPos, pState, pPlacer, pStack);
+		if (!pLevel.isClientSide()) {
+			pLevel.setBlock(pPos.above(), pState.setValue(HALF, DoubleBlockHalf.UPPER), 3);
+		}
 	}
 
-	public static void placeAt(LevelAccessor pLevel, BlockState pState, BlockPos pPos, int pFlags) {
-		pLevel.setBlock(pPos, pState.setValue(AGE, MAX_AGE).setValue(HALF, DoubleBlockHalf.LOWER), pFlags);
-		pLevel.setBlock(pPos.above(), pState.setValue(AGE, MAX_AGE).setValue(HALF, DoubleBlockHalf.UPPER), pFlags);
-	}
-	@Override
-	public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-		return 60;
-	}
-
-	@Override
-	public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-		return 30;
+	public static void placeAt(LevelAccessor level, BlockState state, BlockPos pos, int flags) {
+		BlockState belowState = state.setValue(HALF, DoubleBlockHalf.LOWER).setValue(STUNTED, false);
+		if (!belowState.hasProperty(AGE)) {
+			belowState.setValue(AGE, MAX_AGE);
+		}
+		if (belowState.getBlock() instanceof LimeBushBlock lime && lime.canSurvive(belowState, level, pos)) {
+			level.setBlock(pos, belowState, flags);
+			level.setBlock(pos.above(), belowState.setValue(HALF, DoubleBlockHalf.UPPER), flags);
+		}
 	}
 
 	@Override
@@ -217,5 +239,32 @@ public class LimeBushBlock extends CropBlock implements IFruiting {
 			pLevel.getRandom().nextInt(150) == 0) {
 			this.performBonemeal((ServerLevel) pLevel, pLevel.getRandom(), pPos, pState);
 		}
+	}
+
+	@Override
+	public void playerWillDestroy(Level pLevel, @NotNull BlockPos pPos, @NotNull BlockState pState, @NotNull Player pPlayer) {
+		if (!pLevel.isClientSide()) {
+			if (pPlayer.isCreative()) {
+				preventCreativeDropFromBottomPart(pLevel, pPos, pState, pPlayer);
+			} else {
+				dropResources(pState, pLevel, pPos, null, pPlayer, pPlayer.getMainHandItem());
+			}
+		}
+		super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
+	}
+
+	@Override
+	public void playerDestroy(@NotNull Level pLevel, @NotNull Player pPlayer, @NotNull BlockPos pPos, @NotNull BlockState pState, @Nullable BlockEntity pTe, @NotNull ItemStack pStack) {
+		super.playerDestroy(pLevel, pPlayer, pPos, Blocks.AIR.defaultBlockState(), pTe, pStack);
+	}
+
+	@Override
+	public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+		return 60;
+	}
+
+	@Override
+	public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+		return 30;
 	}
 }

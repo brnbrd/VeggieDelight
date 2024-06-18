@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#collectorsreap:portobello_spawns",
+  "biomes": "#collectorsreap:has_spawn/portobello",
   "features": "collectorsreap:patch_portobello",
   "step": "vegetal_decoration"
 }

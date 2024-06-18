@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#collectorsreap:pomegranate_spawns",
+  "biomes": "#collectorsreap:has_spawn/pomegranate",
   "features": "collectorsreap:patch_pomegranate",
   "step": "vegetal_decoration"
 }

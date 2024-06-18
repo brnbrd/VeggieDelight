@@ -1,6 +1,9 @@
 {
   "type": "farmersdelight:wild_crop",
   "config": {
+    "tries": 8,
+    "xz_spread": 5,
+    "y_spread": 3,
     "primary_feature": {
       "feature": {
         "type": "collectorsreap:bush_block",
@@ -34,7 +37,7 @@
               },
               {
                 "type": "minecraft:matching_block_tag",
-                "tag": "minecraft:nylium",
+                "tag": "collectorsreap:pomegranate_fast_on",
                 "offset": [
                   0,
                   -1,
@@ -53,7 +56,7 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "minecraft:warped_roots"
+              "Name": "collectorsreap:warped_roots"
             }
           }
         }
@@ -81,9 +84,6 @@
           }
         }
       ]
-    },
-    "tries": 64,
-    "xz_spread": 6,
-    "y_spread": 3
+    }
   }
 }

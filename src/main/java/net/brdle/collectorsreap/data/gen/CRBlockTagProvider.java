@@ -38,7 +38,7 @@ public class CRBlockTagProvider extends BlockTagsProvider {
 			.add(CRBlocks.PORTOBELLO_COLONY.get());
 
 		// Collector's Reap
-		this.tag(CRBlockTags.PORTOBELLO_SPAWNS)
+		this.tag(CRBlockTags.PORTOBELLO_SPAWNABLE_ON)
 			.addTag(ModTags.MUSHROOM_COLONY_GROWABLE_ON)
 			.addTag(BlockTags.MUSHROOM_GROW_BLOCK)
 			.addTag(BlockTags.DIRT);

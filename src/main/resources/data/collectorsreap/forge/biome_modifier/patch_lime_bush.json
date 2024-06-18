@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#collectorsreap:lime_spawns",
+  "biomes": "#collectorsreap:has_spawn/lime",
   "features": "collectorsreap:patch_lime_bush",
   "step": "vegetal_decoration"
 }

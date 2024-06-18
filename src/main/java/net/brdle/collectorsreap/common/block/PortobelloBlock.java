@@ -41,7 +41,7 @@ public class PortobelloBlock extends MushroomBlock {
 	public boolean canSurvive(@NotNull BlockState pState, LevelReader level, BlockPos pos) {
 		BlockPos blockpos = pos.below();
 		BlockState blockstate = level.getBlockState(blockpos);
-		if (blockstate.is(CRBlockTags.PORTOBELLO_SPAWNS)) {
+		if (blockstate.is(CRBlockTags.PORTOBELLO_SPAWNABLE_ON)) {
 			return true;
 		} else {
 			return blockstate.canSustainPlant(level, blockpos, net.minecraft.core.Direction.UP, this);

@@ -4,6 +4,7 @@ import net.brdle.collectorsreap.Util;
 import net.brdle.collectorsreap.common.item.CRItems;
 import net.brdle.collectorsreap.data.CRBlockTags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
@@ -20,7 +21,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -112,10 +112,19 @@ public class SmallPomegranateBushBlock extends BushBlock implements Bonemealable
 		if (i < MAX_AGE) {
 			BlockState newState = pState.setValue(AGE, Math.min(MAX_AGE, pState.getValue(AGE) + 1));
 			world.setBlock(pPos, newState, 2);
-			world.gameEvent(GameEvent.BLOCK_CHANGE, pPos, GameEvent.Context.of(newState));
-		} else if (world.isEmptyBlock(pPos.above())) {
-			world.setBlockAndUpdate(pPos, CRBlocks.POMEGRANATE_BUSH.get().defaultBlockState());
-			world.setBlockAndUpdate(pPos.above(), CRBlocks.POMEGRANATE_BUSH.get().defaultBlockState().setValue(PomegranateBushBlock.HALF, DoubleBlockHalf.UPPER));
+		} else if (i == MAX_AGE && world.isEmptyBlock(pPos.above())) {
+			world.setBlock(pPos, CRBlocks.POMEGRANATE_BUSH.get().defaultBlockState().setValue(PomegranateBushBlock.HALF, DoubleBlockHalf.LOWER), 2);
+			world.setBlock(pPos.above(), CRBlocks.POMEGRANATE_BUSH.get().defaultBlockState().setValue(PomegranateBushBlock.HALF, DoubleBlockHalf.UPPER), 2);
 		}
+	}
+
+	@Override
+	public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+		return 0;
+	}
+
+	@Override
+	public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+		return 0;
 	}
 }
