@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-18T13:19:04.9473958	Recipes
+// 1.20.1	2024-06-18T13:29:29.2159182	Recipes
 6bed5b7d715399840f10473875efca57540c42e3 data/collectorsreap/advancements/recipes/chiseled_urchin_test_bricks.json
 ffff41205e9b83cc8ab9d38ce39c06fa7e8f6ae7 data/collectorsreap/advancements/recipes/cutting/chieftain_claw.json
 51d613fd6d246740518e1ed57afea6e6deea518e data/collectorsreap/advancements/recipes/cutting/chieftain_crab.json
@@ -102,6 +102,7 @@ fdf8c58783a02bdf1ca88e7e4182c843e1f451be data/collectorsreap/advancements/recipe
 2663ea104906f13881602b13e4ba7092098bd157 data/collectorsreap/advancements/recipes/gummy/adzuki.json
 e470ab2d2e87ed0bc5c1c5363d50593f969715cd data/collectorsreap/advancements/recipes/gummy/apple.json
 739f8b11a6fb2c487e04b316dee573da7f58468f data/collectorsreap/advancements/recipes/gummy/banana.json
+67d5c0735f240b0da615c4b8bc00c12a3bf2c0f5 data/collectorsreap/advancements/recipes/gummy/beetroot.json
 0108a259c0cbd905f0277973d992a2f06bb95a0a data/collectorsreap/advancements/recipes/gummy/black_tea.json
 31050cca6c3ac3dd7b9fa96075b0c64bf2e9f059 data/collectorsreap/advancements/recipes/gummy/chocolate.json
 ee4f61bf0047b68c3f96017e871627fee53b23fb data/collectorsreap/advancements/recipes/gummy/coffee.json
@@ -250,6 +251,7 @@ cac24001f72ec68a0d7f6c2769a73b1341100451 data/collectorsreap/recipes/food/stuffe
 5418c8b45fe94ca81a89c41b00c410b5c67183ee data/collectorsreap/recipes/gummy/adzuki.json
 5c68dcf977216f15659b75a81b08dd471f995dd4 data/collectorsreap/recipes/gummy/apple.json
 4d6a170bbd22e316cbd9cd141e92b4ac6db4687b data/collectorsreap/recipes/gummy/banana.json
+cae18ceb5d4020d854cd49b689c617d5a7f2ae8e data/collectorsreap/recipes/gummy/beetroot.json
 6b203d3da60694c2b75d94d26ae28b50cffd288f data/collectorsreap/recipes/gummy/black_tea.json
 5b4630e1468aab466317e34ae28fbdb4239d10c0 data/collectorsreap/recipes/gummy/chocolate.json
 16313403906a36d85f223e1c4e44993ca612353a data/collectorsreap/recipes/gummy/coffee.json

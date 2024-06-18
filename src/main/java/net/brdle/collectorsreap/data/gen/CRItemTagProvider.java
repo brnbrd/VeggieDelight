@@ -82,6 +82,7 @@ public class CRItemTagProvider extends ItemTagsProvider {
 			.add(CRItems.ADZUKI_GUMMY.get())
 			.add(CRItems.PUMPKIN_GUMMY.get())
 			.add(CRItems.SWEET_BERRY_GUMMY.get())
+			.add(CRItems.BEETROOT_GUMMY.get())
 			.add(CRItems.ALOE_GUMMY.get())
 			.add(CRItems.PASSION_FRUIT_GUMMY.get())
 			.add(CRItems.YUCCA_GUMMY.get());

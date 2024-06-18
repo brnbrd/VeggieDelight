@@ -163,6 +163,7 @@ public class CRLanguageProvider extends LanguageProvider {
         addItem(CRItems.ADZUKI_GUMMY, "Adzuki Gummy");
         addItem(CRItems.PUMPKIN_GUMMY, "Pumpkin Gummy");
         addItem(CRItems.SWEET_BERRY_GUMMY, "Sweet Berry Gummy");
+        addItem(CRItems.BEETROOT_GUMMY, "Beetroot Gummy");
         addItem(CRItems.ALOE_GUMMY, "Aloe Gummy");
         addItem(CRItems.PASSION_FRUIT_GUMMY, "Passion Fruit Gummy");
         addItem(CRItems.YUCCA_GUMMY, "Yucca Gummy");

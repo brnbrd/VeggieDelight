@@ -337,6 +337,13 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .addIngredient(Items.KELP)
                 .unlockedBy("has_sweet_berries", has(Items.SWEET_BERRIES)),
             "gummy/sweet_berries", finished, enabled(CRItems.SWEET_BERRY_GUMMY), modLoaded("seasonals"));
+        wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.BEETROOT_GUMMY.get(), 1, 200, 1.0F)
+                .addIngredient(Items.BEETROOT)
+                .addIngredient(Items.SUGAR)
+                .addIngredient(Items.HONEY_BOTTLE)
+                .addIngredient(Items.KELP)
+                .unlockedBy("has_beetroot", has(Items.BEETROOT)),
+            "gummy/beetroot", finished, enabled(CRItems.BEETROOT_GUMMY), modLoaded("seasonals"));
         wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.BANANA_GUMMY.get(), 1, 200, 1.0F)
                 .addIngredient(CRItemTags.BANANA)
                 .addIngredient(Items.SUGAR)
