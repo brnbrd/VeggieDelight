@@ -1,12 +1,11 @@
 {
   "type": "collectorsreap:fishing",
-  "conditions":
-  [
+  "chance": 0.25,
+  "conditions": [
     {
       "condition": "forge:loot_table_id",
       "loot_table_id": "minecraft:gameplay/fishing"
     }
   ],
-  "table": "collectorsreap:gameplay/fishing/fishing",
-  "chance": 0.3
+  "table": "collectorsreap:gameplay/fishing/fishing"
 }

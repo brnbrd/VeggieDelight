@@ -1,0 +1,13 @@
+{
+  "type": "collectorsreap:add_item",
+  "chance": 0.3,
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/bastion_other"
+    }
+  ],
+  "item": "collectorsreap:pomegranate_seeds",
+  "maxAmount": 16,
+  "minAmount": 6
+}

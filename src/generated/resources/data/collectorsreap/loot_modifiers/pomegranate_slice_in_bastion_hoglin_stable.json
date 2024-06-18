@@ -1,0 +1,13 @@
+{
+  "type": "collectorsreap:add_item",
+  "chance": 0.45,
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/bastion_hoglin_stable"
+    }
+  ],
+  "item": "collectorsreap:pomegranate_slice",
+  "maxAmount": 12,
+  "minAmount": 4
+}

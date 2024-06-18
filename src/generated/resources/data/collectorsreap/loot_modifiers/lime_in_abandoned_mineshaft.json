@@ -1,0 +1,13 @@
+{
+  "type": "collectorsreap:add_item",
+  "chance": 0.3,
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/abandoned_mineshaft"
+    }
+  ],
+  "item": "collectorsreap:lime",
+  "maxAmount": 2,
+  "minAmount": 1
+}
