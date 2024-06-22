@@ -5,6 +5,6 @@
     "type": "collectorsreap:chieftain_crab",
     "maxCount": 3,
     "minCount": 1,
-    "weight": 10
+    "weight": 4
   }
 }

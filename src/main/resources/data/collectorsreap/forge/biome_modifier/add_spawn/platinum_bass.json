@@ -3,8 +3,8 @@
   "biomes": "#collectorsreap:has_spawn/platinum_bass",
   "spawners": {
     "type": "collectorsreap:platinum_bass",
-    "maxCount": 2,
+    "maxCount": 3,
     "minCount": 1,
-    "weight": 3
+    "weight": 1
   }
 }

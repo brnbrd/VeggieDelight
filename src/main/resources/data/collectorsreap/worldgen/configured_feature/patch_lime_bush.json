@@ -11,7 +11,10 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "collectorsreap:lime_bush"
+              "Name": "collectorsreap:lime_bush",
+              "Properties": {
+                "age": "2"
+              }
             }
           }
         }

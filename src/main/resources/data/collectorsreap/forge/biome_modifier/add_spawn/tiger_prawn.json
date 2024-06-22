@@ -3,8 +3,8 @@
   "biomes": "#collectorsreap:has_spawn/tiger_prawn",
   "spawners": {
     "type": "collectorsreap:tiger_prawn",
-    "maxCount": 6,
-    "minCount": 3,
-    "weight": 5
+    "maxCount": 3,
+    "minCount": 1,
+    "weight": 3
   }
 }

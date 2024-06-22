@@ -23,7 +23,7 @@ public class CRLootModifierProvider extends GlobalLootModifierProvider {
 				LootTableIdCondition.builder(Util.rl("minecraft", "gameplay/fishing")).build()
 			},
 			CRLootModifiers.getLootTableReference("collectorsreap:gameplay/fishing/fishing"),
-			0.25F
+			0.2F
 		));
 		add("lime_in_abandoned_mineshaft", new AddItemLootModifier(
 			new LootItemCondition[]{

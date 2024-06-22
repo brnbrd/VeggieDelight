@@ -1,6 +1,6 @@
 {
   "type": "collectorsreap:fishing",
-  "chance": 0.25,
+  "chance": 0.2,
   "conditions": [
     {
       "condition": "forge:loot_table_id",
