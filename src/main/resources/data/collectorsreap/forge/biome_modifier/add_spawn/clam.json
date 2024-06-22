@@ -3,8 +3,8 @@
   "biomes": "#collectorsreap:has_spawn/clam",
   "spawners": {
     "type": "collectorsreap:clam",
-    "maxCount": 3,
+    "maxCount": 1,
     "minCount": 1,
-    "weight": 1
+    "weight": 2
   }
 }
