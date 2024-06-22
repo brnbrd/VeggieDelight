@@ -1,9 +1,9 @@
 ---
-name: Bug report
-about: Let's fix Veggie Delight
+name: Bug Report
+about: Let's fix Collector's Reap
 title: ''
 labels: bug
-assignees: brdle
+assignees: brnbrd
 
 ---
 
@@ -15,4 +15,4 @@ assignees: brdle
 
 **Screenshots**: If applicable, add screenshots to help explain your problem.
 
-**Versions**: Veggie Delight, Farmer's Delight, and Forge versions.
+**Versions**: Collector's Reap, Farmer's Delight, and Forge/NeoForge versions.
