@@ -9,23 +9,9 @@
         "type": "collectorsreap:bush_block",
         "config": {
           "to_place": {
-            "type": "minecraft:randomized_int_state_provider",
-            "property": "age",
-            "source": {
-              "type": "minecraft:simple_state_provider",
-              "state": {
-                "Name": "collectorsreap:lime_bush",
-                "Properties": {
-                  "age": "0"
-                }
-              }
-            },
-            "values": {
-              "type": "minecraft:uniform",
-              "value": {
-                "max_inclusive": 2,
-                "min_inclusive": 1
-              }
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "collectorsreap:lime_bush"
             }
           }
         }
