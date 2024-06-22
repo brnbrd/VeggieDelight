@@ -73,8 +73,8 @@ repositories {
         }
     }
     maven {
-        name "Jared's maven"
-        url "https://maven.blamejared.com/"
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
     }
     maven {
         name = "Abnormals Maven"
@@ -84,6 +84,10 @@ repositories {
         name = "Registrate Maven"
         url = "https://maven.tterrag.com/"
     }
+    maven {
+        name = "AppleSkin Maven"
+        url = "https://maven.ryanliptak.com/"
+    }
 }
 
 dependencies {
@@ -91,7 +95,7 @@ dependencies {
     compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
     compileOnly fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}")
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
-    runtimeOnly fg.deobf("curse.maven:appleskin-248787:${appleskin_version}")
+    runtimeOnly fg.deobf("squeek.appleskin:appleskin-forge:${appleskin_version}")
     runtimeOnly fg.deobf("curse.maven:configured-457570:${configured_version}")
     implementation fg.deobf("curse.maven:farmers-d-398521:${farmers_delight_version}")
     compileOnly fg.deobf("curse.maven:farmers-respite-551453:${farmers_respite_version}")
