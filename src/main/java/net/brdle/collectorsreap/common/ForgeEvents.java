@@ -1,5 +1,6 @@
 package net.brdle.collectorsreap.common;
 
+import net.brdle.collectorsreap.CollectorsReap;
 import net.brdle.collectorsreap.Util;
 import net.brdle.collectorsreap.common.config.CRConfig;
 import net.brdle.collectorsreap.common.effect.CREffects;
@@ -7,6 +8,7 @@ import net.brdle.collectorsreap.common.entity.BeeGoToFruitBushGoal;
 import net.brdle.collectorsreap.common.entity.BeeGrowFruitGoal;
 import net.brdle.collectorsreap.common.item.CRItems;
 import net.brdle.collectorsreap.data.CREntityTags;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
@@ -31,10 +33,26 @@ import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.MissingMappingsEvent;
 import java.util.List;
 import java.util.Objects;
 
 public class ForgeEvents {
+
+	@SubscribeEvent
+	public static void onMissingMappings(MissingMappingsEvent e) {
+		if (e.getRegistry() == ForgeRegistries.BLOCKS) {
+			for (var map : e.getMappings(ForgeRegistries.BLOCKS.getRegistryKey(), CollectorsReap.MODID)) {
+				String path = map.getKey().getPath();
+				ResourceLocation remap = Util.cr(path
+					.replace("small_lime", "lime").replace("small_pomegranate", "pomegranate"));
+				if (ForgeRegistries.BLOCKS.containsKey(remap)) {
+					map.remap(ForgeRegistries.BLOCKS.getValue(remap));
+				}
+			}
+		}
+	}
 
 	@SubscribeEvent
 	public void onBeeJoin(EntityJoinLevelEvent e) {

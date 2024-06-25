@@ -75,10 +75,6 @@ public class CRBlocks {
 
     public static final RegistryObject<Block> LIME_BUSH = registerBlock("lime_bush",
         () -> new LimeBushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).forceSolidOff().instabreak().sound(SoundType.SWEET_BERRY_BUSH).noOcclusion().pushReaction(PushReaction.DESTROY)));
-    public static final RegistryObject<Block> SMALL_LIME_BUSH = registerBlock("small_lime_bush",
-        () -> new SmallLimeBushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).forceSolidOff().instabreak().sound(SoundType.SWEET_BERRY_BUSH).noOcclusion().pushReaction(PushReaction.DESTROY)));
-    public static final RegistryObject<Block> SMALL_POMEGRANATE_BUSH = registerBlock("small_pomegranate_bush",
-        () -> new SmallPomegranateBushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).forceSolidOff().instabreak().sound(SoundType.SWEET_BERRY_BUSH).noOcclusion().pushReaction(PushReaction.DESTROY)));
     public static final RegistryObject<Block> POMEGRANATE_BUSH = registerBlock("pomegranate_bush",
         () -> new PomegranateBushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).forceSolidOff().instabreak().sound(SoundType.SWEET_BERRY_BUSH).noOcclusion().pushReaction(PushReaction.DESTROY)));
     public static final RegistryObject<Block> LIME_CRATE = BLOCKS.register("lime_crate",

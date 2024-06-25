@@ -36,6 +36,7 @@ public class CRLanguageProvider extends LanguageProvider {
         add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.PORTOBELLO), "Found in Meadows.");
         add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.LIME), "Found in Flower Forests.");
         add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.POMEGRANATE), "Found in Warped Forests.");
+        add("config.jade.plugin_" + CollectorsReap.MODID + ".crop_progress", "Crop Progress");
     }
 
     private void addEffects() {
@@ -50,10 +51,8 @@ public class CRLanguageProvider extends LanguageProvider {
         addBlock(CRBlocks.PORTOBELLO_COLONY, "Portobello Colony");
         addBlock(CRBlocks.PORTOBELLO_QUICHE, "Portobello Quiche");
         addBlock(CRBlocks.LIME_PIE, "Key Lime Pie");
-        addBlock(CRBlocks.SMALL_LIME_BUSH, "Lime Seeds");
         addBlock(CRBlocks.LIME_BUSH, "Lime Bush");
         addBlock(CRBlocks.LIME_CRATE, "Lime Crate");
-        addBlock(CRBlocks.SMALL_POMEGRANATE_BUSH, "Pomegranate Seeds");
         addBlock(CRBlocks.POMEGRANATE_BUSH, "Pomegranate Bush");
         addBlock(CRBlocks.POMEGRANATE_CRATE, "Pomegranate Crate");
         addBlock(CRBlocks.LIME_CAKE, "Lime Cake");
@@ -115,6 +114,7 @@ public class CRLanguageProvider extends LanguageProvider {
         addItem(CRItems.PORTOBELLO_QUICHE_SLICE, "Slice of Portobello Quiche");
         addItem(CRItems.LIME_PIE_SLICE, "Slice of Key Lime Pie");
         addItem(CRItems.LIME, "Lime");
+        addItem(CRItems.LIME_SEEDS, "Lime Seeds");
         addItem(CRItems.LIME_SLICE, "Lime Slice");
         addItem(CRItems.LIME_POPSICLE, "Lime Popsicle");
         addItem(CRItems.LIME_COOKIE, "Lime Cookie");
@@ -131,6 +131,7 @@ public class CRLanguageProvider extends LanguageProvider {
         addItem(CRItems.POMEGRANATE_BLACK_TEA, "Pomegranate Black Tea");
         addItem(CRItems.POMEGRANATE_SMOOTHIE, "Pomegranate Smoothie");
         addItem(CRItems.POMEGRANATE, "Pomegranate");
+        addItem(CRItems.POMEGRANATE_SEEDS, "Pomegranate Seeds");
         addItem(CRItems.POMEGRANATE_SLICE, "Pomegranate Slice");
         addItem(CRItems.POMEGRANATE_MUTTON, "Pomegranate Mutton");
         addItem(CRItems.POMEGRANATE_CHICKEN, "Pomegranate Chicken");

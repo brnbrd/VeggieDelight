@@ -1,9 +1,0 @@
-{
-  "parent": "collectorsreap:block/lime_bush_upper",
-  "textures": {
-    "particle": "collectorsreap:block/lime_bush_plant_upper_stage1",
-    "plant": "collectorsreap:block/lime_bush_plant_upper_stage1",
-    "side": "collectorsreap:block/lime_bush_side_stage1",
-    "top": "collectorsreap:block/lime_bush_top_stage1"
-  }
-}

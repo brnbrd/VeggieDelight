@@ -29,20 +29,6 @@ public class CRBlockStateProvider extends BlockStateProvider {
         this.pieBlock(CRBlocks.LIME_PIE);
         this.stageBlock(CRBlocks.PORTOBELLO_COLONY.get(), PortobelloColonyBlock.COLONY_AGE);
         this.cross(CRBlocks.PORTOBELLO.get());
-        this.getVariantBuilder(CRBlocks.SMALL_LIME_BUSH.get())
-            .partialState().with(SmallLimeBushBlock.AGE, 0).modelForState().modelFile(existingModel("small_lime_bush_stage0")).addModel()
-            .partialState().with(SmallLimeBushBlock.AGE, 1).modelForState().modelFile(models()
-                .withExistingParent("block/small_lime_bush_stage1", Util.rl("minecraft", "block/template_azalea"))
-                .texture("side", resourceBlock("small_lime_bush_side_stage1"))
-                .texture("top", resourceBlock("small_lime_bush_top_stage1"))
-                .texture("plant", resourceBlock("small_lime_bush_plant_stage1"))
-                .texture("particle", resourceBlock("small_lime_bush_plant_stage1"))
-                .renderType("cutout")).addModel();
-        this.upperLowerStageBlock(CRBlocks.LIME_BUSH.get(), LimeBushBlock.AGE, LimeBushBlock.HALF, LimeBushBlock.STUNTED);
-        this.pomegranateBushBlock(CRBlocks.POMEGRANATE_BUSH.get(), PomegranateBushBlock.AGE, PomegranateBushBlock.HALF);
-        this.getVariantBuilder(CRBlocks.SMALL_POMEGRANATE_BUSH.get())
-            .partialState().with(SmallPomegranateBushBlock.AGE, 0).modelForState().modelFile(existingModel("small_pomegranate_bush_stage0")).addModel()
-            .partialState().with(SmallPomegranateBushBlock.AGE, 1).modelForState().modelFile(existingModel("small_pomegranate_bush_stage1")).addModel();
         this.crateBlock(CRBlocks.LIME_CRATE.get(), "lime");
         this.crateBlock(CRBlocks.POMEGRANATE_CRATE.get(), "pomegranate");
         this.cakeBlock(CRBlocks.LIME_CAKE);

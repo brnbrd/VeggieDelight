@@ -1,6 +1,6 @@
 {
   "parent": "collectorsreap:block/pomegranate_bush_upper",
   "textures": {
-    "0": "collectorsreap:block/pomegranate_bush_stage1"
+    "0": "collectorsreap:block/pomegranate_bush_stage4"
   }
 }

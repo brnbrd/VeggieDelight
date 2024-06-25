@@ -96,6 +96,7 @@ dependencies {
     compileOnly fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}")
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
     runtimeOnly fg.deobf("squeek.appleskin:appleskin-forge:${appleskin_version}")
+    implementation fg.deobf("curse.maven:jade-324717:${jade_version}")
     runtimeOnly fg.deobf("curse.maven:configured-457570:${configured_version}")
     implementation fg.deobf("curse.maven:farmers-d-398521:${farmers_delight_version}")
     compileOnly fg.deobf("curse.maven:farmers-respite-551453:${farmers_respite_version}")

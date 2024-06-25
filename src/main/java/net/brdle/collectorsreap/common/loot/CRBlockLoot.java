@@ -33,7 +33,6 @@ public class CRBlockLoot extends BlockLootSubProvider {
         this.dropSelf(CRBlocks.PORTOBELLO.get());
         this.empty(CRBlocks.PORTOBELLO_QUICHE);
         this.empty(CRBlocks.LIME_PIE);
-        this.dropSelf(CRBlocks.SMALL_LIME_BUSH.get());
         // Lime Bush drops Seeds and optional Limes
         this.add(CRBlocks.LIME_BUSH.get(), (b) -> applyExplosionDecay(b,
             LootTable.lootTable()
@@ -53,7 +52,6 @@ public class CRBlockLoot extends BlockLootSubProvider {
                         .setRolls(ConstantValue.exactly(1.0F))
                         .add(LootItem.lootTableItem(CRItems.LIME.get()))
                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 3.0F)))))));
-        this.dropSelf(CRBlocks.SMALL_POMEGRANATE_BUSH.get());
         // Pomegranate Bush drops Seeds and optional Pomegranates
         this.add(CRBlocks.POMEGRANATE_BUSH.get(), (b) -> applyExplosionDecay(b,
             LootTable.lootTable()

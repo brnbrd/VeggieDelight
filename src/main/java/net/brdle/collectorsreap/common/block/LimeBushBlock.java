@@ -24,18 +24,28 @@ import org.jetbrains.annotations.NotNull;
 
 public class LimeBushBlock extends FruitBushBlock {
 
+	public static final VoxelShape SMALL_SHAPE = Block.box(4.0, 0.0, 4.0, 12.0, 11.0, 12.0);
+	private static final VoxelShape MEDIUM_SHAPE = Shapes.or(
+		Block.box(0.0D, 8.0D, 0.0D, 16.0D, 16.0D, 16.0D),
+		Block.box(6.0D, 0.0D, 6.0D, 10.0D, 8.0D, 10.0D)
+	);
 	private static final VoxelShape SHAPE_LOWER = Shapes.or(
 		Block.box(0.0D, 12.0D, 0.0D, 16.0D, 16.0D, 16.0D),
 		Block.box(6.0D, 0.0D, 6.0D, 10.0D, 12.0D, 10.0D));
 	private static final VoxelShape SHAPE_UPPER = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
 
-	public LimeBushBlock(Properties pProperties) {
-		super(pProperties);
+	public LimeBushBlock(Properties properties) {
+		super(properties);
 	}
 
 	@Override
 	public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos, @NotNull CollisionContext pContext) {
-		return state.getValue(HALF) == DoubleBlockHalf.UPPER ? SHAPE_UPPER : SHAPE_LOWER;
+		return switch(state.getValue(AGE)) {
+			case 0 -> SMALL_SHAPE;
+			case 1 -> MEDIUM_SHAPE;
+			default -> state.hasProperty(HALF) && state.getValue(HALF) == DoubleBlockHalf.UPPER ?
+				SHAPE_UPPER : SHAPE_LOWER;
+		};
 	}
 
 	@Override

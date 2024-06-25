@@ -55,9 +55,6 @@ public class CRBlockTagProvider extends BlockTagsProvider {
 		this.tag(BlockTags.BEE_GROWABLES)
 			.add(CRBlocks.LIME_BUSH.get())
 			.add(CRBlocks.POMEGRANATE_BUSH.get());
-		this.tag(BlockTags.FLOWERS)
-			.add(CRBlocks.SMALL_LIME_BUSH.get())
-			.add(CRBlocks.SMALL_POMEGRANATE_BUSH.get());
 		CRBlocks.BLOCKS.getEntries()
 			.stream()
 			.map(RegistryObject::get)
@@ -89,13 +86,10 @@ public class CRBlockTagProvider extends BlockTagsProvider {
 			.add(CRBlocks.PORTOBELLO.get())
 			.add(CRBlocks.PORTOBELLO_COLONY.get());
 		this.tag(CRBlockTags.AUTUMN_CROPS)
-			.add(CRBlocks.SMALL_POMEGRANATE_BUSH.get())
 			.add(CRBlocks.POMEGRANATE_BUSH.get());
 		this.tag(CRBlockTags.SUMMER_CROPS)
-			.add(CRBlocks.SMALL_POMEGRANATE_BUSH.get())
 			.add(CRBlocks.POMEGRANATE_BUSH.get());
 		this.tag(CRBlockTags.SPRING_CROPS)
-			.add(CRBlocks.SMALL_LIME_BUSH.get())
 			.add(CRBlocks.LIME_BUSH.get());
 
 		// Other

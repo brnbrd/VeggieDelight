@@ -25,6 +25,8 @@ import org.jetbrains.annotations.NotNull;
 
 public class PomegranateBushBlock extends FruitBushBlock {
 
+	private static final VoxelShape SAPLING_SHAPE = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 5.0D, 13.0D);
+	private static final VoxelShape MID_GROWTH_SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 15.0D, 14.0D);
 	private static final VoxelShape SHAPE_LOWER = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 16.0D, 11.0D);
 	private static final VoxelShape SHAPE_UPPER = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
 
@@ -39,7 +41,12 @@ public class PomegranateBushBlock extends FruitBushBlock {
 
 	@Override
 	public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos, @NotNull CollisionContext pContext) {
-		return state.getValue(HALF) == DoubleBlockHalf.UPPER ? SHAPE_UPPER : SHAPE_LOWER;
+		return switch(state.getValue(AGE)) {
+			case 0 -> SAPLING_SHAPE;
+			case 1 -> MID_GROWTH_SHAPE;
+			default -> state.hasProperty(HALF) && state.getValue(HALF) == DoubleBlockHalf.UPPER ?
+				SHAPE_UPPER : SHAPE_LOWER;
+		};
 	}
 
 	@Override
@@ -64,7 +71,7 @@ public class PomegranateBushBlock extends FruitBushBlock {
 			int growthRate = (pLevel.getBlockState(pPos.below()).is(CRBlockTags.POMEGRANATE_FAST_ON)) ? 9 : 13;
 			if (pLevel.dimension() == Level.NETHER) {
 				growthRate -= 4;
-			} else if (state.getValue(AGE) != 0 && CRConfig.POMEGRANATE_POLLINATION.get()) {
+			} else if (state.getValue(AGE) == MAX_AGE - 1 && CRConfig.POMEGRANATE_POLLINATION.get()) {
 				return;
 			}
 			if (ForgeHooks.onCropsGrowPre(pLevel, pPos, state, pRandom.nextInt(growthRate) == 0)) {
