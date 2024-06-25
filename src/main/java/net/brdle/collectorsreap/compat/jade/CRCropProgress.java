@@ -2,7 +2,6 @@ package net.brdle.collectorsreap.compat.jade;
 
 import net.brdle.collectorsreap.Util;
 import net.brdle.collectorsreap.common.block.FruitBushBlock;
-import net.brdle.collectorsreap.common.block.LimeBushBlock;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
