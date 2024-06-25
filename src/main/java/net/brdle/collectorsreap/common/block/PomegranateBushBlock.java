@@ -6,91 +6,35 @@ import net.brdle.collectorsreap.data.CRBlockTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.Bee;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.*;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.CropBlock;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
-import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.EntityCollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
-import javax.annotation.Nullable;
 
-public class PomegranateBushBlock extends CropBlock implements IFruiting {
-	public static final int MAX_AGE = 2;
-	public static final IntegerProperty AGE = BlockStateProperties.AGE_2;
-	public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
+public class PomegranateBushBlock extends FruitBushBlock {
+
 	private static final VoxelShape SHAPE_LOWER = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 16.0D, 11.0D);
 	private static final VoxelShape SHAPE_UPPER = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
 
-	public PomegranateBushBlock(Properties pProperties) {
-		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any()
-			.setValue(AGE, 0)
-			.setValue(HALF, DoubleBlockHalf.LOWER)
-		);
+	public PomegranateBushBlock(Properties properties) {
+		super(properties);
 	}
 
 	@Override
-	public @NotNull IntegerProperty getAgeProperty() {
-		return AGE;
-	}
-
-	@Override
-	public int getMaxAge() {
-		return MAX_AGE;
-	}
-
-	@Override
-	protected boolean mayPlaceOn(@NotNull BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos) {
-		return pState.is(BlockTags.DIRT) || pState.is(CRBlockTags.POMEGRANATE_FAST_ON);
-	}
-
-	@Override
-	public boolean canSurvive(BlockState state, @NotNull LevelReader level, BlockPos pos) {
-		BlockPos belowPos = pos.below();
-		BlockState below = level.getBlockState(belowPos);
-		return (
-			state.getValue(HALF) == DoubleBlockHalf.LOWER ?
-				this.mayPlaceOn(below, level, belowPos) :
-				below.getBlock() instanceof PomegranateBushBlock
-		);
-	}
-
-	@SuppressWarnings("deprecation")
-	@Override
-	public @NotNull VoxelShape getCollisionShape(@NotNull BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos, @NotNull CollisionContext pContext) {
-		if (pContext instanceof EntityCollisionContext ent && ent.getEntity() instanceof Bee && CRConfig.POMEGRANATE_POLLINATION.get()) {
-			return pState.getValue(HALF) == DoubleBlockHalf.LOWER ?
-				Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D) : Shapes.empty();
-		}
-		return getShape(pState, pLevel, pPos, pContext);
+	protected boolean mayPlaceOn(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
+		return state.is(CRBlockTags.POMEGRANATE_FAST_ON) || super.mayPlaceOn(state, level, pos);
 	}
 
 	@Override
@@ -99,47 +43,24 @@ public class PomegranateBushBlock extends CropBlock implements IFruiting {
 	}
 
 	@Override
-	public @NotNull BlockState updateShape(@NotNull BlockState state, @NotNull Direction facing, @NotNull BlockState facingState, @NotNull LevelAccessor world, @NotNull BlockPos pos, @NotNull BlockPos facingPos) {
-		BlockState AIR = Blocks.AIR.defaultBlockState();
-		if (state.getValue(HALF) == DoubleBlockHalf.LOWER && !state.canSurvive(world, pos)) {
-			return AIR;
-		}
-		if (
-			(state.getValue(HALF) == DoubleBlockHalf.UPPER && facing == Direction.DOWN) ||
-			(state.getValue(HALF) == DoubleBlockHalf.LOWER && facing == Direction.UP)
-		) {
-			if (!(facingState.getBlock() instanceof PomegranateBushBlock) || facingState.getValue(HALF) == state.getValue(HALF)) {
-				return AIR;
-			}
-			return state.setValue(AGE, facingState.getValue(AGE));
-		}
-		return super.updateShape(state, facing, facingState, world, pos, facingPos);
-	}
-
-	@Override
-	protected @NotNull ItemLike getBaseSeedId() {
+	public Item getSeeds() {
 		return CRItems.POMEGRANATE_SEEDS.get();
 	}
 
 	@Override
-	public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockGetter level, BlockPos pos, Player player) {
-		return new ItemStack(state.getValue(AGE) == this.getMaxAge() ? CRItems.POMEGRANATE.get() : this.getBaseSeedId());
+	public Item getFruit() {
+		return CRItems.POMEGRANATE.get();
 	}
 
 	@Override
-	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(AGE, HALF);
-	}
-
-	@Override
-	public boolean isRandomlyTicking(BlockState pState) {
-		return pState.getValue(AGE) < this.getMaxAge();
+	public int getNumFruit(Level level) {
+		return 1 + level.getRandom().nextInt(2);
 	}
 
 	// Can receive boost from Nether or block below.
 	@Override
 	public void randomTick(@NotNull BlockState state, @NotNull ServerLevel pLevel, @NotNull BlockPos pPos, @NotNull RandomSource pRandom) {
-		if (state.getValue(AGE) < this.getMaxAge() && state.getValue(HALF) == DoubleBlockHalf.LOWER) {
+		if (state.getValue(AGE) < MAX_AGE && state.getValue(HALF) == DoubleBlockHalf.LOWER) {
 			int growthRate = (pLevel.getBlockState(pPos.below()).is(CRBlockTags.POMEGRANATE_FAST_ON)) ? 9 : 13;
 			if (pLevel.dimension() == Level.NETHER) {
 				growthRate -= 4;
@@ -154,34 +75,6 @@ public class PomegranateBushBlock extends CropBlock implements IFruiting {
 	}
 
 	@Override
-	public Item getFruit() {
-		return CRItems.POMEGRANATE.get();
-	}
-
-	@Override
-	public int getNumFruit(Level level) {
-		return 1 + level.getRandom().nextInt(2);
-	}
-
-	@SuppressWarnings("deprecation")
-	@Override
-	public @NotNull InteractionResult use(BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Player pPlayer, @NotNull InteractionHand pHand, @NotNull BlockHitResult pHit) {
-		if (pState.getValue(AGE) == this.getMaxAge()) {
-			if (!pPlayer.getItemInHand(pHand).is(Tags.Items.SHEARS)) {
-				pPlayer.hurt(pPlayer.damageSources().sweetBerryBush(), 1.0F);
-			}
-			dropFruit(pLevel, pPos);
-			pLevel.playSound(null, pPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + pLevel.getRandom().nextFloat() * 0.4F);
-			BlockState picked = pState.setValue(AGE, 0);
-			pLevel.setBlock(pPos, picked, 2);  // Revert to pre-flowering
-			pLevel.gameEvent(GameEvent.BLOCK_CHANGE, pPos, GameEvent.Context.of(pPlayer, picked));
-			return InteractionResult.sidedSuccess(pLevel.isClientSide());
-		} else {
-			return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
-		}
-	}
-
-	@Override
 	public boolean isValidBonemealTarget(@NotNull LevelReader pLevel, @NotNull BlockPos pPos, @NotNull BlockState pState, boolean pIsClient) {
 		return false;
 	}
@@ -192,65 +85,25 @@ public class PomegranateBushBlock extends CropBlock implements IFruiting {
 	}
 
 	@Override
-	public void performBonemeal(ServerLevel pLevel, @NotNull RandomSource pRandom, @NotNull BlockPos pPos, BlockState pState) {
-		pLevel.setBlock(pPos, pState.setValue(AGE, Math.min(this.getMaxAge(), pState.getValue(AGE) + 1)), 2);
-	}
-
-	@Override
-	@Nullable public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		BlockPos blockpos = pContext.getClickedPos();
-		Level level = pContext.getLevel();
-		return (
-			blockpos.getY() < level.getMaxBuildHeight() - 1 &&
-				level.getBlockState(blockpos.above()).canBeReplaced(pContext) ?
-				this.defaultBlockState().setValue(AGE, 0).setValue(HALF, DoubleBlockHalf.LOWER) :
-				null
-		);
-	}
-
-	@Override
-	public void setPlacedBy(@NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull BlockState pState, LivingEntity pPlacer, @NotNull ItemStack pStack) {
-		super.setPlacedBy(pLevel, pPos, pState, pPlacer, pStack);
-		if (!pLevel.isClientSide()) {
-			pLevel.setBlock(pPos.above(), pState.setValue(HALF, DoubleBlockHalf.UPPER), 3);
-		}
-	}
-
-	public static void placeAt(LevelAccessor level, BlockState state, BlockPos pos, int flags) {
-		BlockState belowState = state.setValue(AGE, MAX_AGE).setValue(HALF, DoubleBlockHalf.LOWER);
-		if (belowState.getBlock() instanceof PomegranateBushBlock pom && pom.canSurvive(belowState, level, pos)) {
-			level.setBlock(pos, belowState, flags);
-			level.setBlock(pos.above(), belowState.setValue(HALF, DoubleBlockHalf.UPPER), flags);
-		}
-	}
-
-	@Override
 	public void entityInside(@NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Entity e) {
 		if (!pLevel.isClientSide() &&
 			CRConfig.POMEGRANATE_POLLINATION.get() &&
 			CRConfig.FAST_POLLINATE.get() &&
 			e instanceof Bee &&
-			pState.getValue(AGE) == this.getMaxAge() - 1 &&
+			pState.getValue(AGE) == MAX_AGE - 1 &&
 			pLevel.getRandom().nextInt(150) == 0) {
 			this.performBonemeal((ServerLevel) pLevel, pLevel.getRandom(), pPos, pState);
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
-	public void playerWillDestroy(Level pLevel, @NotNull BlockPos pPos, @NotNull BlockState pState, @NotNull Player pPlayer) {
-		if (!pLevel.isClientSide()) {
-			if (pPlayer.isCreative()) {
-				preventCreativeDropFromBottomPart(pLevel, pPos, pState, pPlayer);
-			} else {
-				dropResources(pState, pLevel, pPos, null, pPlayer, pPlayer.getMainHandItem());
-			}
+	public @NotNull VoxelShape getCollisionShape(@NotNull BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos, @NotNull CollisionContext pContext) {
+		if (pContext instanceof EntityCollisionContext ent && ent.getEntity() instanceof Bee && CRConfig.POMEGRANATE_POLLINATION.get()) {
+			return pState.getValue(HALF) == DoubleBlockHalf.LOWER ?
+				Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D) : Shapes.empty();
 		}
-		super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
-	}
-
-	@Override
-	public void playerDestroy(@NotNull Level pLevel, @NotNull Player pPlayer, @NotNull BlockPos pPos, @NotNull BlockState pState, @Nullable BlockEntity pTe, @NotNull ItemStack pStack) {
-		super.playerDestroy(pLevel, pPlayer, pPos, Blocks.AIR.defaultBlockState(), pTe, pStack);
+		return getShape(pState, pLevel, pPos, pContext);
 	}
 
 	@Override

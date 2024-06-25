@@ -56,8 +56,8 @@ public class CRBlockTagProvider extends BlockTagsProvider {
 			.add(CRBlocks.LIME_BUSH.get())
 			.add(CRBlocks.POMEGRANATE_BUSH.get());
 		this.tag(BlockTags.FLOWERS)
-			.add(CRBlocks.LIME_BUSH.get())
-			.add(CRBlocks.POMEGRANATE_BUSH.get());
+			.add(CRBlocks.SMALL_LIME_BUSH.get())
+			.add(CRBlocks.SMALL_POMEGRANATE_BUSH.get());
 		CRBlocks.BLOCKS.getEntries()
 			.stream()
 			.map(RegistryObject::get)

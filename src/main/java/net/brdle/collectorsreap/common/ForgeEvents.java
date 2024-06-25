@@ -3,6 +3,8 @@ package net.brdle.collectorsreap.common;
 import net.brdle.collectorsreap.Util;
 import net.brdle.collectorsreap.common.config.CRConfig;
 import net.brdle.collectorsreap.common.effect.CREffects;
+import net.brdle.collectorsreap.common.entity.BeeGoToFruitBushGoal;
+import net.brdle.collectorsreap.common.entity.BeeGrowFruitGoal;
 import net.brdle.collectorsreap.common.item.CRItems;
 import net.brdle.collectorsreap.data.CREntityTags;
 import net.minecraft.server.level.ServerLevel;
@@ -12,6 +14,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+import net.minecraft.world.entity.animal.Bee;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ThrownTrident;
@@ -22,6 +25,7 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
@@ -33,9 +37,19 @@ import java.util.Objects;
 public class ForgeEvents {
 
 	@SubscribeEvent
+	public void onBeeJoin(EntityJoinLevelEvent e) {
+		if (e.getEntity() instanceof Bee bee) {
+			bee.getGoalSelector().addGoal(4, new BeeGrowFruitGoal(bee));
+			bee.getGoalSelector().addGoal(4, new BeeGoToFruitBushGoal(bee));
+		}
+	}
+
+	@SubscribeEvent
 	public void onWanderingTrader(WandererTradesEvent e) {
 		if (CRConfig.verify(CRItems.LIME) && CRConfig.verify(CRItems.LIME_SEEDS)) {
 			e.getGenericTrades().add((ent, r) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), Util.gs(CRItems.LIME_SEEDS), 5, 1, 1));
+		}
+		if (CRConfig.verify(CRItems.PORTOBELLO)) {
 			e.getGenericTrades().add((ent, r) -> new MerchantOffer(new ItemStack(Items.BROWN_MUSHROOM, 4), Util.gs(CRItems.PORTOBELLO), 10, 1, 1));
 		}
 	}

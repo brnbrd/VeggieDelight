@@ -87,12 +87,12 @@ public class SmallLimeBushBlock extends BushBlock implements BonemealableBlock {
 
 	@Override
 	public boolean isValidBonemealTarget(@NotNull LevelReader pLevel, @NotNull BlockPos pPos, @NotNull BlockState pState, boolean pIsClient) {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isBonemealSuccess(@NotNull Level world, @NotNull RandomSource rand, @NotNull BlockPos pos, @NotNull BlockState state) {
-		return false;
+		return true;
 	}
 
 	@Override
@@ -102,8 +102,9 @@ public class SmallLimeBushBlock extends BushBlock implements BonemealableBlock {
 			BlockState newState = pState.setValue(AGE, Math.min(MAX_AGE, pState.getValue(AGE) + 1));
 			world.setBlock(pPos, newState, 2);
 		} else if (i == MAX_AGE && world.isEmptyBlock(pPos.above())) {
-			world.setBlock(pPos, CRBlocks.LIME_BUSH.get().defaultBlockState().setValue(LimeBushBlock.HALF, DoubleBlockHalf.LOWER), 2);
-			world.setBlock(pPos.above(), CRBlocks.LIME_BUSH.get().defaultBlockState().setValue(LimeBushBlock.HALF, DoubleBlockHalf.UPPER), 2);
+			BlockState newState = CRBlocks.LIME_BUSH.get().defaultBlockState().setValue(LimeBushBlock.AGE, 0);
+			world.setBlock(pPos, newState.setValue(LimeBushBlock.HALF, DoubleBlockHalf.LOWER), 2);
+			world.setBlock(pPos.above(), newState.setValue(LimeBushBlock.HALF, DoubleBlockHalf.UPPER), 2);
 		}
 	}
 
