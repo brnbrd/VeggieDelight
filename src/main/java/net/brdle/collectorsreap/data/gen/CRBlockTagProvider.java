@@ -82,9 +82,7 @@ public class CRBlockTagProvider extends BlockTagsProvider {
 			.add(CRBlocks.POMEGRANATE_MILKSHAKE_CAULDRON.get());
 
 		// Serene Seasons
-		this.tag(CRBlockTags.WINTER_CROPS)
-			.add(CRBlocks.PORTOBELLO.get())
-			.add(CRBlocks.PORTOBELLO_COLONY.get());
+		this.tag(CRBlockTags.WINTER_CROPS);
 		this.tag(CRBlockTags.AUTUMN_CROPS)
 			.add(CRBlocks.POMEGRANATE_BUSH.get());
 		this.tag(CRBlockTags.SUMMER_CROPS)

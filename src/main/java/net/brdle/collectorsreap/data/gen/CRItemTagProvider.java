@@ -138,9 +138,7 @@ public class CRItemTagProvider extends ItemTagsProvider {
 		this.addSelf(CRItemTags.PUMPKIN_PUREE);
 
 		// Serene Seasons
-		this.tag(CRItemTags.WINTER_CROPS)
-			.add(CRItems.PORTOBELLO.get())
-			.add(CRItems.PORTOBELLO_COLONY.get());
+		this.tag(CRItemTags.WINTER_CROPS);
 		this.tag(CRItemTags.SUMMER_CROPS)
 			.add(CRItems.POMEGRANATE_SEEDS.get());
 		this.tag(CRItemTags.AUTUMN_CROPS)
