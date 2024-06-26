@@ -39,6 +39,13 @@ configBackground="collectorsreap:textures/block/pomegranate_ice_cream_block.png"
     side="BOTH"
 
 [[dependencies.collectorsreap]]
+    modId="mynethersdelight"
+    mandatory=false
+    versionRange="[1.20.1-1.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.collectorsreap]]
     modId="neapolitan"
     mandatory=false
     versionRange="[0,)"

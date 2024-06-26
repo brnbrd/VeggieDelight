@@ -18,6 +18,9 @@ public class CRBlockTags {
 	public static final TagKey<Block> AUTUMN_CROPS = bind("sereneseasons", "autumn_crops");
 	public static final TagKey<Block> SPRING_CROPS = bind("sereneseasons", "spring_crops");
 
+	// My Nether's Delight
+	public static final TagKey<Block> SHOWCASE_ACTIVATORS = bind("mynethersdelight", "showcase_activators");
+
 	private static TagKey<Block> bind(String modid, String name) {
 		return BlockTags.create(Util.rl(modid, name));
 	}

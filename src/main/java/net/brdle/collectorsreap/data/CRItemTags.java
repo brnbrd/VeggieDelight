@@ -62,6 +62,9 @@ public class CRItemTags {
 	// SAS
 	public static final TagKey<Item> BURGER_BUN = Util.it("some_assembly_required", "burger_bun");
 
+	// Supplementaries
+	public static final TagKey<Item> FLOWER_BOX_PLANTABLE = Util.it("supplementaries", "flower_box_plantable");
+
 	private static TagKey<Item> cr(String name) {
 		return Util.it(CollectorsReap.MODID, name);
 	}

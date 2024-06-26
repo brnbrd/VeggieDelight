@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-26T08:12:14.6053856	Tags for minecraft:item mod id collectorsreap
+// 1.20.1	2024-06-26T08:19:47.3870568	Tags for minecraft:item mod id collectorsreap
 ae7e08f92dd075f34544c04d30c8a274b27bd792 data/atmospheric/tags/items/aloe_leaves.json
 b1c02044b6eb4060b19a0ed4f40cbeaca19822c9 data/atmospheric/tags/items/passion_fruit.json
 a740abeb613a7024a35910efe912a50a6ee62045 data/atmospheric/tags/items/yucca_fruit.json
@@ -44,3 +44,4 @@ c2a4f83c6c9240028fc19f82132631f4984e0983 data/neapolitan/tags/items/red_strawber
 96dea34ef6e441467b1956f6d015c36950d2cec2 data/sereneseasons/tags/items/summer_crops.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/sereneseasons/tags/items/winter_crops.json
 cbd47de368751306e7d7f0cfb8054fc816b1695d data/some_assembly_required/tags/items/burger_bun.json
+56b1914b339b1025387364245d6ea545bd2f3b90 data/supplementaries/tags/items/flower_box_plantable.json

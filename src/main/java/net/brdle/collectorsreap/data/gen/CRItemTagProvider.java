@@ -158,6 +158,12 @@ public class CRItemTagProvider extends ItemTagsProvider {
 
 		// SAS
 		this.addSelf(CRItemTags.BURGER_BUN);
+
+		// Supplementaries
+		this.tag(CRItemTags.FLOWER_BOX_PLANTABLE)
+			.add(CRItems.PORTOBELLO_COLONY.get())
+			.addOptional(Util.rl("mynethersdelight", "warped_fungus_colony"))
+			.addOptional(Util.rl("mynethersdelight", "crimson_fungus_colony"));
 	}
 
 	private TagsProvider.TagAppender<Item> addSelf(TagKey<Item> item) {

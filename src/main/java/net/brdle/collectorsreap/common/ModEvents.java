@@ -26,7 +26,7 @@ public class ModEvents {
 
             //Compostables
             compost(CRItems.PORTOBELLO, 0.65F);
-            compost(CRItems.PORTOBELLO_COLONY, 0.85F);
+            compost(CRItems.PORTOBELLO_COLONY, 1.0F);
             compost(CRItems.BAKED_PORTOBELLO_CAP, 0.65F);
             compost(CRItems.PORTOBELLO_QUICHE, 1.0F);
             compost(CRItems.PORTOBELLO_QUICHE_SLICE, 0.85F);

@@ -90,6 +90,11 @@ public class CRBlockTagProvider extends BlockTagsProvider {
 		this.tag(CRBlockTags.SPRING_CROPS)
 			.add(CRBlocks.LIME_BUSH.get());
 
+		// My Nether's Delight
+		this.tag(CRBlockTags.SHOWCASE_ACTIVATORS)
+			.add(CRBlocks.PORTOBELLO.get())
+			.add(CRBlocks.PORTOBELLO_COLONY.get());
+
 		// Other
 		this.tag(BlockTags.create(Util.rl("twilightforest", "portal/decoration"))).add(CRBlocks.PORTOBELLO.get());
 		this.tag(BlockTags.create(Util.rl("immersive_weathering", "small_mushrooms"))).add(CRBlocks.PORTOBELLO.get());

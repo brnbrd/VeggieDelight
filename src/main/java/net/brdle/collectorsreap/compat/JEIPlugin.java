@@ -10,6 +10,7 @@ import net.brdle.collectorsreap.common.config.CRConfig;
 import net.brdle.collectorsreap.common.item.CRItems;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.fml.ModList;
 import org.jetbrains.annotations.NotNull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Predicate;
@@ -34,6 +35,9 @@ public class JEIPlugin implements IModPlugin
         registration.addItemStackInfo(Util.gs(CRItems.PORTOBELLO), Component.translatable("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.PORTOBELLO)));
         registration.addItemStackInfo(Util.gs(CRItems.LIME), Component.translatable("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.LIME)));
         registration.addItemStackInfo(Util.gs(CRItems.POMEGRANATE), Component.translatable("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.POMEGRANATE)));
+        if (ModList.get().isLoaded("mynethersdelight")) {
+            registration.addItemStackInfo(Util.gs(CRItems.PORTOBELLO_COLONY), Component.translatable("mynethersdelight.jei.info.mushroom_colony"));
+        }
     }
 
     @Override
