@@ -47,8 +47,8 @@ public class CRLanguageProvider extends LanguageProvider {
     }
 
     private void addBlocks() {
-        addBlock(CRBlocks.PORTOBELLO, "Portobello");
-        addBlock(CRBlocks.PORTOBELLO_COLONY, "Portobello Colony");
+        addBlock(CRBlocks.PORTOBELLO, "Portobello Mushroom");
+        addBlock(CRBlocks.PORTOBELLO_COLONY, "Portobello Mushroom Colony");
         addBlock(CRBlocks.PORTOBELLO_QUICHE, "Portobello Quiche");
         addBlock(CRBlocks.LIME_PIE, "Key Lime Pie");
         addBlock(CRBlocks.LIME_BUSH, "Lime Bush");
