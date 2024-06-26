@@ -6,23 +6,9 @@
         "type": "minecraft:simple_block",
         "config": {
           "to_place": {
-            "type": "minecraft:randomized_int_state_provider",
-            "property": "age",
-            "source": {
-              "type": "minecraft:simple_state_provider",
-              "state": {
-                "Name": "collectorsreap:portobello_colony",
-                "Properties": {
-                  "age": "0"
-                }
-              }
-            },
-            "values": {
-              "type": "minecraft:uniform",
-              "value": {
-                "max_inclusive": 3,
-                "min_inclusive": 0
-              }
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "collectorsreap:portobello"
             }
           }
         }
@@ -87,7 +73,7 @@
         }
       ]
     },
-    "tries": 30,
+    "tries": 20,
     "xz_spread": 5,
     "y_spread": 3
   }
