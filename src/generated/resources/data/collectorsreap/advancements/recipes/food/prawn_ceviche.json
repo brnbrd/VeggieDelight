@@ -4,11 +4,11 @@
       "advancement": {
         "parent": "minecraft:recipes/root",
         "criteria": {
-          "has_raw_prawn": {
+          "has_cooked_prawn": {
             "conditions": {
               "items": [
                 {
-                  "tag": "forge:raw_prawn"
+                  "tag": "forge:cooked_prawn"
                 }
               ]
             },
@@ -23,7 +23,7 @@
         },
         "requirements": [
           [
-            "has_raw_prawn",
+            "has_cooked_prawn",
             "has_the_recipe"
           ]
         ],

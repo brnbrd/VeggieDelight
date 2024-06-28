@@ -624,13 +624,13 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_cooked_prawn", has(CRItemTags.COOKED_PRAWN)),
             "food/prawn_po_boy", finished, enabled(CRItems.PRAWN_PO_BOY));
         wrap(shapeless(RecipeCategory.FOOD, CRItems.PRAWN_CEVICHE)
-                .requires(CRItemTags.RAW_PRAWN)
+                .requires(CRItemTags.COOKED_PRAWN)
                 .requires(CRItemTags.FRUITS_CITRUS)
                 .requires(ForgeTags.CROPS_CABBAGE)
                 .requires(ForgeTags.CROPS_TOMATO)
                 .requires(ForgeTags.CROPS_ONION)
                 .requires(Items.BOWL)
-                .unlockedBy("has_raw_prawn", has(CRItemTags.RAW_PRAWN)),
+                .unlockedBy("has_cooked_prawn", has(CRItemTags.COOKED_PRAWN)),
             "food/prawn_ceviche", finished, enabled(CRItems.PRAWN_CEVICHE));
         wrap(shapeless(RecipeCategory.FOOD, CRItems.FISH_MIX)
                 .requires(ModItems.SALMON_SLICE.get())
