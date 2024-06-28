@@ -30,6 +30,7 @@ public class CRItemTags {
 	public static final TagKey<Item> COOKED_FISHES_BASS = forge("cooked_fishes/bass");
 	public static final TagKey<Item> RAW_HOGLIN = forge("raw_hoglin");
 	public static final TagKey<Item> RAW_STRIDER = forge("raw_strider");
+	public static final TagKey<Item> COOKIES = forge("cookies");
 
 	// CR
 	public static final TagKey<Item> GUMMIES = cr("gummies");

@@ -11,11 +11,14 @@ import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import vectorwing.farmersdelight.common.registry.ModItems;
+
 import java.util.concurrent.CompletableFuture;
 
 public class CRItemTagProvider extends ItemTagsProvider {
@@ -117,6 +120,11 @@ public class CRItemTagProvider extends ItemTagsProvider {
 		this.tag(CRItemTags.RAW_STRIDER)
 			.addOptionalTag(Util.rl("mynethersdelight", "strider_meats"))
 			.addOptional(Util.rl("nethersdelight", "raw_strider"));
+		tag(CRItemTags.COOKIES)
+			.add(Items.COOKIE)
+			.add(ModItems.HONEY_COOKIE.get())
+			.add(ModItems.SWEET_BERRY_COOKIE.get())
+			.add(CRItems.LIME_COOKIE.get());
 
 		// Neapolitan
 		this.addSelf(CRItemTags.BANANA);
