@@ -2,7 +2,7 @@
   "type": "farmersdelight:wild_crop",
   "config": {
     "tries": 8,
-    "xz_spread": 5,
+    "xz_spread": 4,
     "y_spread": 3,
     "primary_feature": {
       "feature": {
