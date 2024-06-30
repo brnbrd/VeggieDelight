@@ -4,6 +4,7 @@ import net.brdle.collectorsreap.common.block.CRCauldronInteractions;
 import net.brdle.collectorsreap.common.crafting.EnabledCondition;
 import net.brdle.collectorsreap.common.item.CRItems;
 import net.brdle.collectorsreap.common.item.food.CompatConsumable;
+import net.brdle.collectorsreap.common.item.food.GummyItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.ComposterBlock;
@@ -66,6 +67,8 @@ public class ModEvents {
             CRItems.ITEMS.getEntries().stream().filter(RegistryObject::isPresent).forEach((item) -> {
                 Item i = item.get();
                 if (i instanceof CompatConsumable compat && !compat.loaded()) {
+                    return;
+                } else if (i instanceof GummyItem gummy && !ModList.get().isLoaded(gummy.getModid())) {
                     return;
                 }
                 event.accept(i.getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
