@@ -19,7 +19,6 @@
       ],
       "recipe": {
         "type": "minecraft:crafting_shapeless",
-        "category": "misc",
         "ingredients": [
           {
             "item": "collectorsreap:portobello_quiche_slice"

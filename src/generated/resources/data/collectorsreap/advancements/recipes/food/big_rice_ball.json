@@ -31,8 +31,7 @@
           "recipes": [
             "collectorsreap:food/big_rice_ball"
           ]
-        },
-        "sends_telemetry_event": false
+        }
       },
       "conditions": [
         {

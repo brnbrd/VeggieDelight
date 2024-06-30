@@ -31,8 +31,7 @@
           "recipes": [
             "collectorsreap:food/deluxe_salad"
           ]
-        },
-        "sends_telemetry_event": false
+        }
       },
       "conditions": [
         {

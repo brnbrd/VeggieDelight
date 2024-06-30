@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "collectorsreap:tiger_prawn_from_smoking"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "tiger_prawn": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "collectorsreap:tiger_prawn"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "tiger_prawn",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "collectorsreap:tiger_prawn_from_smoking"
+    ]
+  }
+}

@@ -43,7 +43,7 @@ public class BeeGrowFruitGoal extends Goal {
 	@Override
 	public void tick() {
 		if (
-			this.getBee().level() instanceof ServerLevel level &&
+			this.getBee().getLevel() instanceof ServerLevel level &&
 			this.getBee().getRandom().nextInt(this.adjustedTickDelay(30)) == 0
 		) {
 			for(int i = 1; i <= 2; ++i) {
@@ -53,7 +53,7 @@ public class BeeGrowFruitGoal extends Goal {
 					int age = blockstate.getValue(FruitBushBlock.AGE);
 					if (age == FruitBushBlock.MAX_AGE - 1) {
 						fruit.performBonemeal(level, bee.getRandom(), blockpos, blockstate);
-						this.getBee().level().levelEvent(2005, blockpos, 0);
+						this.getBee().getLevel().levelEvent(2005, blockpos, 0);
 						this.getBee().incrementNumCropsGrownSincePollination();
 					}
 				}

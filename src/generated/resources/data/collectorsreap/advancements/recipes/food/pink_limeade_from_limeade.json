@@ -33,8 +33,7 @@
           "recipes": [
             "collectorsreap:food/pink_limeade_from_limeade"
           ]
-        },
-        "sends_telemetry_event": false
+        }
       },
       "conditions": [
         {

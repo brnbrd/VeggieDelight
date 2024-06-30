@@ -33,8 +33,7 @@
           "recipes": [
             "collectorsreap:food/portobello_burger_from_bun"
           ]
-        },
-        "sends_telemetry_event": false
+        }
       },
       "conditions": [
         {

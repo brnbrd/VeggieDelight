@@ -33,8 +33,7 @@
           "recipes": [
             "collectorsreap:food/portobello_wrap"
           ]
-        },
-        "sends_telemetry_event": false
+        }
       },
       "conditions": [
         {

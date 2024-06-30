@@ -1,7 +1,7 @@
 package net.brdle.collectorsreap.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Axis;
+import com.mojang.math.Vector3f;
 import net.brdle.collectorsreap.Util;
 import net.brdle.collectorsreap.client.model.PlatinumBassModel;
 import net.brdle.collectorsreap.common.entity.PlatinumBass;
@@ -33,10 +33,10 @@ public class PlatinumBassRenderer extends MobRenderer<PlatinumBass, PlatinumBass
 	protected void setupRotations(@NotNull PlatinumBass entityLiving, @NotNull PoseStack stack, float pAgeInTicks, float pRotationYaw, float pPartialTicks) {
 		super.setupRotations(entityLiving, stack, pAgeInTicks, pRotationYaw, pPartialTicks);
 		float f = 4.3F * Mth.sin(0.6F * pAgeInTicks);
-		stack.mulPose(Axis.YP.rotationDegrees(f));
+		stack.mulPose(Vector3f.YP.rotationDegrees(f));
 		if (!entityLiving.isInWater()) {
 			stack.translate(0.1D, 0.1D, -0.1D);
-			stack.mulPose(Axis.ZP.rotationDegrees(90.0F));
+			stack.mulPose(Vector3f.ZP.rotationDegrees(90.0F));
 		}
 	}
 }

@@ -33,8 +33,7 @@
           "recipes": [
             "collectorsreap:food/clam_meatball_stew"
           ]
-        },
-        "sends_telemetry_event": true
+        }
       },
       "conditions": [
         {

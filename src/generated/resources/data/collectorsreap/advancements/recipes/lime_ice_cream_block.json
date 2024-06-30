@@ -33,8 +33,7 @@
           "recipes": [
             "collectorsreap:lime_ice_cream_block"
           ]
-        },
-        "sends_telemetry_event": false
+        }
       },
       "conditions": [
         {

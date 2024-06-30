@@ -11,6 +11,17 @@ import java.util.function.Supplier;
 
 public class ModCompat {
 
+	@Nullable public static CreativeModeTab ifLoaded(CreativeModeTab tab, String... modid) {
+		if (modid.length >= 1) {
+			for (String s : modid) {
+				if (ModList.get().isLoaded(s)) {
+					return tab;
+				}
+			}
+		}
+		return null;
+	}
+
 	@Nullable public static CreativeModeTab ifLoaded(String modid, CreativeModeTab tab) {
 		return ifLoaded(modid, () -> tab);
 	}

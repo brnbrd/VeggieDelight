@@ -7,6 +7,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -93,7 +94,7 @@ public abstract class FruitBushBlock extends DoublePlantBlock implements Bonemea
 		}
 		if (state.getValue(AGE) == MAX_AGE) {
 			if (state.getBlock() instanceof PomegranateBushBlock && !player.getItemInHand(hand).is(Tags.Items.SHEARS)) {
-				player.hurt(player.damageSources().sweetBerryBush(), 1.0F);
+				player.hurt(DamageSource.SWEET_BERRY_BUSH, 1.0F);
 			}
 			dropFruit(level, pos);
 			level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);

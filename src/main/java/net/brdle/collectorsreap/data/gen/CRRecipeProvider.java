@@ -6,7 +6,7 @@ import net.brdle.collectorsreap.common.crafting.EnabledCondition;
 import net.brdle.collectorsreap.common.item.CRItems;
 import net.brdle.collectorsreap.data.CRItemTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -27,12 +27,12 @@ import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 import java.util.function.Consumer;
 
 public class CRRecipeProvider extends RecipeProvider implements IConditionBuilder {
-    public CRRecipeProvider(PackOutput output) {
-        super(output);
+    public CRRecipeProvider(DataGenerator gen) {
+        super(gen);
     }
 
     @Override
-    protected void buildRecipes(@NotNull Consumer<FinishedRecipe> finished) {
+    protected void buildCraftingRecipes(@NotNull Consumer<FinishedRecipe> finished) {
         // Smelting
         foodSmeltingRecipes("baked_portobello_cap", CRItems.PORTOBELLO.get(), CRItems.BAKED_PORTOBELLO_CAP.get(), 0.35F, finished);
         foodSmeltingRecipes("platinum_bass", CRItems.PLATINUM_BASS.get(), CRItems.COOKED_PLATINUM_BASS.get(), 0.35F, finished);
@@ -294,161 +294,40 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_platinum_bass_head", has(CRItems.PLATINUM_BASS_HEAD.get())),
             "food/platinum_bass_stew", finished, enabled(CRItems.PLATINUM_BASS_STEW));
 
-            // Gummies
-        wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.LIME_GUMMY.get(), 1, 200, 1.0F)
-                .addIngredient(CRItemTags.FRUITS_LIME)
-                .addIngredient(Items.SUGAR)
-                .addIngredient(Items.HONEY_BOTTLE)
-                .addIngredient(Items.KELP)
-                .unlockedBy("has_lime", has(CRItemTags.FRUITS_LIME)),
-            "gummy/lime", finished, enabled(CRItems.LIME), enabled(CRItems.LIME_GUMMY));
-        wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.POMEGRANATE_GUMMY.get(), 1, 200, 1.0F)
-                .addIngredient(CRItemTags.FRUITS_POMEGRANATE)
-                .addIngredient(Items.SUGAR)
-                .addIngredient(Items.HONEY_BOTTLE)
-                .addIngredient(Items.KELP)
-                .unlockedBy("has_pomegranate", has(CRItemTags.FRUITS_POMEGRANATE)),
-            "gummy/pomegranate", finished, enabled(CRItems.POMEGRANATE), enabled(CRItems.POMEGRANATE_GUMMY));
-        wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.MELON_GUMMY.get(), 1, 200, 1.0F)
-                .addIngredient(Items.MELON_SLICE)
-                .addIngredient(Items.SUGAR)
-                .addIngredient(Items.HONEY_BOTTLE)
-                .addIngredient(Items.KELP)
-                .unlockedBy("has_melon", has(Items.MELON_SLICE)),
-            "gummy/melon", finished, enabled(CRItems.MELON_GUMMY));
-        wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.APPLE_GUMMY.get(), 1, 200, 1.0F)
-                .addIngredient(Items.APPLE)
-                .addIngredient(Items.SUGAR)
-                .addIngredient(Items.HONEY_BOTTLE)
-                .addIngredient(Items.KELP)
-                .unlockedBy("has_apple", has(Items.APPLE)),
-            "gummy/apple", finished, enabled(CRItems.APPLE_GUMMY));
-        wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.GLOW_BERRY_GUMMY.get(), 1, 200, 1.0F)
-                .addIngredient(Items.GLOW_BERRIES)
-                .addIngredient(Items.SUGAR)
-                .addIngredient(Items.HONEY_BOTTLE)
-                .addIngredient(Items.KELP)
-                .unlockedBy("has_glow_berries", has(Items.GLOW_BERRIES)),
-            "gummy/glow_berries", finished, enabled(CRItems.GLOW_BERRY_GUMMY));
-        wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.SWEET_BERRY_GUMMY.get(), 1, 200, 1.0F)
-                .addIngredient(Items.SWEET_BERRIES)
-                .addIngredient(Items.SUGAR)
-                .addIngredient(Items.HONEY_BOTTLE)
-                .addIngredient(Items.KELP)
-                .unlockedBy("has_sweet_berries", has(Items.SWEET_BERRIES)),
-            "gummy/sweet_berries", finished, enabled(CRItems.SWEET_BERRY_GUMMY), modLoaded("seasonals"));
-        wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.BEETROOT_GUMMY.get(), 1, 200, 1.0F)
-                .addIngredient(Items.BEETROOT)
-                .addIngredient(Items.SUGAR)
-                .addIngredient(Items.HONEY_BOTTLE)
-                .addIngredient(Items.KELP)
-                .unlockedBy("has_beetroot", has(Items.BEETROOT)),
-            "gummy/beetroot", finished, enabled(CRItems.BEETROOT_GUMMY), modLoaded("seasonals"));
-        wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.BANANA_GUMMY.get(), 1, 200, 1.0F)
-                .addIngredient(CRItemTags.BANANA)
-                .addIngredient(Items.SUGAR)
-                .addIngredient(Items.HONEY_BOTTLE)
-                .addIngredient(Items.KELP)
-                .unlockedBy("has_banana", has(CRItemTags.BANANA)),
-            "gummy/banana", finished, enabled(CRItems.BANANA_GUMMY), not(tagEmpty(CRItemTags.BANANA)), modLoaded("neapolitan"));
-        wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.VANILLA_GUMMY.get(), 1, 200, 1.0F)
-                .addIngredient(CRItemTags.DRIED_VANILLA_PODS)
-                .addIngredient(Items.SUGAR)
-                .addIngredient(Items.HONEY_BOTTLE)
-                .addIngredient(Items.KELP)
-                .unlockedBy("has_vanilla", has(CRItemTags.DRIED_VANILLA_PODS)),
-            "gummy/vanilla", finished, enabled(CRItems.VANILLA_GUMMY), not(tagEmpty(CRItemTags.DRIED_VANILLA_PODS)), modLoaded("neapolitan"));
-        wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.CHOCOLATE_GUMMY.get(), 1, 200, 1.0F)
-                .addIngredient(CRItemTags.CHOCOLATE_BAR)
-                .addIngredient(Items.SUGAR)
-                .addIngredient(Items.HONEY_BOTTLE)
-                .addIngredient(Items.KELP)
-                .unlockedBy("has_chocolate", has(CRItemTags.CHOCOLATE_BAR)),
-            "gummy/chocolate", finished, enabled(CRItems.CHOCOLATE_GUMMY), not(tagEmpty(CRItemTags.CHOCOLATE_BAR)), modLoaded("neapolitan"));
-        wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.STRAWBERRY_GUMMY.get(), 1, 200, 1.0F)
-                .addIngredient(CRItemTags.RED_STRAWBERRIES)
-                .addIngredient(Items.SUGAR)
-                .addIngredient(Items.HONEY_BOTTLE)
-                .addIngredient(Items.KELP)
-                .unlockedBy("has_strawberries", has(CRItemTags.RED_STRAWBERRIES)),
-            "gummy/strawberry", finished, enabled(CRItems.STRAWBERRY_GUMMY), not(tagEmpty(CRItemTags.RED_STRAWBERRIES)), modLoaded("neapolitan"));
-        wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.MINT_GUMMY.get(), 1, 200, 1.0F)
-                .addIngredient(CRItemTags.MINT_LEAVES)
-                .addIngredient(Items.SUGAR)
-                .addIngredient(Items.HONEY_BOTTLE)
-                .addIngredient(Items.KELP)
-                .unlockedBy("has_mint", has(CRItemTags.MINT_LEAVES)),
-            "gummy/mint", finished, enabled(CRItems.MINT_GUMMY), not(tagEmpty(CRItemTags.MINT_LEAVES)), modLoaded("neapolitan"));
-        wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.ADZUKI_GUMMY.get(), 1, 200, 1.0F)
-                .addIngredient(CRItemTags.ROASTED_ADZUKI_BEANS)
-                .addIngredient(Items.SUGAR)
-                .addIngredient(Items.HONEY_BOTTLE)
-                .addIngredient(Items.KELP)
-                .unlockedBy("has_adzuki", has(CRItemTags.ROASTED_ADZUKI_BEANS)),
-            "gummy/adzuki", finished, enabled(CRItems.ADZUKI_GUMMY), not(tagEmpty(CRItemTags.ROASTED_ADZUKI_BEANS)), modLoaded("neapolitan"));
-        wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.GREEN_TEA_GUMMY.get(), 1, 200, 1.0F)
-                .addIngredient(CRItemTags.TEA_LEAVES_GREEN)
-                .addIngredient(Items.SUGAR)
-                .addIngredient(Items.HONEY_BOTTLE)
-                .addIngredient(Items.KELP)
-                .unlockedBy("has_green_tea", has(CRItemTags.TEA_LEAVES_GREEN)),
-            "gummy/green_tea", finished, enabled(CRItems.GREEN_TEA_GUMMY), not(tagEmpty(CRItemTags.TEA_LEAVES_GREEN)), modLoaded("farmersrespite"));
-        wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.YELLOW_TEA_GUMMY.get(), 1, 200, 1.0F)
-                .addIngredient(CRItemTags.TEA_LEAVES_YELLOW)
-                .addIngredient(Items.SUGAR)
-                .addIngredient(Items.HONEY_BOTTLE)
-                .addIngredient(Items.KELP)
-                .unlockedBy("has_yellow_tea", has(CRItemTags.TEA_LEAVES_YELLOW)),
-            "gummy/yellow_tea", finished, enabled(CRItems.YELLOW_TEA_GUMMY), not(tagEmpty(CRItemTags.TEA_LEAVES_YELLOW)), modLoaded("farmersrespite"));
-        wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.BLACK_TEA_GUMMY.get(), 1, 200, 1.0F)
-                .addIngredient(CRItemTags.TEA_LEAVES_BLACK)
-                .addIngredient(Items.SUGAR)
-                .addIngredient(Items.HONEY_BOTTLE)
-                .addIngredient(Items.KELP)
-                .unlockedBy("has_black_tea", has(CRItemTags.TEA_LEAVES_BLACK)),
-            "gummy/black_tea", finished, enabled(CRItems.BLACK_TEA_GUMMY), not(tagEmpty(CRItemTags.TEA_LEAVES_BLACK)), modLoaded("farmersrespite"));
-        wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.COFFEE_GUMMY.get(), 1, 200, 1.0F)
-                .addIngredient(CRItemTags.COFFEE_BEANS)
-                .addIngredient(Items.SUGAR)
-                .addIngredient(Items.HONEY_BOTTLE)
-                .addIngredient(Items.KELP)
-                .unlockedBy("has_coffee_beans", has(CRItemTags.COFFEE_BEANS)),
-            "gummy/coffee", finished, enabled(CRItems.COFFEE_GUMMY), not(tagEmpty(CRItemTags.COFFEE_BEANS)), modLoaded("farmersrespite"));
-
         // Crafting
-        wrap(shapeless(RecipeCategory.BUILDING_BLOCKS, CRItems.LIME, 9)
+        wrap(shapeless(CRItems.LIME, 9)
                 .requires(CRItems.LIME_CRATE.get())
                 .unlockedBy("has_lime_crate", has(CRItems.LIME_CRATE.get())),
             "lime_from_lime_crate", finished, enabled("lime"), enabled("lime_crate"));
-        wrap(shapeless(RecipeCategory.BUILDING_BLOCKS, CRItems.LIME_CRATE)
+        wrap(shapeless(CRItems.LIME_CRATE)
                 .requires(CRItems.LIME.get(), 9)
                 .unlockedBy("has_lime", has(CRItems.LIME.get())),
             "lime_crate", finished, enabled("lime"), enabled("lime_crate"));
-        wrap(shapeless(RecipeCategory.BUILDING_BLOCKS, CRItems.POMEGRANATE, 9)
+        wrap(shapeless(CRItems.POMEGRANATE, 9)
                 .requires(CRItems.POMEGRANATE_CRATE.get())
                 .unlockedBy("has_pomegranate_crate", has(CRItems.POMEGRANATE_CRATE.get())),
             "pomegranate_from_pomegranate_crate", finished, enabled(CRItems.POMEGRANATE), enabled(CRItems.POMEGRANATE_CRATE));
-        wrap(shapeless(RecipeCategory.BUILDING_BLOCKS, CRItems.POMEGRANATE_CRATE)
+        wrap(shapeless(CRItems.POMEGRANATE_CRATE)
                 .requires(CRItems.POMEGRANATE.get(), 9)
                 .unlockedBy("has_pomegranate", has(CRItems.POMEGRANATE.get())),
             "pomegranate_crate", finished, enabled(CRItems.POMEGRANATE), enabled(CRItems.POMEGRANATE_CRATE));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.POMEGRANATE_SEEDS, 8)
+        wrap(shapeless(CRItems.POMEGRANATE_SEEDS, 8)
                 .requires(CRItems.POMEGRANATE.get())
                 .unlockedBy("has_pomegranate", has(CRItems.POMEGRANATE.get())),
             "pomegranate_seeds_from_pomegranate", finished, enabled(CRItems.POMEGRANATE), enabled(CRItems.POMEGRANATE_SEEDS));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.POMEGRANATE_SEEDS, 2)
+        wrap(shapeless(CRItems.POMEGRANATE_SEEDS, 2)
                 .requires(CRItems.POMEGRANATE_SLICE.get())
                 .unlockedBy("has_pomegranate_slice", has(CRItems.POMEGRANATE_SLICE.get())),
             "pomegranate_seeds_from_pomegranate_slice", finished, enabled(CRItems.POMEGRANATE), enabled(CRItems.POMEGRANATE_SLICE), enabled(CRItems.POMEGRANATE_SEEDS));
-        wrap(shapeless(RecipeCategory.MISC, CRItems.LIME_SEEDS, 2)
+        wrap(shapeless(CRItems.LIME_SEEDS, 2)
                 .requires(CRItems.LIME.get())
                 .unlockedBy("has_lime", has(CRItems.LIME.get())),
             "lime_seeds_from_lime", finished, enabled(CRItems.LIME), enabled(CRItems.LIME_SEEDS));
-        wrap(shapeless(RecipeCategory.MISC, CRItems.LIME_SEEDS)
+        wrap(shapeless(CRItems.LIME_SEEDS)
                 .requires(CRItems.LIME_SLICE.get())
                 .unlockedBy("has_lime_slice", has(CRItems.LIME_SLICE.get())),
             "lime_seeds_from_slice", finished, enabled(CRItems.LIME), enabled(CRItems.LIME_SLICE), enabled(CRItems.LIME_SEEDS));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.PORTOBELLO_WRAP)
+        wrap(shapeless(CRItems.PORTOBELLO_WRAP)
                 .requires(ForgeTags.BREAD)
                 .requires(CRItems.BAKED_PORTOBELLO_CAP.get())
                 .requires(ForgeTags.CROPS_ONION)
@@ -456,7 +335,7 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .requires(ForgeTags.VEGETABLES_CARROT)
                 .unlockedBy("has_baked_portobello_cap", has(CRItems.BAKED_PORTOBELLO_CAP.get())),
             "food/portobello_wrap", finished, enabled(CRItems.PORTOBELLO), enabled(CRItems.PORTOBELLO_WRAP), tagEmpty(CRItemTags.TORTILLA));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.PORTOBELLO_WRAP)
+        wrap(shapeless(CRItems.PORTOBELLO_WRAP)
                 .requires(CRItemTags.TORTILLA)
                 .requires(CRItems.BAKED_PORTOBELLO_CAP.get())
                 .requires(ForgeTags.CROPS_ONION)
@@ -464,7 +343,7 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .requires(ForgeTags.VEGETABLES_CARROT)
                 .unlockedBy("has_baked_portobello_cap", has(CRItems.BAKED_PORTOBELLO_CAP.get())),
             "food/portobello_wrap_from_tortilla", finished, enabled(CRItems.PORTOBELLO), enabled(CRItems.PORTOBELLO_WRAP), not(tagEmpty(CRItemTags.TORTILLA)));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.PORTOBELLO_BURGER)
+        wrap(shapeless(CRItems.PORTOBELLO_BURGER)
                 .requires(ForgeTags.BREAD)
                 .requires(CRItems.BAKED_PORTOBELLO_CAP.get())
                 .requires(ForgeTags.CROPS_CABBAGE)
@@ -472,7 +351,7 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .requires(ForgeTags.CROPS_ONION)
                 .unlockedBy("has_baked_portobello_cap", has(CRItems.BAKED_PORTOBELLO_CAP.get())),
             "food/portobello_burger", finished, enabled(CRItems.PORTOBELLO_BURGER), tagEmpty(CRItemTags.BURGER_BUN));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.PORTOBELLO_BURGER)
+        wrap(shapeless(CRItems.PORTOBELLO_BURGER)
                 .requires(CRItemTags.BURGER_BUN)
                 .requires(CRItems.BAKED_PORTOBELLO_CAP.get())
                 .requires(ForgeTags.CROPS_CABBAGE)
@@ -480,61 +359,61 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .requires(ForgeTags.CROPS_ONION)
                 .unlockedBy("has_baked_portobello_cap", has(CRItems.BAKED_PORTOBELLO_CAP.get())),
             "food/portobello_burger_from_bun", finished, enabled(CRItems.PORTOBELLO_BURGER), not(tagEmpty(CRItemTags.BURGER_BUN)));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.LIMEADE)
+        wrap(shapeless(CRItems.LIMEADE)
                 .requires(Ingredient.of(CRItemTags.FRUITS_LIME), 2)
                 .requires(Items.SUGAR)
                 .requires(Items.GLASS_BOTTLE)
                 .unlockedBy("has_lime", has(CRItemTags.FRUITS_LIME)),
             "food/limeade", finished, enabled(CRItems.LIMEADE));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.BERRY_LIMEADE)
+        wrap(shapeless(CRItems.BERRY_LIMEADE)
                 .requires(Ingredient.of(CRItemTags.FRUITS_LIME), 2)
                 .requires(Ingredient.of(ForgeTags.BERRIES), 3)
                 .requires(Items.SUGAR)
                 .requires(Items.GLASS_BOTTLE)
                 .unlockedBy("has_lime", has(CRItemTags.FRUITS_LIME)),
             "food/berry_limeade", finished, enabled(CRItems.BERRY_LIMEADE));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.BERRY_LIMEADE)
+        wrap(shapeless(CRItems.BERRY_LIMEADE)
                 .requires(CRItems.LIMEADE.get(), 1)
                 .requires(Ingredient.of(ForgeTags.BERRIES), 3)
                 .unlockedBy("has_limeade", has(CRItems.LIMEADE.get())),
             "food/berry_limeade_from_limeade", finished, enabled(CRItems.BERRY_LIMEADE));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.PINK_LIMEADE)
+        wrap(shapeless(CRItems.PINK_LIMEADE)
                 .requires(Ingredient.of(CRItemTags.FRUITS_LIME), 2)
                 .requires(Ingredient.of(CRItemTags.FRUITS_POMEGRANATE), 3)
                 .requires(Items.SUGAR)
                 .requires(Items.GLASS_BOTTLE)
                 .unlockedBy("has_lime", has(CRItemTags.FRUITS_LIME)),
             "food/pink_limeade", finished, enabled(CRItems.PINK_LIMEADE));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.PINK_LIMEADE)
+        wrap(shapeless(CRItems.PINK_LIMEADE)
                 .requires(CRItems.LIMEADE.get(), 1)
                 .requires(Ingredient.of(CRItemTags.FRUITS_POMEGRANATE), 3)
                 .unlockedBy("has_limeade", has(CRItems.LIMEADE.get())),
             "food/pink_limeade_from_limeade", finished, enabled(CRItems.PINK_LIMEADE));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.MINT_LIMEADE)
+        wrap(shapeless(CRItems.MINT_LIMEADE)
                 .requires(Ingredient.of(CRItemTags.FRUITS_LIME), 2)
                 .requires(Ingredient.of(CRItemTags.MINT_LEAVES), 2)
                 .requires(Items.SUGAR)
                 .requires(Items.GLASS_BOTTLE)
                 .unlockedBy("has_lime", has(CRItemTags.FRUITS_LIME)),
             "food/mint_limeade", finished, enabled(CRItems.MINT_LIMEADE), modLoaded("neapolitan"), not(tagEmpty(CRItemTags.MINT_LEAVES)));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.MINT_LIMEADE)
+        wrap(shapeless(CRItems.MINT_LIMEADE)
                 .requires(CRItems.LIMEADE.get(), 1)
                 .requires(Ingredient.of(CRItemTags.MINT_LEAVES), 2)
                 .unlockedBy("has_limeade", has(CRItems.LIMEADE.get())),
             "food/mint_limeade_from_limeade", finished, enabled(CRItems.MINT_LIMEADE), modLoaded("neapolitan"), not(tagEmpty(CRItemTags.MINT_LEAVES)));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.POMEGRANATE_SMOOTHIE)
+        wrap(shapeless(CRItems.POMEGRANATE_SMOOTHIE)
                 .requires(Ingredient.of(CRItemTags.BANANA), 1)
                 .requires(Ingredient.of(CRItemTags.FRUITS_POMEGRANATE), 2)
                 .requires(Items.GLASS_BOTTLE)
                 .unlockedBy("has_pomegranate", has(CRItemTags.FRUITS_POMEGRANATE)),
             "food/pomegranate_smoothie", finished, enabled(CRItems.POMEGRANATE_SMOOTHIE), modLoaded("neapolitan"), not(tagEmpty(CRItemTags.BANANA)));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.SALMON_TARTARE)
+        wrap(shapeless(CRItems.SALMON_TARTARE)
                 .requires(Ingredient.of(ForgeTags.RAW_FISHES_SALMON), 3)
                 .requires(CRItemTags.FRUITS_CITRUS)
                 .requires(Items.BOWL)
                 .unlockedBy("has_citrus", has(CRItemTags.FRUITS_CITRUS)),
             "food/salmon_tartare", finished, enabled(CRItems.SALMON_TARTARE));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.COD_CEVICHE)
+        wrap(shapeless(CRItems.COD_CEVICHE)
                 .requires(ForgeTags.RAW_FISHES_COD)
                 .requires(CRItemTags.FRUITS_CITRUS)
                 .requires(ForgeTags.CROPS_CABBAGE)
@@ -543,7 +422,7 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .requires(Items.BOWL)
                 .unlockedBy("has_citrus", has(CRItemTags.FRUITS_CITRUS)),
             "food/cod_ceviche", finished, enabled(CRItems.COD_CEVICHE));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.DELUXE_SALAD)
+        wrap(shapeless(CRItems.DELUXE_SALAD)
                 .requires(Items.APPLE)
                 .requires(ForgeTags.SALAD_INGREDIENTS_CABBAGE)
                 .requires(Items.MELON_SLICE)
@@ -554,7 +433,7 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .requires(Items.BOWL)
                 .unlockedBy("has_lime", has(CRItemTags.FRUITS_LIME)),
             "food/deluxe_salad", finished, enabled(CRItems.DELUXE_SALAD));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.POMEGRANATE_BEAN_SALAD)
+        wrap(shapeless(CRItems.POMEGRANATE_BEAN_SALAD)
                 .requires(CRItemTags.FRUITS_POMEGRANATE)
                 .requires(CRItemTags.ROASTED_ADZUKI_BEANS)
                 .requires(ForgeTags.CROPS_TOMATO)
@@ -562,25 +441,25 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .requires(Items.BOWL)
                 .unlockedBy("has_pomegranate", has(CRItemTags.FRUITS_POMEGRANATE)),
             "food/pomegranate_bean_salad", finished, enabled(CRItems.POMEGRANATE_BEAN_SALAD), not(tagEmpty(CRItemTags.ROASTED_ADZUKI_BEANS)), modLoaded("neapolitan"));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.CHOCOLATE_ARILS)
+        wrap(shapeless(CRItems.CHOCOLATE_ARILS)
                 .requires(CRItemTags.SEEDS_POMEGRANATE)
                 .requires(CRItemTags.CHOCOLATE_BAR)
                 .unlockedBy("has_pomegranate_seeds", has(CRItemTags.SEEDS_POMEGRANATE)),
             "food/chocolate_arils", finished, enabled(CRItems.CHOCOLATE_ARILS), not(tagEmpty(CRItemTags.CHOCOLATE_BAR)), modLoaded("neapolitan"), not(modLoaded("create")));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.STRAWBERRY_JAM_BUN)
+        wrap(shapeless(CRItems.STRAWBERRY_JAM_BUN)
                 .requires(ForgeTags.DOUGH)
                 .requires(ForgeTags.MILK)
                 .requires(CRItemTags.RED_STRAWBERRIES)
                 .requires(CRItemTags.LIME_OR_SLICE)
                 .unlockedBy("has_strawberries", has(CRItemTags.RED_STRAWBERRIES)),
             "food/strawberry_jam_bun", finished, enabled(CRItems.STRAWBERRY_JAM_BUN), not(tagEmpty(CRItemTags.RED_STRAWBERRIES)), modLoaded("neapolitan"));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.BIG_RICE_BALL)
+        wrap(shapeless(CRItems.BIG_RICE_BALL)
                 .requires(Items.DRIED_KELP)
                 .requires(ModItems.COOKED_RICE.get(), 3)
                 .requires(CRItemTags.CRAB_MEAT)
                 .unlockedBy("has_cooked_crab", has(CRItemTags.CRAB_MEAT)),
             "food/big_rice_ball", finished, enabled(CRItems.BIG_RICE_BALL));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.LAND_AND_SEA_BURGER)
+        wrap(shapeless(CRItems.LAND_AND_SEA_BURGER)
                 .requires(ForgeTags.BREAD)
                 .requires(CRItems.BAKED_PORTOBELLO_CAP.get())
                 .requires(CRItems.CHIEFTAIN_CLAW.get())
@@ -589,7 +468,7 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .requires(ForgeTags.CROPS_ONION)
                 .unlockedBy("has_chieftain_claw", has(CRItems.CHIEFTAIN_CLAW.get())),
             "food/land_and_sea_burger", finished, enabled(CRItems.LAND_AND_SEA_BURGER), tagEmpty(CRItemTags.BURGER_BUN));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.LAND_AND_SEA_BURGER)
+        wrap(shapeless(CRItems.LAND_AND_SEA_BURGER)
                 .requires(CRItemTags.BURGER_BUN)
                 .requires(CRItems.BAKED_PORTOBELLO_CAP.get())
                 .requires(CRItems.CHIEFTAIN_CLAW.get())
@@ -598,23 +477,23 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .requires(ForgeTags.CROPS_ONION)
                 .unlockedBy("has_chieftain_claw", has(CRItems.CHIEFTAIN_CLAW.get())),
             "food/land_and_sea_burger_from_bun", finished, enabled(CRItems.LAND_AND_SEA_BURGER), not(tagEmpty(CRItemTags.BURGER_BUN)));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.CLAM_ROLL)
+        wrap(shapeless(CRItems.CLAM_ROLL)
                 .requires(Ingredient.of(CRItemTags.RAW_CLAM), 2)
                 .requires(ModItems.COOKED_RICE.get())
                 .unlockedBy("has_raw_claw", has(CRItemTags.RAW_CLAM)),
             "food/clam_roll", finished, enabled(CRItems.CLAM_ROLL));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.UNI_ROLL)
+        wrap(shapeless(CRItems.UNI_ROLL)
                 .requires(CRItems.UNI.get())
                 .requires(ModItems.COOKED_RICE.get())
                 .requires(Items.DRIED_KELP)
                 .unlockedBy("has_uni", has(CRItems.UNI.get())),
             "food/uni_roll", finished, enabled(CRItems.UNI_ROLL));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.PRAWN_ROLL)
+        wrap(shapeless(CRItems.PRAWN_ROLL)
                 .requires(Ingredient.of(CRItemTags.RAW_PRAWN), 2)
                 .requires(ModItems.COOKED_RICE.get())
                 .unlockedBy("has_raw_prawn", has(CRItemTags.RAW_PRAWN)),
             "food/prawn_roll", finished, enabled(CRItems.PRAWN_ROLL));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.PRAWN_PO_BOY)
+        wrap(shapeless(CRItems.PRAWN_PO_BOY)
                 .requires(ForgeTags.BREAD)
                 .requires(CRItemTags.COOKED_PRAWN)
                 .requires(ForgeTags.EGGS)
@@ -623,7 +502,7 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .requires(ForgeTags.CROPS_ONION)
                 .unlockedBy("has_cooked_prawn", has(CRItemTags.COOKED_PRAWN)),
             "food/prawn_po_boy", finished, enabled(CRItems.PRAWN_PO_BOY));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.PRAWN_CEVICHE)
+        wrap(shapeless(CRItems.PRAWN_CEVICHE)
                 .requires(CRItemTags.COOKED_PRAWN)
                 .requires(CRItemTags.FRUITS_CITRUS)
                 .requires(ForgeTags.CROPS_CABBAGE)
@@ -632,7 +511,7 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .requires(Items.BOWL)
                 .unlockedBy("has_cooked_prawn", has(CRItemTags.COOKED_PRAWN)),
             "food/prawn_ceviche", finished, enabled(CRItems.PRAWN_CEVICHE));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.FISH_MIX)
+        wrap(shapeless(CRItems.FISH_MIX)
                 .requires(ModItems.SALMON_SLICE.get())
                 .requires(ModItems.COD_SLICE.get())
                 .requires(CRItems.PLATINUM_BASS_SLICE.get())
@@ -642,7 +521,7 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .requires(Items.BOWL)
                 .unlockedBy("has_slice", has(CRItems.PLATINUM_BASS_SLICE.get())),
             "food/fish_mix", finished, enabled(CRItems.FISH_MIX));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.SEA_WRAP)
+        wrap(shapeless(CRItems.SEA_WRAP)
                 .requires(ForgeTags.BREAD)
                 .requires(CRItems.CHIEFTAIN_CLAW.get())
                 .requires(CRItemTags.RAW_CLAM)
@@ -653,7 +532,7 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .requires(ModItems.COOKED_RICE.get())
                 .unlockedBy("has_claw", has(CRItems.CHIEFTAIN_CLAW.get())),
             "food/sea_wrap", finished, enabled(CRItems.SEA_WRAP), tagEmpty(CRItemTags.TORTILLA));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.SEA_WRAP)
+        wrap(shapeless(CRItems.SEA_WRAP)
                 .requires(CRItemTags.TORTILLA)
                 .requires(CRItems.CHIEFTAIN_CLAW.get())
                 .requires(CRItemTags.RAW_CLAM)
@@ -666,7 +545,7 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
             "food/sea_wrap_from_tortilla", finished, enabled(CRItems.SEA_WRAP), not(tagEmpty(CRItemTags.TORTILLA)));
 
         // Shaped Crafting
-        wrap(shaped(RecipeCategory.FOOD, CRItems.PORTOBELLO_QUICHE)
+        wrap(shaped(CRItems.PORTOBELLO_QUICHE)
                 .pattern("eme")
                 .pattern("ooo")
                 .pattern("pcp")
@@ -677,11 +556,11 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('c', ModItems.PIE_CRUST.get())
                 .unlockedBy("has_baked_portobello_cap", has(CRItems.BAKED_PORTOBELLO_CAP.get())),
             "food/portobello_quiche", finished, enabled(CRItems.PORTOBELLO_QUICHE));
-        wrap(ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, CRItems.PORTOBELLO_QUICHE.get(), 1)
+        wrap(ShapelessRecipeBuilder.shapeless(CRItems.PORTOBELLO_QUICHE.get(), 1)
                 .requires(CRItems.PORTOBELLO_QUICHE_SLICE.get(), 4)
                 .unlockedBy("has_portobello_quiche_slice", has(CRItems.PORTOBELLO_QUICHE_SLICE.get())),
             "food/portobello_quiche_from_slices", finished, enabled(CRItems.PORTOBELLO_QUICHE), enabled(CRItems.PORTOBELLO_QUICHE_SLICE));
-        wrap(shaped(RecipeCategory.FOOD, CRItems.LIME_PIE)
+        wrap(shaped(CRItems.LIME_PIE)
                 .pattern("ese")
                 .pattern("lll")
                 .pattern("mcm")
@@ -692,11 +571,11 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('c', ModItems.PIE_CRUST.get())
                 .unlockedBy("has_lime", has(CRItemTags.FRUITS_LIME)),
             "food/lime_pie", finished, enabled("lime_pie"));
-        wrap(ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, CRItems.LIME_PIE.get(), 1)
+        wrap(ShapelessRecipeBuilder.shapeless(CRItems.LIME_PIE.get(), 1)
                 .requires(CRItems.LIME_PIE_SLICE.get(), 4)
                 .unlockedBy("has_lime_pie_slice", has(CRItems.LIME_PIE_SLICE.get())),
             "food/lime_pie_from_slices", finished, enabled(CRItems.LIME_PIE), enabled(CRItems.LIME_PIE_SLICE));
-        wrap(shaped(RecipeCategory.FOOD, CRItems.LIME_POPSICLE)
+        wrap(shaped(CRItems.LIME_POPSICLE)
                 .pattern(" ll")
                 .pattern("ill")
                 .pattern("si ")
@@ -705,13 +584,13 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('s', Tags.Items.RODS_WOODEN)
                 .unlockedBy("has_lime", has(CRItemTags.FRUITS_LIME)),
             "food/lime_popsicle", finished, enabled(CRItems.LIME), enabled(CRItems.LIME_POPSICLE));
-        wrap(shaped(RecipeCategory.FOOD, CRItems.LIME_COOKIE, 8)
+        wrap(shaped(CRItems.LIME_COOKIE, 8)
                 .pattern("wlw")
                 .define('l', CRItemTags.FRUITS_LIME)
                 .define('w', Tags.Items.CROPS_WHEAT)
                 .unlockedBy("has_lime", has(CRItemTags.FRUITS_LIME)),
             "food/lime_cookie", finished, enabled(CRItems.LIME), enabled(CRItems.LIME_COOKIE));
-        wrap(shaped(RecipeCategory.FOOD, CRItems.LIME_CAKE)
+        wrap(shaped(CRItems.LIME_CAKE)
                 .pattern("mlm")
                 .pattern("ses")
                 .pattern("wlw")
@@ -722,11 +601,11 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('w', ForgeTags.GRAIN_WHEAT)
                 .unlockedBy("has_lime", has(CRItemTags.FRUITS_LIME)),
             "food/lime_cake", finished, enabled("lime_cake"));
-        wrap(ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, CRItems.LIME_CAKE.get(), 1)
+        wrap(ShapelessRecipeBuilder.shapeless(CRItems.LIME_CAKE.get(), 1)
                 .requires(CRItems.LIME_CAKE_SLICE.get(), 7)
                 .unlockedBy("has_lime_cake_slice", has(CRItems.LIME_CAKE_SLICE.get())),
             "food/lime_cake_from_slices", finished, enabled(CRItems.LIME_CAKE), enabled(CRItems.LIME_CAKE_SLICE));
-        wrap(shaped(RecipeCategory.FOOD, CRItems.POMEGRANATE_CAKE)
+        wrap(shaped(CRItems.POMEGRANATE_CAKE)
                 .pattern("mpm")
                 .pattern("ses")
                 .pattern("wpw")
@@ -737,159 +616,159 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('w', ForgeTags.GRAIN_WHEAT)
                 .unlockedBy("has_pomegranate", has(CRItemTags.FRUITS_POMEGRANATE)),
             "food/pomegranate_cake", finished, enabled("pomegranate_cake"));
-        wrap(ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, CRItems.POMEGRANATE_CAKE.get(), 1)
+        wrap(ShapelessRecipeBuilder.shapeless(CRItems.POMEGRANATE_CAKE.get(), 1)
                 .requires(CRItems.POMEGRANATE_CAKE_SLICE.get(), 7)
                 .unlockedBy("has_pomegranate_cake_slice", has(CRItems.POMEGRANATE_CAKE_SLICE.get())),
             "food/pomegranate_cake_from_slices", finished, enabled(CRItems.POMEGRANATE_CAKE), enabled(CRItems.POMEGRANATE_CAKE_SLICE));
-        wrap(ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CRItems.URCHIN_TEST_BLOCK.get())
+        wrap(ShapedRecipeBuilder.shaped(CRItems.URCHIN_TEST_BLOCK.get())
                 .pattern("xxx")
                 .pattern("xxx")
                 .pattern("xxx")
                 .define('x', CRItems.URCHIN_TEST.get())
                 .unlockedBy("has_urchin_test", has(CRItems.URCHIN_TEST.get())),
             "urchin_test_block", finished, enabled("urchin_test"));
-        wrap(ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, CRItems.URCHIN_TEST.get(), 9)
+        wrap(ShapelessRecipeBuilder.shapeless(CRItems.URCHIN_TEST.get(), 9)
             .requires(CRItems.URCHIN_TEST_BLOCK.get(), 1)
             .unlockedBy("has_urchin_test_block", has(CRItems.URCHIN_TEST_BLOCK.get())),
             "unpack_urchin_test_block", finished, enabled("urchin_test"));
-        wrap(ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CRItems.URCHIN_TEST_BRICKS.get(), 4)
+        wrap(ShapedRecipeBuilder.shaped(CRItems.URCHIN_TEST_BRICKS.get(), 4)
                 .pattern("xx")
                 .pattern("xx")
                 .define('x', CRItems.URCHIN_TEST_BLOCK.get())
                 .unlockedBy("has_urchin_test_block", has(CRItems.URCHIN_TEST_BLOCK.get())),
             "urchin_test_bricks", finished, enabled("urchin_test"));
-        wrap(ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CRItems.URCHIN_TEST_BRICK_SLAB.get(), 6)
+        wrap(ShapedRecipeBuilder.shaped(CRItems.URCHIN_TEST_BRICK_SLAB.get(), 6)
                 .pattern("xxx")
                 .define('x', CRItems.URCHIN_TEST_BRICKS.get())
                 .unlockedBy("has_urchin_test_bricks", has(CRItems.URCHIN_TEST_BRICKS.get())),
             "urchin_test_brick_slab", finished, enabled("urchin_test"));
-        wrap(ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CRItems.URCHIN_TEST_BRICK_STAIRS.get(), 4)
+        wrap(ShapedRecipeBuilder.shaped(CRItems.URCHIN_TEST_BRICK_STAIRS.get(), 4)
                 .pattern("x  ")
                 .pattern("xx ")
                 .pattern("xxx")
                 .define('x', CRItems.URCHIN_TEST_BRICKS.get())
                 .unlockedBy("has_urchin_test_bricks", has(CRItems.URCHIN_TEST_BRICKS.get())),
             "urchin_test_brick_stairs", finished, enabled("urchin_test"));
-        wrap(ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CRItems.URCHIN_TEST_BRICK_WALL.get(), 6)
+        wrap(ShapedRecipeBuilder.shaped(CRItems.URCHIN_TEST_BRICK_WALL.get(), 6)
                 .pattern("xxx")
                 .pattern("xxx")
                 .define('x', CRItems.URCHIN_TEST_BRICKS.get())
                 .unlockedBy("has_urchin_test_bricks", has(CRItems.URCHIN_TEST_BRICKS.get())),
             "urchin_test_brick_wall", finished, enabled("urchin_test"));
-        wrap(ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CRItems.URCHIN_TEST_TILES.get(), 4)
+        wrap(ShapedRecipeBuilder.shaped(CRItems.URCHIN_TEST_TILES.get(), 4)
                 .pattern("xx")
                 .pattern("xx")
                 .define('x', CRItems.URCHIN_TEST_BRICKS.get())
                 .unlockedBy("has_urchin_test_bricks", has(CRItems.URCHIN_TEST_BRICKS.get())),
             "urchin_test_tiles", finished, enabled("urchin_test"));
-        wrap(ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CRItems.URCHIN_TEST_TILE_SLAB.get(), 6)
+        wrap(ShapedRecipeBuilder.shaped(CRItems.URCHIN_TEST_TILE_SLAB.get(), 6)
                 .pattern("xxx")
                 .define('x', CRItems.URCHIN_TEST_TILES.get())
                 .unlockedBy("has_urchin_test_tiles", has(CRItems.URCHIN_TEST_TILES.get())),
             "urchin_test_tile_slab", finished, enabled("urchin_test"));
-        wrap(ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CRItems.URCHIN_TEST_TILE_STAIRS.get(), 4)
+        wrap(ShapedRecipeBuilder.shaped(CRItems.URCHIN_TEST_TILE_STAIRS.get(), 4)
                 .pattern("x  ")
                 .pattern("xx ")
                 .pattern("xxx")
                 .define('x', CRItems.URCHIN_TEST_TILES.get())
                 .unlockedBy("has_urchin_test_tiles", has(CRItems.URCHIN_TEST_TILES.get())),
             "urchin_test_tile_stairs", finished, enabled("urchin_test"));
-        wrap(ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CRItems.URCHIN_TEST_TILE_WALL.get(), 6)
+        wrap(ShapedRecipeBuilder.shaped(CRItems.URCHIN_TEST_TILE_WALL.get(), 6)
                 .pattern("xxx")
                 .pattern("xxx")
                 .define('x', CRItems.URCHIN_TEST_TILES.get())
                 .unlockedBy("has_urchin_test_tiles", has(CRItems.URCHIN_TEST_TILES.get())),
             "urchin_test_tile_wall", finished, enabled("urchin_test"));
-        wrap(ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CRItems.CHISELED_URCHIN_TEST_BRICKS.get())
+        wrap(ShapedRecipeBuilder.shaped(CRItems.CHISELED_URCHIN_TEST_BRICKS.get())
                 .pattern("x")
                 .pattern("x")
                 .define('x', CRItems.URCHIN_TEST_BRICK_SLAB.get())
                 .unlockedBy("has_urchin_test_brick_slab", has(CRItems.URCHIN_TEST_BRICK_SLAB.get())),
             "chiseled_urchin_test_bricks", finished, enabled("urchin_test"));
-        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BLOCK.get()), RecipeCategory.DECORATIONS,
+        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BLOCK.get()), 
                 CRItems.URCHIN_TEST_BRICKS.get())
                 .unlockedBy("has_urchin_test_block", has(CRItems.URCHIN_TEST_BLOCK.get())),
             CollectorsReap.MODID, "stonecutting/urchin_test_bricks", finished, enabled("urchin_test"));
-        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BLOCK.get()), RecipeCategory.DECORATIONS,
+        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BLOCK.get()), 
                 CRItems.URCHIN_TEST_TILES.get())
                 .unlockedBy("has_urchin_test_block", has(CRItems.URCHIN_TEST_BLOCK.get())),
             CollectorsReap.MODID, "stonecutting/urchin_test_tiles", finished, enabled("urchin_test"));
-        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BRICKS.get()), RecipeCategory.DECORATIONS,
+        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BRICKS.get()), 
                 CRItems.URCHIN_TEST_TILES.get())
                 .unlockedBy("has_urchin_test_bricks", has(CRItems.URCHIN_TEST_BRICKS.get())),
             CollectorsReap.MODID, "stonecutting/urchin_test_tiles_from_bricks", finished, enabled("urchin_test"));
-        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BRICKS.get()), RecipeCategory.DECORATIONS,
+        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BRICKS.get()), 
                     CRItems.CHISELED_URCHIN_TEST_BRICKS.get())
                 .unlockedBy("has_urchin_test_bricks", has(CRItems.CHISELED_URCHIN_TEST_BRICKS.get())),
             CollectorsReap.MODID, "stonecutting/chiseled_urchin_test_bricks", finished, enabled("urchin_test"));
-        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BLOCK.get()), RecipeCategory.DECORATIONS,
+        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BLOCK.get()), 
                     CRItems.CHISELED_URCHIN_TEST_BRICKS.get())
                 .unlockedBy("has_urchin_test_block", has(CRItems.URCHIN_TEST_BLOCK.get())),
             CollectorsReap.MODID, "stonecutting/chiseled_urchin_test_bricks_from_block", finished, enabled("urchin_test"));
-        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BRICKS.get()), RecipeCategory.DECORATIONS,
+        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BRICKS.get()), 
                     CRItems.URCHIN_TEST_BRICK_SLAB.get(), 2)
                 .unlockedBy("has_urchin_test_bricks", has(CRItems.URCHIN_TEST_BRICKS.get())),
             CollectorsReap.MODID, "stonecutting/urchin_test_brick_slab", finished, enabled("urchin_test"));
-        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BLOCK.get()), RecipeCategory.DECORATIONS,
+        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BLOCK.get()), 
                     CRItems.URCHIN_TEST_BRICK_SLAB.get(), 2)
                 .unlockedBy("has_urchin_test_block", has(CRItems.URCHIN_TEST_BLOCK.get())),
             CollectorsReap.MODID, "stonecutting/urchin_test_brick_slab_from_block", finished, enabled("urchin_test"));
-        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BRICKS.get()), RecipeCategory.DECORATIONS,
+        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BRICKS.get()), 
                     CRItems.URCHIN_TEST_BRICK_STAIRS.get(), 1)
                 .unlockedBy("has_urchin_test_bricks", has(CRItems.URCHIN_TEST_BRICKS.get())),
             CollectorsReap.MODID, "stonecutting/urchin_test_brick_stairs", finished, enabled("urchin_test"));
-        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BLOCK.get()), RecipeCategory.DECORATIONS,
+        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BLOCK.get()), 
                     CRItems.URCHIN_TEST_BRICK_STAIRS.get(), 1)
                 .unlockedBy("has_urchin_test_block", has(CRItems.URCHIN_TEST_BLOCK.get())),
             CollectorsReap.MODID, "stonecutting/urchin_test_brick_stairs_from_block", finished, enabled("urchin_test"));
-        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BRICKS.get()), RecipeCategory.DECORATIONS,
+        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BRICKS.get()), 
                     CRItems.URCHIN_TEST_BRICK_WALL.get(), 1)
                 .unlockedBy("has_urchin_test_bricks", has(CRItems.URCHIN_TEST_BRICKS.get())),
             CollectorsReap.MODID, "stonecutting/urchin_test_brick_wall", finished, enabled("urchin_test"));
-        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BLOCK.get()), RecipeCategory.DECORATIONS,
+        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BLOCK.get()), 
                     CRItems.URCHIN_TEST_BRICK_WALL.get(), 1)
                 .unlockedBy("has_urchin_test_block", has(CRItems.URCHIN_TEST_BLOCK.get())),
             CollectorsReap.MODID, "stonecutting/urchin_test_brick_wall_from_block", finished, enabled("urchin_test"));
 
-        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_TILES.get()), RecipeCategory.DECORATIONS,
+        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_TILES.get()), 
                     CRItems.URCHIN_TEST_TILE_SLAB.get(), 2)
                 .unlockedBy("has_urchin_test_tiles", has(CRItems.URCHIN_TEST_TILES.get())),
             CollectorsReap.MODID, "stonecutting/urchin_test_tile_slab", finished, enabled("urchin_test"));
-        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BRICKS.get()), RecipeCategory.DECORATIONS,
+        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BRICKS.get()), 
                     CRItems.URCHIN_TEST_TILE_SLAB.get(), 2)
                 .unlockedBy("has_urchin_test_bricks", has(CRItems.URCHIN_TEST_BRICKS.get())),
             CollectorsReap.MODID, "stonecutting/urchin_test_tile_slab_from_bricks", finished, enabled("urchin_test"));
-        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BLOCK.get()), RecipeCategory.DECORATIONS,
+        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BLOCK.get()), 
                     CRItems.URCHIN_TEST_TILE_SLAB.get(), 2)
                 .unlockedBy("has_urchin_test_block", has(CRItems.URCHIN_TEST_BLOCK.get())),
             CollectorsReap.MODID, "stonecutting/urchin_test_tile_slab_from_block", finished, enabled("urchin_test"));
-        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_TILES.get()), RecipeCategory.DECORATIONS,
+        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_TILES.get()), 
                     CRItems.URCHIN_TEST_TILE_STAIRS.get(), 1)
                 .unlockedBy("has_urchin_test_tiles", has(CRItems.URCHIN_TEST_TILES.get())),
             CollectorsReap.MODID, "stonecutting/urchin_test_tile_stairs", finished, enabled("urchin_test"));
-        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BRICKS.get()), RecipeCategory.DECORATIONS,
+        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BRICKS.get()), 
                     CRItems.URCHIN_TEST_TILE_STAIRS.get(), 1)
                 .unlockedBy("has_urchin_test_bricks", has(CRItems.URCHIN_TEST_BRICKS.get())),
             CollectorsReap.MODID, "stonecutting/urchin_test_tile_stairs_from_bricks", finished, enabled("urchin_test"));
-        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BLOCK.get()), RecipeCategory.DECORATIONS,
+        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BLOCK.get()), 
                     CRItems.URCHIN_TEST_TILE_STAIRS.get(), 1)
                 .unlockedBy("has_urchin_test_block", has(CRItems.URCHIN_TEST_BLOCK.get())),
             CollectorsReap.MODID, "stonecutting/urchin_test_tile_stairs_from_block", finished, enabled("urchin_test"));
-        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_TILES.get()), RecipeCategory.DECORATIONS,
+        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_TILES.get()), 
                     CRItems.URCHIN_TEST_TILE_WALL.get(), 1)
                 .unlockedBy("has_urchin_test_tiles", has(CRItems.URCHIN_TEST_TILES.get())),
             CollectorsReap.MODID, "stonecutting/urchin_test_tile_wall", finished, enabled("urchin_test"));
-        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BRICKS.get()), RecipeCategory.DECORATIONS,
+        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BRICKS.get()), 
                     CRItems.URCHIN_TEST_TILE_WALL.get(), 1)
                 .unlockedBy("has_urchin_test_bricks", has(CRItems.URCHIN_TEST_BRICKS.get())),
             CollectorsReap.MODID, "stonecutting/urchin_test_tile_wall_from_bricks", finished, enabled("urchin_test"));
-        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BLOCK.get()), RecipeCategory.DECORATIONS,
+        wrap(SingleItemRecipeBuilder.stonecutting(Ingredient.of(CRItems.URCHIN_TEST_BLOCK.get()), 
                     CRItems.URCHIN_TEST_TILE_WALL.get(), 1)
                 .unlockedBy("has_urchin_test_block", has(CRItems.URCHIN_TEST_BLOCK.get())),
             CollectorsReap.MODID, "stonecutting/urchin_test_tile_wall_from_block", finished, enabled("urchin_test"));
 
         // Neapolitan Compat
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.LIME_ICE_CREAM)
+        wrap(shapeless(CRItems.LIME_ICE_CREAM)
                 .requires(Items.BOWL)
                 .requires(CRItemTags.FRUITS_LIME)
                 .requires(ForgeTags.MILK)
@@ -897,13 +776,13 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .requires(Items.SUGAR)
                 .unlockedBy("has_lime", has(CRItemTags.FRUITS_LIME)),
             "food/lime_ice_cream", finished, enabled(CRItems.LIME_ICE_CREAM), not(tagEmpty(CRItemTags.ICE_CUBES)), modLoaded("neapolitan"));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.LIME_MILKSHAKE, 3)
+        wrap(shapeless(CRItems.LIME_MILKSHAKE, 3)
                 .requires(Items.GLASS_BOTTLE, 3)
                 .requires(CRItems.LIME_ICE_CREAM.get())
                 .requires(ForgeTags.MILK)
                 .unlockedBy("has_lime_ice_cream", has(CRItems.LIME_ICE_CREAM.get())),
             "food/lime_milkshake", finished, enabled(CRItems.LIME_ICE_CREAM), enabled(CRItems.LIME_MILKSHAKE), modLoaded("neapolitan"));
-        wrap(shaped(RecipeCategory.BUILDING_BLOCKS, CRItems.LIME_ICE_CREAM_BLOCK, 8)
+        wrap(shaped(CRItems.LIME_ICE_CREAM_BLOCK, 8)
                 .pattern("sss")
                 .pattern("sis")
                 .pattern("sss")
@@ -911,7 +790,7 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('i', CRItems.LIME_ICE_CREAM.get())
                 .unlockedBy("has_lime_ice_cream", has(CRItems.LIME_ICE_CREAM.get())),
             "lime_ice_cream_block", finished, enabled(CRItems.LIME_ICE_CREAM_BLOCK), enabled(CRItems.LIME_ICE_CREAM), modLoaded("neapolitan"));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.POMEGRANATE_ICE_CREAM)
+        wrap(shapeless(CRItems.POMEGRANATE_ICE_CREAM)
                 .requires(Items.BOWL)
                 .requires(CRItemTags.FRUITS_POMEGRANATE)
                 .requires(ForgeTags.MILK)
@@ -919,13 +798,13 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .requires(Items.SUGAR)
                 .unlockedBy("has_pomegranate", has(CRItemTags.FRUITS_POMEGRANATE)),
             "food/pomegranate_ice_cream", finished, enabled(CRItems.POMEGRANATE_ICE_CREAM), not(tagEmpty(CRItemTags.ICE_CUBES)), modLoaded("neapolitan"));
-        wrap(shapeless(RecipeCategory.FOOD, CRItems.POMEGRANATE_MILKSHAKE, 3)
+        wrap(shapeless(CRItems.POMEGRANATE_MILKSHAKE, 3)
                 .requires(Items.GLASS_BOTTLE, 3)
                 .requires(CRItems.POMEGRANATE_ICE_CREAM.get())
                 .requires(ForgeTags.MILK)
                 .unlockedBy("has_pomegranate_ice_cream", has(CRItems.POMEGRANATE_ICE_CREAM.get())),
             "food/pomegranate_milkshake", finished, enabled(CRItems.POMEGRANATE_ICE_CREAM), enabled(CRItems.POMEGRANATE_MILKSHAKE), modLoaded("neapolitan"));
-        wrap(shaped(RecipeCategory.BUILDING_BLOCKS, CRItems.POMEGRANATE_ICE_CREAM_BLOCK, 8)
+        wrap(shaped(CRItems.POMEGRANATE_ICE_CREAM_BLOCK, 8)
                 .pattern("sss")
                 .pattern("sis")
                 .pattern("sss")
@@ -963,23 +842,6 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
 
     private void wrap(SingleItemRecipeBuilder builder, String modid, String name, Consumer<FinishedRecipe> consumer, ICondition... conds) {
         ResourceLocation loc = Util.rl(modid, name);
-        ConditionalRecipe.Builder cond;
-        if (conds.length > 1) {
-            cond = ConditionalRecipe.builder().addCondition(and(conds));
-        } else if (conds.length == 1) {
-            cond = ConditionalRecipe.builder().addCondition(conds[0]);
-        } else {
-            cond = ConditionalRecipe.builder();
-        }
-        FinishedRecipe[] recipe = new FinishedRecipe[1];
-        builder.save(f -> recipe[0] = f, loc);
-        cond.addRecipe(recipe[0])
-            .generateAdvancement()
-            .build(consumer, loc);
-    }
-
-    private void wrap(SmithingTransformRecipeBuilder builder, String name, Consumer<FinishedRecipe> consumer, ICondition... conds) {
-        ResourceLocation loc = Util.cr(name);
         ConditionalRecipe.Builder cond;
         if (conds.length > 1) {
             cond = ConditionalRecipe.builder().addCondition(and(conds));
@@ -1039,9 +901,9 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
 
     private static void foodSmeltingRecipes(String name, ItemLike ingredient, ItemLike result, float experience, Consumer<FinishedRecipe> consumer) {
         String namePrefix = Util.cr(name).toString();
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ingredient), RecipeCategory.FOOD, result, experience, 200).unlockedBy(name, has(ingredient)).save(consumer);
-        SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(ingredient), RecipeCategory.FOOD, result, experience, 600).unlockedBy(name, has(ingredient)).save(consumer, namePrefix + "_from_campfire_cooking");
-        SimpleCookingRecipeBuilder.smoking(Ingredient.of(ingredient), RecipeCategory.FOOD, result, experience, 100).unlockedBy(name, has(ingredient)).save(consumer, namePrefix + "_from_smoking");
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ingredient), result, experience, 200).unlockedBy(name, has(ingredient)).save(consumer);
+        SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(ingredient), result, experience, 600).unlockedBy(name, has(ingredient)).save(consumer, namePrefix + "_from_campfire_cooking");
+        SimpleCookingRecipeBuilder.smoking(Ingredient.of(ingredient), result, experience, 100).unlockedBy(name, has(ingredient)).save(consumer, namePrefix + "_from_smoking");
     }
 
     private EnabledCondition enabled(RegistryObject<Item> item) {
@@ -1052,17 +914,17 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
         return new EnabledCondition(name);
     }
     
-    private ShapelessRecipeBuilder shapeless(RecipeCategory category, RegistryObject<Item> returns, int... count) {
+    private ShapelessRecipeBuilder shapeless(RegistryObject<Item> returns, int... count) {
         if (count.length > 0 && count[0] > 1) {
-            return ShapelessRecipeBuilder.shapeless(category, returns.get(), count[0]);
+            return ShapelessRecipeBuilder.shapeless(returns.get(), count[0]);
         }
-        return ShapelessRecipeBuilder.shapeless(category, returns.get());
+        return ShapelessRecipeBuilder.shapeless(returns.get());
     }
 
-    private ShapedRecipeBuilder shaped(RecipeCategory category, RegistryObject<Item> returns, int... count) {
+    private ShapedRecipeBuilder shaped(RegistryObject<Item> returns, int... count) {
         if (count.length > 0 && count[0] > 1) {
-            return ShapedRecipeBuilder.shaped(category, returns.get(), count[0]);
+            return ShapedRecipeBuilder.shaped(returns.get(), count[0]);
         }
-        return ShapedRecipeBuilder.shaped(category, returns.get());
+        return ShapedRecipeBuilder.shaped(returns.get());
     }
 }

@@ -107,7 +107,7 @@ public class Clam extends WaterGroundCreature {
 
 	@Override
 	public void aiStep() {
-		if (this.isInWater() && !this.onGround()) {
+		if (this.isInWater() && !this.isOnGround()) {
 			this.sinkInFluid(ForgeMod.WATER_TYPE.get());
 		}
 		super.aiStep();
@@ -116,7 +116,7 @@ public class Clam extends WaterGroundCreature {
 	@Override
 	public void tick() {
 		super.tick();
-		if (this.level().isClientSide()) {
+		if (this.getLevel().isClientSide()) {
 			if (this.isInWater()) {
 				this.openAnimationState.startIfStopped(this.tickCount);
 			} else {

@@ -31,8 +31,7 @@
           "recipes": [
             "collectorsreap:food/glazed_strider"
           ]
-        },
-        "sends_telemetry_event": true
+        }
       },
       "conditions": [
         {

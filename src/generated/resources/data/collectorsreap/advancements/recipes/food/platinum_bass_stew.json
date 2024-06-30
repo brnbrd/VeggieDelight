@@ -33,8 +33,7 @@
           "recipes": [
             "collectorsreap:food/platinum_bass_stew"
           ]
-        },
-        "sends_telemetry_event": true
+        }
       },
       "conditions": [
         {

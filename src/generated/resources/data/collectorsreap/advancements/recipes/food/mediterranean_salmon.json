@@ -31,8 +31,7 @@
           "recipes": [
             "collectorsreap:food/mediterranean_salmon"
           ]
-        },
-        "sends_telemetry_event": true
+        }
       },
       "conditions": [
         {

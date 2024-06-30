@@ -23,7 +23,6 @@
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
-        "category": "building",
         "key": {
           "i": {
             "item": "collectorsreap:lime_ice_cream"
@@ -40,8 +39,7 @@
         "result": {
           "count": 8,
           "item": "collectorsreap:lime_ice_cream_block"
-        },
-        "show_notification": true
+        }
       }
     }
   ]

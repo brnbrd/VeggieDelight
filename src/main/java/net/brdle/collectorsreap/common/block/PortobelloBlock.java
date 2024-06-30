@@ -2,7 +2,6 @@ package net.brdle.collectorsreap.common.block;
 
 import net.brdle.collectorsreap.data.CRBlockTags;
 import net.minecraft.core.BlockPos;
-import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
@@ -21,7 +20,7 @@ public class PortobelloBlock extends MushroomBlock {
 	private static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 7.0D, 12.0D);
 
 	public PortobelloBlock(Properties pProperties) {
-		super(pProperties, TreeFeatures.HUGE_BROWN_MUSHROOM);
+		super(pProperties, () -> null);
 	}
 
 	// Grow into colony on Rich Soil
@@ -64,7 +63,7 @@ public class PortobelloBlock extends MushroomBlock {
 	}
 
 	@Override
-	public boolean isValidBonemealTarget(@NotNull LevelReader pLevel, @NotNull BlockPos pPos, @NotNull BlockState pState, boolean pIsClient) {
+	public boolean isValidBonemealTarget(@NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull BlockState state, boolean isClient) {
 		return false;
 	}
 

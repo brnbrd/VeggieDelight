@@ -4,6 +4,7 @@ import net.brdle.collectorsreap.data.CRBlockTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.state.BlockState;
@@ -28,7 +29,7 @@ public class PortobelloColonyBlock extends MushroomColonyBlock {
 	}
 
 	@Override
-	public boolean isValidBonemealTarget(@NotNull LevelReader pLevel, @NotNull BlockPos pPos, @NotNull BlockState pState, boolean pIsClient) {
+	public boolean isValidBonemealTarget(@NotNull BlockGetter level, @NotNull BlockPos pos, BlockState state, boolean isClient) {
 		return false;
 	}
 

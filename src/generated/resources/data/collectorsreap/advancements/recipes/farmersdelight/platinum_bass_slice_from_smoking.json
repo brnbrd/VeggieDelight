@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "collectorsreap:platinum_bass_slice_from_smoking"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "platinum_bass_slice": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "collectorsreap:platinum_bass_slice"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "platinum_bass_slice",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "collectorsreap:platinum_bass_slice_from_smoking"
+    ]
+  }
+}

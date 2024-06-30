@@ -35,7 +35,7 @@ public class CrabPathNavigation extends PathNavigation {
 	}
 
 	protected boolean canMoveDirectly(@NotNull Vec3 p_217796_, @NotNull Vec3 p_217797_) {
-		return !this.isInLiquid() || isClearForMovementBetween(this.mob, p_217796_, p_217797_, true);
+		return !this.isInLiquid() || isClearForMovementBetween(this.mob, p_217796_, p_217797_);
 	}
 
 	public boolean isStableDestination(@NotNull BlockPos p_217799_) {

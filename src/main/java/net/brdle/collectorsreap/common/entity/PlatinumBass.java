@@ -43,7 +43,7 @@ public class PlatinumBass extends AbstractFish {
 
 	@Override
 	public void tick() {
-		if (this.level().isClientSide()) {
+		if (this.getLevel().isClientSide()) {
 			if (this.isDeadOrDying() || this.getAirSupply() < this.getMaxAirSupply() - 20) {
 				this.drownAnimationState.startIfStopped(this.tickCount);
 			} else {

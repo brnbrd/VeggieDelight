@@ -33,8 +33,7 @@
           "recipes": [
             "collectorsreap:food/portobello_wrap_from_tortilla"
           ]
-        },
-        "sends_telemetry_event": false
+        }
       },
       "conditions": [
         {

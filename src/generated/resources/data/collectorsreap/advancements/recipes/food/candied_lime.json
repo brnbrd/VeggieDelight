@@ -33,8 +33,7 @@
           "recipes": [
             "collectorsreap:food/candied_lime"
           ]
-        },
-        "sends_telemetry_event": true
+        }
       },
       "conditions": [
         {

@@ -3,7 +3,7 @@ package net.brdle.collectorsreap.data.gen;
 import net.brdle.collectorsreap.Util;
 import net.brdle.collectorsreap.CollectorsReap;
 import net.brdle.collectorsreap.common.block.*;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
@@ -19,8 +19,8 @@ import vectorwing.farmersdelight.FarmersDelight;
 import vectorwing.farmersdelight.common.block.PieBlock;
 
 public class CRBlockStateProvider extends BlockStateProvider {
-    public CRBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
-        super(output, CollectorsReap.MODID, exFileHelper);
+    public CRBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
+        super(gen, CollectorsReap.MODID, exFileHelper);
     }
 
     @Override

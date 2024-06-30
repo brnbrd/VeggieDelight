@@ -33,8 +33,7 @@
           "recipes": [
             "collectorsreap:food/stuffed_portobello_cap"
           ]
-        },
-        "sends_telemetry_event": true
+        }
       },
       "conditions": [
         {

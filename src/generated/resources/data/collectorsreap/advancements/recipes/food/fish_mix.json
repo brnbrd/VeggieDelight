@@ -33,8 +33,7 @@
           "recipes": [
             "collectorsreap:food/fish_mix"
           ]
-        },
-        "sends_telemetry_event": false
+        }
       },
       "conditions": [
         {

@@ -4,32 +4,25 @@ import net.brdle.collectorsreap.CollectorsReap;
 import net.brdle.collectorsreap.Util;
 import net.brdle.collectorsreap.common.item.CRItems;
 import net.brdle.collectorsreap.data.CRItemTags;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
-import java.util.concurrent.CompletableFuture;
-
 public class CRItemTagProvider extends ItemTagsProvider {
-
-	public CRItemTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> provider, CompletableFuture<TagLookup<Block>> blockTagProvider, @Nullable ExistingFileHelper existingFileHelper) {
-		super(output, provider, blockTagProvider, CollectorsReap.MODID, existingFileHelper);
+	public CRItemTagProvider(DataGenerator gen, BlockTagsProvider blockTagProvider, ExistingFileHelper existingFileHelper) {
+		super(gen, blockTagProvider, CollectorsReap.MODID, existingFileHelper);
 	}
 
 	@Override
-	public void addTags(HolderLookup.@NotNull Provider provider)
-	{
+	protected void addTags() {
 		// Minecraft
 		this.tag(ItemTags.WALLS)
 			.add(CRItems.URCHIN_TEST_BRICK_WALL.get())

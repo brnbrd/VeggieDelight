@@ -82,7 +82,7 @@ public class PomegranateBushBlock extends FruitBushBlock {
 	}
 
 	@Override
-	public boolean isValidBonemealTarget(@NotNull LevelReader pLevel, @NotNull BlockPos pPos, @NotNull BlockState pState, boolean pIsClient) {
+	public boolean isValidBonemealTarget(@NotNull BlockGetter level, @NotNull BlockPos pos, BlockState state, boolean isClient) {
 		return false;
 	}
 

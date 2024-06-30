@@ -6,8 +6,7 @@ import net.brdle.collectorsreap.common.block.PomegranateBushBlock;
 import net.brdle.collectorsreap.common.block.PortobelloColonyBlock;
 import net.brdle.collectorsreap.common.item.CRItems;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
-import net.minecraft.data.loot.BlockLootSubProvider;
-import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
@@ -20,16 +19,11 @@ import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
-import java.util.Collections;
 
-public class CRBlockLoot extends BlockLootSubProvider {
-
-    public CRBlockLoot() {
-        super(Collections.emptySet(), FeatureFlags.REGISTRY.allFlags());
-    }
+public class CRBlockLoot extends BlockLoot {
 
     @Override
-    protected void generate() {
+    protected void addTables() {
         this.dropSelf(CRBlocks.PORTOBELLO.get());
         this.empty(CRBlocks.PORTOBELLO_QUICHE);
         this.empty(CRBlocks.LIME_PIE);
@@ -55,14 +49,14 @@ public class CRBlockLoot extends BlockLootSubProvider {
         // Pomegranate Bush drops Seeds and optional Pomegranates
         this.add(CRBlocks.POMEGRANATE_BUSH.get(), (b) -> applyExplosionDecay(b,
             LootTable.lootTable()
-                .withPool(this.applyExplosionCondition(CRItems.POMEGRANATE_SEEDS.get(),
+                .withPool(applyExplosionCondition(CRItems.POMEGRANATE_SEEDS.get(),
                 LootPool.lootPool()
                     .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(b)
                         .setProperties(StatePropertiesPredicate.Builder.properties()
                             .hasProperty(PomegranateBushBlock.HALF, DoubleBlockHalf.LOWER)))
                     .setRolls(ConstantValue.exactly(1.0F))
                     .add(LootItem.lootTableItem(CRItems.POMEGRANATE_SEEDS.get()))))
-                .withPool(this.applyExplosionCondition(CRItems.POMEGRANATE.get(),
+                .withPool(applyExplosionCondition(CRItems.POMEGRANATE.get(),
                 LootPool.lootPool()
                     .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(b)
                         .setProperties(StatePropertiesPredicate.Builder.properties()

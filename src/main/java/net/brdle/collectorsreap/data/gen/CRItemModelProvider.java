@@ -3,7 +3,7 @@ package net.brdle.collectorsreap.data.gen;
 import net.brdle.collectorsreap.Util;
 import net.brdle.collectorsreap.CollectorsReap;
 import net.brdle.collectorsreap.common.item.CRItems;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -17,8 +17,8 @@ import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.data.ItemModels;
 
 public class CRItemModelProvider extends ItemModelProvider {
-    public CRItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
-        super(output, CollectorsReap.MODID, existingFileHelper);
+    public CRItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+        super(generator, CollectorsReap.MODID, existingFileHelper);
     }
 
     @Override

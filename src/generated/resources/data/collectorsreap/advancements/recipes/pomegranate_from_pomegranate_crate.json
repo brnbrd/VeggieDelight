@@ -33,8 +33,7 @@
           "recipes": [
             "collectorsreap:pomegranate_from_pomegranate_crate"
           ]
-        },
-        "sends_telemetry_event": false
+        }
       },
       "conditions": [
         {

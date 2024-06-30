@@ -18,13 +18,8 @@ public class ClientProxy extends CommonProxy {
     public void start() {
         super.start();
         final IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
-        //final IEventBus forgeBus = MinecraftForge.EVENT_BUS;
         modBus.register(this);
     }
-
-    /*@SubscribeEvent
-    public void setupClient(FMLClientSetupEvent e){
-    }*/
 
     @SubscribeEvent
     public void registerLayerDefinition(EntityRenderersEvent.RegisterLayerDefinitions e) {
@@ -47,7 +42,7 @@ public class ClientProxy extends CommonProxy {
 
     @SubscribeEvent
     public void registerParticles(RegisterParticleProvidersEvent e) {
-        e.registerSpriteSet(CRParticleTypes.ACID.get(), AcidParticle.Provider::new);
-        e.registerSpriteSet(CRParticleTypes.SHOCKWAVE.get(), ShockwaveParticle.Provider::new);
+        e.register(CRParticleTypes.ACID.get(), AcidParticle.Provider::new);
+        e.register(CRParticleTypes.SHOCKWAVE.get(), ShockwaveParticle.Provider::new);
     }
 }

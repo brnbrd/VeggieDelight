@@ -33,8 +33,7 @@
           "recipes": [
             "collectorsreap:lime_from_lime_crate"
           ]
-        },
-        "sends_telemetry_event": false
+        }
       },
       "conditions": [
         {

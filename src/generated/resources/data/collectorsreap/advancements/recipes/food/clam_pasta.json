@@ -33,8 +33,7 @@
           "recipes": [
             "collectorsreap:food/clam_pasta"
           ]
-        },
-        "sends_telemetry_event": true
+        }
       },
       "conditions": [
         {

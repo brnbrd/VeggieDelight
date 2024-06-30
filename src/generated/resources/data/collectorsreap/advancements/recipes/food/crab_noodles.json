@@ -31,8 +31,7 @@
           "recipes": [
             "collectorsreap:food/crab_noodles"
           ]
-        },
-        "sends_telemetry_event": true
+        }
       },
       "conditions": [
         {

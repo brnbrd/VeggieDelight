@@ -19,7 +19,6 @@
       ],
       "recipe": {
         "type": "minecraft:crafting_shapeless",
-        "category": "building",
         "ingredients": [
           {
             "item": "collectorsreap:lime"

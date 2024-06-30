@@ -33,8 +33,7 @@
           "recipes": [
             "collectorsreap:stonecutting/urchin_test_tiles"
           ]
-        },
-        "sends_telemetry_event": false
+        }
       },
       "conditions": [
         {

@@ -31,8 +31,7 @@
           "recipes": [
             "collectorsreap:food/pomegranate_chicken"
           ]
-        },
-        "sends_telemetry_event": true
+        }
       },
       "conditions": [
         {

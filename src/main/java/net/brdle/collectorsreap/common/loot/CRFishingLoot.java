@@ -28,7 +28,7 @@ public class CRFishingLoot extends LootModifier {
 		)
 	);
 
-	private static final Field LOOT_FIELD = ObfuscationReflectionHelper.findField(LootContext.class, "f_278466_"); // Version-specific field name
+	private static final Field LOOT_FIELD = ObfuscationReflectionHelper.findField(LootContext.class, "f_78911_"); // Version-specific field name
 	private final LootTableReference lootTable;
 	private final float chance;
 

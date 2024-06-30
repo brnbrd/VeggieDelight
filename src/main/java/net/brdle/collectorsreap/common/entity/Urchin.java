@@ -47,7 +47,7 @@ public class Urchin extends WaterGroundCreature {
 
 	@Override
 	public void aiStep() {
-		if (this.isInWater() && !this.onGround()) {
+		if (this.isInWater() && !this.isOnGround()) {
 			this.sinkInFluid(ForgeMod.WATER_TYPE.get());
 		}
 		super.aiStep();
@@ -55,14 +55,13 @@ public class Urchin extends WaterGroundCreature {
 
 	@Override
 	public boolean hurt(@NotNull DamageSource source, float pAmount) {
-		Entity entity = source.getEntity();
+		Entity entity = source.getDirectEntity();
 		if (
-			!this.level().isClientSide() &&
+			!this.getLevel().isClientSide() &&
 			entity instanceof LivingEntity living &&
-			!this.isInvulnerableTo(source) &&
-			!source.isIndirect()
+			!this.isInvulnerableTo(source)
 		) {
-			DamageSource thorns = living.damageSources().thorns(this);
+			DamageSource thorns = DamageSource.thorns(this);
 			if (!living.isInvulnerableTo(thorns)) {
 				living.hurt(thorns, 3.0F);
 			}

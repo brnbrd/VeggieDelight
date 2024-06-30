@@ -5,28 +5,24 @@ import net.brdle.collectorsreap.Util;
 import net.brdle.collectorsreap.common.block.CRBlocks;
 import net.brdle.collectorsreap.common.block.EffectCandleCakeBlock;
 import net.brdle.collectorsreap.data.CRBlockTags;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.tag.ModTags;
-import java.util.concurrent.CompletableFuture;
 
 public class CRBlockTagProvider extends BlockTagsProvider {
 
-	public CRBlockTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
-		super(output, lookupProvider, CollectorsReap.MODID, existingFileHelper);
+	protected CRBlockTagProvider(DataGenerator gen, @Nullable ExistingFileHelper existingFileHelper) {
+		super(gen, CollectorsReap.MODID, existingFileHelper);
 	}
 
 	@Override
-	public void addTags(HolderLookup.@NotNull Provider provider)
-	{
+	protected void addTags() {
 		// Farmer's Delight
 		this.tag(ModTags.MINEABLE_WITH_KNIFE)
 			.add(CRBlocks.PORTOBELLO_QUICHE.get())

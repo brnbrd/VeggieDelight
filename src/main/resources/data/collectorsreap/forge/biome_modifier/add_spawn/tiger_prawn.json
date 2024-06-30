@@ -4,7 +4,7 @@
   "spawners": {
     "type": "collectorsreap:tiger_prawn",
     "maxCount": 3,
-    "minCount": 1,
+    "minCount": 2,
     "weight": 3
   }
 }

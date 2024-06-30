@@ -6,14 +6,14 @@ import net.brdle.collectorsreap.common.item.CRItems;
 import net.brdle.collectorsreap.common.loot.AddItemLootModifier;
 import net.brdle.collectorsreap.common.loot.CRFishingLoot;
 import net.brdle.collectorsreap.common.loot.CRLootModifiers;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
 import net.minecraftforge.common.loot.LootTableIdCondition;
 
 public class CRLootModifierProvider extends GlobalLootModifierProvider {
-	public CRLootModifierProvider(PackOutput output) {
-		super(output, CollectorsReap.MODID);
+	public CRLootModifierProvider(DataGenerator gen) {
+		super(gen, CollectorsReap.MODID);
 	}
 
 	@Override

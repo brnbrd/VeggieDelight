@@ -31,8 +31,7 @@
           "recipes": [
             "collectorsreap:food/lime_pie"
           ]
-        },
-        "sends_telemetry_event": false
+        }
       },
       "conditions": [
         {

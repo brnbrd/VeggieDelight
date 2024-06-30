@@ -31,8 +31,7 @@
           "recipes": [
             "collectorsreap:food/salmon_tartare"
           ]
-        },
-        "sends_telemetry_event": false
+        }
       },
       "conditions": [
         {

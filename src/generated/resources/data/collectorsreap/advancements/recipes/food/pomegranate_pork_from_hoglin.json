@@ -31,8 +31,7 @@
           "recipes": [
             "collectorsreap:food/pomegranate_pork_from_hoglin"
           ]
-        },
-        "sends_telemetry_event": true
+        }
       },
       "conditions": [
         {

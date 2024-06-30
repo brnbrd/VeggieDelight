@@ -33,8 +33,7 @@
           "recipes": [
             "collectorsreap:unpack_urchin_test_block"
           ]
-        },
-        "sends_telemetry_event": false
+        }
       },
       "conditions": [
         {

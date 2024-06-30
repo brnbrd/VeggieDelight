@@ -31,8 +31,7 @@
           "recipes": [
             "collectorsreap:food/spicy_grenadine_jelly"
           ]
-        },
-        "sends_telemetry_event": true
+        }
       },
       "conditions": [
         {

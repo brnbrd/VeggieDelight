@@ -11,7 +11,6 @@ import net.minecraft.world.entity.animal.Bee;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
@@ -38,6 +37,7 @@ public class LimeBushBlock extends FruitBushBlock {
 		super(properties);
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos, @NotNull CollisionContext pContext) {
 		return switch(state.getValue(AGE)) {
@@ -58,6 +58,7 @@ public class LimeBushBlock extends FruitBushBlock {
 		return CRItems.LIME_SEEDS.get();
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void randomTick(BlockState state, @NotNull ServerLevel pLevel, @NotNull BlockPos pPos, @NotNull RandomSource pRandom) {
 		int age = state.getValue(AGE);
@@ -74,8 +75,8 @@ public class LimeBushBlock extends FruitBushBlock {
 
 	// Can use Bone Meal up until reaching final stage
 	@Override
-	public boolean isValidBonemealTarget(@NotNull LevelReader pLevel, @NotNull BlockPos pPos, BlockState pState, boolean pIsClient) {
-		return pState.getValue(AGE) < (MAX_AGE - 1);
+	public boolean isValidBonemealTarget(@NotNull BlockGetter level, @NotNull BlockPos pos, BlockState state, boolean isClient) {
+		return state.getValue(AGE) < (MAX_AGE - 1);
 	}
 
 	@Override
@@ -83,6 +84,7 @@ public class LimeBushBlock extends FruitBushBlock {
 		return true;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void entityInside(@NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Entity e) {
 		if (!pLevel.isClientSide() &&

@@ -31,8 +31,7 @@
           "recipes": [
             "collectorsreap:food/strawberry_jam_bun"
           ]
-        },
-        "sends_telemetry_event": false
+        }
       },
       "conditions": [
         {

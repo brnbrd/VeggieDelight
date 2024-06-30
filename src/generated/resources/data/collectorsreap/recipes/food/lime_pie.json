@@ -10,7 +10,6 @@
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
-        "category": "misc",
         "key": {
           "c": {
             "item": "farmersdelight:pie_crust"
@@ -35,8 +34,7 @@
         ],
         "result": {
           "item": "collectorsreap:lime_pie"
-        },
-        "show_notification": true
+        }
       }
     }
   ]

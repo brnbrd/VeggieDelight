@@ -46,7 +46,7 @@ public class TigerPrawn extends WaterCreature {
 
 	@Override
 	public void tick() {
-		if (this.level().isClientSide()) {
+		if (this.getLevel().isClientSide()) {
 			if (this.isDeadOrDying() || this.getAirSupply() < this.getMaxAirSupply() - 20) {
 				this.drownAnimationState.startIfStopped(this.tickCount);
 			} else {
@@ -63,7 +63,7 @@ public class TigerPrawn extends WaterCreature {
 
 	@Override
 	public void aiStep() {
-		if (this.isInWater() && !this.onGround()) {
+		if (this.isInWater() && !this.isOnGround()) {
 			this.sinkInFluid(ForgeMod.WATER_TYPE.get());
 		}
 		super.aiStep();

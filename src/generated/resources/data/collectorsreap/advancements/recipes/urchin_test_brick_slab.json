@@ -33,8 +33,7 @@
           "recipes": [
             "collectorsreap:urchin_test_brick_slab"
           ]
-        },
-        "sends_telemetry_event": false
+        }
       },
       "conditions": [
         {

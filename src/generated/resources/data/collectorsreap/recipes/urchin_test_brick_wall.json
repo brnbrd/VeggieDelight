@@ -10,7 +10,6 @@
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
-        "category": "misc",
         "key": {
           "x": {
             "item": "collectorsreap:urchin_test_bricks"
@@ -23,8 +22,7 @@
         "result": {
           "count": 6,
           "item": "collectorsreap:urchin_test_brick_wall"
-        },
-        "show_notification": true
+        }
       }
     }
   ]

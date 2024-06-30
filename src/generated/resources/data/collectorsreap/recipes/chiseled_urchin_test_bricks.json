@@ -10,7 +10,6 @@
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
-        "category": "misc",
         "key": {
           "x": {
             "item": "collectorsreap:urchin_test_brick_slab"
@@ -22,8 +21,7 @@
         ],
         "result": {
           "item": "collectorsreap:chiseled_urchin_test_bricks"
-        },
-        "show_notification": true
+        }
       }
     }
   ]

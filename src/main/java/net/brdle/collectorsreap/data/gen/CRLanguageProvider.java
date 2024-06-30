@@ -6,12 +6,12 @@ import net.brdle.collectorsreap.common.block.CRBlocks;
 import net.brdle.collectorsreap.common.effect.CREffects;
 import net.brdle.collectorsreap.common.entity.CREntities;
 import net.brdle.collectorsreap.common.item.CRItems;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 
 public class CRLanguageProvider extends LanguageProvider {
-    public CRLanguageProvider(PackOutput output) {
-        super(output, CollectorsReap.MODID, "en_us");
+    public CRLanguageProvider(DataGenerator gen) {
+        super(gen, CollectorsReap.MODID, "en_us");
     }
 
     @Override

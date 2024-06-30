@@ -94,13 +94,13 @@ public class ForgeEvents {
 				return;
 			}
 			e.setCanceled(true);
-			if (!proj.level().isClientSide() && proj.level() instanceof ServerLevel server) {
+			if (!proj.getLevel().isClientSide() && proj.getLevel() instanceof ServerLevel server) {
 				for (int i = 0; i < 3; i++) {
 					server.sendParticles(CRParticleTypes.ACID.get(), proj.getRandomX(0.3D), proj.getRandomY(), proj.getRandomZ(0.3D), 1, 0.0D, 0.0D, 0.0D, 0.0D);
 				}
 				victim.playSound(SoundEvents.REDSTONE_TORCH_BURNOUT, 0.4F, 1.1F);
 				if (proj instanceof ThrownTrident trident) {
-					trident.tridentItem.hurt(5 * Objects.requireNonNull(victim.getEffect(CREffects.CORROSION.get())).getAmplifier(), trident.level().getRandom(), null);
+					trident.tridentItem.hurt(5 * Objects.requireNonNull(victim.getEffect(CREffects.CORROSION.get())).getAmplifier(), trident.getLevel().getRandom(), null);
 				} else {
 					proj.discard();
 					proj.gameEvent(GameEvent.ENTITY_DIE);
@@ -123,8 +123,8 @@ public class ForgeEvents {
 		LivingEntity victim = e.getEntity();
 		if (
 			e.getSource().getEntity() != null &&
-			!victim.level().isClientSide() &&
-			victim.level() instanceof ServerLevel server &&
+			!victim.getLevel().isClientSide() &&
+			victim.getLevel() instanceof ServerLevel server &&
 			e.getSource().getEntity() instanceof LivingEntity attacker &&
 			validateVolatile(victim, attacker)
 		) {
