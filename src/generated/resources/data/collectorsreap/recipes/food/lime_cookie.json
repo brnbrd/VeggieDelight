@@ -25,7 +25,7 @@
             "tag": "forge:fruits/lime"
           },
           "w": {
-            "tag": "forge:crops/wheat"
+            "tag": "forge:grain/wheat"
           }
         },
         "pattern": [

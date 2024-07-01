@@ -19,13 +19,13 @@
             "tag": "forge:fruits/citrus"
           },
           {
-            "tag": "forge:crops/cabbage"
+            "tag": "forge:salad_ingredients/cabbage"
           },
           {
-            "tag": "forge:crops/tomato"
+            "tag": "forge:vegetables/tomato"
           },
           {
-            "tag": "forge:crops/onion"
+            "tag": "forge:vegetables/onion"
           },
           {
             "item": "minecraft:bowl"

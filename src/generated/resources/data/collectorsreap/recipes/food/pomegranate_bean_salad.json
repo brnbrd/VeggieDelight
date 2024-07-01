@@ -35,10 +35,10 @@
             "tag": "neapolitan:roasted_adzuki_beans"
           },
           {
-            "tag": "forge:crops/tomato"
+            "tag": "forge:vegetables/tomato"
           },
           {
-            "tag": "forge:crops/onion"
+            "tag": "forge:vegetables/onion"
           },
           {
             "item": "minecraft:bowl"

@@ -26,10 +26,10 @@
             "tag": "collectorsreap:lime_or_slice"
           },
           {
-            "tag": "forge:crops/onion"
+            "tag": "forge:vegetables/onion"
           },
           {
-            "tag": "forge:crops/rice"
+            "tag": "forge:grain/rice"
           }
         ],
         "result": {

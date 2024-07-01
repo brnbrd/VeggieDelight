@@ -23,10 +23,10 @@
             "tag": "forge:vegetables/carrot"
           },
           {
-            "tag": "forge:crops/onion"
+            "tag": "forge:vegetables/onion"
           },
           {
-            "tag": "forge:crops/tomato"
+            "tag": "forge:vegetables/tomato"
           },
           {
             "item": "minecraft:dried_kelp"

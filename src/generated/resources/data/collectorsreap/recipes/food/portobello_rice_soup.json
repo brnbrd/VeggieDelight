@@ -20,10 +20,10 @@
             "item": "collectorsreap:baked_portobello_cap"
           },
           {
-            "tag": "forge:crops/rice"
+            "tag": "forge:grain/rice"
           },
           {
-            "tag": "forge:crops/onion"
+            "tag": "forge:vegetables/onion"
           },
           {
             "tag": "forge:vegetables/carrot"

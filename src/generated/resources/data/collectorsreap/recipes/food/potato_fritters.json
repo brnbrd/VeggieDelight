@@ -14,7 +14,7 @@
         "experience": 1.0,
         "ingredients": [
           {
-            "item": "minecraft:baked_potato"
+            "tag": "forge:vegetables/potato"
           },
           {
             "tag": "collectorsreap:lime_or_slice"
@@ -23,7 +23,7 @@
             "tag": "collectorsreap:lime_or_slice"
           },
           {
-            "tag": "forge:crops/onion"
+            "tag": "forge:vegetables/onion"
           }
         ],
         "result": {

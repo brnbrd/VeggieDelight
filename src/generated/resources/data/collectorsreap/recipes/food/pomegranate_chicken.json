@@ -23,7 +23,7 @@
             "tag": "forge:fruits/pomegranate"
           },
           {
-            "tag": "forge:crops/onion"
+            "tag": "forge:vegetables/onion"
           },
           {
             "item": "minecraft:crimson_fungus"
@@ -32,7 +32,7 @@
             "item": "minecraft:warped_fungus"
           },
           {
-            "tag": "forge:crops/tomato"
+            "tag": "forge:vegetables/tomato"
           }
         ],
         "result": {

@@ -22,7 +22,7 @@
             "tag": "forge:milk"
           },
           "o": {
-            "tag": "forge:crops/onion"
+            "tag": "forge:vegetables/onion"
           },
           "p": {
             "item": "collectorsreap:baked_portobello_cap"

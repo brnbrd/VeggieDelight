@@ -34,10 +34,10 @@
             "item": "farmersdelight:beef_patty"
           },
           {
-            "tag": "forge:crops/tomato"
+            "tag": "forge:vegetables/tomato"
           },
           {
-            "tag": "forge:crops/onion"
+            "tag": "forge:vegetables/onion"
           }
         ],
         "result": {

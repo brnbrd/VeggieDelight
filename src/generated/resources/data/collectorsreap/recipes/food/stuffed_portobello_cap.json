@@ -20,10 +20,10 @@
             "item": "minecraft:brown_mushroom"
           },
           {
-            "tag": "forge:crops/onion"
+            "tag": "forge:vegetables/onion"
           },
           {
-            "tag": "forge:crops/tomato"
+            "tag": "forge:vegetables/tomato"
           }
         ],
         "result": {
