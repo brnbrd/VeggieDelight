@@ -18,6 +18,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.registry.ModItems;
+import vectorwing.farmersdelight.common.tag.ForgeTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -120,11 +121,18 @@ public class CRItemTagProvider extends ItemTagsProvider {
 		this.tag(CRItemTags.RAW_STRIDER)
 			.addOptionalTag(Util.rl("mynethersdelight", "strider_meats"))
 			.addOptional(Util.rl("nethersdelight", "raw_strider"));
-		tag(CRItemTags.COOKIES)
+		this.tag(CRItemTags.COOKIES)
 			.add(Items.COOKIE)
 			.add(ModItems.HONEY_COOKIE.get())
 			.add(ModItems.SWEET_BERRY_COOKIE.get())
 			.add(CRItems.LIME_COOKIE.get());
+		this.tag(CRItemTags.EGGS_BIRD)
+			.add(Items.EGG)
+			.addOptional(Util.rl("naturalist", "duck_egg"))
+			.addOptional(Util.rl("autumnity", "turkey_egg"))
+			.addOptional(Util.rl("deep_aether", "quail_egg"));
+		this.tag(ForgeTags.EGGS)
+			.addTag(CRItemTags.EGGS_BIRD);
 
 		// Neapolitan
 		this.addSelf(CRItemTags.BANANA);

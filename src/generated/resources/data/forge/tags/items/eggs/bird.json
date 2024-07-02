@@ -1,0 +1,17 @@
+{
+  "values": [
+    "minecraft:egg",
+    {
+      "id": "naturalist:duck_egg",
+      "required": false
+    },
+    {
+      "id": "autumnity:turkey_egg",
+      "required": false
+    },
+    {
+      "id": "deep_aether:quail_egg",
+      "required": false
+    }
+  ]
+}
