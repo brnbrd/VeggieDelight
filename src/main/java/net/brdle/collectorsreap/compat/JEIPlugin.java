@@ -10,9 +10,9 @@ import net.brdle.collectorsreap.common.config.CRConfig;
 import net.brdle.collectorsreap.common.item.CRItems;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.fml.ModList;
 import org.jetbrains.annotations.NotNull;
-
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Predicate;
 
@@ -33,8 +33,29 @@ public class JEIPlugin implements IModPlugin {
 			registration.getIngredientManager().removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK, items);
 		}
 		registration.addItemStackInfo(Util.gs(CRItems.PORTOBELLO), Component.translatable("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.PORTOBELLO)));
-		registration.addItemStackInfo(Util.gs(CRItems.LIME), Component.translatable("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.LIME)));
-		registration.addItemStackInfo(Util.gs(CRItems.POMEGRANATE), Component.translatable("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.POMEGRANATE)));
+
+		// Lime
+		String limeTranslationKey = "desc." + CollectorsReap.MODID + "." + Util.name(CRItems.LIME);
+		ItemStack limeStack = Util.gs(CRItems.LIME);
+		if (CRConfig.LIME_POLLINATION.get()) {
+			registration.addItemStackInfo(limeStack, Component.translatable(limeTranslationKey),
+				Component.translatable(limeTranslationKey + ".pollination")
+			);
+		} else {
+			registration.addItemStackInfo(limeStack, Component.translatable(limeTranslationKey));
+		}
+
+		// Pomegranate
+		String pomTranslationKey = "desc." + CollectorsReap.MODID + "." + Util.name(CRItems.POMEGRANATE);
+		ItemStack pomStack = Util.gs(CRItems.POMEGRANATE);
+		if (CRConfig.POMEGRANATE_POLLINATION.get()) {
+			registration.addItemStackInfo(pomStack, Component.translatable(pomTranslationKey),
+				Component.translatable(pomTranslationKey + ".pollination")
+			);
+		} else {
+			registration.addItemStackInfo(pomStack, Component.translatable(pomTranslationKey));
+		}
+
 		if (ModList.get().isLoaded("mynethersdelight")) {
 			registration.addItemStackInfo(Util.gs(CRItems.PORTOBELLO_COLONY), Component.translatable("mynethersdelight.jei.info.mushroom_colony"));
 		}

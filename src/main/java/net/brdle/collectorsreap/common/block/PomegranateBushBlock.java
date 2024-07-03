@@ -39,6 +39,7 @@ public class PomegranateBushBlock extends FruitBushBlock {
 		return state.is(CRBlockTags.POMEGRANATE_FAST_ON) || super.mayPlaceOn(state, level, pos);
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos, @NotNull CollisionContext pContext) {
 		return switch (state.getValue(AGE)) {
@@ -65,10 +66,11 @@ public class PomegranateBushBlock extends FruitBushBlock {
 	}
 
 	// Can receive boost from Nether or block below.
+	@SuppressWarnings("deprecation")
 	@Override
 	public void randomTick(@NotNull BlockState state, @NotNull ServerLevel pLevel, @NotNull BlockPos pPos, @NotNull RandomSource pRandom) {
 		if (state.getValue(AGE) < MAX_AGE && state.getValue(HALF) == DoubleBlockHalf.LOWER) {
-			int growthRate = (pLevel.getBlockState(pPos.below()).is(CRBlockTags.POMEGRANATE_FAST_ON)) ? 9 : 13;
+			int growthRate = (pLevel.getBlockState(pPos.below()).is(CRBlockTags.POMEGRANATE_FAST_ON)) ? 8 : 12;
 			if (pLevel.dimension() == Level.NETHER) {
 				growthRate -= 4;
 			} else if (state.getValue(AGE) == MAX_AGE - 1 && CRConfig.POMEGRANATE_POLLINATION.get()) {
@@ -91,14 +93,17 @@ public class PomegranateBushBlock extends FruitBushBlock {
 		return false;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void entityInside(@NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Entity e) {
-		if (!pLevel.isClientSide() &&
-				CRConfig.POMEGRANATE_POLLINATION.get() &&
-				CRConfig.FAST_POLLINATE.get() &&
-				e instanceof Bee &&
-				pState.getValue(AGE) == MAX_AGE - 1 &&
-				pLevel.getRandom().nextInt(150) == 0) {
+		if (
+				!pLevel.isClientSide() &&
+						CRConfig.POMEGRANATE_POLLINATION.get() &&
+						CRConfig.FAST_POLLINATE.get() &&
+						e instanceof Bee &&
+						pState.getValue(AGE) == MAX_AGE - 1 &&
+						pLevel.getRandom().nextInt(150) == 0
+		) {
 			this.performBonemeal((ServerLevel) pLevel, pLevel.getRandom(), pPos, pState);
 		}
 	}

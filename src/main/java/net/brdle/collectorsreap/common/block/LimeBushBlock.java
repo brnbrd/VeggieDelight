@@ -38,6 +38,7 @@ public class LimeBushBlock extends FruitBushBlock {
 		super(properties);
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos, @NotNull CollisionContext pContext) {
 		return switch (state.getValue(AGE)) {
@@ -58,17 +59,19 @@ public class LimeBushBlock extends FruitBushBlock {
 		return CRItems.LIME_SEEDS.get();
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
-	public void randomTick(BlockState state, @NotNull ServerLevel pLevel, @NotNull BlockPos pPos, @NotNull RandomSource pRandom) {
+	public void randomTick(BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
 		int age = state.getValue(AGE);
 		if (
 				!(CRConfig.LIME_POLLINATION.get() && age == MAX_AGE - 1) && // Making sure we aren't a flowering state bush that needs pollination
 						age < MAX_AGE &&
 						state.getValue(HALF) == DoubleBlockHalf.LOWER && !state.getValue(STUNTED) &&
-						ForgeHooks.onCropsGrowPre(pLevel, pPos, state, pRandom.nextInt(12) == 0)
+						level.getRawBrightness(pos.above().above(), 0) >= 9 &&
+						ForgeHooks.onCropsGrowPre(level, pos, state, random.nextInt(9) == 0)
 		) {
-			this.performBonemeal(pLevel, pRandom, pPos, state);
-			ForgeHooks.onCropsGrowPost(pLevel, pPos, state);
+			this.performBonemeal(level, random, pos, state);
+			ForgeHooks.onCropsGrowPost(level, pos, state);
 		}
 	}
 
@@ -83,14 +86,17 @@ public class LimeBushBlock extends FruitBushBlock {
 		return true;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void entityInside(@NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Entity e) {
-		if (!pLevel.isClientSide() &&
-				CRConfig.LIME_POLLINATION.get() &&
-				CRConfig.FAST_POLLINATE.get() &&
-				e instanceof Bee &&
-				pState.getValue(AGE) == MAX_AGE - 1 &&
-				pLevel.getRandom().nextInt(150) == 0) {
+		if (
+				!pLevel.isClientSide() &&
+						CRConfig.LIME_POLLINATION.get() &&
+						CRConfig.FAST_POLLINATE.get() &&
+						e instanceof Bee &&
+						pState.getValue(AGE) == MAX_AGE - 1 &&
+						pLevel.getRandom().nextInt(150) == 0
+		) {
 			this.performBonemeal((ServerLevel) pLevel, pLevel.getRandom(), pPos, pState);
 		}
 	}

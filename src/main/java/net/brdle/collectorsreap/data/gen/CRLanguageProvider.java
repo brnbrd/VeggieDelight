@@ -35,7 +35,9 @@ public class CRLanguageProvider extends LanguageProvider {
 		add("tooltip.requires_modid", "Requires modid:");
 		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.PORTOBELLO), "Found in Meadows.");
 		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.LIME), "Found in Flower Forests.");
+		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.LIME) + ".pollination", "A flowering Lime Bush will grow fruit when pollinated by a Bee.");
 		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.POMEGRANATE), "Found in Warped Forests.");
+		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.POMEGRANATE) + ".pollination", "A flowering Pomegranate Bush will grow fruit in the Overworld when pollinated by a Bee.");
 		add("config.jade.plugin_" + CollectorsReap.MODID + ".crop_progress", "Crop Progress");
 	}
 
