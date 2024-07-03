@@ -1,8 +1,9 @@
 package net.brdle.collectorsreap.data.gen;
 
-import net.brdle.collectorsreap.Util;
 import net.brdle.collectorsreap.CollectorsReap;
-import net.brdle.collectorsreap.common.block.*;
+import net.brdle.collectorsreap.Util;
+import net.brdle.collectorsreap.common.block.CRBlocks;
+import net.brdle.collectorsreap.common.block.PortobelloColonyBlock;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;

@@ -1,8 +1,8 @@
 package net.brdle.collectorsreap.proxy;
 
 import net.brdle.collectorsreap.common.CRParticleTypes;
-import net.brdle.collectorsreap.common.ModEvents;
 import net.brdle.collectorsreap.common.ForgeEvents;
+import net.brdle.collectorsreap.common.ModEvents;
 import net.brdle.collectorsreap.common.block.CRBlocks;
 import net.brdle.collectorsreap.common.effect.CREffects;
 import net.brdle.collectorsreap.common.entity.CREntities;

@@ -1,7 +1,7 @@
 package net.brdle.collectorsreap.data.gen;
 
-import net.brdle.collectorsreap.Util;
 import net.brdle.collectorsreap.CollectorsReap;
+import net.brdle.collectorsreap.Util;
 import net.brdle.collectorsreap.common.crafting.EnabledCondition;
 import net.brdle.collectorsreap.common.item.CRItems;
 import net.brdle.collectorsreap.data.CRItemTags;

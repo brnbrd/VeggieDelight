@@ -1,7 +1,7 @@
 package net.brdle.collectorsreap.data;
 
-import net.brdle.collectorsreap.Util;
 import net.brdle.collectorsreap.CollectorsReap;
+import net.brdle.collectorsreap.Util;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;

@@ -2,9 +2,7 @@ package net.brdle.collectorsreap.client.model;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.brdle.collectorsreap.common.entity.PlatinumBass;
 import net.brdle.collectorsreap.common.entity.Urchin;
-import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
