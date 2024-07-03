@@ -21,7 +21,7 @@ public class CollectorsReap {
 		instance = this;
 		proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 		proxy.start();
-		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CRConfig.SPEC);
+		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CRConfig.COMMON);
 	}
 
 	public static Logger getLogger() {
