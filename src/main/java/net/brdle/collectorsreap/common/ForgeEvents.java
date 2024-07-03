@@ -35,6 +35,7 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.MissingMappingsEvent;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -46,7 +47,7 @@ public class ForgeEvents {
 			for (var map : e.getMappings(ForgeRegistries.BLOCKS.getRegistryKey(), CollectorsReap.MODID)) {
 				String path = map.getKey().getPath();
 				ResourceLocation remap = Util.cr(path
-					.replace("small_lime", "lime").replace("small_pomegranate", "pomegranate"));
+						.replace("small_lime", "lime").replace("small_pomegranate", "pomegranate"));
 				if (ForgeRegistries.BLOCKS.containsKey(remap)) {
 					map.remap(ForgeRegistries.BLOCKS.getValue(remap));
 				}
@@ -87,8 +88,8 @@ public class ForgeEvents {
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public void onCorrodeProjectile(ProjectileImpactEvent e) {
 		if (e.getRayTraceResult().getType() == HitResult.Type.ENTITY &&
-			((EntityHitResult) e.getRayTraceResult()).getEntity() instanceof LivingEntity victim &&
-			victim.hasEffect(CREffects.CORROSION.get())) {
+				((EntityHitResult) e.getRayTraceResult()).getEntity() instanceof LivingEntity victim &&
+				victim.hasEffect(CREffects.CORROSION.get())) {
 			Projectile proj = e.getProjectile();
 			if (proj.getType().is(CREntityTags.CORROSION_IMMUNE)) {
 				return;
@@ -111,10 +112,10 @@ public class ForgeEvents {
 
 	private static boolean validateVolatile(LivingEntity victim, LivingEntity attacker) {
 		return (
-			victim != null &&
-			attacker.hasEffect(CREffects.VOLATILITY.get()) &&
-			!attacker.getType().is(CREntityTags.INVOLATILE) &&
-			!(attacker instanceof Player p && p.getAttackStrengthScale(0F) != 1F)
+				victim != null &&
+						attacker.hasEffect(CREffects.VOLATILITY.get()) &&
+						!attacker.getType().is(CREntityTags.INVOLATILE) &&
+						!(attacker instanceof Player p && p.getAttackStrengthScale(0F) != 1F)
 		);
 	}
 
@@ -122,25 +123,25 @@ public class ForgeEvents {
 	public void onVolatile(LivingDamageEvent e) {
 		LivingEntity victim = e.getEntity();
 		if (
-			e.getSource().getEntity() != null &&
-			!victim.level().isClientSide() &&
-			victim.level() instanceof ServerLevel server &&
-			e.getSource().getEntity() instanceof LivingEntity attacker &&
-			validateVolatile(victim, attacker)
+				e.getSource().getEntity() != null &&
+						!victim.level().isClientSide() &&
+						victim.level() instanceof ServerLevel server &&
+						e.getSource().getEntity() instanceof LivingEntity attacker &&
+						validateVolatile(victim, attacker)
 		) {
 			server.sendParticles(CRParticleTypes.SHOCKWAVE.get(), victim.getX(), victim.getY(), victim.getZ(), 1, 0.0D, 0.0D, 0.0D, 0.0D);
 			int level = Objects.requireNonNull(attacker.getEffect(CREffects.VOLATILITY.get())).getAmplifier();
 			List<LivingEntity> nearby = server.getNearbyEntities(LivingEntity.class,
-				TargetingConditions.DEFAULT.selector(living -> (
-					living != attacker &&
-					living != victim &&
-					!living.getType().is(CREntityTags.VOLATILITY_IMMUNE) &&
-					!(living instanceof TamableAnimal tame && tame.isTame())
-				)),
-				victim, victim.getBoundingBox().inflate(4.0D + ((double) level), 2.0D, 4.0D + ((double) level)))
-				.stream()
-				.limit(3 + level)
-				.toList();
+							TargetingConditions.DEFAULT.selector(living -> (
+									living != attacker &&
+											living != victim &&
+											!living.getType().is(CREntityTags.VOLATILITY_IMMUNE) &&
+											!(living instanceof TamableAnimal tame && tame.isTame())
+							)),
+							victim, victim.getBoundingBox().inflate(4.0D + ((double) level), 2.0D, 4.0D + ((double) level)))
+					.stream()
+					.limit(3 + level)
+					.toList();
 			if (nearby.isEmpty()) {
 				return;
 			}

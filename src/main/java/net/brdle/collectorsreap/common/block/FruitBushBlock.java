@@ -44,9 +44,9 @@ public abstract class FruitBushBlock extends DoublePlantBlock implements Bonemea
 	public FruitBushBlock(Properties properties) {
 		super(properties);
 		this.registerDefaultState(this.defaultBlockState()
-			.setValue(AGE, 0)
-			.setValue(HALF, DoubleBlockHalf.LOWER)
-			.setValue(STUNTED, false)
+				.setValue(AGE, 0)
+				.setValue(HALF, DoubleBlockHalf.LOWER)
+				.setValue(STUNTED, false)
 		);
 	}
 
@@ -61,9 +61,9 @@ public abstract class FruitBushBlock extends DoublePlantBlock implements Bonemea
 		BlockPos blockpos = context.getClickedPos();
 		Level level = context.getLevel();
 		return (
-			blockpos.getY() < level.getMaxBuildHeight() &&
-				level.getBlockState(blockpos.above()).canBeReplaced(context) ?
-				this.defaultBlockState() : null
+				blockpos.getY() < level.getMaxBuildHeight() &&
+						level.getBlockState(blockpos.above()).canBeReplaced(context) ?
+						this.defaultBlockState() : null
 		);
 
 	}
@@ -141,9 +141,9 @@ public abstract class FruitBushBlock extends DoublePlantBlock implements Bonemea
 		ItemStack stack = new ItemStack(getFruit(), getNumFruit(level));
 		if (!level.isClientSide()) {
 			double d0 = (double) EntityType.ITEM.getHeight() / 2.0D;
-			double d1 = (double)pos.getX() + 0.5D;
-			double d2 = (double)pos.above().getY() + 0.5D - d0;
-			double d3 = (double)pos.getZ() + 0.5D;
+			double d1 = (double) pos.getX() + 0.5D;
+			double d2 = (double) pos.above().getY() + 0.5D - d0;
+			double d3 = (double) pos.getZ() + 0.5D;
 			ItemEntity itementity = new ItemEntity(level, d1, d2, d3, stack);
 			itementity.setDefaultPickUpDelay();
 			level.addFreshEntity(itementity);
@@ -158,9 +158,9 @@ public abstract class FruitBushBlock extends DoublePlantBlock implements Bonemea
 		if (belowState.getValue(AGE) <= 1) {
 			level.setBlock(pos, copyWaterloggedFrom(level, pos, belowState), flags);
 		} else if (
-			belowState.getValue(AGE) > 1 &&
-			belowState.getBlock() instanceof FruitBushBlock fruit &&
-			fruit.canSurvive(state, level, pos)
+				belowState.getValue(AGE) > 1 &&
+						belowState.getBlock() instanceof FruitBushBlock fruit &&
+						fruit.canSurvive(state, level, pos)
 		) {
 			DoublePlantBlock.placeAt(level, belowState, pos, flags);
 		}

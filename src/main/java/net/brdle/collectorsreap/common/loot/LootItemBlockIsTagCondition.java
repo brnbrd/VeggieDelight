@@ -18,6 +18,7 @@ import org.jetbrains.annotations.NotNull;
 public class LootItemBlockIsTagCondition implements LootItemCondition {
 
 	final TagKey<Block> tag;
+
 	LootItemBlockIsTagCondition(TagKey<Block> tag) {
 		this.tag = tag;
 	}

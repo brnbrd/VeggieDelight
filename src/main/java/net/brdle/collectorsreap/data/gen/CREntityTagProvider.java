@@ -8,6 +8,7 @@ import net.minecraft.data.tags.EntityTypeTagsProvider;
 import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
+
 import java.util.concurrent.CompletableFuture;
 
 public class CREntityTagProvider extends EntityTypeTagsProvider {
@@ -18,10 +19,10 @@ public class CREntityTagProvider extends EntityTypeTagsProvider {
 	@Override
 	protected void addTags(HolderLookup.@NotNull Provider pProvider) {
 		this.tag(CREntityTags.INVOLATILE)
-			.add(EntityType.IRON_GOLEM)
-			.add(EntityType.WARDEN)
-			.add(EntityType.RAVAGER);
+				.add(EntityType.IRON_GOLEM)
+				.add(EntityType.WARDEN)
+				.add(EntityType.RAVAGER);
 		this.tag(CREntityTags.VOLATILITY_IMMUNE)
-			.add(EntityType.VILLAGER);
+				.add(EntityType.VILLAGER);
 	}
 }

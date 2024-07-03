@@ -14,40 +14,40 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 public class ClientProxy extends CommonProxy {
 
-    @Override
-    public void start() {
-        super.start();
-        final IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
-        //final IEventBus forgeBus = MinecraftForge.EVENT_BUS;
-        modBus.register(this);
-    }
+	@Override
+	public void start() {
+		super.start();
+		final IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
+		//final IEventBus forgeBus = MinecraftForge.EVENT_BUS;
+		modBus.register(this);
+	}
 
     /*@SubscribeEvent
     public void setupClient(FMLClientSetupEvent e){
     }*/
 
-    @SubscribeEvent
-    public void registerLayerDefinition(EntityRenderersEvent.RegisterLayerDefinitions e) {
-        e.registerLayerDefinition(TigerPrawnRenderer.LAYER_LOCATION, TigerPrawnModel::createBodyLayer);
-        e.registerLayerDefinition(UrchinRenderer.LAYER_LOCATION, UrchinModel::createBodyLayer);
-        e.registerLayerDefinition(PlatinumBassRenderer.LAYER_LOCATION, PlatinumBassModel::createBodyLayer);
-        e.registerLayerDefinition(ChieftainCrabRenderer.LAYER_LOCATION, ChieftainCrabModel::createBodyLayer);
-        e.registerLayerDefinition(ClamRenderer.LAYER_LOCATION, ClamModel::createBodyLayer);
-    }
+	@SubscribeEvent
+	public void registerLayerDefinition(EntityRenderersEvent.RegisterLayerDefinitions e) {
+		e.registerLayerDefinition(TigerPrawnRenderer.LAYER_LOCATION, TigerPrawnModel::createBodyLayer);
+		e.registerLayerDefinition(UrchinRenderer.LAYER_LOCATION, UrchinModel::createBodyLayer);
+		e.registerLayerDefinition(PlatinumBassRenderer.LAYER_LOCATION, PlatinumBassModel::createBodyLayer);
+		e.registerLayerDefinition(ChieftainCrabRenderer.LAYER_LOCATION, ChieftainCrabModel::createBodyLayer);
+		e.registerLayerDefinition(ClamRenderer.LAYER_LOCATION, ClamModel::createBodyLayer);
+	}
 
 
-    @SubscribeEvent
-    public void registerEntityRenders(EntityRenderersEvent.RegisterRenderers e) {
-        e.registerEntityRenderer(CREntities.TIGER_PRAWN.get(), TigerPrawnRenderer::new);
-        e.registerEntityRenderer(CREntities.URCHIN.get(), UrchinRenderer::new);
-        e.registerEntityRenderer(CREntities.PLATINUM_BASS.get(), PlatinumBassRenderer::new);
-        e.registerEntityRenderer(CREntities.CHIEFTAIN_CRAB.get(), ChieftainCrabRenderer::new);
-        e.registerEntityRenderer(CREntities.CLAM.get(), ClamRenderer::new);
-    }
+	@SubscribeEvent
+	public void registerEntityRenders(EntityRenderersEvent.RegisterRenderers e) {
+		e.registerEntityRenderer(CREntities.TIGER_PRAWN.get(), TigerPrawnRenderer::new);
+		e.registerEntityRenderer(CREntities.URCHIN.get(), UrchinRenderer::new);
+		e.registerEntityRenderer(CREntities.PLATINUM_BASS.get(), PlatinumBassRenderer::new);
+		e.registerEntityRenderer(CREntities.CHIEFTAIN_CRAB.get(), ChieftainCrabRenderer::new);
+		e.registerEntityRenderer(CREntities.CLAM.get(), ClamRenderer::new);
+	}
 
-    @SubscribeEvent
-    public void registerParticles(RegisterParticleProvidersEvent e) {
-        e.registerSpriteSet(CRParticleTypes.ACID.get(), AcidParticle.Provider::new);
-        e.registerSpriteSet(CRParticleTypes.SHOCKWAVE.get(), ShockwaveParticle.Provider::new);
-    }
+	@SubscribeEvent
+	public void registerParticles(RegisterParticleProvidersEvent e) {
+		e.registerSpriteSet(CRParticleTypes.ACID.get(), AcidParticle.Provider::new);
+		e.registerSpriteSet(CRParticleTypes.SHOCKWAVE.get(), ShockwaveParticle.Provider::new);
+	}
 }

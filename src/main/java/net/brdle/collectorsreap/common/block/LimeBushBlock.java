@@ -26,12 +26,12 @@ public class LimeBushBlock extends FruitBushBlock {
 
 	public static final VoxelShape SMALL_SHAPE = Block.box(4.0, 0.0, 4.0, 12.0, 11.0, 12.0);
 	private static final VoxelShape MEDIUM_SHAPE = Shapes.or(
-		Block.box(0.0D, 8.0D, 0.0D, 16.0D, 16.0D, 16.0D),
-		Block.box(6.0D, 0.0D, 6.0D, 10.0D, 8.0D, 10.0D)
+			Block.box(0.0D, 8.0D, 0.0D, 16.0D, 16.0D, 16.0D),
+			Block.box(6.0D, 0.0D, 6.0D, 10.0D, 8.0D, 10.0D)
 	);
 	private static final VoxelShape SHAPE_LOWER = Shapes.or(
-		Block.box(0.0D, 12.0D, 0.0D, 16.0D, 16.0D, 16.0D),
-		Block.box(6.0D, 0.0D, 6.0D, 10.0D, 12.0D, 10.0D));
+			Block.box(0.0D, 12.0D, 0.0D, 16.0D, 16.0D, 16.0D),
+			Block.box(6.0D, 0.0D, 6.0D, 10.0D, 12.0D, 10.0D));
 	private static final VoxelShape SHAPE_UPPER = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
 
 	public LimeBushBlock(Properties properties) {
@@ -40,11 +40,11 @@ public class LimeBushBlock extends FruitBushBlock {
 
 	@Override
 	public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos, @NotNull CollisionContext pContext) {
-		return switch(state.getValue(AGE)) {
+		return switch (state.getValue(AGE)) {
 			case 0 -> SMALL_SHAPE;
 			case 1 -> MEDIUM_SHAPE;
 			default -> state.hasProperty(HALF) && state.getValue(HALF) == DoubleBlockHalf.UPPER ?
-				SHAPE_UPPER : SHAPE_LOWER;
+					SHAPE_UPPER : SHAPE_LOWER;
 		};
 	}
 
@@ -62,10 +62,10 @@ public class LimeBushBlock extends FruitBushBlock {
 	public void randomTick(BlockState state, @NotNull ServerLevel pLevel, @NotNull BlockPos pPos, @NotNull RandomSource pRandom) {
 		int age = state.getValue(AGE);
 		if (
-			!(CRConfig.LIME_POLLINATION.get() && age == MAX_AGE - 1) && // Making sure we aren't a flowering state bush that needs pollination
-			age < MAX_AGE &&
-			state.getValue(HALF) == DoubleBlockHalf.LOWER && !state.getValue(STUNTED) &&
-			ForgeHooks.onCropsGrowPre(pLevel, pPos, state, pRandom.nextInt(12) == 0)
+				!(CRConfig.LIME_POLLINATION.get() && age == MAX_AGE - 1) && // Making sure we aren't a flowering state bush that needs pollination
+						age < MAX_AGE &&
+						state.getValue(HALF) == DoubleBlockHalf.LOWER && !state.getValue(STUNTED) &&
+						ForgeHooks.onCropsGrowPre(pLevel, pPos, state, pRandom.nextInt(12) == 0)
 		) {
 			this.performBonemeal(pLevel, pRandom, pPos, state);
 			ForgeHooks.onCropsGrowPost(pLevel, pPos, state);
@@ -86,11 +86,11 @@ public class LimeBushBlock extends FruitBushBlock {
 	@Override
 	public void entityInside(@NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Entity e) {
 		if (!pLevel.isClientSide() &&
-			CRConfig.LIME_POLLINATION.get() &&
-			CRConfig.FAST_POLLINATE.get() &&
-			e instanceof Bee &&
-			pState.getValue(AGE) == MAX_AGE - 1 &&
-			pLevel.getRandom().nextInt(150) == 0) {
+				CRConfig.LIME_POLLINATION.get() &&
+				CRConfig.FAST_POLLINATE.get() &&
+				e instanceof Bee &&
+				pState.getValue(AGE) == MAX_AGE - 1 &&
+				pLevel.getRandom().nextInt(150) == 0) {
 			this.performBonemeal((ServerLevel) pLevel, pLevel.getRandom(), pPos, pState);
 		}
 	}
@@ -100,8 +100,8 @@ public class LimeBushBlock extends FruitBushBlock {
 	public @NotNull VoxelShape getCollisionShape(@NotNull BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos, @NotNull CollisionContext pContext) {
 		if (pContext instanceof EntityCollisionContext ent && ent.getEntity() instanceof Bee && CRConfig.LIME_POLLINATION.get()) {
 			return (
-				pState.getValue(HALF) == DoubleBlockHalf.LOWER ?
-					Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D) : Shapes.empty()
+					pState.getValue(HALF) == DoubleBlockHalf.LOWER ?
+							Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D) : Shapes.empty()
 			);
 		}
 		return getShape(pState, pLevel, pPos, pContext);

@@ -17,7 +17,7 @@ public class IceCreamItem extends CompatConsumable {
 	public @NotNull ItemStack finishUsingItem(@NotNull ItemStack stack, @NotNull Level level, LivingEntity entity) {
 		entity.setTicksFrozen(entity.getTicksFrozen() + 200);
 		return (entity instanceof Player p && p.getAbilities().instabuild) ?
-			super.finishUsingItem(stack, level, entity) :
-			new ItemStack(Items.BOWL);
+				super.finishUsingItem(stack, level, entity) :
+				new ItemStack(Items.BOWL);
 	}
 }

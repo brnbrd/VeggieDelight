@@ -13,6 +13,7 @@ import org.jetbrains.annotations.NotNull;
 public class LootItemEnabledCondition implements LootItemCondition {
 
 	final String item;
+
 	LootItemEnabledCondition(String item) {
 		this.item = item;
 	}

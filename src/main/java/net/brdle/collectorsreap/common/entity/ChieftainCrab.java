@@ -39,6 +39,7 @@ import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.fluids.FluidType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
 import javax.annotation.Nonnull;
 import java.util.UUID;
 
@@ -46,7 +47,8 @@ public class ChieftainCrab extends WaterAnimal implements NeutralMob, Bucketable
 	private static final EntityDataAccessor<Boolean> FROM_BUCKET = SynchedEntityData.defineId(ChieftainCrab.class, EntityDataSerializers.BOOLEAN);
 	private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
 	private int remainingPersistentAngerTime;
-	@Nullable private UUID persistentAngerTarget;
+	@Nullable
+	private UUID persistentAngerTarget;
 	public final AnimationState idleAnimationState = new AnimationState();
 	public final AnimationState movingAnimationState = new AnimationState();
 
@@ -57,13 +59,13 @@ public class ChieftainCrab extends WaterAnimal implements NeutralMob, Bucketable
 
 	public static AttributeSupplier.@NotNull Builder createAttributes() {
 		return Mob.createMobAttributes()
-			.add(Attributes.MAX_HEALTH, 30.0D)
-			.add(Attributes.MOVEMENT_SPEED, 0.15D)
-			.add(Attributes.ATTACK_DAMAGE, 8.0D)
-			.add(Attributes.ATTACK_KNOCKBACK, 0.5D)
-			.add(Attributes.ARMOR, 3.0D)
-			.add(Attributes.ARMOR_TOUGHNESS, 2.0D)
-			.add(Attributes.KNOCKBACK_RESISTANCE, 0.5D);
+				.add(Attributes.MAX_HEALTH, 30.0D)
+				.add(Attributes.MOVEMENT_SPEED, 0.15D)
+				.add(Attributes.ATTACK_DAMAGE, 8.0D)
+				.add(Attributes.ATTACK_KNOCKBACK, 0.5D)
+				.add(Attributes.ARMOR, 3.0D)
+				.add(Attributes.ARMOR_TOUGHNESS, 2.0D)
+				.add(Attributes.KNOCKBACK_RESISTANCE, 0.5D);
 	}
 
 	@Override
@@ -195,7 +197,7 @@ public class ChieftainCrab extends WaterAnimal implements NeutralMob, Bucketable
 				this.idleAnimationState.startIfStopped(this.tickCount);
 			}
 		} else {
-			this.updatePersistentAnger((ServerLevel)this.level(), true);
+			this.updatePersistentAnger((ServerLevel) this.level(), true);
 		}
 	}
 

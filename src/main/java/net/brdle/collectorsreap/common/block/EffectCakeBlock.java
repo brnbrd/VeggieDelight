@@ -22,12 +22,14 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.NotNull;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
+
 import java.util.Objects;
 import java.util.function.Supplier;
 
 public class EffectCakeBlock extends CakeBlock {
 
 	private final Supplier<Item> slice;
+
 	public EffectCakeBlock(Properties prop, Supplier<Item> slice) {
 		super(prop);
 		this.slice = slice;
@@ -111,7 +113,7 @@ public class EffectCakeBlock extends CakeBlock {
 	public static void addEatEffect(ItemStack pFood, Level pLevel, Player p) {
 		Item item = pFood.getItem();
 		if (item.isEdible() && pFood.getFoodProperties(p) != null) {
-			for(Pair<MobEffectInstance, Float> pair : Objects.requireNonNull(pFood.getFoodProperties(p)).getEffects()) {
+			for (Pair<MobEffectInstance, Float> pair : Objects.requireNonNull(pFood.getFoodProperties(p)).getEffects()) {
 				if (!pLevel.isClientSide && pair.getFirst() != null && pLevel.random.nextFloat() < pair.getSecond()) {
 					p.addEffect(new MobEffectInstance(pair.getFirst()));
 				}

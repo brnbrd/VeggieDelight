@@ -11,12 +11,14 @@ import net.minecraftforge.fml.ModList;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.item.ConsumableItem;
+
 import java.util.List;
 
 public class CompatConsumable extends ConsumableItem {
 
 	private final String[] modid;
 	private final float heal;
+
 	public CompatConsumable(Properties properties, boolean hasFoodEffectTooltip, boolean hasCustomTooltip, String... modid) {
 		super(properties, hasFoodEffectTooltip, hasCustomTooltip);
 		this.heal = 0.0F;

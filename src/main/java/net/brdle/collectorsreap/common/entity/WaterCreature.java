@@ -143,5 +143,6 @@ public abstract class WaterCreature extends WaterAnimal implements Bucketable {
 	}
 
 	@Override
-	protected void playStepSound(@NotNull BlockPos pPos, @NotNull BlockState pBlock) {}
+	protected void playStepSound(@NotNull BlockPos pPos, @NotNull BlockState pBlock) {
+	}
 }

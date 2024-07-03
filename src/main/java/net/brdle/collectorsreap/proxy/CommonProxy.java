@@ -16,19 +16,19 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 public class CommonProxy {
 
-    public void start() {
-        final var modBus = FMLJavaModLoadingContext.get().getModEventBus();
-        final var forgeBus = MinecraftForge.EVENT_BUS;
-        forgeBus.register(new ForgeEvents());
-        modBus.register(new ModEvents());
-        modBus.register(new Generators());
-        CRBlocks.create(modBus);
-        CRItems.create(modBus);
-        CREntities.create(modBus);
-        CRParticleTypes.create(modBus);
-        CREffects.create(modBus);
-        CRFeatures.create(modBus);
-        CRLootItemConditions.create(modBus);
-        CRLootModifiers.create(modBus);
-    }
+	public void start() {
+		final var modBus = FMLJavaModLoadingContext.get().getModEventBus();
+		final var forgeBus = MinecraftForge.EVENT_BUS;
+		forgeBus.register(new ForgeEvents());
+		modBus.register(new ModEvents());
+		modBus.register(new Generators());
+		CRBlocks.create(modBus);
+		CRItems.create(modBus);
+		CREntities.create(modBus);
+		CRParticleTypes.create(modBus);
+		CREffects.create(modBus);
+		CRFeatures.create(modBus);
+		CRLootItemConditions.create(modBus);
+		CRLootModifiers.create(modBus);
+	}
 }

@@ -29,13 +29,13 @@ public class PlatinumBassModel extends HierarchicalModel<PlatinumBass> {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition root = meshdefinition.getRoot();
 		PartDefinition body = root.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 0).addBox(-3.0F, -12.0F, -1.0F, 6.0F, 10.0F, 16.0F, new CubeDeformation(0.0F))
-		.texOffs(0, 11).addBox(0.0F, -15.0F, 3.0F, 0.0F, 16.0F, 15.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 23.0F, -8.0F));
+				.texOffs(0, 11).addBox(0.0F, -15.0F, 3.0F, 0.0F, 16.0F, 15.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 23.0F, -8.0F));
 		PartDefinition LeftFin = body.addOrReplaceChild("LeftFin", CubeListBuilder.create().texOffs(30, 26).addBox(0.0F, -3.0F, 0.0F, 0.0F, 6.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(3.0F, -6.0F, 0.0F, 0.0F, 0.6981F, 0.0F));
 		PartDefinition RightFin = body.addOrReplaceChild("RightFin", CubeListBuilder.create().texOffs(30, 20).addBox(0.0F, -3.0F, 0.0F, 0.0F, 6.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-3.0F, -6.0F, 0.0F, 0.0F, -0.6981F, 0.0F));
 		PartDefinition Head = body.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 0).addBox(-2.0F, -2.0F, -7.0F, 4.0F, 4.0F, 1.0F, new CubeDeformation(0.0F))
-		.texOffs(28, 0).addBox(-3.0F, -4.0F, -6.0F, 6.0F, 7.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -6.0F, -1.0F));
+				.texOffs(28, 0).addBox(-3.0F, -4.0F, -6.0F, 6.0F, 7.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -6.0F, -1.0F));
 		PartDefinition Tail = body.addOrReplaceChild("Tail", CubeListBuilder.create().texOffs(26, 38).addBox(-1.0F, -4.0F, 0.0F, 2.0F, 7.0F, 4.0F, new CubeDeformation(0.0F))
-		.texOffs(0, 0).addBox(0.0F, -5.0F, 3.0F, 0.0F, 9.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -6.0F, 15.0F));
+				.texOffs(0, 0).addBox(0.0F, -5.0F, 3.0F, 0.0F, 9.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -6.0F, 15.0F));
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
 

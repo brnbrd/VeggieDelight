@@ -12,19 +12,19 @@ import org.apache.logging.log4j.Logger;
 
 @Mod(CollectorsReap.MODID)
 public class CollectorsReap {
-    public static final String MODID = "collectorsreap";
-    public static CollectorsReap instance;
-    public static CommonProxy proxy;
-    private static final Logger LOGGER = LogManager.getLogger();
+	public static final String MODID = "collectorsreap";
+	public static CollectorsReap instance;
+	public static CommonProxy proxy;
+	private static final Logger LOGGER = LogManager.getLogger();
 
-    public CollectorsReap() {
-        instance = this;
-        proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
-        proxy.start();
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CRConfig.SPEC);
-    }
+	public CollectorsReap() {
+		instance = this;
+		proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
+		proxy.start();
+		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CRConfig.SPEC);
+	}
 
-    public static Logger getLogger() {
-        return LOGGER;
-    }
+	public static Logger getLogger() {
+		return LOGGER;
+	}
 }

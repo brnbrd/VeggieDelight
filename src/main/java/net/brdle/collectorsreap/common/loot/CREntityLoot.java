@@ -14,31 +14,32 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyC
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
+
 import java.util.stream.Stream;
 
 public class CREntityLoot extends EntityLootSubProvider {
 
-    public CREntityLoot() {
-        super(FeatureFlags.REGISTRY.allFlags());
-    }
+	public CREntityLoot() {
+		super(FeatureFlags.REGISTRY.allFlags());
+	}
 
-    @Override
-    public void generate() {
-        this.add(CREntities.TIGER_PRAWN.get(), LootTable.lootTable()
-            .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(CRItems.TIGER_PRAWN.get())
-                .apply(SmeltItemFunction.smelted().when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, ENTITY_ON_FIRE))))));
-        this.add(CREntities.PLATINUM_BASS.get(), LootTable.lootTable()
-            .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(CRItems.PLATINUM_BASS.get())
-                .apply(SmeltItemFunction.smelted().when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, ENTITY_ON_FIRE))))));
-        this.add(CREntities.URCHIN.get(), LootTable.lootTable()
-            .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(CRItems.URCHIN.get()))));
-        this.add(CREntities.CHIEFTAIN_CRAB.get(), LootTable.lootTable());
-        this.add(CREntities.CLAM.get(), LootTable.lootTable()
-            .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(CRItems.CLAM.get()))));
-    }
+	@Override
+	public void generate() {
+		this.add(CREntities.TIGER_PRAWN.get(), LootTable.lootTable()
+				.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(CRItems.TIGER_PRAWN.get())
+						.apply(SmeltItemFunction.smelted().when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, ENTITY_ON_FIRE))))));
+		this.add(CREntities.PLATINUM_BASS.get(), LootTable.lootTable()
+				.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(CRItems.PLATINUM_BASS.get())
+						.apply(SmeltItemFunction.smelted().when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, ENTITY_ON_FIRE))))));
+		this.add(CREntities.URCHIN.get(), LootTable.lootTable()
+				.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(CRItems.URCHIN.get()))));
+		this.add(CREntities.CHIEFTAIN_CRAB.get(), LootTable.lootTable());
+		this.add(CREntities.CLAM.get(), LootTable.lootTable()
+				.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(CRItems.CLAM.get()))));
+	}
 
-    @Override
-    public @NotNull Stream<EntityType<?>> getKnownEntityTypes() {
-        return CREntities.ENTITY_TYPES.getEntries().stream().map(RegistryObject::get);
-    }
+	@Override
+	public @NotNull Stream<EntityType<?>> getKnownEntityTypes() {
+		return CREntities.ENTITY_TYPES.getEntries().stream().map(RegistryObject::get);
+	}
 }

@@ -41,11 +41,11 @@ public class PomegranateBushBlock extends FruitBushBlock {
 
 	@Override
 	public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos, @NotNull CollisionContext pContext) {
-		return switch(state.getValue(AGE)) {
+		return switch (state.getValue(AGE)) {
 			case 0 -> SAPLING_SHAPE;
 			case 1 -> MID_GROWTH_SHAPE;
 			default -> state.hasProperty(HALF) && state.getValue(HALF) == DoubleBlockHalf.UPPER ?
-				SHAPE_UPPER : SHAPE_LOWER;
+					SHAPE_UPPER : SHAPE_LOWER;
 		};
 	}
 
@@ -94,11 +94,11 @@ public class PomegranateBushBlock extends FruitBushBlock {
 	@Override
 	public void entityInside(@NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Entity e) {
 		if (!pLevel.isClientSide() &&
-			CRConfig.POMEGRANATE_POLLINATION.get() &&
-			CRConfig.FAST_POLLINATE.get() &&
-			e instanceof Bee &&
-			pState.getValue(AGE) == MAX_AGE - 1 &&
-			pLevel.getRandom().nextInt(150) == 0) {
+				CRConfig.POMEGRANATE_POLLINATION.get() &&
+				CRConfig.FAST_POLLINATE.get() &&
+				e instanceof Bee &&
+				pState.getValue(AGE) == MAX_AGE - 1 &&
+				pLevel.getRandom().nextInt(150) == 0) {
 			this.performBonemeal((ServerLevel) pLevel, pLevel.getRandom(), pPos, pState);
 		}
 	}
@@ -108,7 +108,7 @@ public class PomegranateBushBlock extends FruitBushBlock {
 	public @NotNull VoxelShape getCollisionShape(@NotNull BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos, @NotNull CollisionContext pContext) {
 		if (pContext instanceof EntityCollisionContext ent && ent.getEntity() instanceof Bee && CRConfig.POMEGRANATE_POLLINATION.get()) {
 			return pState.getValue(HALF) == DoubleBlockHalf.LOWER ?
-				Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D) : Shapes.empty();
+					Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D) : Shapes.empty();
 		}
 		return getShape(pState, pLevel, pPos, pContext);
 	}

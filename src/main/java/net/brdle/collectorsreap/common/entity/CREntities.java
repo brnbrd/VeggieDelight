@@ -21,15 +21,15 @@ public class CREntities {
 	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, CollectorsReap.MODID);
 
 	public static final RegistryObject<EntityType<TigerPrawn>> TIGER_PRAWN = reg("tiger_prawn",
-		TigerPrawn::new, MobCategory.WATER_AMBIENT, 0.8F, 0.4F);
+			TigerPrawn::new, MobCategory.WATER_AMBIENT, 0.8F, 0.4F);
 	public static final RegistryObject<EntityType<Urchin>> URCHIN = reg("urchin",
-		Urchin::new, MobCategory.WATER_AMBIENT, 0.5F, 0.5F);
+			Urchin::new, MobCategory.WATER_AMBIENT, 0.5F, 0.5F);
 	public static final RegistryObject<EntityType<PlatinumBass>> PLATINUM_BASS = reg("platinum_bass",
-		PlatinumBass::new, MobCategory.WATER_AMBIENT, 1.2F, 0.5F);
+			PlatinumBass::new, MobCategory.WATER_AMBIENT, 1.2F, 0.5F);
 	public static final RegistryObject<EntityType<Clam>> CLAM = reg("clam",
-		Clam::new, MobCategory.WATER_AMBIENT, 1.0F, 0.5F);
+			Clam::new, MobCategory.WATER_AMBIENT, 1.0F, 0.5F);
 	public static final RegistryObject<EntityType<ChieftainCrab>> CHIEFTAIN_CRAB = reg("chieftain_crab",
-		ChieftainCrab::new, MobCategory.CREATURE, 0.85F, 0.65F);
+			ChieftainCrab::new, MobCategory.CREATURE, 0.85F, 0.65F);
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> reg(String name, EntityType.EntityFactory<T> fact, MobCategory category, float width, float height) {
 		return ENTITY_TYPES.register(name, () -> EntityType.Builder.of(fact, category).sized(width, height).build(CollectorsReap.MODID + "." + name));

@@ -13,13 +13,13 @@ public class AcidParticle extends TextureSheetParticle {
 		super(pLevel, pX, pY, pZ);
 		this.setSize(0.02F, 0.02F);
 		this.friction = 0.96F;
-		this.xd = this.xd * (double)0.01F + pXSpeed;
-		this.yd = this.yd * (double)0.01F + pYSpeed;
-		this.zd = this.zd * (double)0.01F + pZSpeed;
+		this.xd = this.xd * (double) 0.01F + pXSpeed;
+		this.yd = this.yd * (double) 0.01F + pYSpeed;
+		this.zd = this.zd * (double) 0.01F + pZSpeed;
 		this.x += (this.random.nextFloat() - this.random.nextFloat()) * 0.05F;
 		this.y += (this.random.nextFloat() - this.random.nextFloat()) * 0.05F;
 		this.z += (this.random.nextFloat() - this.random.nextFloat()) * 0.05F;
-		this.lifetime = (int)(8.0D / (Math.random() * 0.8D + 0.2D)) + 6;
+		this.lifetime = (int) (8.0D / (Math.random() * 0.8D + 0.2D)) + 6;
 	}
 
 	public void tick() {

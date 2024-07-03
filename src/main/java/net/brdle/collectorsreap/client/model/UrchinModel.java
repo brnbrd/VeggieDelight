@@ -39,6 +39,7 @@ public class UrchinModel extends HierarchicalModel<Urchin> {
 		PartDefinition bone = body.addOrReplaceChild("bone", CubeListBuilder.create().texOffs(32, 16).addBox(-8.0F, 0.0F, -8.0F, 16.0F, 0.0F, 16.0F, new CubeDeformation(0.0F)).texOffs(0, 16).addBox(-8.0F, 1.0F, -8.0F, 16.0F, 0.0F, 16.0F, new CubeDeformation(0.0F)).texOffs(32, 0).addBox(-8.0F, 4.0F, -8.0F, 16.0F, 0.0F, 16.0F, new CubeDeformation(0.0F)).texOffs(0, 0).addBox(-8.0F, 3.0F, -8.0F, 16.0F, 0.0F, 16.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -5.0F, 0.0F, 0.0F, -0.7854F, 0.0F));
 		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
+
 	@Override
 	public void renderToBuffer(@NotNull PoseStack poseStack, @NotNull VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
@@ -50,6 +51,7 @@ public class UrchinModel extends HierarchicalModel<Urchin> {
 	}
 
 	@Override
-	public void setupAnim(@NotNull Urchin entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {}
+	public void setupAnim(@NotNull Urchin entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	}
 
 }

@@ -30,8 +30,8 @@ public class Clam extends WaterGroundCreature {
 
 	public static AttributeSupplier.@NotNull Builder createAttributes() {
 		return Mob.createMobAttributes()
-			.add(Attributes.MOVEMENT_SPEED, 0.0D)
-			.add(Attributes.MAX_HEALTH, 10.0D);
+				.add(Attributes.MOVEMENT_SPEED, 0.0D)
+				.add(Attributes.MAX_HEALTH, 10.0D);
 	}
 
 	public int getVariant() {
@@ -92,7 +92,7 @@ public class Clam extends WaterGroundCreature {
 		if (dataTag == null) {
 			setVariant(getRandom().nextInt(VARIANTS));
 		} else if (dataTag.contains("Variant", 3)) {
-				this.setVariant(dataTag.getInt("Variant"));
+			this.setVariant(dataTag.getInt("Variant"));
 		} else if (dataTag.contains("Health", 99)) {
 			this.setHealth(dataTag.getFloat("Health"));
 		}
@@ -126,5 +126,6 @@ public class Clam extends WaterGroundCreature {
 	}
 
 	@Override
-	protected void registerGoals() { }
+	protected void registerGoals() {
+	}
 }

@@ -14,7 +14,7 @@
               "type": "forge:mod_loaded",
               "modid": "neapolitan"
             },
-			{
+            {
               "type": "forge:mod_loaded",
               "modid": "create"
             }
@@ -22,23 +22,23 @@
         }
       ],
       "recipe": {
-	  "type": "create:filling",
-	  "ingredients": [
-		{
-		  "tag": "forge:seeds/pomegranate"
-		},
-		{
-		  "amount": 250,
-		  "fluid": "create:chocolate",
-		  "nbt": {}
-		}
-	  ],
-	  "results": [
-		{
-          "item": "collectorsreap:chocolate_arils"
-		}
-	  ]
-	}
+        "type": "create:filling",
+        "ingredients": [
+          {
+            "tag": "forge:seeds/pomegranate"
+          },
+          {
+            "amount": 250,
+            "fluid": "create:chocolate",
+            "nbt": {}
+          }
+        ],
+        "results": [
+          {
+            "item": "collectorsreap:chocolate_arils"
+          }
+        ]
+      }
     }
   ]
 }
