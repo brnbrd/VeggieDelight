@@ -2,6 +2,7 @@ package net.brdle.collectorsreap.common.block;
 
 import net.brdle.collectorsreap.data.CRBlockTags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -29,7 +30,7 @@ public class PortobelloBlock extends MushroomBlock {
 	public void randomTick(@NotNull BlockState state, ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource rand) {
 		if (
 				!level.isClientSide() &&
-						level.getBlockState(pos.below()).is(ModTags.MUSHROOM_COLONY_GROWABLE_ON)
+				level.getBlockState(pos.below()).is(ModTags.MUSHROOM_COLONY_GROWABLE_ON)
 		) {
 			level.setBlockAndUpdate(pos, CRBlocks.PORTOBELLO_COLONY.get().defaultBlockState());
 		} else {
@@ -41,11 +42,10 @@ public class PortobelloBlock extends MushroomBlock {
 	public boolean canSurvive(@NotNull BlockState pState, LevelReader level, BlockPos pos) {
 		BlockPos blockpos = pos.below();
 		BlockState blockstate = level.getBlockState(blockpos);
-		if (blockstate.is(CRBlockTags.PORTOBELLO_SPAWNABLE_ON)) {
-			return true;
-		} else {
-			return blockstate.canSustainPlant(level, blockpos, net.minecraft.core.Direction.UP, this);
-		}
+		return (
+				(blockstate.is(CRBlockTags.PORTOBELLO_SPAWNABLE_ON)) ||
+				(blockstate.canSustainPlant(level, blockpos, Direction.UP, this))
+		);
 	}
 
 	@Override

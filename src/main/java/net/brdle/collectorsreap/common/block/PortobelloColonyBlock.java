@@ -2,6 +2,7 @@ package net.brdle.collectorsreap.common.block;
 
 import net.brdle.collectorsreap.data.CRBlockTags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
@@ -20,11 +21,10 @@ public class PortobelloColonyBlock extends MushroomColonyBlock {
 	public boolean canSurvive(@NotNull BlockState pState, LevelReader level, BlockPos pos) {
 		BlockPos blockpos = pos.below();
 		BlockState blockstate = level.getBlockState(blockpos);
-		if (blockstate.is(CRBlockTags.PORTOBELLO_SPAWNABLE_ON)) {
-			return true;
-		} else {
-			return blockstate.canSustainPlant(level, blockpos, net.minecraft.core.Direction.UP, this);
-		}
+		return (
+				(blockstate.is(CRBlockTags.PORTOBELLO_SPAWNABLE_ON)) ||
+				(blockstate.canSustainPlant(level, blockpos, Direction.UP, this))
+		);
 	}
 
 	@Override
