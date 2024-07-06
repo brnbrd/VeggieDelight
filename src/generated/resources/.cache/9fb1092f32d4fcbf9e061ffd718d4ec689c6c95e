@@ -1,4 +1,4 @@
-// 1.20.1	2024-07-02T15:44:40.9062063	Recipes
+// 1.20.1	2024-07-06T11:00:45.0880029	Recipes
 6bed5b7d715399840f10473875efca57540c42e3 data/collectorsreap/advancements/recipes/chiseled_urchin_test_bricks.json
 ffff41205e9b83cc8ab9d38ce39c06fa7e8f6ae7 data/collectorsreap/advancements/recipes/cutting/chieftain_claw.json
 51d613fd6d246740518e1ed57afea6e6deea518e data/collectorsreap/advancements/recipes/cutting/chieftain_crab.json
@@ -154,7 +154,7 @@ d02b7ab0abff6be739412845f97807cec8538084 data/collectorsreap/recipes/cutting/chi
 3e025a6c1c121e7a3ffb415af799c228d6de56ab data/collectorsreap/recipes/cutting/lime.json
 b56ae96523a29b7051087c9e1cf5493fa34e0a3c data/collectorsreap/recipes/cutting/lime_cake.json
 f3edf2f3beea2eb628715fdec4378cfd52a00822 data/collectorsreap/recipes/cutting/lime_pie.json
-d1daf56f17963efde267a7641d1271472e07e008 data/collectorsreap/recipes/cutting/lime_slice.json
+c5aed37e25639156de20742f9f3e7b8ccd5de395 data/collectorsreap/recipes/cutting/lime_slice.json
 25852919065ed590c2d1691823ed7d0e6bd0f518 data/collectorsreap/recipes/cutting/platinum_bass.json
 43a0a696fac0419095da090c6d7b3d90d596bf47 data/collectorsreap/recipes/cutting/pomegranate.json
 774a780fe53a6057a36f2dd295e58fca08fa6ece data/collectorsreap/recipes/cutting/pomegranate_cake.json
@@ -196,7 +196,7 @@ c7c7df6813f6ad104aa82c0dbca5ab885ad64777 data/collectorsreap/recipes/food/mint_l
 88253772d015ee5b0c6c079b93bf73e68080b210 data/collectorsreap/recipes/food/mint_limeade_from_limeade.json
 a01379a14d8ff1bd04dbcc58c9bfe795ec748612 data/collectorsreap/recipes/food/pink_limeade.json
 baa41a1feb6e1edf9dc607b721a3f517f8747da0 data/collectorsreap/recipes/food/pink_limeade_from_limeade.json
-715b2b5c98d5b8210bf8ba78ab094aac1b8263f0 data/collectorsreap/recipes/food/platinum_bass_stew.json
+100b966357c2659448077a30caef9be1d9e2a0a9 data/collectorsreap/recipes/food/platinum_bass_stew.json
 ba6b723eadc5032fabc11d2d0fc1a174263f0345 data/collectorsreap/recipes/food/pomegranate_bean_salad.json
 1ea3ea26cfa0b8a358a6a9ef6e363e140f2fecba data/collectorsreap/recipes/food/pomegranate_cake.json
 e5c45e1625df8dec5238302d3c04f84cc28d6170 data/collectorsreap/recipes/food/pomegranate_cake_from_slices.json

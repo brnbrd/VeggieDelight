@@ -20,7 +20,7 @@
             "item": "collectorsreap:platinum_bass_slice"
           },
           {
-            "item": "farmersdelight:cooked_rice"
+            "tag": "forge:grain/rice"
           },
           {
             "tag": "collectorsreap:lime_or_slice"

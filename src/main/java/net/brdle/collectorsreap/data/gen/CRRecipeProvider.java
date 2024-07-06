@@ -22,6 +22,7 @@ import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 import vectorwing.farmersdelight.common.registry.ModItems;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
+import vectorwing.farmersdelight.common.tag.ModTags;
 import vectorwing.farmersdelight.data.builder.CookingPotRecipeBuilder;
 import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
@@ -53,7 +54,8 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
 						.addResultWithChance(Items.LIME_DYE, 0.5f),
 				"cutting/lime", finished, enabled(CRItems.LIME), enabled(CRItems.LIME_SLICE));
 		wrap(CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(CRItems.LIME_SLICE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES),
-						Items.LIME_DYE, 1),
+								CRItems.LIME_SEEDS.get(), 1)
+						.addResult(Items.LIME_DYE, 1),
 				"cutting/lime_slice", finished, enabled(CRItems.LIME), enabled(CRItems.LIME_SLICE));
 		wrap(CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(CRItems.LIME_PIE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES),
 						CRItems.LIME_PIE_SLICE.get(), 4),
@@ -288,7 +290,7 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
 		wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.PLATINUM_BASS_STEW.get(), 1, 200, 1.0F)
 						.addIngredient(CRItems.PLATINUM_BASS_HEAD.get())
 						.addIngredient(CRItems.PLATINUM_BASS_SLICE.get())
-						.addIngredient(CRItems.COOKED_RICE.get())
+						.addIngredient(ForgeTags.GRAIN_RICE)
 						.addIngredient(CRItemTags.LIME_OR_SLICE)
 						.addIngredient(ForgeTags.VEGETABLES_ONION)
 						.addIngredient(Items.DRIED_KELP)

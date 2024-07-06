@@ -7,10 +7,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.NotNull;
 import vectorwing.farmersdelight.common.block.MushroomColonyBlock;
-
 import java.util.function.Supplier;
+import org.jetbrains.annotations.NotNull;
 
 public class PortobelloColonyBlock extends MushroomColonyBlock {
 	public PortobelloColonyBlock(Properties properties, Supplier<Item> mushroomType) {
