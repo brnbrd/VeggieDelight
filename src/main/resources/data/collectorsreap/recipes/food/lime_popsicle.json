@@ -1,0 +1,98 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "collectorsreap:enabled",
+              "value": "lime"
+            },
+            {
+              "type": "collectorsreap:enabled",
+              "value": "lime_popsicle"
+            },
+            {
+              "type": "forge:not",
+              "value": {
+                "type": "forge:tag_empty",
+                "tag": "forge:ice_cubes"
+              }
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "key": {
+          "c": {
+            "tag": "forge:fruits/lime"
+          },
+          "i": {
+            "tag": "forge:ice_cubes"
+          },
+          "s": {
+            "item": "minecraft:stick"
+          }
+        },
+        "pattern": [
+          " cc",
+          "icc",
+          "si "
+        ],
+        "result": {
+          "item": "collectorsreap:lime_popsicle"
+        },
+        "show_notification": true
+      }
+    },
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "collectorsreap:enabled",
+              "value": "lime"
+            },
+            {
+              "type": "collectorsreap:enabled",
+              "value": "lime_popsicle"
+            },
+            {
+              "type": "forge:tag_empty",
+              "tag": "forge:ice_cubes"
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "key": {
+          "c": {
+            "tag": "forge:fruits/lime"
+          },
+          "i": {
+            "item": "minecraft:ice"
+          },
+          "s": {
+            "item": "minecraft:stick"
+          }
+        },
+        "pattern": [
+          " cc",
+          "icc",
+          "si "
+        ],
+        "result": {
+          "item": "collectorsreap:lime_popsicle"
+        },
+        "show_notification": true
+      }
+    }
+  ]
+}
