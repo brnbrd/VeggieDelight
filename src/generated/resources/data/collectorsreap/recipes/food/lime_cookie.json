@@ -18,24 +18,23 @@
         }
       ],
       "recipe": {
-        "type": "minecraft:crafting_shaped",
+        "type": "minecraft:crafting_shapeless",
         "category": "misc",
-        "key": {
-          "l": {
+        "ingredients": [
+          {
             "tag": "forge:fruits/lime"
           },
-          "w": {
+          {
+            "tag": "forge:grain/wheat"
+          },
+          {
             "tag": "forge:grain/wheat"
           }
-        },
-        "pattern": [
-          "wlw"
         ],
         "result": {
           "count": 8,
           "item": "collectorsreap:lime_cookie"
-        },
-        "show_notification": true
+        }
       }
     }
   ]

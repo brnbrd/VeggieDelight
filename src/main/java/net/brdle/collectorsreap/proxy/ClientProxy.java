@@ -6,6 +6,8 @@ import net.brdle.collectorsreap.client.particle.ShockwaveParticle;
 import net.brdle.collectorsreap.client.renderer.*;
 import net.brdle.collectorsreap.common.CRParticleTypes;
 import net.brdle.collectorsreap.common.entity.CREntities;
+import net.brdle.collectorsreap.common.entity.UrchinDart;
+import net.minecraft.client.renderer.entity.ArrowRenderer;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -43,6 +45,7 @@ public class ClientProxy extends CommonProxy {
 		e.registerEntityRenderer(CREntities.PLATINUM_BASS.get(), PlatinumBassRenderer::new);
 		e.registerEntityRenderer(CREntities.CHIEFTAIN_CRAB.get(), ChieftainCrabRenderer::new);
 		e.registerEntityRenderer(CREntities.CLAM.get(), ClamRenderer::new);
+		e.registerEntityRenderer(CREntities.URCHIN_DART.get(), UrchinDartRenderer::new);
 	}
 
 	@SubscribeEvent

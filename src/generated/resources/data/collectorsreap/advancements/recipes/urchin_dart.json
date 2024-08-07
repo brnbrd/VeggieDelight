@@ -1,0 +1,47 @@
+{
+  "advancements": [
+    {
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "criteria": {
+          "has_the_recipe": {
+            "conditions": {
+              "recipe": "collectorsreap:urchin_dart"
+            },
+            "trigger": "minecraft:recipe_unlocked"
+          },
+          "has_urchin_needle": {
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "collectorsreap:urchin_needle"
+                  ]
+                }
+              ]
+            },
+            "trigger": "minecraft:inventory_changed"
+          }
+        },
+        "requirements": [
+          [
+            "has_urchin_needle",
+            "has_the_recipe"
+          ]
+        ],
+        "rewards": {
+          "recipes": [
+            "collectorsreap:urchin_dart"
+          ]
+        },
+        "sends_telemetry_event": false
+      },
+      "conditions": [
+        {
+          "type": "collectorsreap:enabled",
+          "value": "urchin_dart"
+        }
+      ]
+    }
+  ]
+}

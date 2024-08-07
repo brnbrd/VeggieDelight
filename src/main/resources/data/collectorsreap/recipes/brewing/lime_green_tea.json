@@ -26,8 +26,9 @@
       ],
       "recipe": {
         "type": "farmersrespite:brewing",
-        "container": {
-          "item": "minecraft:glass_bottle"
+        "base": {
+          "count": 1000,
+          "fluid": "minecraft:water"
         },
         "cookingtime": 2400,
         "experience": 0.35,
@@ -39,9 +40,9 @@
             "tag": "forge:tea_leaves/green"
           }
         ],
-        "needwater": true,
         "result": {
-          "item": "collectorsreap:lime_green_tea"
+          "count": 1000,
+          "fluid": "collectorsreap:lime_green_tea"
         }
       }
     }

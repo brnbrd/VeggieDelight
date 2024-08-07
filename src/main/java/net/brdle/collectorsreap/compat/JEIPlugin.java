@@ -14,6 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.fml.ModList;
 import org.jetbrains.annotations.NotNull;
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.List;
 import java.util.function.Predicate;
 
 @JeiPlugin
@@ -36,7 +37,7 @@ public class JEIPlugin implements IModPlugin {
 
 		// Lime
 		String limeTranslationKey = "desc." + CollectorsReap.MODID + "." + Util.name(CRItems.LIME);
-		ItemStack limeStack = Util.gs(CRItems.LIME);
+		List<ItemStack> limeStack = List.of(Util.gs(CRItems.LIME), Util.gs(CRItems.LIME_SLICE));
 		if (CRConfig.LIME_POLLINATION.get()) {
 			registration.addItemStackInfo(limeStack, Component.translatable(limeTranslationKey),
 				Component.translatable(limeTranslationKey + ".pollination")
@@ -47,7 +48,7 @@ public class JEIPlugin implements IModPlugin {
 
 		// Pomegranate
 		String pomTranslationKey = "desc." + CollectorsReap.MODID + "." + Util.name(CRItems.POMEGRANATE);
-		ItemStack pomStack = Util.gs(CRItems.POMEGRANATE);
+		List<ItemStack> pomStack = List.of(Util.gs(CRItems.POMEGRANATE), Util.gs(CRItems.POMEGRANATE_SLICE));
 		if (CRConfig.POMEGRANATE_POLLINATION.get()) {
 			registration.addItemStackInfo(pomStack, Component.translatable(pomTranslationKey),
 				Component.translatable(pomTranslationKey + ".pollination")

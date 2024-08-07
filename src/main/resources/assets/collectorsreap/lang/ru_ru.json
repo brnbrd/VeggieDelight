@@ -179,11 +179,13 @@
   "item.collectorsreap.uni_roll": "Uni Roll",
   "item.collectorsreap.urchin": "Urchin",
   "item.collectorsreap.urchin_bucket": "Bucket of Urchin",
+  "item.collectorsreap.urchin_dart": "Urchin Dart",
   "item.collectorsreap.urchin_needle": "Urchin Needle",
   "item.collectorsreap.urchin_spawn_egg": "Spawn Urchin",
   "item.collectorsreap.urchin_test": "Urchin Test",
   "item.collectorsreap.vanilla_gummy": "Желе из ванили",
   "item.collectorsreap.yellow_tea_gummy": "Желе из желтого чая",
   "item.collectorsreap.yucca_gummy": "Желе из юкки",
-  "tooltip.requires_modid": "Необходима модификация:"
+  "tooltip.requires_modid": "Необходима модификация:",
+  "entity.collectorsreap.urchin_dart": "Urchin Dart"
 }

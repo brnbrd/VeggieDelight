@@ -1,4 +1,4 @@
-// 1.20.1	2024-07-06T15:04:11.5612644	Item Models: collectorsreap
+// 1.20.1	2024-07-17T09:42:50.1816154	Item Models: collectorsreap
 b183daae948efe76cbf209119af41701e5b72e95 assets/collectorsreap/models/item/adzuki_gummy.json
 56db9a7317e6d5a63c63af71a4011b16c66c00e7 assets/collectorsreap/models/item/aloe_gummy.json
 b27cb012c75da3137768f12a8074eab65874647a assets/collectorsreap/models/item/apple_gummy.json
@@ -121,6 +121,7 @@ fd32a2fe94ec010eda341c9d00cdff3f6718185f assets/collectorsreap/models/item/tiger
 231f93038ce963dcbf9642bc0c2cc84adfef358c assets/collectorsreap/models/item/uni_roll.json
 67f0632a5b92e792a5e7cc7bf38f11cabf26ecab assets/collectorsreap/models/item/urchin.json
 41541de3811c3b411e84049c90e297de045d2136 assets/collectorsreap/models/item/urchin_bucket.json
+7b270297332b685c996151886adef9361732410c assets/collectorsreap/models/item/urchin_dart.json
 8df69c301db480834caaa7ed4aaab52a13ed38fc assets/collectorsreap/models/item/urchin_needle.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/collectorsreap/models/item/urchin_spawn_egg.json
 2d183548407766b547546e2d0f02999d14deedb5 assets/collectorsreap/models/item/urchin_test.json

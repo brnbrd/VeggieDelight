@@ -66,6 +66,7 @@ public class CRItemTags {
 
 	// Supplementaries
 	public static final TagKey<Item> FLOWER_BOX_PLANTABLE = Util.it("supplementaries", "flower_box_plantable");
+	public static final TagKey<Item> SUPP_COOKIES = Util.it("supplementaries", "cookies");
 
 	private static TagKey<Item> cr(String name) {
 		return Util.it(CollectorsReap.MODID, name);

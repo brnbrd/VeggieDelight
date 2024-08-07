@@ -125,6 +125,8 @@ public class CRItemTagProvider extends ItemTagsProvider {
 				.add(ModItems.HONEY_COOKIE.get())
 				.add(ModItems.SWEET_BERRY_COOKIE.get())
 				.add(CRItems.LIME_COOKIE.get());
+		this.tag(CRItemTags.SUPP_COOKIES)
+				.addTag(CRItemTags.COOKIES);
 		this.tag(CRItemTags.EGGS_BIRD)
 				.add(Items.EGG)
 				.addOptional(Util.rl("naturalist", "duck_egg"))

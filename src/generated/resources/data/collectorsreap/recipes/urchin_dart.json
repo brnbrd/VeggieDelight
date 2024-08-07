@@ -1,0 +1,37 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "collectorsreap:enabled",
+          "value": "urchin_dart"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "equipment",
+        "key": {
+          "c": {
+            "tag": "forge:ingots/copper"
+          },
+          "f": {
+            "tag": "forge:feathers"
+          },
+          "n": {
+            "item": "collectorsreap:urchin_needle"
+          }
+        },
+        "pattern": [
+          "  n",
+          " c ",
+          "f  "
+        ],
+        "result": {
+          "item": "collectorsreap:urchin_dart"
+        },
+        "show_notification": true
+      }
+    }
+  ]
+}

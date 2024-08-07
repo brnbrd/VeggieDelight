@@ -25,18 +25,19 @@ public class CRLanguageProvider extends LanguageProvider {
 
 	private void addEntities() {
 		addEntityType(CREntities.TIGER_PRAWN, "Tiger Prawn");
-		addEntityType(CREntities.URCHIN, "Urchin");
 		addEntityType(CREntities.PLATINUM_BASS, "Platinum Bass");
 		addEntityType(CREntities.CHIEFTAIN_CRAB, "Chieftain Crab");
 		addEntityType(CREntities.CLAM, "Tide Clam");
+		addEntityType(CREntities.URCHIN, "Urchin");
+		addEntityType(CREntities.URCHIN_DART, "Urchin Dart");
 	}
 
 	private void addText() {
 		add("tooltip.requires_modid", "Requires modid:");
-		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.PORTOBELLO), "Found in Meadows.");
-		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.LIME), "Found in Flower Forests.");
+		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.PORTOBELLO), "Portobellos can be rarely found in meadows.");
+		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.LIME), "Limes can be found as a wild bush in flower forests.");
 		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.LIME) + ".pollination", "A flowering Lime Bush will grow fruit when pollinated by a Bee.");
-		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.POMEGRANATE), "Found in Warped Forests.");
+		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.POMEGRANATE), "Pomegranates can be found as a wild bush in warped forests.");
 		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.POMEGRANATE) + ".pollination", "A flowering Pomegranate Bush will grow fruit in the Overworld when pollinated by a Bee.");
 		add("config.jade.plugin_" + CollectorsReap.MODID + ".crop_progress", "Crop Progress");
 	}
@@ -189,6 +190,7 @@ public class CRLanguageProvider extends LanguageProvider {
 		addItem(CRItems.URCHIN, "Urchin");
 		addItem(CRItems.URCHIN_TEST, "Urchin Test");
 		addItem(CRItems.URCHIN_NEEDLE, "Urchin Needle");
+		addItem(CRItems.URCHIN_DART, "Urchin Dart");
 		addItem(CRItems.UNI, "Uni");
 		addItem(CRItems.UNI_ROLL, "Uni Roll");
 		addItem(CRItems.PLATINUM_BASS_SPAWN_EGG, "Spawn Platinum Bass");

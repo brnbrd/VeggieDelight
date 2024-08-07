@@ -22,7 +22,6 @@ import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 import vectorwing.farmersdelight.common.registry.ModItems;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
-import vectorwing.farmersdelight.common.tag.ModTags;
 import vectorwing.farmersdelight.data.builder.CookingPotRecipeBuilder;
 import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
@@ -578,10 +577,10 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
 						.requires(CRItems.LIME_PIE_SLICE.get(), 4)
 						.unlockedBy("has_lime_pie_slice", has(CRItems.LIME_PIE_SLICE.get())),
 				"food/lime_pie_from_slices", finished, enabled(CRItems.LIME_PIE), enabled(CRItems.LIME_PIE_SLICE));
-		wrap(shaped(RecipeCategory.FOOD, CRItems.LIME_COOKIE, 8)
-						.pattern("wlw")
-						.define('l', CRItemTags.FRUITS_LIME)
-						.define('w', ForgeTags.GRAIN_WHEAT)
+		wrap(ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, CRItems.LIME_COOKIE.get(), 8)
+						.requires(CRItemTags.FRUITS_LIME)
+						.requires(ForgeTags.GRAIN_WHEAT)
+						.requires(ForgeTags.GRAIN_WHEAT)
 						.unlockedBy("has_lime", has(CRItemTags.FRUITS_LIME)),
 				"food/lime_cookie", finished, enabled(CRItems.LIME), enabled(CRItems.LIME_COOKIE));
 		wrap(shaped(RecipeCategory.FOOD, CRItems.LIME_CAKE)
@@ -614,13 +613,22 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
 						.requires(CRItems.POMEGRANATE_CAKE_SLICE.get(), 7)
 						.unlockedBy("has_pomegranate_cake_slice", has(CRItems.POMEGRANATE_CAKE_SLICE.get())),
 				"food/pomegranate_cake_from_slices", finished, enabled(CRItems.POMEGRANATE_CAKE), enabled(CRItems.POMEGRANATE_CAKE_SLICE));
+		wrap(ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, CRItems.URCHIN_DART.get())
+						.pattern("  n")
+						.pattern(" c ")
+						.pattern("f  ")
+						.define('n', CRItems.URCHIN_NEEDLE.get())
+						.define('c', Tags.Items.INGOTS_COPPER)
+						.define('f', Tags.Items.FEATHERS)
+						.unlockedBy("has_urchin_needle", has(CRItems.URCHIN_NEEDLE.get())),
+				"urchin_dart", finished, enabled(CRItems.URCHIN_DART));
 		wrap(ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CRItems.URCHIN_TEST_BLOCK.get())
 						.pattern("xxx")
 						.pattern("xxx")
 						.pattern("xxx")
 						.define('x', CRItems.URCHIN_TEST.get())
 						.unlockedBy("has_urchin_test", has(CRItems.URCHIN_TEST.get())),
-				"urchin_test_block", finished, enabled("urchin_test"));
+				"urchin_test_block", finished, enabled(CRItems.URCHIN_TEST));
 		wrap(ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, CRItems.URCHIN_TEST.get(), 9)
 						.requires(CRItems.URCHIN_TEST_BLOCK.get(), 1)
 						.unlockedBy("has_urchin_test_block", has(CRItems.URCHIN_TEST_BLOCK.get())),

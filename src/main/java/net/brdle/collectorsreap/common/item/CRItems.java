@@ -177,6 +177,8 @@ public class CRItems extends ModItems {
 			() -> new Item((new Item.Properties())));
 	public static final RegistryObject<Item> URCHIN_NEEDLE = registerItem("urchin_needle",
 			() -> new Item((new Item.Properties())));
+	public static final RegistryObject<Item> URCHIN_DART = registerItem("urchin_dart",
+			() -> new UrchinDartItem((new Item.Properties())));
 	public static final RegistryObject<Item> UNI = registerFood("uni", Nutrition.UNI);
 	public static final RegistryObject<Item> UNI_ROLL = registerFood("uni_roll", Nutrition.UNI_ROLL);
 

@@ -1,0 +1,33 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "collectorsreap:enabled",
+              "value": "lime_green_tea"
+            },
+            {
+              "type": "forge:mod_loaded",
+              "modid": "farmersrespite"
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "farmersrespite:kettle_pouring",
+        "amount": 250,
+        "container": {
+          "item": "minecraft:glass_bottle"
+        },
+        "fluid": "collectorsreap:lime_green_tea",
+        "output": {
+          "item": "collectorsreap:lime_green_tea"
+        }
+      }
+    }
+  ]
+}
