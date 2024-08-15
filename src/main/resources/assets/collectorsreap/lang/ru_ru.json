@@ -68,6 +68,9 @@
   "entity.collectorsreap.platinum_bass": "Platinum Bass",
   "entity.collectorsreap.tiger_prawn": "Tiger Prawn",
   "entity.collectorsreap.urchin": "Urchin",
+  "entity.collectorsreap.urchin_dart": "Urchin Dart",
+  "fluid_type.collectorsreap.lime_green_tea_type": "Лаймовый зеленый чай",
+  "fluid_type.collectorsreap.pomegranate_black_tea_type": "Гранатовый черный чай",
   "item.collectorsreap.adzuki_gummy": "Желе из адзуки",
   "item.collectorsreap.aloe_gummy": "Желе из алоэ",
   "item.collectorsreap.apple_gummy": "Желе из яблока",
@@ -186,6 +189,5 @@
   "item.collectorsreap.vanilla_gummy": "Желе из ванили",
   "item.collectorsreap.yellow_tea_gummy": "Желе из желтого чая",
   "item.collectorsreap.yucca_gummy": "Желе из юкки",
-  "tooltip.requires_modid": "Необходима модификация:",
-  "entity.collectorsreap.urchin_dart": "Urchin Dart"
+  "tooltip.requires_modid": "Необходима модификация:"
 }

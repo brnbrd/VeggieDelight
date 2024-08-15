@@ -8,42 +8,43 @@
           "values": [
             {
               "type": "collectorsreap:enabled",
-              "value": "pomegranate_black_tea"
+              "value": "lime_green_tea"
             },
             {
               "type": "forge:not",
               "value": {
                 "type": "forge:tag_empty",
-                "tag": "forge:tea_leaves/black"
+                "tag": "forge:tea_leaves/green"
               }
             },
             {
               "type": "forge:mod_loaded",
               "modid": "farmersrespite"
+            },
+            {
+              "type": "forge:mod_loaded",
+              "modid": "create"
             }
           ]
         }
       ],
       "recipe": {
-        "type": "farmersrespite:brewing",
-        "base": {
-          "count": 1000,
-          "fluid": "minecraft:water"
-        },
-        "cookingtime": 2400,
-        "experience": 0.35,
+        "type": "create:filling",
         "ingredients": [
           {
-            "tag": "forge:fruits/pomegranate"
+            "item": "minecraft:glass_bottle"
           },
           {
-            "tag": "forge:tea_leaves/black"
+            "amount": 250,
+            "fluid": "collectorsreap:lime_green_tea",
+            "nbt": {}
           }
         ],
-        "result": {
-          "count": 1000,
-          "fluid": "collectorsreap:pomegranate_black_tea"
-        }
+        "results": [
+          {
+            "item": "collectorsreap:lime_green_tea"
+          }
+        ]
       }
     }
   ]

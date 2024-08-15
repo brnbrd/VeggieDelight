@@ -33,6 +33,8 @@ public class CRLanguageProvider extends LanguageProvider {
 	}
 
 	private void addText() {
+		add("fluid_type." + CollectorsReap.MODID + ".lime_green_tea_type", "Lime Green Tea");
+		add("fluid_type." + CollectorsReap.MODID + ".pomegranate_black_tea_type", "Pomegranate Black Tea");
 		add("tooltip.requires_modid", "Requires modid:");
 		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.PORTOBELLO), "Portobellos can be rarely found in meadows.");
 		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.LIME), "Limes can be found as a wild bush in flower forests.");

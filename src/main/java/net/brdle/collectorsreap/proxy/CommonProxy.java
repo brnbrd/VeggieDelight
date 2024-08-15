@@ -6,6 +6,7 @@ import net.brdle.collectorsreap.common.ModEvents;
 import net.brdle.collectorsreap.common.block.CRBlocks;
 import net.brdle.collectorsreap.common.effect.CREffects;
 import net.brdle.collectorsreap.common.entity.CREntities;
+import net.brdle.collectorsreap.common.fluid.CRFluids;
 import net.brdle.collectorsreap.common.item.CRItems;
 import net.brdle.collectorsreap.common.loot.CRLootItemConditions;
 import net.brdle.collectorsreap.common.loot.CRLootModifiers;
@@ -23,6 +24,7 @@ public class CommonProxy {
 		modBus.register(new ModEvents());
 		modBus.register(new Generators());
 		CRBlocks.create(modBus);
+		CRFluids.create(modBus);
 		CRItems.create(modBus);
 		CREntities.create(modBus);
 		CRParticleTypes.create(modBus);

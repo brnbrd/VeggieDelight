@@ -20,30 +20,30 @@
             {
               "type": "forge:mod_loaded",
               "modid": "farmersrespite"
+            },
+            {
+              "type": "forge:mod_loaded",
+              "modid": "create"
             }
           ]
         }
       ],
       "recipe": {
-        "type": "farmersrespite:brewing",
-        "base": {
-          "count": 1000,
-          "fluid": "minecraft:water"
-        },
-        "cookingtime": 2400,
-        "experience": 0.35,
+        "type": "create:emptying",
         "ingredients": [
           {
-            "tag": "forge:fruits/pomegranate"
-          },
-          {
-            "tag": "forge:tea_leaves/black"
+            "item": "collectorsreap:pomegranate_black_tea"
           }
         ],
-        "result": {
-          "count": 1000,
-          "fluid": "collectorsreap:pomegranate_black_tea"
-        }
+        "results": [
+          {
+            "item": "minecraft:glass_bottle"
+          },
+          {
+            "amount": 250,
+            "fluid": "collectorsreap:pomegranate_black_tea"
+          }
+        ]
       }
     }
   ]

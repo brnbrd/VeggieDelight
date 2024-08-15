@@ -3,14 +3,17 @@ package net.brdle.collectorsreap.compat;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
+import mezz.jei.api.forge.ForgeTypes;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.brdle.collectorsreap.CollectorsReap;
 import net.brdle.collectorsreap.Util;
 import net.brdle.collectorsreap.common.config.CRConfig;
+import net.brdle.collectorsreap.common.fluid.CRFluids;
 import net.brdle.collectorsreap.common.item.CRItems;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.ModList;
 import org.jetbrains.annotations.NotNull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -34,6 +37,13 @@ public class JEIPlugin implements IModPlugin {
 			registration.getIngredientManager().removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK, items);
 		}
 		registration.addItemStackInfo(Util.gs(CRItems.PORTOBELLO), Component.translatable("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.PORTOBELLO)));
+
+		if (!ModList.get().isLoaded("farmersrespite")) {
+			registration.getIngredientManager().removeIngredientsAtRuntime(ForgeTypes.FLUID_STACK, List.of(
+					new FluidStack(CRFluids.LIME_GREEN_TEA.get(), 1000),
+					new FluidStack(CRFluids.POMEGRANATE_BLACK_TEA.get(), 1000)
+			));
+		}
 
 		// Lime
 		String limeTranslationKey = "desc." + CollectorsReap.MODID + "." + Util.name(CRItems.LIME);
