@@ -5,30 +5,28 @@
       "conditions": [
         {
           "type": "collectorsreap:enabled",
-          "value": "urchin_dart"
+          "value": "shimmering_apple"
         }
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
-        "category": "equipment",
+        "category": "misc",
         "key": {
-          "c": {
-            "tag": "forge:ingots/copper"
+          "a": {
+            "item": "minecraft:golden_apple"
           },
-          "f": {
-            "tag": "forge:feathers"
-          },
-          "n": {
-            "item": "collectorsreap:urchin_needle"
+          "p": {
+            "item": "collectorsreap:lunar_pearl"
           }
         },
         "pattern": [
-          "n",
-          "c",
-          "f"
+          "ppp",
+          "pap",
+          "ppp"
         ],
         "result": {
-          "item": "collectorsreap:urchin_dart"
+          "count": 2,
+          "item": "collectorsreap:shimmering_apple"
         },
         "show_notification": true
       }

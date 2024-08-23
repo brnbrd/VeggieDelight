@@ -289,4 +289,5 @@ public class Nutrition {
 	public static final FoodProperties CLAM_PASTA = (new FoodProperties.Builder()).nutrition(11).saturationMod(0.85F).build();
 	public static final FoodProperties CLAM_MEATBALL_STEW = (new FoodProperties.Builder()).nutrition(10).saturationMod(0.85F).build();
 	public static final FoodProperties SEA_WRAP = (new FoodProperties.Builder()).nutrition(14).saturationMod(1.0F).build();
+	public static final FoodProperties SHIMMERING_APPLE = (new FoodProperties.Builder()).nutrition(8).saturationMod(1.25F).build();
 }

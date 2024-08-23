@@ -58,7 +58,7 @@ public class ForgeEvents {
 	@SubscribeEvent
 	public void onBeeJoin(EntityJoinLevelEvent e) {
 		if (e.getEntity() instanceof Bee bee) {
-			bee.getGoalSelector().addGoal(4, new BeeGrowFruitGoal(bee));
+			bee.getGoalSelector().addGoal(3, new BeeGrowFruitGoal(bee));
 			bee.getGoalSelector().addGoal(4, new BeeGoToFruitBushGoal(bee));
 		}
 	}

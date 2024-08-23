@@ -547,6 +547,14 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
 				"food/sea_wrap_from_tortilla", finished, enabled(CRItems.SEA_WRAP), not(tagEmpty(CRItemTags.TORTILLA)));
 
 		// Shaped Crafting
+		wrap(shaped(RecipeCategory.FOOD, CRItems.SHIMMERING_APPLE, 2)
+						.pattern("ppp")
+						.pattern("pap")
+						.pattern("ppp")
+						.define('p', CRItems.LUNAR_PEARL.get())
+						.define('a', Items.GOLDEN_APPLE)
+						.unlockedBy("has_lunar_pearl", has(CRItems.LUNAR_PEARL.get())),
+				"food/shimmering_apple", finished, enabled(CRItems.SHIMMERING_APPLE));
 		wrap(shaped(RecipeCategory.FOOD, CRItems.PORTOBELLO_QUICHE)
 						.pattern("eme")
 						.pattern("ooo")
@@ -614,9 +622,9 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
 						.unlockedBy("has_pomegranate_cake_slice", has(CRItems.POMEGRANATE_CAKE_SLICE.get())),
 				"food/pomegranate_cake_from_slices", finished, enabled(CRItems.POMEGRANATE_CAKE), enabled(CRItems.POMEGRANATE_CAKE_SLICE));
 		wrap(ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, CRItems.URCHIN_DART.get())
-						.pattern("  n")
-						.pattern(" c ")
-						.pattern("f  ")
+						.pattern("n")
+						.pattern("c")
+						.pattern("f")
 						.define('n', CRItems.URCHIN_NEEDLE.get())
 						.define('c', Tags.Items.INGOTS_COPPER)
 						.define('f', Tags.Items.FEATHERS)

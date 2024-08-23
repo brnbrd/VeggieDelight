@@ -42,7 +42,7 @@ public class UrchinDartItem extends Item {
 			if (i >= 10) {
 				if (!level.isClientSide) {
 					UrchinDart dart = new UrchinDart(player, level);
-					dart.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.0F, 1.0F);
+					dart.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.1F, 1.0F);
 					level.addFreshEntity(dart);
 					level.playSound(null, dart, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
 					if (!player.getAbilities().instabuild) {

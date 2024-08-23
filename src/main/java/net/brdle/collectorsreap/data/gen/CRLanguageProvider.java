@@ -218,6 +218,7 @@ public class CRLanguageProvider extends LanguageProvider {
 		addItem(CRItems.BUTTERED_LEGS, "Buttered Legs");
 		addItem(CRItems.BIG_RICE_BALL, "Big Rice Ball");
 		addItem(CRItems.LUNAR_PEARL, "Lunar Pearl");
+		addItem(CRItems.SHIMMERING_APPLE, "Shimmering Apple");
 		addItem(CRItems.CLAM_SPAWN_EGG, "Spawn Tide Clam");
 		addItem(CRItems.CLAM_BUCKET, "Bucket of Tide Clam");
 		addItem(CRItems.CLAM, "Tide Clam");

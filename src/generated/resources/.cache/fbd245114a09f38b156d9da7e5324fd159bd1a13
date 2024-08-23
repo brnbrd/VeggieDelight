@@ -1,4 +1,4 @@
-// 1.20.1	2024-07-17T09:42:50.1816154	Item Models: collectorsreap
+// 1.20.1	2024-08-23T07:57:49.5997041	Item Models: collectorsreap
 b183daae948efe76cbf209119af41701e5b72e95 assets/collectorsreap/models/item/adzuki_gummy.json
 56db9a7317e6d5a63c63af71a4011b16c66c00e7 assets/collectorsreap/models/item/aloe_gummy.json
 b27cb012c75da3137768f12a8074eab65874647a assets/collectorsreap/models/item/apple_gummy.json
@@ -109,6 +109,7 @@ adcc8f9ece8fbf46ac646677c04db9d8e83f93be assets/collectorsreap/models/item/prawn
 996f6744ca4822a2f3377eb97c0c30aea18a8c8b assets/collectorsreap/models/item/salmon_tartare.json
 0d4001d9492e0c575ca0724b6bfbf9c56d145c4c assets/collectorsreap/models/item/salmon_wrapped_prawn.json
 d8ad6caa6919bbd5c300b96fefd0845b284a0daa assets/collectorsreap/models/item/sea_wrap.json
+f9c1c80c837f61e1eee3928977783485c864a673 assets/collectorsreap/models/item/shimmering_apple.json
 7f696e618fca0c39da36f6f33f5e7da0f5704402 assets/collectorsreap/models/item/spicy_grenadine_jelly.json
 226781c445029a8f1b33b334d03018e09dba6a25 assets/collectorsreap/models/item/strawberry_gummy.json
 7fb6fe8fb5b5ba66c4a4acf564e784fd5fd98ecd assets/collectorsreap/models/item/strawberry_jam_bun.json

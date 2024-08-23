@@ -146,6 +146,9 @@ public class CRItems extends ModItems {
 	public static final RegistryObject<Item> LIME_CRATE = registerBlock(CRBlocks.LIME_CRATE);
 	public static final RegistryObject<Item> POMEGRANATE_CRATE = registerBlock(CRBlocks.POMEGRANATE_CRATE);
 
+
+	public static final RegistryObject<Item> SEA_WRAP = registerFood("sea_wrap", Nutrition.SEA_WRAP);
+
 	// Tiger Prawn
 	public static final RegistryObject<Item> TIGER_PRAWN_SPAWN_EGG = registerItem("tiger_prawn_spawn_egg", () -> new ForgeSpawnEggItem(CREntities.TIGER_PRAWN, 0x7c7248, 0x613432, new Item.Properties()));
 	public static final RegistryObject<Item> TIGER_PRAWN_BUCKET = registerItem("tiger_prawn_bucket",
@@ -226,8 +229,6 @@ public class CRItems extends ModItems {
 			() -> new MobBucketItem(CREntities.CLAM, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_TADPOLE, (new Item.Properties()).stacksTo(1)));
 	public static final RegistryObject<Item> CLAM = registerItem("clam",
 			() -> new Item((new Item.Properties())));
-	public static final RegistryObject<Item> LUNAR_PEARL = registerItem("lunar_pearl",
-			() -> new Item((new Item.Properties())));
 	public static final RegistryObject<Item> CLAM_MEAT = registerFood("clam_meat", Nutrition.CLAM_MEAT);
 	public static final RegistryObject<Item> CLAM_ROLL = registerFood("clam_roll", Nutrition.CLAM_ROLL);
 	public static final RegistryObject<Item> CLAM_CHOWDER = registerItem("clam_chowder",
@@ -239,8 +240,10 @@ public class CRItems extends ModItems {
 	public static final RegistryObject<Item> CLAM_MEATBALL_STEW = registerItem("clam_meatball_stew",
 			() -> new ConsumableItem(bowlFoodItem(
 					Nutrition.CLAM_MEATBALL_STEW), false));
-
-	public static final RegistryObject<Item> SEA_WRAP = registerFood("sea_wrap", Nutrition.SEA_WRAP);
+	public static final RegistryObject<Item> LUNAR_PEARL = registerItem("lunar_pearl",
+			() -> new Item((new Item.Properties())));
+	public static final RegistryObject<Item> SHIMMERING_APPLE = registerItem("shimmering_apple",
+			() -> new ShimmeringAppleItem((new Item.Properties().food(Nutrition.SHIMMERING_APPLE))));
 
 	// Nether's Delight Compat
 	public static final RegistryObject<Item> GLAZED_STRIDER = registerItem("glazed_strider",
