@@ -8,6 +8,7 @@ import net.brdle.collectorsreap.common.CRParticleTypes;
 import net.brdle.collectorsreap.common.entity.CREntities;
 import net.brdle.collectorsreap.common.entity.UrchinDart;
 import net.minecraft.client.renderer.entity.ArrowRenderer;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -46,6 +47,7 @@ public class ClientProxy extends CommonProxy {
 		e.registerEntityRenderer(CREntities.CHIEFTAIN_CRAB.get(), ChieftainCrabRenderer::new);
 		e.registerEntityRenderer(CREntities.CLAM.get(), ClamRenderer::new);
 		e.registerEntityRenderer(CREntities.URCHIN_DART.get(), UrchinDartRenderer::new);
+		e.registerEntityRenderer(CREntities.SHIMMERING_PEARL.get(), ThrownItemRenderer::new);
 	}
 
 	@SubscribeEvent

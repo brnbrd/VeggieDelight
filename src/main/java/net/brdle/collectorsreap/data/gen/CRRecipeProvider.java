@@ -547,6 +547,14 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
 				"food/sea_wrap_from_tortilla", finished, enabled(CRItems.SEA_WRAP), not(tagEmpty(CRItemTags.TORTILLA)));
 
 		// Shaped Crafting
+		wrap(shaped(RecipeCategory.FOOD, CRItems.SHIMMERING_PEARL, 2)
+						.pattern(" p ")
+						.pattern("pep")
+						.pattern(" p ")
+						.define('p', CRItems.LUNAR_PEARL.get())
+						.define('e', Items.ENDER_PEARL)
+						.unlockedBy("has_lunar_pearl", has(CRItems.LUNAR_PEARL.get())),
+				"shimmering_pearl", finished, enabled(CRItems.SHIMMERING_PEARL));
 		wrap(shaped(RecipeCategory.FOOD, CRItems.SHIMMERING_APPLE, 2)
 						.pattern("ppp")
 						.pattern("pap")

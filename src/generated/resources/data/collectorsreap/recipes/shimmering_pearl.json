@@ -1,0 +1,35 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "collectorsreap:enabled",
+          "value": "shimmering_pearl"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "key": {
+          "e": {
+            "item": "minecraft:ender_pearl"
+          },
+          "p": {
+            "item": "collectorsreap:lunar_pearl"
+          }
+        },
+        "pattern": [
+          " p ",
+          "pep",
+          " p "
+        ],
+        "result": {
+          "count": 2,
+          "item": "collectorsreap:shimmering_pearl"
+        },
+        "show_notification": true
+      }
+    }
+  ]
+}

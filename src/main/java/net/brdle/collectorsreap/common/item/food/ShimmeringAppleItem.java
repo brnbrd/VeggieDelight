@@ -1,29 +1,24 @@
 package net.brdle.collectorsreap.common.item.food;
 
+import net.brdle.collectorsreap.common.item.PearlItem;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.jetbrains.annotations.NotNull;
 
-public class ShimmeringAppleItem extends Item {
+public class ShimmeringAppleItem extends PearlItem {
 	public ShimmeringAppleItem(Properties properties) {
 		super(properties);
-	}
-
-	@Override
-	public boolean isFoil(@NotNull ItemStack stack) {
-		return true;
 	}
 
 	@Override

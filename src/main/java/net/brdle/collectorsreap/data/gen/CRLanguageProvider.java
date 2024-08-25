@@ -30,6 +30,7 @@ public class CRLanguageProvider extends LanguageProvider {
 		addEntityType(CREntities.CLAM, "Tide Clam");
 		addEntityType(CREntities.URCHIN, "Urchin");
 		addEntityType(CREntities.URCHIN_DART, "Urchin Dart");
+		addEntityType(CREntities.SHIMMERING_PEARL, "Shimmering Pearl");
 	}
 
 	private void addText() {
@@ -219,6 +220,7 @@ public class CRLanguageProvider extends LanguageProvider {
 		addItem(CRItems.BIG_RICE_BALL, "Big Rice Ball");
 		addItem(CRItems.LUNAR_PEARL, "Lunar Pearl");
 		addItem(CRItems.SHIMMERING_APPLE, "Shimmering Apple");
+		addItem(CRItems.SHIMMERING_PEARL, "Shimmering Pearl");
 		addItem(CRItems.CLAM_SPAWN_EGG, "Spawn Tide Clam");
 		addItem(CRItems.CLAM_BUCKET, "Bucket of Tide Clam");
 		addItem(CRItems.CLAM, "Tide Clam");

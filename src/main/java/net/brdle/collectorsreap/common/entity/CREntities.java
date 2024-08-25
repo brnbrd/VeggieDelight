@@ -5,6 +5,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.projectile.ThrownEnderpearl;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
@@ -32,6 +33,9 @@ public class CREntities {
 	public static final RegistryObject<EntityType<UrchinDart>> URCHIN_DART = ENTITY_TYPES.register("urchin_dart",
 			() -> EntityType.Builder.<UrchinDart>of(UrchinDart::new, MobCategory.MISC)
 					.sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20).build(CollectorsReap.MODID + ".urchin_dart"));
+	public static final RegistryObject<EntityType<ThrownShimmeringPearl>> SHIMMERING_PEARL = ENTITY_TYPES.register("shimmering_pearl",
+			() -> EntityType.Builder.<ThrownShimmeringPearl>of(ThrownShimmeringPearl::new, MobCategory.MISC)
+					.sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10).build(CollectorsReap.MODID + ".shimmering_pearl"));
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> reg(String name, EntityType.EntityFactory<T> fact, MobCategory category, float width, float height) {
 		return ENTITY_TYPES.register(name, () -> EntityType.Builder.of(fact, category).sized(width, height).build(CollectorsReap.MODID + "." + name));

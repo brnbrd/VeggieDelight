@@ -18,14 +18,13 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.FarmersDelight;
 import vectorwing.farmersdelight.common.item.ConsumableItem;
 import vectorwing.farmersdelight.common.item.DrinkableItem;
 import vectorwing.farmersdelight.common.item.MushroomColonyItem;
 import vectorwing.farmersdelight.common.registry.ModItems;
-
 import java.util.function.Supplier;
+import org.jetbrains.annotations.Nullable;
 
 public class CRItems extends ModItems {
 
@@ -241,9 +240,11 @@ public class CRItems extends ModItems {
 			() -> new ConsumableItem(bowlFoodItem(
 					Nutrition.CLAM_MEATBALL_STEW), false));
 	public static final RegistryObject<Item> LUNAR_PEARL = registerItem("lunar_pearl",
-			() -> new Item((new Item.Properties())));
+			() -> new PearlItem((new Item.Properties())));
 	public static final RegistryObject<Item> SHIMMERING_APPLE = registerItem("shimmering_apple",
 			() -> new ShimmeringAppleItem((new Item.Properties().food(Nutrition.SHIMMERING_APPLE))));
+	public static final RegistryObject<Item> SHIMMERING_PEARL= registerItem("shimmering_pearl",
+			() -> new ShimmeringPearlItem((new Item.Properties()).stacksTo(16)));
 
 	// Nether's Delight Compat
 	public static final RegistryObject<Item> GLAZED_STRIDER = registerItem("glazed_strider",
