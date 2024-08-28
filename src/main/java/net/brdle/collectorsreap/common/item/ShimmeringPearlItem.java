@@ -1,5 +1,6 @@
 package net.brdle.collectorsreap.common.item;
 
+import net.brdle.collectorsreap.common.CRSoundEvents;
 import net.brdle.collectorsreap.common.entity.ThrownShimmeringPearl;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -26,7 +27,7 @@ public class ShimmeringPearlItem extends PearlItem {
 	@Override
 	public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, @NotNull InteractionHand hand) {
 		ItemStack itemstack = player.getItemInHand(hand);
-		level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENDER_PEARL_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
+		level.playSound(null, player.getX(), player.getY(), player.getZ(), CRSoundEvents.SHIMMERING_PEARL_THROW.get(), SoundSource.NEUTRAL, 0.5F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
 		player.getCooldowns().addCooldown(this, 15);
 		if (!level.isClientSide()) {
 			ThrownShimmeringPearl thrown = new ThrownShimmeringPearl(level, player);

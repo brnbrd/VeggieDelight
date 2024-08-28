@@ -1,0 +1,9 @@
+{
+  "entity.shimmering_pearl.throw": {
+    "subtitle": "collectorsreap.subtitle.shimmering_pearl.throw",
+    "sounds": [
+      "minecraft:entity/endereye/endereye_launch1",
+      "minecraft:entity/endereye/endereye_launch2"
+    ]
+  }
+}

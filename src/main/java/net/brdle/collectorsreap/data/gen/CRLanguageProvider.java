@@ -29,8 +29,8 @@ public class CRLanguageProvider extends LanguageProvider {
 		addEntityType(CREntities.CHIEFTAIN_CRAB, "Chieftain Crab");
 		addEntityType(CREntities.CLAM, "Tide Clam");
 		addEntityType(CREntities.URCHIN, "Urchin");
-		addEntityType(CREntities.URCHIN_DART, "Urchin Dart");
-		addEntityType(CREntities.SHIMMERING_PEARL, "Shimmering Pearl");
+		addEntityType(CREntities.URCHIN_DART, "Thrown Urchin Dart");
+		addEntityType(CREntities.SHIMMERING_PEARL, "Thrown Shimmering Pearl");
 	}
 
 	private void addText() {
@@ -43,6 +43,7 @@ public class CRLanguageProvider extends LanguageProvider {
 		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.POMEGRANATE), "Pomegranates can be found as a wild bush in warped forests.");
 		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.POMEGRANATE) + ".pollination", "A flowering Pomegranate Bush will grow fruit in the Overworld when pollinated by a Bee.");
 		add("config.jade.plugin_" + CollectorsReap.MODID + ".crop_progress", "Crop Progress");
+		add(CollectorsReap.MODID + ".subtitle.shimmering_pearl.throw", "Shimmering Pearl flies");
 	}
 
 	private void addEffects() {

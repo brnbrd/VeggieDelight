@@ -1,6 +1,7 @@
 package net.brdle.collectorsreap.proxy;
 
 import net.brdle.collectorsreap.common.CRParticleTypes;
+import net.brdle.collectorsreap.common.CRSoundEvents;
 import net.brdle.collectorsreap.common.ForgeEvents;
 import net.brdle.collectorsreap.common.ModEvents;
 import net.brdle.collectorsreap.common.block.CRBlocks;
@@ -32,5 +33,6 @@ public class CommonProxy {
 		CRFeatures.create(modBus);
 		CRLootItemConditions.create(modBus);
 		CRLootModifiers.create(modBus);
+		CRSoundEvents.create(modBus);
 	}
 }
