@@ -94,6 +94,9 @@ public class CRBlockTagProvider extends BlockTagsProvider {
 		this.tag(CRBlockTags.SHOWCASE_ACTIVATORS)
 				.add(CRBlocks.PORTOBELLO.get())
 				.add(CRBlocks.PORTOBELLO_COLONY.get());
+		this.tag(CRBlockTags.NOT_PROPAGATE_PLANT)
+				.add(CRBlocks.LIME_BUSH.get())
+				.add(CRBlocks.POMEGRANATE_BUSH.get());
 
 		// Other
 		this.tag(BlockTags.create(Util.rl("twilightforest", "portal/decoration"))).add(CRBlocks.PORTOBELLO.get());
