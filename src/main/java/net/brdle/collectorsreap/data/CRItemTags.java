@@ -38,6 +38,12 @@ public class CRItemTags {
 	public static final TagKey<Item> LIME_OR_SLICE = cr("lime_or_slice");
 	public static final TagKey<Item> HOT_NETHER_FRUIT = cr("hot_nether_fruit");
 
+	// Diet
+	public static final TagKey<Item> DIET_FRUITS = Util.it("diet", "fruits");
+	public static final TagKey<Item> DIET_VEGETABLES = Util.it("diet", "vegetables");
+	public static final TagKey<Item> DIET_PROTEINS = Util.it("diet", "proteins");
+	public static final TagKey<Item> SPECIAL_FOOD = Util.it("diet", "special_food");
+
 	// Neapolitan
 	public static final TagKey<Item> ICE_CREAM = Util.it("neapolitan", "ice_cream");
 	public static final TagKey<Item> BANANA = Util.it("neapolitan", "banana");

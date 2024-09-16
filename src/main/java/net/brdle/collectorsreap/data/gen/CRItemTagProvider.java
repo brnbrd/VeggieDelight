@@ -40,6 +40,9 @@ public class CRItemTagProvider extends ItemTagsProvider {
 		this.tag(ItemTags.STAIRS)
 				.add(CRItems.URCHIN_TEST_BRICK_STAIRS.get())
 				.add(CRItems.URCHIN_TEST_TILE_STAIRS.get());
+		this.tag(ItemTags.FISHES)
+				.addTag(CRItemTags.RAW_FISHES_BASS)
+				.addTag(CRItemTags.COOKED_FISHES_BASS);
 
 		// Forge
 		this.tag(CRItemTags.FRUITS_POMEGRANATE)
@@ -145,6 +148,26 @@ public class CRItemTagProvider extends ItemTagsProvider {
 		this.tag(Util.it("neapolitan", "ice_cream"))
 				.add(CRItems.LIME_ICE_CREAM.get())
 				.add(CRItems.POMEGRANATE_ICE_CREAM.get());
+
+		// Diet
+		this.tag(CRItemTags.DIET_FRUITS)
+				.add(CRItems.LIME.get())
+				.add(CRItems.POMEGRANATE.get());
+		this.tag(CRItemTags.DIET_PROTEINS)
+				.add(CRItems.PLATINUM_BASS_HEAD.get())
+				.add(CRItems.TIGER_PRAWN.get())
+				.add(CRItems.UNI.get())
+				.add(CRItems.CLAM_MEAT.get())
+				.add(CRItems.CHIEFTAIN_CLAW.get())
+				.add(CRItems.CHIEFTAIN_LEG.get())
+				.add(CRItems.CRAB_MISO.get());
+		this.tag(CRItemTags.DIET_VEGETABLES)
+				.add(CRItems.CRAB_MISO.get());
+		this.tag(CRItemTags.SPECIAL_FOOD)
+				.add(CRItems.PORTOBELLO_QUICHE.get())
+				.add(CRItems.LIME_CAKE.get())
+				.add(CRItems.LIME_PIE.get())
+				.add(CRItems.POMEGRANATE_CAKE.get());
 
 		// Atmospheric
 		this.addSelf(CRItemTags.ALOE_LEAVES);
