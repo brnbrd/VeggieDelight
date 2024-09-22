@@ -1,9 +1,30 @@
 {
+  "entity.urchin_dart.throw": {
+    "subtitle": "collectorsreap.subtitle.urchin_dart.throw",
+    "sounds": [
+      "random/bow"
+    ]
+  },
+  "entity.urchin_dart.hit": {
+    "subtitle": "collectorsreap.subtitle.urchin_dart.hit",
+    "sounds": [
+      "random/bowhit1",
+      "random/bowhit2",
+      "random/bowhit3",
+      "random/bowhit4"
+    ]
+  },
   "entity.shimmering_pearl.throw": {
     "subtitle": "collectorsreap.subtitle.shimmering_pearl.throw",
     "sounds": [
       "minecraft:entity/endereye/endereye_launch1",
       "minecraft:entity/endereye/endereye_launch2"
+    ]
+  },
+  "entity.shimmering_pearl.break": {
+    "subtitle": "collectorsreap.subtitle.shimmering_pearl.break",
+    "sounds": [
+      "minecraft:random/glass2"
     ]
   }
 }

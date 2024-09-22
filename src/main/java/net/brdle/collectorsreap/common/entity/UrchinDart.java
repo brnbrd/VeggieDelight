@@ -1,6 +1,8 @@
 package net.brdle.collectorsreap.common.entity;
 
+import net.brdle.collectorsreap.common.CRSoundEvents;
 import net.brdle.collectorsreap.common.item.CRItems;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
@@ -23,19 +25,19 @@ public class UrchinDart extends AbstractArrow {
 	}
 
 	@Override
-	protected void doPostHurtEffects(@NotNull LivingEntity target) {
+	public void doPostHurtEffects(@NotNull LivingEntity target) {
 		super.doPostHurtEffects(target);
 		MobEffectInstance poison = new MobEffectInstance(MobEffects.POISON, 100, 1);
 		target.addEffect(poison, this.getEffectSource());
 	}
 
 	@Override
-	protected boolean tryPickup(@NotNull Player player) {
+	public boolean tryPickup(@NotNull Player player) {
 		return false;
 	}
 
 	@Override
-	protected @NotNull ItemStack getPickupItem() {
+	public @NotNull ItemStack getPickupItem() {
 		return new ItemStack(CRItems.URCHIN_DART.get());
 	}
 
@@ -43,5 +45,10 @@ public class UrchinDart extends AbstractArrow {
 	@Override
 	public ItemStack getPickResult() {
 		return this.getPickupItem();
+	}
+
+	@Override
+	public @NotNull SoundEvent getDefaultHitGroundSoundEvent() {
+		return CRSoundEvents.URCHIN_DART_HIT.get();
 	}
 }

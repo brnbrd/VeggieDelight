@@ -247,6 +247,8 @@ public class CRItems extends ModItems {
 			() -> new ShimmeringAppleItem((new Item.Properties().food(Nutrition.SHIMMERING_APPLE))));
 	public static final RegistryObject<Item> SHIMMERING_PEARL= registerItem("shimmering_pearl",
 			() -> new ShimmeringPearlItem((new Item.Properties()).stacksTo(16)));
+	public static final RegistryObject<Item> PEARLY_CLAW = registerItem("pearly_claw",
+			() -> new PearlyClawItem((new Item.Properties())));
 
 	// Nether's Delight Compat
 	public static final RegistryObject<Item> GLAZED_STRIDER = registerItem("glazed_strider",

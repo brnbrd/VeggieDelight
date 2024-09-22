@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "collectorsreap:item/urchin_dart"
+    "layer0": "collectorsreap:item/pearly_claw"
   }
 }

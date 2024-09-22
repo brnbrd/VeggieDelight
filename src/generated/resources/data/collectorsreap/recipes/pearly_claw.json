@@ -5,15 +5,18 @@
       "conditions": [
         {
           "type": "collectorsreap:enabled",
-          "value": "shimmering_pearl"
+          "value": "pearly_claw"
         }
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
         "category": "equipment",
         "key": {
-          "e": {
-            "item": "minecraft:ender_pearl"
+          "c": {
+            "item": "collectorsreap:chieftain_claw"
+          },
+          "h": {
+            "item": "minecraft:heart_of_the_sea"
           },
           "p": {
             "item": "collectorsreap:lunar_pearl"
@@ -21,12 +24,11 @@
         },
         "pattern": [
           " p ",
-          "pep",
-          " p "
+          "pcp",
+          " h "
         ],
         "result": {
-          "count": 2,
-          "item": "collectorsreap:shimmering_pearl"
+          "item": "collectorsreap:pearly_claw"
         },
         "show_notification": true
       }

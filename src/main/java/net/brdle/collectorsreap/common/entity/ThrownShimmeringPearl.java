@@ -1,9 +1,11 @@
 package net.brdle.collectorsreap.common.entity;
 
+import net.brdle.collectorsreap.common.CRSoundEvents;
 import net.brdle.collectorsreap.common.item.CRItems;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -41,6 +43,7 @@ public class ThrownShimmeringPearl extends ThrowableItemProjectile {
 	public void onHitEntity(@NotNull EntityHitResult result) {
 		super.onHitEntity(result);
 		result.getEntity().hurt(this.damageSources().thrown(this, this.getOwner()), 1.0F);
+		this.level().playSound(null, this.getX(), this.getY(), this.getZ(), CRSoundEvents.SHIMMERING_PEARL_BREAK.get(), SoundSource.NEUTRAL, 0.5F, 0.4F / (this.level().getRandom().nextFloat() * 0.4F + 0.8F));
 		this.discard();
 	}
 
@@ -73,6 +76,7 @@ public class ThrownShimmeringPearl extends ThrowableItemProjectile {
 			} else if (entity != null) {
 				this.teleport(entity, this.getX(), this.getY(), this.getZ());
 			}
+			this.level().playSound(null, this.getX(), this.getY(), this.getZ(), CRSoundEvents.SHIMMERING_PEARL_BREAK.get(), SoundSource.NEUTRAL, 0.5F, 0.4F / (this.level().getRandom().nextFloat() * 0.4F + 0.8F));
 			this.discard();
 		}
 	}
@@ -118,12 +122,12 @@ public class ThrownShimmeringPearl extends ThrowableItemProjectile {
 	}
 
 	@Nullable
-	public Entity changeDimension(@NotNull ServerLevel pServer, @NotNull ITeleporter teleporter) {
+	public Entity changeDimension(@NotNull ServerLevel server, @NotNull ITeleporter teleporter) {
 		Entity entity = this.getOwner();
-		if (entity != null && entity.level().dimension() != pServer.dimension()) {
+		if (entity != null && entity.level().dimension() != server.dimension()) {
 			this.setOwner(null);
 		}
-		return super.changeDimension(pServer, teleporter);
+		return super.changeDimension(server, teleporter);
 	}
 
 	@Override

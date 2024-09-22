@@ -43,7 +43,10 @@ public class CRLanguageProvider extends LanguageProvider {
 		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.POMEGRANATE), "Pomegranates can be found as a wild bush in warped forests.");
 		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.POMEGRANATE) + ".pollination", "A flowering Pomegranate Bush will grow fruit in the Overworld when pollinated by a Bee.");
 		add("config.jade.plugin_" + CollectorsReap.MODID + ".crop_progress", "Crop Progress");
+		add(CollectorsReap.MODID + ".subtitle.urchin_dart.throw", "Urchin Dart thrown");
+		add(CollectorsReap.MODID + ".subtitle.urchin_dart.hit", "Urchin Dart hits");
 		add(CollectorsReap.MODID + ".subtitle.shimmering_pearl.throw", "Shimmering Pearl flies");
+		add(CollectorsReap.MODID + ".subtitle.shimmering_pearl.break", "Shimmering Pearl shatters");
 	}
 
 	private void addEffects() {
@@ -179,7 +182,7 @@ public class CRLanguageProvider extends LanguageProvider {
 		addItem(CRItems.YELLOW_TEA_GUMMY, "Yellow Tea Gummy");
 		addItem(CRItems.BLACK_TEA_GUMMY, "Black Tea Gummy");
 		addItem(CRItems.COFFEE_GUMMY, "Coffee Gummy");
-		addItem(CRItems.TIGER_PRAWN_SPAWN_EGG, "Spawn Tiger Prawn");
+		addItem(CRItems.TIGER_PRAWN_SPAWN_EGG, "Tiger Prawn Spawn Egg");
 		addItem(CRItems.TIGER_PRAWN_BUCKET, "Bucket of Tiger Prawn");
 		addItem(CRItems.TIGER_PRAWN, "Raw Tiger Prawn");
 		addItem(CRItems.COOKED_TIGER_PRAWN, "Cooked Tiger Prawn");
@@ -189,7 +192,7 @@ public class CRLanguageProvider extends LanguageProvider {
 		addItem(CRItems.PRAWN_CEVICHE, "Prawn Ceviche");
 		addItem(CRItems.PRAWN_NOODLES, "Prawn Noodles");
 		addItem(CRItems.SALMON_WRAPPED_PRAWN, "Salmon Wrapped Prawn");
-		addItem(CRItems.URCHIN_SPAWN_EGG, "Spawn Urchin");
+		addItem(CRItems.URCHIN_SPAWN_EGG, "Urchin Spawn Egg");
 		addItem(CRItems.URCHIN_BUCKET, "Bucket of Urchin");
 		addItem(CRItems.URCHIN, "Urchin");
 		addItem(CRItems.URCHIN_TEST, "Urchin Test");
@@ -197,7 +200,7 @@ public class CRLanguageProvider extends LanguageProvider {
 		addItem(CRItems.URCHIN_DART, "Urchin Dart");
 		addItem(CRItems.UNI, "Uni");
 		addItem(CRItems.UNI_ROLL, "Uni Roll");
-		addItem(CRItems.PLATINUM_BASS_SPAWN_EGG, "Spawn Platinum Bass");
+		addItem(CRItems.PLATINUM_BASS_SPAWN_EGG, "Platinum Bass Spawn Egg");
 		addItem(CRItems.PLATINUM_BASS_BUCKET, "Bucket of Platinum Bass");
 		addItem(CRItems.PLATINUM_BASS, "Raw Platinum Bass");
 		addItem(CRItems.COOKED_PLATINUM_BASS, "Cooked Platinum Bass");
@@ -207,7 +210,7 @@ public class CRLanguageProvider extends LanguageProvider {
 		addItem(CRItems.COOKED_PLATINUM_BASS_SLICE, "Cooked Platinum Bass Slice");
 		addItem(CRItems.PLATINUM_BASS_STEW, "Platinum Bass Stew");
 		addItem(CRItems.FISH_MIX, "Fish Mix");
-		addItem(CRItems.CHIEFTAIN_CRAB_SPAWN_EGG, "Spawn Chieftain Crab");
+		addItem(CRItems.CHIEFTAIN_CRAB_SPAWN_EGG, "Chieftain Crab Spawn Egg");
 		addItem(CRItems.CHIEFTAIN_CRAB_BUCKET, "Bucket of Chieftain Crab");
 		addItem(CRItems.CHIEFTAIN_CRAB, "Chieftain Crab");
 		addItem(CRItems.CHIEFTAIN_CLAW, "Chieftain Crab Claw");
@@ -222,7 +225,8 @@ public class CRLanguageProvider extends LanguageProvider {
 		addItem(CRItems.LUNAR_PEARL, "Lunar Pearl");
 		addItem(CRItems.SHIMMERING_APPLE, "Shimmering Apple");
 		addItem(CRItems.SHIMMERING_PEARL, "Shimmering Pearl");
-		addItem(CRItems.CLAM_SPAWN_EGG, "Spawn Tide Clam");
+		addItem(CRItems.PEARLY_CLAW, "Pearly Claw");
+		addItem(CRItems.CLAM_SPAWN_EGG, "Tide Clam Spawn Egg");
 		addItem(CRItems.CLAM_BUCKET, "Bucket of Tide Clam");
 		addItem(CRItems.CLAM, "Tide Clam");
 		addItem(CRItems.CLAM_MEAT, "Tide Clam Meat");

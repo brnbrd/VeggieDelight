@@ -1,7 +1,7 @@
 package net.brdle.collectorsreap.common.item;
 
+import net.brdle.collectorsreap.common.CRSoundEvents;
 import net.brdle.collectorsreap.common.entity.UrchinDart;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -38,21 +38,17 @@ public class UrchinDartItem extends Item {
 	@Override
 	public void releaseUsing(@NotNull ItemStack stack, @NotNull Level level, @NotNull LivingEntity entity, int timeLeft) {
 		if (entity instanceof Player player) {
-			int i = this.getUseDuration(stack) - timeLeft;
-			if (i >= 10) {
-				if (!level.isClientSide) {
+			if (this.getUseDuration(stack) - timeLeft >= 10) {
+				level.playSound(null, player.getX(), player.getY(), player.getZ(), CRSoundEvents.URCHIN_DART_THROW.get(), SoundSource.NEUTRAL, 0.5F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
+				player.getCooldowns().addCooldown(this, 20);
+				if (!level.isClientSide()) {
 					UrchinDart dart = new UrchinDart(player, level);
 					dart.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.1F, 1.0F);
 					level.addFreshEntity(dart);
-					level.playSound(null, dart, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
-					if (!player.getAbilities().instabuild) {
-						if (stack.getCount() > 1) {
-							stack.shrink(1);
-						} else {
-							player.getInventory().removeItem(stack);
-						}
-					}
-					player.awardStat(Stats.ITEM_USED.get(this));
+				}
+				player.awardStat(Stats.ITEM_USED.get(this));
+				if (!player.getAbilities().instabuild) {
+					stack.shrink(1);
 				}
 			}
 		}

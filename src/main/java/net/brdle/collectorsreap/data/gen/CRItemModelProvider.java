@@ -25,7 +25,9 @@ public class CRItemModelProvider extends ItemModelProvider {
 	protected void registerModels() {
 		for (RegistryObject<Item> entry : CRItems.ITEMS.getEntries()) {
 			ResourceLocation id = entry.getId();
-			if (!(isBasic(entry))) {
+			if (entry == CRItems.URCHIN_DART) {
+				continue;
+			} else if (!(isBasic(entry))) {
 				if (entry.get() instanceof ForgeSpawnEggItem) {
 					spawnEgg(id);
 					continue;
