@@ -13,6 +13,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
@@ -35,9 +36,9 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.MissingMappingsEvent;
-
 import java.util.List;
 import java.util.Objects;
+import org.jetbrains.annotations.NotNull;
 
 public class ForgeEvents {
 
@@ -87,9 +88,11 @@ public class ForgeEvents {
 
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public void onCorrodeProjectile(ProjectileImpactEvent e) {
-		if (e.getRayTraceResult().getType() == HitResult.Type.ENTITY &&
-				((EntityHitResult) e.getRayTraceResult()).getEntity() instanceof LivingEntity victim &&
-				victim.hasEffect(CREffects.CORROSION.get())) {
+		if (
+			e.getRayTraceResult().getType() == HitResult.Type.ENTITY &&
+			((EntityHitResult) e.getRayTraceResult()).getEntity() instanceof LivingEntity victim &&
+			victim.hasEffect(CREffects.CORROSION.get())
+		) {
 			Projectile proj = e.getProjectile();
 			if (proj.getType().is(CREntityTags.CORROSION_IMMUNE)) {
 				return;
@@ -110,12 +113,12 @@ public class ForgeEvents {
 		}
 	}
 
-	private static boolean validateVolatile(LivingEntity victim, LivingEntity attacker) {
+	private static boolean validateVolatile(LivingEntity attacker) {
 		return (
-				victim != null &&
-						attacker.hasEffect(CREffects.VOLATILITY.get()) &&
-						!attacker.getType().is(CREntityTags.INVOLATILE) &&
-						!(attacker instanceof Player p && p.getAttackStrengthScale(0F) != 1F)
+			attacker != null &&
+			attacker.hasEffect(CREffects.VOLATILITY.get()) &&
+			!attacker.getType().is(CREntityTags.INVOLATILE) &&
+			!(attacker instanceof Player p && p.getAttackStrengthScale(0F) != 1F)
 		);
 	}
 
@@ -123,34 +126,33 @@ public class ForgeEvents {
 	public void onVolatile(LivingDamageEvent e) {
 		LivingEntity victim = e.getEntity();
 		if (
-				e.getSource().getEntity() != null &&
-						!victim.level().isClientSide() &&
-						victim.level() instanceof ServerLevel server &&
-						e.getSource().getEntity() instanceof LivingEntity attacker &&
-						validateVolatile(victim, attacker)
+			victim instanceof Mob &&
+			e.getSource().getEntity() != null &&
+			!victim.level().isClientSide() &&
+			victim.level() instanceof ServerLevel server &&
+			e.getSource().getEntity() instanceof LivingEntity attacker &&
+			validateVolatile(attacker)
 		) {
 			server.sendParticles(CRParticleTypes.SHOCKWAVE.get(), victim.getX(), victim.getY(), victim.getZ(), 1, 0.0D, 0.0D, 0.0D, 0.0D);
 			int level = Objects.requireNonNull(attacker.getEffect(CREffects.VOLATILITY.get())).getAmplifier();
-			List<LivingEntity> nearby = server.getNearbyEntities(LivingEntity.class,
-							TargetingConditions.DEFAULT.selector(living -> (
-									living != attacker &&
-											living != victim &&
-											!living.getType().is(CREntityTags.VOLATILITY_IMMUNE) &&
-											!(living instanceof TamableAnimal tame && tame.isTame())
-							)),
-							victim, victim.getBoundingBox().inflate(4.0D + ((double) level), 2.0D, 4.0D + ((double) level)))
-					.stream()
-					.limit(3 + level)
-					.toList();
-			if (nearby.isEmpty()) {
-				return;
-			}
-			for (LivingEntity ent : nearby) {
-				Vec3 vec32 = ent.getEyePosition().subtract(victim.position().add(0.0D, 1.0F, 0.0D)).normalize();
-				ent.playSound(SoundEvents.LIGHTNING_BOLT_THUNDER, 0.2F, 1.75F);
-				ent.hurt(e.getSource(), (e.getAmount() + ((float) (level - 1)) * 0.65F) / nearby.size());
-				double d1 = (1.0D - ent.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE)) * 0.75D;
-				ent.push(vec32.x() * d1, vec32.y() * d1 * 0.35D, vec32.z() * d1);
+			List<Mob> mobs = server.getNearbyEntities(Mob.class,
+				TargetingConditions.DEFAULT.selector(mob -> (
+					mob != attacker &&
+					mob != victim &&
+					!mob.getType().is(CREntityTags.VOLATILITY_IMMUNE) &&
+					!(mob instanceof TamableAnimal tame && tame.isTame())
+				)),
+				victim, victim.getBoundingBox().inflate(4.0D + ((double) level), 2.0D, 4.0D + ((double) level)))
+			.stream().limit(3 + level).toList();
+			if (!mobs.isEmpty()) {
+				float hurtAmount = (e.getAmount() + ((float) (level - 1)) * 0.65F) / mobs.size();
+				mobs.forEach(mob -> {
+					Vec3 vec32 = mob.getEyePosition().subtract(victim.position().add(0.0D, 1.0F, 0.0D)).normalize();
+					mob.playSound(SoundEvents.LIGHTNING_BOLT_THUNDER, 0.2F, 1.75F);
+					mob.hurt(e.getSource(), hurtAmount);
+					double d1 = (1.0D - mob.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE)) * 0.75D;
+					mob.push(vec32.x() * d1, vec32.y() * d1 * 0.35D, vec32.z() * d1);
+				});
 			}
 		}
 	}
