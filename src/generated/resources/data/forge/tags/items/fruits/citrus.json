@@ -1,6 +1,6 @@
 {
   "values": [
-    "#forge:fruits/lime",
+    "#collectorsreap:lime_or_slice",
     {
       "id": "#forge:fruits/lemon",
       "required": false

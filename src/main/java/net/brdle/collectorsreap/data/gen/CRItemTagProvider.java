@@ -53,7 +53,7 @@ public class CRItemTagProvider extends ItemTagsProvider {
 				.addTag(CRItemTags.FRUITS_LIME)
 				.add(CRItems.LIME_SLICE.get());
 		this.tag(CRItemTags.FRUITS_CITRUS)
-				.addTag(CRItemTags.FRUITS_LIME)
+				.addTag(CRItemTags.LIME_OR_SLICE)
 				.addOptionalTag(Util.rl("forge", "fruits/lemon"));
 		this.tag(CRItemTags.FRUITS)
 				.addTag(CRItemTags.FRUITS_POMEGRANATE)

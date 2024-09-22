@@ -215,7 +215,9 @@ public class CRItems extends ModItems {
 	public static final RegistryObject<Item> CRAB_NOODLES = registerItem("crab_noodles",
 			() -> new ConsumableItem(bowlFoodItem(
 					Nutrition.CRAB_NOODLES), false));
-	public static final RegistryObject<Item> CRAB_LASAGNA = registerFood("crab_lasagna", Nutrition.CRAB_LASAGNA);
+	public static final RegistryObject<Item> CRAB_LASAGNA = registerItem("crab_lasagna",
+		  () -> new ConsumableItem(bowlFoodItem(
+				  Nutrition.CRAB_LASAGNA), false));
 	public static final RegistryObject<Item> BUTTERED_LEGS = registerItem("buttered_legs",
 			() -> new ConsumableItem(bowlFoodItem(
 					Nutrition.BUTTERED_LEGS), false));
