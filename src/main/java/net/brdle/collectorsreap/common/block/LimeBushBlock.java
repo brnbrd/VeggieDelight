@@ -26,12 +26,12 @@ public class LimeBushBlock extends FruitBushBlock {
 
 	public static final VoxelShape SMALL_SHAPE = Block.box(4.0, 0.0, 4.0, 12.0, 11.0, 12.0);
 	private static final VoxelShape MEDIUM_SHAPE = Shapes.or(
-			Block.box(0.0D, 8.0D, 0.0D, 16.0D, 16.0D, 16.0D),
-			Block.box(6.0D, 0.0D, 6.0D, 10.0D, 8.0D, 10.0D)
+		Block.box(0.0D, 8.0D, 0.0D, 16.0D, 16.0D, 16.0D),
+		Block.box(6.0D, 0.0D, 6.0D, 10.0D, 8.0D, 10.0D)
 	);
 	private static final VoxelShape SHAPE_LOWER = Shapes.or(
-			Block.box(0.0D, 12.0D, 0.0D, 16.0D, 16.0D, 16.0D),
-			Block.box(6.0D, 0.0D, 6.0D, 10.0D, 12.0D, 10.0D));
+		Block.box(0.0D, 12.0D, 0.0D, 16.0D, 16.0D, 16.0D),
+		Block.box(6.0D, 0.0D, 6.0D, 10.0D, 12.0D, 10.0D));
 	private static final VoxelShape SHAPE_UPPER = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
 
 	public LimeBushBlock(Properties properties) {
@@ -64,38 +64,33 @@ public class LimeBushBlock extends FruitBushBlock {
 	public void randomTick(BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
 		int age = state.getValue(AGE);
 		if (
-				!(CRConfig.LIME_POLLINATION.get() && age == MAX_AGE - 1) && // Making sure we aren't a flowering state bush that needs pollination
-						age < MAX_AGE &&
-						state.getValue(HALF) == DoubleBlockHalf.LOWER && !state.getValue(STUNTED) &&
-						level.getRawBrightness(pos.above().above(), 0) >= 9 &&
-						ForgeHooks.onCropsGrowPre(level, pos, state, random.nextInt(9) == 0)
+			!(CRConfig.LIME_POLLINATION.get() && age == MAX_AGE - 1) && // Making sure we aren't a flowering state bush that needs pollination
+			age < MAX_AGE &&
+			state.getValue(HALF) == DoubleBlockHalf.LOWER && !state.getValue(STUNTED) &&
+			level.getRawBrightness(pos.above().above(), 0) >= 9 &&
+			ForgeHooks.onCropsGrowPre(level, pos, state, random.nextInt(9) == 0)
 		) {
 			this.performBonemeal(level, random, pos, state);
 			ForgeHooks.onCropsGrowPost(level, pos, state);
 		}
 	}
 
-	// Can use Bone Meal up until reaching final stage
+	// Can use Bone Meal up until reaching final stage, unless pollination is off
 	@Override
-	public boolean isValidBonemealTarget(@NotNull LevelReader pLevel, @NotNull BlockPos pPos, BlockState pState, boolean pIsClient) {
-		return pState.getValue(AGE) < (MAX_AGE - 1);
-	}
-
-	@Override
-	public boolean isBonemealSuccess(@NotNull Level pLevel, @NotNull RandomSource pRandom, @NotNull BlockPos pPos, @NotNull BlockState pState) {
-		return true;
+	public boolean isValidBonemealTarget(@NotNull LevelReader level, @NotNull BlockPos pos, BlockState state, boolean pIsClient) {
+		return state.getValue(AGE) < (MAX_AGE - 1) || (!(CRConfig.LIME_POLLINATION.get() && state.getValue(AGE) < MAX_AGE));
 	}
 
 	@SuppressWarnings("deprecation")
 	@Override
 	public void entityInside(@NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Entity e) {
 		if (
-				!pLevel.isClientSide() &&
-						CRConfig.LIME_POLLINATION.get() &&
-						CRConfig.FAST_POLLINATE.get() &&
-						e instanceof Bee &&
-						pState.getValue(AGE) == MAX_AGE - 1 &&
-						pLevel.getRandom().nextInt(150) == 0
+			!pLevel.isClientSide() &&
+			CRConfig.LIME_POLLINATION.get() &&
+			CRConfig.FAST_POLLINATE.get() &&
+			e instanceof Bee &&
+			pState.getValue(AGE) == MAX_AGE - 1 &&
+			pLevel.getRandom().nextInt(150) == 0
 		) {
 			this.performBonemeal((ServerLevel) pLevel, pLevel.getRandom(), pPos, pState);
 		}
@@ -106,8 +101,8 @@ public class LimeBushBlock extends FruitBushBlock {
 	public @NotNull VoxelShape getCollisionShape(@NotNull BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos, @NotNull CollisionContext pContext) {
 		if (pContext instanceof EntityCollisionContext ent && ent.getEntity() instanceof Bee && CRConfig.LIME_POLLINATION.get()) {
 			return (
-					pState.getValue(HALF) == DoubleBlockHalf.LOWER ?
-							Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D) : Shapes.empty()
+				pState.getValue(HALF) == DoubleBlockHalf.LOWER ?
+					Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D) : Shapes.empty()
 			);
 		}
 		return getShape(pState, pLevel, pPos, pContext);

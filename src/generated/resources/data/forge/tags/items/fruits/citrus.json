@@ -4,6 +4,10 @@
     {
       "id": "#forge:fruits/lemon",
       "required": false
+    },
+    {
+      "id": "fruitsdelight:lemon_slice",
+      "required": false
     }
   ]
 }

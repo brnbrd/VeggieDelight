@@ -54,7 +54,8 @@ public class CRItemTagProvider extends ItemTagsProvider {
 				.add(CRItems.LIME_SLICE.get());
 		this.tag(CRItemTags.FRUITS_CITRUS)
 				.addTag(CRItemTags.LIME_OR_SLICE)
-				.addOptionalTag(Util.rl("forge", "fruits/lemon"));
+				.addOptionalTag(Util.rl("forge", "fruits/lemon"))
+				.addOptional(Util.rl("fruitsdelight", "lemon_slice"));
 		this.tag(CRItemTags.FRUITS)
 				.addTag(CRItemTags.FRUITS_POMEGRANATE)
 				.addTag(CRItemTags.FRUITS_LIME);

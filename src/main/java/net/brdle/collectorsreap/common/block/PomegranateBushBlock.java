@@ -21,6 +21,7 @@ import net.minecraft.world.phys.shapes.EntityCollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.ForgeHooks;
+import net.minecraftforge.common.PlantType;
 import org.jetbrains.annotations.NotNull;
 
 public class PomegranateBushBlock extends FruitBushBlock {
@@ -37,6 +38,11 @@ public class PomegranateBushBlock extends FruitBushBlock {
 	@Override
 	protected boolean mayPlaceOn(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
 		return state.is(CRBlockTags.POMEGRANATE_FAST_ON) || super.mayPlaceOn(state, level, pos);
+	}
+
+	@Override
+	public PlantType getPlantType(BlockGetter level, BlockPos pos) {
+		return PlantType.NETHER;
 	}
 
 	@SuppressWarnings("deprecation")
@@ -97,12 +103,12 @@ public class PomegranateBushBlock extends FruitBushBlock {
 	@Override
 	public void entityInside(@NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Entity e) {
 		if (
-				!pLevel.isClientSide() &&
-						CRConfig.POMEGRANATE_POLLINATION.get() &&
-						CRConfig.FAST_POLLINATE.get() &&
-						e instanceof Bee &&
-						pState.getValue(AGE) == MAX_AGE - 1 &&
-						pLevel.getRandom().nextInt(150) == 0
+			!pLevel.isClientSide() &&
+			CRConfig.POMEGRANATE_POLLINATION.get() &&
+			CRConfig.FAST_POLLINATE.get() &&
+			e instanceof Bee &&
+			pState.getValue(AGE) == MAX_AGE - 1 &&
+			pLevel.getRandom().nextInt(150) == 0
 		) {
 			this.performBonemeal((ServerLevel) pLevel, pLevel.getRandom(), pPos, pState);
 		}
