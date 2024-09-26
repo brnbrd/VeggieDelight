@@ -197,5 +197,6 @@
   "item.collectorsreap.vanilla_gummy": "香草软糖",
   "item.collectorsreap.yellow_tea_gummy": "黄茶软糖",
   "item.collectorsreap.yucca_gummy": "丝兰果软糖",
-  "tooltip.requires_modid": "需安装模组："
+  "tooltip.requires_modid": "需安装模组：",
+  "trim_material.collectorsreap.pearl": "Pearl Material"
 }

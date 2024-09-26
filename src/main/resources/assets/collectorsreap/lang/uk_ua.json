@@ -197,5 +197,6 @@
   "item.collectorsreap.vanilla_gummy": "Ванільна желейка",
   "item.collectorsreap.yellow_tea_gummy": "Желейка з жовтого чаю",
   "item.collectorsreap.yucca_gummy": "Юкова желейка",
-  "tooltip.requires_modid": "Потрібен мод:"
+  "tooltip.requires_modid": "Потрібен мод:",
+  "trim_material.collectorsreap.pearl": "Pearl Material"
 }

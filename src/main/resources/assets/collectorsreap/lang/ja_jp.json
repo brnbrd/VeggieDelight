@@ -197,5 +197,6 @@
   "item.collectorsreap.vanilla_gummy": "Vanilla Gummy",
   "item.collectorsreap.yellow_tea_gummy": "Yellow Tea Gummy",
   "item.collectorsreap.yucca_gummy": "Yucca Gummy",
-  "tooltip.requires_modid": "MODが必要"
+  "tooltip.requires_modid": "MODが必要",
+  "trim_material.collectorsreap.pearl": "Pearl Material"
 }

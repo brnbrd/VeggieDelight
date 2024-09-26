@@ -43,6 +43,8 @@ public class CRItemTagProvider extends ItemTagsProvider {
 		this.tag(ItemTags.FISHES)
 				.addTag(CRItemTags.RAW_FISHES_BASS)
 				.addTag(CRItemTags.COOKED_FISHES_BASS);
+		this.tag(ItemTags.TRIM_MATERIALS)
+				.add(CRItems.SHIMMERING_PEARL.get());
 
 		// Forge
 		this.tag(CRItemTags.FRUITS_POMEGRANATE)

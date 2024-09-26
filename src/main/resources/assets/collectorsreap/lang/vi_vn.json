@@ -197,5 +197,6 @@
   "item.collectorsreap.vanilla_gummy": "Kẹo Vanilla",
   "item.collectorsreap.yellow_tea_gummy": "Kẹo Trà Vàng",
   "item.collectorsreap.yucca_gummy": "Kẹo Yucca",
-  "tooltip.requires_modid": "Requires modid:"
+  "tooltip.requires_modid": "Requires modid:",
+  "trim_material.collectorsreap.pearl": "Pearl Material"
 }

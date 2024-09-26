@@ -34,6 +34,7 @@ public class CRLanguageProvider extends LanguageProvider {
 	}
 
 	private void addText() {
+		add("trim_material." + CollectorsReap.MODID + ".pearl", "Pearl Material");
 		add("fluid_type." + CollectorsReap.MODID + ".lime_green_tea_type", "Lime Green Tea");
 		add("fluid_type." + CollectorsReap.MODID + ".pomegranate_black_tea_type", "Pomegranate Black Tea");
 		add("tooltip.requires_modid", "Requires modid:");

@@ -197,5 +197,6 @@
   "item.collectorsreap.vanilla_gummy": "Gominola de vainilla",
   "item.collectorsreap.yellow_tea_gummy": "Gominola de té amarillo",
   "item.collectorsreap.yucca_gummy": "Gominola de yuca",
-  "tooltip.requires_modid": "Requiere el modid:"
+  "tooltip.requires_modid": "Requiere el modid:",
+  "trim_material.collectorsreap.pearl": "Pearl Material"
 }

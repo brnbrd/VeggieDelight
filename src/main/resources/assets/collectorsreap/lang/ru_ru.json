@@ -197,5 +197,6 @@
   "item.collectorsreap.vanilla_gummy": "Желе из ванили",
   "item.collectorsreap.yellow_tea_gummy": "Желе из желтого чая",
   "item.collectorsreap.yucca_gummy": "Желе из юкки",
-  "tooltip.requires_modid": "Необходима модификация:"
+  "tooltip.requires_modid": "Необходима модификация:",
+  "trim_material.collectorsreap.pearl": "Pearl Material"
 }
