@@ -34,6 +34,7 @@ public class ShimmeringAppleItem extends PearlItem {
 			if (active.isEmpty()) {
 				entity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 400, 1));
 			} else {
+				RandomSource rand = level.getRandom();
 				List<MobEffect> buffs = new ArrayList<>();
 				List<MobEffect> debuffs = new ArrayList<>();
 				ForgeRegistries.MOB_EFFECTS.getValues().forEach(mobEffect -> {
@@ -45,7 +46,8 @@ public class ShimmeringAppleItem extends PearlItem {
 						}
 					}
 				});
-				RandomSource rand = level.getRandom();
+				buffs.removeAll(active.keySet().stream().filter(eff -> eff.getCategory() == MobEffectCategory.BENEFICIAL).toList());
+				debuffs.removeAll(active.keySet().stream().filter(eff -> eff.getCategory() == MobEffectCategory.HARMFUL).toList());
 				active.forEach((mobEffect, instance) -> {
 					if (
 						!instance.isAmbient() &&
@@ -63,14 +65,12 @@ public class ShimmeringAppleItem extends PearlItem {
 						} else {
 							return;
 						}
-						if (effectList.contains(mobEffect) && effectList.size() > 1) {
+						if (!effectList.isEmpty()) {
+							MobEffect selectedEffect = effectList.remove(rand.nextInt(effectList.size()));
+							int duration = Math.min(instance.getDuration(), rand.nextIntBetweenInclusive(800, 2400));
+							int amp = Math.min(instance.getAmplifier(), 2);
 							entity.removeEffect(mobEffect);
-							effectList.remove(mobEffect);
-							entity.forceAddEffect(new MobEffectInstance(
-								effectList.remove(rand.nextInt(effectList.size())),
-								Math.min(instance.getDuration(), rand.nextIntBetweenInclusive(800, 2400)),
-								Math.min(instance.getAmplifier(), 2)
-							), entity);
+							entity.forceAddEffect(new MobEffectInstance(selectedEffect, duration, amp), entity);
 						}
 					}
 				});
