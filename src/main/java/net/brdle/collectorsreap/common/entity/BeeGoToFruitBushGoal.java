@@ -9,7 +9,6 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.EnumSet;
 
 public class BeeGoToFruitBushGoal extends MoveToBlockGoal {

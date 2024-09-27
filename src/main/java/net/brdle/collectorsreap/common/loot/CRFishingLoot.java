@@ -13,7 +13,6 @@ import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootModifier;
 import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 import org.jetbrains.annotations.NotNull;
-
 import java.lang.reflect.Field;
 import java.util.Collections;
 import java.util.Set;

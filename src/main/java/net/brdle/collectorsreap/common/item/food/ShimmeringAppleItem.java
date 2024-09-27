@@ -1,6 +1,10 @@
 package net.brdle.collectorsreap.common.item.food;
 
-import net.brdle.collectorsreap.common.item.PearlItem;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -10,10 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import net.brdle.collectorsreap.common.item.PearlItem;
 import org.jetbrains.annotations.NotNull;
 
 public class ShimmeringAppleItem extends PearlItem {
@@ -44,35 +45,32 @@ public class ShimmeringAppleItem extends PearlItem {
 						}
 					}
 				});
+				RandomSource rand = level.getRandom();
 				active.forEach((mobEffect, instance) -> {
 					if (
 						!instance.isAmbient() &&
 						!instance.isInfiniteDuration() &&
-						instance.getDuration() > 0 &&
+						instance.getDuration() > 200 &&
 						instance.isVisible() &&
 						instance.showIcon() &&
 						!mobEffect.isInstantenous()
 					) {
-						if (buffs.contains(mobEffect)) {
-							buffs.remove(mobEffect);
-							if (!buffs.isEmpty()) {
-								entity.removeEffect(mobEffect);
-								entity.forceAddEffect(new MobEffectInstance(
-									buffs.remove(level.getRandom().nextInt(buffs.size())),
-									level.getRandom().nextIntBetweenInclusive(800, 2400),
-									instance.getAmplifier()
-								), null);
-							}
-						} else if (debuffs.contains(mobEffect)) {
-							debuffs.remove(mobEffect);
-							if (!debuffs.isEmpty()) {
-								entity.removeEffect(mobEffect);
-								entity.forceAddEffect(new MobEffectInstance(
-									debuffs.remove(level.getRandom().nextInt(debuffs.size())),
-									level.getRandom().nextIntBetweenInclusive(800, 2400),
-									instance.getAmplifier()
-								), null);
-							}
+						List<MobEffect> effectList;
+						if (mobEffect.getCategory() == MobEffectCategory.BENEFICIAL) {
+							effectList = buffs;
+						} else if (mobEffect.getCategory() == MobEffectCategory.HARMFUL) {
+							effectList = debuffs;
+						} else {
+							return;
+						}
+						if (effectList.contains(mobEffect) && effectList.size() > 1) {
+							entity.removeEffect(mobEffect);
+							effectList.remove(mobEffect);
+							entity.forceAddEffect(new MobEffectInstance(
+								effectList.remove(rand.nextInt(effectList.size())),
+								Math.min(instance.getDuration(), rand.nextIntBetweenInclusive(800, 2400)),
+								Math.min(instance.getAmplifier(), 2)
+							), entity);
 						}
 					}
 				});

@@ -34,7 +34,6 @@ import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.fluids.FluidType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
 import javax.annotation.Nonnull;
 import java.util.UUID;
 

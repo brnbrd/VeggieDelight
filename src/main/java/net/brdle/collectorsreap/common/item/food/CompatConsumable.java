@@ -11,7 +11,6 @@ import net.minecraftforge.fml.ModList;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.item.ConsumableItem;
-
 import java.util.List;
 
 public class CompatConsumable extends ConsumableItem {

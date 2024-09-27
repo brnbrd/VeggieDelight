@@ -6,7 +6,6 @@ import net.brdle.collectorsreap.common.loot.CREntityLoot;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-
 import java.util.Collections;
 
 public class CRLootTableProvider extends LootTableProvider {

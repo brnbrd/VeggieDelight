@@ -51,5 +51,4 @@ public class UrchinModel extends HierarchicalModel<Urchin> {
 	@Override
 	public void setupAnim(@NotNull Urchin entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 	}
-
 }

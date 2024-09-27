@@ -6,8 +6,6 @@ import net.brdle.collectorsreap.client.particle.ShockwaveParticle;
 import net.brdle.collectorsreap.client.renderer.*;
 import net.brdle.collectorsreap.common.CRParticleTypes;
 import net.brdle.collectorsreap.common.entity.CREntities;
-import net.brdle.collectorsreap.common.entity.UrchinDart;
-import net.minecraft.client.renderer.entity.ArrowRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;

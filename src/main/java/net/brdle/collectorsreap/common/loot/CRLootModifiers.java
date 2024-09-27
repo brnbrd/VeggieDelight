@@ -28,5 +28,4 @@ public class CRLootModifiers {
 	public static String getString(LootTableReference lootTable) {
 		return lootTable.name.toString();
 	}
-
 }

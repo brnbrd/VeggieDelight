@@ -14,7 +14,6 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyC
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.stream.Stream;
 
 public class CREntityLoot extends EntityLootSubProvider {

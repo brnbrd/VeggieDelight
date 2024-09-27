@@ -16,7 +16,6 @@ import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.tag.ModTags;
-
 import java.util.concurrent.CompletableFuture;
 
 public class CRBlockTagProvider extends BlockTagsProvider {

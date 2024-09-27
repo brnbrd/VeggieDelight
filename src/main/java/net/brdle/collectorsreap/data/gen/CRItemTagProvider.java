@@ -19,7 +19,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.registry.ModItems;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
-
 import java.util.concurrent.CompletableFuture;
 
 public class CRItemTagProvider extends ItemTagsProvider {

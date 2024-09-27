@@ -120,6 +120,5 @@ public class EffectCakeBlock extends CakeBlock {
 				}
 			}
 		}
-
 	}
 }

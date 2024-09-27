@@ -24,7 +24,6 @@ import vectorwing.farmersdelight.common.registry.ModItems;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
 import vectorwing.farmersdelight.data.builder.CookingPotRecipeBuilder;
 import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
-
 import java.util.function.Consumer;
 
 public class CRRecipeProvider extends RecipeProvider implements IConditionBuilder {
