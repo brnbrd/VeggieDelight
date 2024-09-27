@@ -32,7 +32,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.NotNull;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
-
 import java.util.Map;
 
 public class EffectCandleCakeBlock extends AbstractCandleBlock {
@@ -127,8 +126,14 @@ public class EffectCandleCakeBlock extends AbstractCandleBlock {
 		return this.getCake().getSlice().getDefaultInstance();
 	}
 
-	public static BlockState byCakeCandle(CakeBlock cake, CandleBlock candle) {
-		return BY_CAKE_CANDLE.get(Pair.of(cake, candle)).defaultBlockState();
+	public static boolean exists(CakeBlock cake, CandleBlock candle) {
+		return BY_CAKE_CANDLE.containsKey(Pair.of(cake, candle));
+	}
+
+	public static @NotNull BlockState byCakeCandle(CakeBlock cake, CandleBlock candle) {
+		return exists(cake, candle) ?
+			BY_CAKE_CANDLE.get(Pair.of(cake, candle)).defaultBlockState() :
+			cake.defaultBlockState();
 	}
 
 	/**
@@ -145,8 +150,8 @@ public class EffectCandleCakeBlock extends AbstractCandleBlock {
 
 	@SuppressWarnings("deprecation")
 	@Override
-	public boolean canSurvive(@NotNull BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		return pLevel.getBlockState(pPos.below()).isSolidRender(pLevel, pPos);
+	public boolean canSurvive(@NotNull BlockState state, LevelReader level, BlockPos pos) {
+		return level.getBlockState(pos.below()).isSolidRender(level, pos);
 	}
 
 	/**
@@ -157,7 +162,7 @@ public class EffectCandleCakeBlock extends AbstractCandleBlock {
 	@SuppressWarnings("deprecation")
 	@Deprecated
 	@Override
-	public int getAnalogOutputSignal(@NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos) {
+	public int getAnalogOutputSignal(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos) {
 		return CakeBlock.FULL_CAKE_SIGNAL;
 	}
 
@@ -179,7 +184,8 @@ public class EffectCandleCakeBlock extends AbstractCandleBlock {
 		return false;
 	}
 
-	public static boolean canLight(BlockState pState) {
-		return pState.is(BlockTags.CANDLE_CAKES, (p_152896_) -> p_152896_.hasProperty(LIT) && !pState.getValue(LIT));
+	@Override
+	protected boolean canBeLit(final @NotNull BlockState state) {
+		return state.is(BlockTags.CANDLE_CAKES, (s) -> s.hasProperty(LIT) && !state.getValue(LIT)) && super.canBeLit(state);
 	}
 }

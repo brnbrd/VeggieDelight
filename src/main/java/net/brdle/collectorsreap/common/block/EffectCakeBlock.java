@@ -22,7 +22,6 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.NotNull;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
-
 import java.util.Objects;
 import java.util.function.Supplier;
 
@@ -42,18 +41,20 @@ public class EffectCakeBlock extends CakeBlock {
 	@Override
 	public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult result) {
 		ItemStack itemstack = player.getItemInHand(hand);
-		if (itemstack.is(ItemTags.CANDLES) && state.getValue(BITES) == 0) {
-			Block block = Block.byItem(itemstack.getItem());
-			if (block instanceof CandleBlock candle) {
-				if (!player.isCreative()) {
-					itemstack.shrink(1);
-				}
-				level.playSound(null, pos, SoundEvents.CAKE_ADD_CANDLE, SoundSource.BLOCKS, 1.0F, 1.0F);
-				level.setBlockAndUpdate(pos, EffectCandleCakeBlock.byCakeCandle(this, candle));
-				level.gameEvent(player, GameEvent.BLOCK_CHANGE, pos);
-				player.awardStat(Stats.ITEM_USED.get(itemstack.getItem()));
-				return InteractionResult.SUCCESS;
+		if (
+			itemstack.is(ItemTags.CANDLES) &&
+			state.getValue(BITES) == 0 &&
+			Block.byItem(itemstack.getItem()) instanceof CandleBlock candle &&
+			EffectCandleCakeBlock.exists(this, candle)
+		) {
+			if (!player.isCreative()) {
+				itemstack.shrink(1);
 			}
+			level.playSound(null, pos, SoundEvents.CAKE_ADD_CANDLE, SoundSource.BLOCKS, 1.0F, 1.0F);
+			level.setBlockAndUpdate(pos, EffectCandleCakeBlock.byCakeCandle(this, candle));
+			level.gameEvent(player, GameEvent.BLOCK_CHANGE, pos);
+			player.awardStat(Stats.ITEM_USED.get(itemstack.getItem()));
+			return InteractionResult.SUCCESS;
 		}
 		if (level.isClientSide()) {
 			if (itemstack.is(ForgeTags.TOOLS_KNIVES)) {
