@@ -59,6 +59,11 @@ public class LimeBushBlock extends FruitBushBlock {
 		return CRItems.LIME_SEEDS.get();
 	}
 
+	@Override
+	public boolean isSpecial(Level level, BlockPos pos) {
+		return false;
+	}
+
 	@SuppressWarnings("deprecation")
 	@Override
 	public void randomTick(BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {

@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "mynethersdelight:resurgent_soil",
+      "required": false
+    },
+    {
+      "id": "mynethersdelight:resurgent_soil_farmland",
+      "required": false
+    }
+  ]
+}

@@ -155,7 +155,8 @@ public class CRItemTagProvider extends ItemTagsProvider {
 		// Diet
 		this.tag(CRItemTags.DIET_FRUITS)
 				.add(CRItems.LIME.get())
-				.add(CRItems.POMEGRANATE.get());
+				.add(CRItems.POMEGRANATE.get())
+				.add(CRItems.STYGIAN_POMEGRANATE.get());
 		this.tag(CRItemTags.DIET_PROTEINS)
 				.add(CRItems.PLATINUM_BASS_HEAD.get())
 				.add(CRItems.TIGER_PRAWN.get())

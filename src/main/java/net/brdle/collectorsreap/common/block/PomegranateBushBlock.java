@@ -66,25 +66,34 @@ public class PomegranateBushBlock extends FruitBushBlock {
 		return CRItems.POMEGRANATE.get();
 	}
 
+	public Item getSpecialFruit() {
+		return CRItems.STYGIAN_POMEGRANATE.get();
+	}
+
 	@Override
-	public int getNumFruit(Level level) {
-		return 1 + level.getRandom().nextInt(2);
+	public int getSpecialChance() {
+		return 4;
+	}
+
+	@Override
+	public int getNumFruit(int add) {
+		return 1 + add;
 	}
 
 	// Can receive boost from Nether or block below.
 	@SuppressWarnings("deprecation")
 	@Override
-	public void randomTick(@NotNull BlockState state, @NotNull ServerLevel pLevel, @NotNull BlockPos pPos, @NotNull RandomSource pRandom) {
+	public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
 		if (state.getValue(AGE) < MAX_AGE && state.getValue(HALF) == DoubleBlockHalf.LOWER) {
-			int growthRate = (pLevel.getBlockState(pPos.below()).is(CRBlockTags.POMEGRANATE_FAST_ON)) ? 8 : 12;
-			if (pLevel.dimension() == Level.NETHER) {
+			int growthRate = (level.getBlockState(pos.below()).is(CRBlockTags.POMEGRANATE_FAST_ON)) ? 8 : 12;
+			if (level.dimension() == Level.NETHER) {
 				growthRate -= 4;
 			} else if (state.getValue(AGE) == MAX_AGE - 1 && CRConfig.POMEGRANATE_POLLINATION.get()) {
 				return;
 			}
-			if (ForgeHooks.onCropsGrowPre(pLevel, pPos, state, pRandom.nextInt(growthRate) == 0)) {
-				this.performBonemeal(pLevel, pRandom, pPos, state);
-				ForgeHooks.onCropsGrowPost(pLevel, pPos, state);
+			if (ForgeHooks.onCropsGrowPre(level, pos, state, random.nextInt(growthRate) == 0)) {
+				this.performBonemeal(level, random, pos, state);
+				ForgeHooks.onCropsGrowPost(level, pos, state);
 			}
 		}
 	}

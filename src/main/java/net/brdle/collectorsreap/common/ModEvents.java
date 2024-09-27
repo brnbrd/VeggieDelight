@@ -41,6 +41,7 @@ public class ModEvents {
 			compost(CRItems.POMEGRANATE, 0.3F);
 			compost(CRItems.POMEGRANATE_SLICE, 0.2F);
 			compost(CRItems.POMEGRANATE_SEEDS, 0.1F);
+			compost(CRItems.STYGIAN_POMEGRANATE, 0.3F);
 
 			//
 			if (ModList.get().isLoaded("neapolitan")) {

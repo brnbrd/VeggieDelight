@@ -1,15 +1,15 @@
 package net.brdle.collectorsreap.common.block;
 
+import java.util.Objects;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.Item;
@@ -87,6 +87,28 @@ public abstract class FruitBushBlock extends DoublePlantBlock implements Bonemea
 
 	public abstract Item getSeeds();
 
+	@Override
+	public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockGetter level, BlockPos pos, Player player) {
+		return new ItemStack(this.getSeeds());
+	}
+
+	public @Nullable Item getSpecialFruit() {
+		return null;
+	}
+
+	public int getSpecialChance() {
+		return 0;
+	}
+
+	public boolean isSpecial(Level level, BlockPos pos) {
+		int chance = this.getSpecialChance();
+		return (
+			this.getSpecialFruit() != null &&
+			chance != 0 &&
+			level.getRandom().nextInt(chance) == 0
+		);
+	}
+
 	@SuppressWarnings("deprecation")
 	@Override
 	public @NotNull InteractionResult use(BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
@@ -139,26 +161,19 @@ public abstract class FruitBushBlock extends DoublePlantBlock implements Bonemea
 		return true;
 	}
 
-	@Override
-	public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockGetter level, BlockPos pos, Player player) {
-		return new ItemStack(state.getValue(AGE) == MAX_AGE ? this.getFruit() : this.getSeeds());
-	}
-
-	public int getNumFruit(Level level) {
-		return 2 + level.getRandom().nextInt(2);
+	public int getNumFruit(int add) {
+		return 2 + add;
 	}
 
 	public void dropFruit(Level level, BlockPos pos) {
-		ItemStack stack = new ItemStack(getFruit(), getNumFruit(level));
-		if (!level.isClientSide()) {
-			double d0 = (double) EntityType.ITEM.getHeight() / 2.0D;
-			double d1 = (double) pos.getX() + 0.5D;
-			double d2 = (double) pos.above().getY() + 0.5D - d0;
-			double d3 = (double) pos.getZ() + 0.5D;
-			ItemEntity itementity = new ItemEntity(level, d1, d2, d3, stack);
-			itementity.setDefaultPickUpDelay();
-			level.addFreshEntity(itementity);
+		ItemStack stack;
+		if (this.isSpecial(level, pos)) { // Null-checks getSpecialFruit
+			stack = new ItemStack(Objects.requireNonNull(this.getSpecialFruit()), 1);
+		} else {
+			int additional = level.getRandom().nextInt(2);
+			stack = new ItemStack(this.getFruit(), this.getNumFruit(additional));
 		}
+		Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), stack);
 	}
 
 	public static void placeAt(LevelAccessor level, BlockState state, BlockPos pos, int flags) {

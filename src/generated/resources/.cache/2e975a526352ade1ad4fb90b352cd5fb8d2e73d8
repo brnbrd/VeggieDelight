@@ -1,11 +1,11 @@
-// 1.20.1	2024-09-26T15:26:29.3472308	Tags for minecraft:item mod id collectorsreap
+// 1.20.1	2024-09-27T09:32:24.1682347	Tags for minecraft:item mod id collectorsreap
 ae7e08f92dd075f34544c04d30c8a274b27bd792 data/atmospheric/tags/items/aloe_leaves.json
 b1c02044b6eb4060b19a0ed4f40cbeaca19822c9 data/atmospheric/tags/items/passion_fruit.json
 a740abeb613a7024a35910efe912a50a6ee62045 data/atmospheric/tags/items/yucca_fruit.json
 22441868a2c5fde8be95de5573f16aacdf8fecb2 data/collectorsreap/tags/items/gummies.json
 88055c196d1b1d1dc8d81f028dba0bb58d473524 data/collectorsreap/tags/items/hot_nether_fruit.json
 3aadbf88623a2fde7e33b2e4942a79d1e72c9cbf data/collectorsreap/tags/items/lime_or_slice.json
-b059f9c0a3f4580d1278903a691d90d5c7d4ced0 data/diet/tags/items/fruits.json
+4ade3885f131d51fd808050df78ebb129d826f84 data/diet/tags/items/fruits.json
 44930d393f8ce0442362dc4dac89d839726332e7 data/diet/tags/items/proteins.json
 19803c3eaf99299bfa8e6d30f0fd67d6a23f04f7 data/diet/tags/items/special_food.json
 507b42bfb4ad28acf617f26c41a5f2a4aef9307f data/diet/tags/items/vegetables.json

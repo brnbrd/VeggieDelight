@@ -148,6 +148,7 @@ public class CRLanguageProvider extends LanguageProvider {
 		addItem(CRItems.POMEGRANATE_CHICKEN, "Pomegranate Chicken");
 		addItem(CRItems.POMEGRANATE_PORK, "Pomegranate Pork");
 		addItem(CRItems.POMEGRANATE_CUSTARD, "Pomegranate Custard");
+		addItem(CRItems.STYGIAN_POMEGRANATE, "Stygian Pomegranate");
 		addItem(CRItems.PINK_LIMEADE, "Pink Limeade");
 		addItem(CRItems.SPICY_GRENADINE_JELLY, "Spicy Grenadine Jelly");
 		addItem(CRItems.GLAZED_STRIDER, "Glazed Strider");

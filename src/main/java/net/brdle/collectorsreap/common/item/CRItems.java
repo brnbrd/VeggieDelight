@@ -62,6 +62,8 @@ public class CRItems extends ModItems {
 			() -> new FruitSeedsItem(
 					CRBlocks.POMEGRANATE_BUSH.get(), (new Item.Properties()).food(Nutrition.POMEGRANATE_SEEDS)
 			));
+	public static final RegistryObject<Item> STYGIAN_POMEGRANATE = registerItem("stygian_pomegranate",
+		() -> new CompatItem((new Item.Properties()), "mynethersdelight"));
 	public static final RegistryObject<Item> LIME_SEEDS = registerItem("lime_seeds",
 			() -> new FruitSeedsItem(
 					CRBlocks.LIME_BUSH.get(), (new Item.Properties())

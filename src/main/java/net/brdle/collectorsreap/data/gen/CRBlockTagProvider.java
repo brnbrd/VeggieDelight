@@ -42,7 +42,11 @@ public class CRBlockTagProvider extends BlockTagsProvider {
 				.addTag(ModTags.MUSHROOM_COLONY_GROWABLE_ON)
 				.addTag(BlockTags.MUSHROOM_GROW_BLOCK)
 				.addTag(BlockTags.DIRT);
+		this.tag(CRBlockTags.STYGIAN_POMEGRANATE_GROWABLE_ON)
+				.addOptional(Util.rl("mynethersdelight", "resurgent_soil"))
+				.addOptional(Util.rl("mynethersdelight", "resurgent_soil_farmland"));
 		this.tag(CRBlockTags.POMEGRANATE_FAST_ON)
+				.addTag(CRBlockTags.STYGIAN_POMEGRANATE_GROWABLE_ON)
 				.addTag(BlockTags.NYLIUM)
 				.addOptionalTag(Util.rl("nethersdelight", "rich_soul_soil"));
 		this.tag(CRBlockTags.CRAB_SPAWNABLE_ON)
