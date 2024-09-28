@@ -60,7 +60,8 @@ public class JEIPlugin implements IModPlugin {
 		String pomTranslationKey = "desc." + CollectorsReap.MODID + "." + Util.name(CRItems.POMEGRANATE);
 		List<ItemStack> pomStack = List.of(Util.gs(CRItems.POMEGRANATE), Util.gs(CRItems.POMEGRANATE_SLICE));
 		if (CRConfig.POMEGRANATE_POLLINATION.get()) {
-			registration.addItemStackInfo(pomStack, Component.translatable(pomTranslationKey),
+			registration.addItemStackInfo(pomStack,
+				Component.translatable(pomTranslationKey),
 				Component.translatable(pomTranslationKey + ".pollination")
 			);
 		} else {
@@ -68,6 +69,12 @@ public class JEIPlugin implements IModPlugin {
 		}
 
 		if (ModList.get().isLoaded("mynethersdelight")) {
+			if (CRConfig.verify(CRItems.STYGIAN_POMEGRANATE)) {
+				registration.addItemStackInfo(
+					Util.gs(CRItems.STYGIAN_POMEGRANATE),
+					Component.translatable("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.STYGIAN_POMEGRANATE))
+				);
+			}
 			registration.addItemStackInfo(Util.gs(CRItems.PORTOBELLO_COLONY), Component.translatable("mynethersdelight.jei.info.mushroom_colony"));
 		}
 	}

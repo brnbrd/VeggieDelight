@@ -63,6 +63,7 @@
   "desc.collectorsreap.pomegranate": "Pomegranates can be found as a wild bush in warped forests.",
   "desc.collectorsreap.pomegranate.pollination": "A flowering Pomegranate Bush will grow fruit in the Overworld when pollinated by a Bee.",
   "desc.collectorsreap.portobello": "Portobellos can be rarely found in meadows.",
+  "desc.collectorsreap.stygian_pomegranate": "Stygian Pomegranates are a dangerous variant that can be occasionally picked from Pomegranate Bushes growing on Resurgent Soil.",
   "effect.collectorsreap.corrosion": "Corrosion",
   "effect.collectorsreap.corrosion.description": "Provides the user a defensive acid shield, corroding projectiles and damaging attack weapons.",
   "effect.collectorsreap.volatility": "Volatility",
