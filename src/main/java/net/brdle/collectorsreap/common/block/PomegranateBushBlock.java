@@ -72,7 +72,7 @@ public class PomegranateBushBlock extends FruitBushBlock {
 
 	@Override
 	public int getSpecialChance() {
-		return 4;
+		return 5;
 	}
 
 	@Override

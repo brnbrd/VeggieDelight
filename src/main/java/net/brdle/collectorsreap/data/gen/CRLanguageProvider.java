@@ -8,6 +8,7 @@ import net.brdle.collectorsreap.common.entity.CREntities;
 import net.brdle.collectorsreap.common.item.CRItems;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
+import vectorwing.farmersdelight.FarmersDelight;
 
 public class CRLanguageProvider extends LanguageProvider {
 	public CRLanguageProvider(PackOutput output) {
@@ -34,6 +35,7 @@ public class CRLanguageProvider extends LanguageProvider {
 	}
 
 	private void addText() {
+		add(FarmersDelight.MODID + ".tooltip.stygian_pomegranate", "Explosive");
 		add("trim_material." + CollectorsReap.MODID + ".pearl", "Pearl Material");
 		add("fluid_type." + CollectorsReap.MODID + ".lime_green_tea_type", "Lime Green Tea");
 		add("fluid_type." + CollectorsReap.MODID + ".pomegranate_black_tea_type", "Pomegranate Black Tea");

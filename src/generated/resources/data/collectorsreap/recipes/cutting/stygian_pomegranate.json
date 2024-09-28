@@ -12,6 +12,10 @@
             },
             {
               "type": "collectorsreap:enabled",
+              "value": "stygian_pomegranate"
+            },
+            {
+              "type": "collectorsreap:enabled",
               "value": "pomegranate_slice"
             }
           ]
@@ -21,17 +25,17 @@
         "type": "farmersdelight:cutting",
         "ingredients": [
           {
-            "item": "collectorsreap:pomegranate"
+            "item": "collectorsreap:stygian_pomegranate"
           }
         ],
         "result": [
           {
-            "count": 4,
+            "count": 5,
             "item": "collectorsreap:pomegranate_slice"
           },
           {
-            "chance": 0.5,
-            "item": "minecraft:red_dye"
+            "count": 2,
+            "item": "minecraft:gunpowder"
           }
         ],
         "tool": {

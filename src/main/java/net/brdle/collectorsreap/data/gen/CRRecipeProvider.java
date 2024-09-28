@@ -61,7 +61,11 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
 		wrap(CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(CRItems.POMEGRANATE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES),
 								CRItems.POMEGRANATE_SLICE.get(), 4)
 						.addResultWithChance(Items.RED_DYE, 0.5f),
-				"cutting/pomegranate", finished, enabled(CRItems.POMEGRANATE), enabled(CRItems.POMEGRANATE_SEEDS));
+				"cutting/pomegranate", finished, enabled(CRItems.POMEGRANATE), enabled(CRItems.POMEGRANATE_SLICE));
+		wrap(CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(CRItems.STYGIAN_POMEGRANATE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES),
+							CRItems.POMEGRANATE_SLICE.get(), 5)
+						.addResult(Items.GUNPOWDER, 2),
+			"cutting/stygian_pomegranate", finished, enabled(CRItems.POMEGRANATE), enabled(CRItems.STYGIAN_POMEGRANATE), enabled(CRItems.POMEGRANATE_SLICE));
 		wrap(CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(CRItems.LIME_CAKE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES),
 						CRItems.LIME_CAKE_SLICE.get(), 7),
 				"cutting/lime_cake", finished, enabled(CRItems.LIME_CAKE), enabled(CRItems.LIME_CAKE_SLICE));
@@ -316,6 +320,10 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
 						.requires(CRItems.POMEGRANATE.get())
 						.unlockedBy("has_pomegranate", has(CRItems.POMEGRANATE.get())),
 				"pomegranate_seeds_from_pomegranate", finished, enabled(CRItems.POMEGRANATE), enabled(CRItems.POMEGRANATE_SEEDS));
+		wrap(shapeless(RecipeCategory.FOOD, CRItems.POMEGRANATE_SEEDS, 10)
+						.requires(CRItems.STYGIAN_POMEGRANATE.get())
+						.unlockedBy("has_stygian_pomegranate", has(CRItems.STYGIAN_POMEGRANATE.get())),
+				"pomegranate_seeds_from_stygian_pomegranate", finished, enabled(CRItems.STYGIAN_POMEGRANATE), enabled(CRItems.POMEGRANATE_SEEDS));
 		wrap(shapeless(RecipeCategory.FOOD, CRItems.POMEGRANATE_SEEDS, 2)
 						.requires(CRItems.POMEGRANATE_SLICE.get())
 						.unlockedBy("has_pomegranate_slice", has(CRItems.POMEGRANATE_SLICE.get())),

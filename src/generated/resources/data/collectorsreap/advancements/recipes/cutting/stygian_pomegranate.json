@@ -11,6 +11,10 @@
             },
             {
               "type": "collectorsreap:enabled",
+              "value": "stygian_pomegranate"
+            },
+            {
+              "type": "collectorsreap:enabled",
               "value": "pomegranate_slice"
             }
           ]
