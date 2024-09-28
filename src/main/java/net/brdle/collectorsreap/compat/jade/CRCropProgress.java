@@ -14,19 +14,19 @@ import snownee.jade.api.config.IPluginConfig;
 public enum CRCropProgress implements IBlockComponentProvider {
 	INSTANCE;
 
+	private static void addMaturityTooltip(ITooltip tooltip, int age, int maxAge) {
+		tooltip.add(Component.translatable("tooltip.jade.crop_growth", age == maxAge ?
+			Component.translatable("tooltip.jade.crop_mature").withStyle(ChatFormatting.GREEN) :
+			Component.literal(String.format("%.0f%%", (age / (float) maxAge) * 100.0F)).withStyle(ChatFormatting.WHITE)
+		));
+	}
+
 	@Override
 	public void appendTooltip(ITooltip tooltip, BlockAccessor blockAccessor, IPluginConfig iPluginConfig) {
 		BlockState state = blockAccessor.getBlockState();
 		if (state.getBlock() instanceof FruitBushBlock) {
 			addMaturityTooltip(tooltip, state.getValue(FruitBushBlock.AGE), FruitBushBlock.MAX_AGE);
 		}
-	}
-
-	private static void addMaturityTooltip(ITooltip tooltip, int age, int maxAge) {
-		tooltip.add(Component.translatable("tooltip.jade.crop_growth", age == maxAge ?
-			Component.translatable("tooltip.jade.crop_mature").withStyle(ChatFormatting.GREEN) :
-			Component.literal(String.format("%.0f%%", (age / (float) maxAge) * 100.0F)).withStyle(ChatFormatting.WHITE)
-		));
 	}
 
 	@Override

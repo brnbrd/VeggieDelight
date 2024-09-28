@@ -43,8 +43,8 @@ public class BeeGrowFruitGoal extends Goal {
 	@Override
 	public void tick() {
 		if (
-				this.getBee().level() instanceof ServerLevel level &&
-						this.getBee().getRandom().nextInt(this.adjustedTickDelay(30)) == 0
+			this.getBee().level() instanceof ServerLevel level &&
+				this.getBee().getRandom().nextInt(this.adjustedTickDelay(30)) == 0
 		) {
 			for (int i = 1; i <= 2; ++i) {
 				BlockPos blockpos = this.getBee().blockPosition().below(i);

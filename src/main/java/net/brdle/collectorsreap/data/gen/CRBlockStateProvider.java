@@ -24,6 +24,11 @@ public class CRBlockStateProvider extends BlockStateProvider {
 		super(output, CollectorsReap.MODID, exFileHelper);
 	}
 
+	// Adapted from: https://github.com/vectorwing/FarmersDelight/blob/1.19/src/main/java/vectorwing/farmersdelight/data/BlockStates.java
+	public static ResourceLocation resourceBlock(String path) {
+		return Util.cr("block/" + path);
+	}
+
 	@Override
 	protected void registerStatesAndModels() {
 		this.pieBlock(CRBlocks.PORTOBELLO_QUICHE);
@@ -71,10 +76,10 @@ public class CRBlockStateProvider extends BlockStateProvider {
 		this.simpleBlock(CRBlocks.LIME_ICE_CREAM_BLOCK.get());
 		this.simpleBlock(CRBlocks.POMEGRANATE_ICE_CREAM_BLOCK.get());
 		this.simpleBlock(CRBlocks.URCHIN_TEST_BLOCK.get(), this.models().cubeBottomTop(
-				"urchin_test_block",
-				resourceBlock("urchin_test_block_side"),
-				resourceBlock("urchin_test_block_bottom"),
-				resourceBlock("urchin_test_block_top")
+			"urchin_test_block",
+			resourceBlock("urchin_test_block_side"),
+			resourceBlock("urchin_test_block_bottom"),
+			resourceBlock("urchin_test_block_top")
 		));
 		this.simpleBlock(CRBlocks.URCHIN_TEST_BRICKS.get());
 		this.slabBlock((SlabBlock) CRBlocks.URCHIN_TEST_BRICK_SLAB.get(), resourceBlock("urchin_test_bricks"), resourceBlock("urchin_test_bricks"));
@@ -91,18 +96,13 @@ public class CRBlockStateProvider extends BlockStateProvider {
 		this.simpleBlock(block, this.models().cubeBottomTop(Util.name(block), resourceBlock(cropName + "_crate_side"), Util.rl(FarmersDelight.MODID, "block/crate_bottom"), resourceBlock(cropName + "_crate_top")));
 	}
 
-	// Adapted from: https://github.com/vectorwing/FarmersDelight/blob/1.19/src/main/java/vectorwing/farmersdelight/data/BlockStates.java
-	public static ResourceLocation resourceBlock(String path) {
-		return Util.cr("block/" + path);
-	}
-
 	public ModelFile existingModel(String path) {
 		return new ModelFile.ExistingModelFile(resourceBlock(path), models().existingFileHelper);
 	}
 
 	public void cross(Block block) {
 		this.simpleBlock(block, models().cross("block/" + Util.name(block),
-				CRBlockStateProvider.resourceBlock(Util.name(block))).renderType("cutout"));
+			CRBlockStateProvider.resourceBlock(Util.name(block))).renderType("cutout"));
 	}
 
 	// Adapted from: https://github.com/vectorwing/FarmersDelight/blob/1.19/src/main/java/vectorwing/farmersdelight/data/BlockStates.java
@@ -110,7 +110,7 @@ public class CRBlockStateProvider extends BlockStateProvider {
 		getVariantBuilder(block).forAllStatesExcept(state -> {
 			String stageName = Util.name(block) + "_stage" + state.getValue(ageProperty);
 			return ConfiguredModel.builder()
-					.modelFile(models().cross(stageName, resourceBlock(stageName)).renderType("cutout")).build();
+				.modelFile(models().cross(stageName, resourceBlock(stageName)).renderType("cutout")).build();
 		}, ignored);
 	}
 
@@ -118,10 +118,10 @@ public class CRBlockStateProvider extends BlockStateProvider {
 		getVariantBuilder(block).forAllStatesExcept(state -> {
 			String name = Util.name(block) + "_" + state.getValue(halfProperty).getSerializedName();
 			var mod = models()
-					.withExistingParent("block/" + name + "_stage" + state.getValue(ageProperty), Util.cr(name))
-					.texture("side", resourceBlock(Util.name(block) + "_side_stage" + state.getValue(ageProperty)))
-					.texture("plant", resourceBlock(Util.name(block) + "_plant_" + state.getValue(halfProperty).getSerializedName() + "_stage" + state.getValue(ageProperty)))
-					.texture("particle", resourceBlock(Util.name(block) + "_plant_" + state.getValue(halfProperty).getSerializedName() + "_stage" + state.getValue(ageProperty)));
+				.withExistingParent("block/" + name + "_stage" + state.getValue(ageProperty), Util.cr(name))
+				.texture("side", resourceBlock(Util.name(block) + "_side_stage" + state.getValue(ageProperty)))
+				.texture("plant", resourceBlock(Util.name(block) + "_plant_" + state.getValue(halfProperty).getSerializedName() + "_stage" + state.getValue(ageProperty)))
+				.texture("particle", resourceBlock(Util.name(block) + "_plant_" + state.getValue(halfProperty).getSerializedName() + "_stage" + state.getValue(ageProperty)));
 			if (state.getValue(halfProperty) == DoubleBlockHalf.UPPER) {
 				mod.texture("top", resourceBlock(Util.name(block) + "_top_stage" + state.getValue(ageProperty)));
 			}
@@ -134,50 +134,50 @@ public class CRBlockStateProvider extends BlockStateProvider {
 			String halfStageName = Util.name(block) + "_" + state.getValue(halfProperty).getSerializedName() + "_stage" + state.getValue(ageProperty);
 			String name = Util.name(block) + "_stage" + state.getValue(ageProperty);
 			return ConfiguredModel.builder()
-					.modelFile(models()
-							.withExistingParent("block/" + halfStageName,
-									Util.cr(Util.name(block) + "_" + state.getValue(halfProperty).getSerializedName()))
-							.texture("0", resourceBlock(name))).build();
+				.modelFile(models()
+					.withExistingParent("block/" + halfStageName,
+						Util.cr(Util.name(block) + "_" + state.getValue(halfProperty).getSerializedName()))
+					.texture("0", resourceBlock(name))).build();
 		});
 	}
 
 	// Adapted from: https://github.com/vectorwing/FarmersDelight/blob/1.19/src/main/java/vectorwing/farmersdelight/data/BlockStates.java
 	public void pieBlock(RegistryObject<Block> block) {
 		getVariantBuilder(block.get()).forAllStates(state -> {
-					int bites = state.getValue(PieBlock.BITES);
-					String name = Util.name(block);
-					String suffix = bites > 0 ? "_slice" + bites : "";
-					var mod = models()
-							.withExistingParent("block/" + name + suffix, Util.rl(FarmersDelight.MODID, "pie" + suffix))
-							.texture("top", resourceBlock(name + "_top"))
-							.texture("bottom", resourceBlock(name + "_bottom"))
-							.texture("side", resourceBlock(name + "_side"))
-							.texture("particle", resourceBlock(name + "_top"));
-					if (bites > 0) {
-						mod.texture("inner", resourceBlock(name + "_inner"));
-					}
-					return ConfiguredModel.builder().modelFile(mod)
-							.rotationY(((int) state.getValue(PieBlock.FACING).toYRot() + 180) % 360).build();
+				int bites = state.getValue(PieBlock.BITES);
+				String name = Util.name(block);
+				String suffix = bites > 0 ? "_slice" + bites : "";
+				var mod = models()
+					.withExistingParent("block/" + name + suffix, Util.rl(FarmersDelight.MODID, "pie" + suffix))
+					.texture("top", resourceBlock(name + "_top"))
+					.texture("bottom", resourceBlock(name + "_bottom"))
+					.texture("side", resourceBlock(name + "_side"))
+					.texture("particle", resourceBlock(name + "_top"));
+				if (bites > 0) {
+					mod.texture("inner", resourceBlock(name + "_inner"));
 				}
+				return ConfiguredModel.builder().modelFile(mod)
+					.rotationY(((int) state.getValue(PieBlock.FACING).toYRot() + 180) % 360).build();
+			}
 		);
 	}
 
 	public void cakeBlock(RegistryObject<Block> block) {
 		getVariantBuilder(block.get()).forAllStates(state -> {
-					int bites = state.getValue(CakeBlock.BITES);
-					String name = Util.name(block);
-					String suffix = bites > 0 ? "_slice" + bites : "";
-					var mod = models()
-							.withExistingParent("block/" + name + suffix, Util.rl("minecraft", "cake" + suffix))
-							.texture("top", resourceBlock(name + "_top"))
-							.texture("bottom", resourceBlock(name + "_bottom"))
-							.texture("side", resourceBlock(name + "_side"))
-							.texture("particle", resourceBlock(name + "_side"));
-					if (bites > 0) {
-						mod.texture("inside", resourceBlock(name + "_inner"));
-					}
-					return ConfiguredModel.builder().modelFile(mod).build();
+				int bites = state.getValue(CakeBlock.BITES);
+				String name = Util.name(block);
+				String suffix = bites > 0 ? "_slice" + bites : "";
+				var mod = models()
+					.withExistingParent("block/" + name + suffix, Util.rl("minecraft", "cake" + suffix))
+					.texture("top", resourceBlock(name + "_top"))
+					.texture("bottom", resourceBlock(name + "_bottom"))
+					.texture("side", resourceBlock(name + "_side"))
+					.texture("particle", resourceBlock(name + "_side"));
+				if (bites > 0) {
+					mod.texture("inside", resourceBlock(name + "_inner"));
 				}
+				return ConfiguredModel.builder().modelFile(mod).build();
+			}
 		);
 	}
 
@@ -188,12 +188,12 @@ public class CRBlockStateProvider extends BlockStateProvider {
 			String cakeName = Util.name(cake);
 			String candle = name.replace("_" + cakeName, "") + lit;
 			return ConfiguredModel.builder().modelFile(models()
-					.withExistingParent("block/" + name + lit, Util.rl("minecraft", "template_cake_with_candle"))
-					.texture("bottom", resourceBlock(cakeName + "_bottom"))
-					.texture("candle", Util.rl("minecraft", "block/" + candle))
-					.texture("particle", resourceBlock(cakeName + "_side"))
-					.texture("side", resourceBlock(cakeName + "_side"))
-					.texture("top", resourceBlock(cakeName + "_top"))).build();
+				.withExistingParent("block/" + name + lit, Util.rl("minecraft", "template_cake_with_candle"))
+				.texture("bottom", resourceBlock(cakeName + "_bottom"))
+				.texture("candle", Util.rl("minecraft", "block/" + candle))
+				.texture("particle", resourceBlock(cakeName + "_side"))
+				.texture("side", resourceBlock(cakeName + "_side"))
+				.texture("top", resourceBlock(cakeName + "_top"))).build();
 		});
 	}
 }

@@ -25,8 +25,8 @@ public class TigerPrawn extends WaterCreature {
 
 	public static AttributeSupplier.@NotNull Builder createAttributes() {
 		return Mob.createMobAttributes()
-				.add(Attributes.MOVEMENT_SPEED, 1.0D)
-				.add(Attributes.MAX_HEALTH, 6.0D);
+			.add(Attributes.MOVEMENT_SPEED, 1.0D)
+			.add(Attributes.MAX_HEALTH, 6.0D);
 	}
 
 	@Override

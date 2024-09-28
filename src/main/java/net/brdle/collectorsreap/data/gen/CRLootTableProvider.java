@@ -12,8 +12,8 @@ public class CRLootTableProvider extends LootTableProvider {
 
 	public CRLootTableProvider(PackOutput output) {
 		super(output, Collections.emptySet(), ImmutableList.of(
-				new LootTableProvider.SubProviderEntry(CRBlockLoot::new, LootContextParamSets.BLOCK),
-				new LootTableProvider.SubProviderEntry(CREntityLoot::new, LootContextParamSets.ENTITY)
+			new LootTableProvider.SubProviderEntry(CRBlockLoot::new, LootContextParamSets.BLOCK),
+			new LootTableProvider.SubProviderEntry(CREntityLoot::new, LootContextParamSets.ENTITY)
 		));
 	}
 }

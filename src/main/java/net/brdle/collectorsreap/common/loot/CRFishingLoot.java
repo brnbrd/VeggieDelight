@@ -20,12 +20,12 @@ import java.util.function.Supplier;
 
 public class CRFishingLoot extends LootModifier {
 	public static final Supplier<Codec<CRFishingLoot>> CODEC = Suppliers.memoize(() ->
-			RecordCodecBuilder.create(inst -> codecStart(inst).and(
-					inst.group(
-							Codec.STRING.fieldOf("table").xmap(CRLootModifiers::getLootTableReference, CRLootModifiers::getString).forGetter(m -> m.lootTable),
-							Codec.FLOAT.fieldOf("chance").forGetter(m -> m.chance)
-					)).apply(inst, CRFishingLoot::new)
-			)
+		RecordCodecBuilder.create(inst -> codecStart(inst).and(
+			inst.group(
+				Codec.STRING.fieldOf("table").xmap(CRLootModifiers::getLootTableReference, CRLootModifiers::getString).forGetter(m -> m.lootTable),
+				Codec.FLOAT.fieldOf("chance").forGetter(m -> m.chance)
+			)).apply(inst, CRFishingLoot::new)
+		)
 	);
 
 	private static final Field LOOT_FIELD = ObfuscationReflectionHelper.findField(LootContext.class, "f_278466_"); // Version-specific field name

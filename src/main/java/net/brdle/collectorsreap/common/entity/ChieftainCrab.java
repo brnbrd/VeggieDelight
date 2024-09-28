@@ -40,11 +40,11 @@ import java.util.UUID;
 public class ChieftainCrab extends WaterAnimal implements NeutralMob, Bucketable {
 	private static final EntityDataAccessor<Boolean> FROM_BUCKET = SynchedEntityData.defineId(ChieftainCrab.class, EntityDataSerializers.BOOLEAN);
 	private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
+	public final AnimationState idleAnimationState = new AnimationState();
+	public final AnimationState movingAnimationState = new AnimationState();
 	private int remainingPersistentAngerTime;
 	@Nullable
 	private UUID persistentAngerTarget;
-	public final AnimationState idleAnimationState = new AnimationState();
-	public final AnimationState movingAnimationState = new AnimationState();
 
 	public ChieftainCrab(EntityType<? extends WaterAnimal> type, Level level) {
 		super(type, level);
@@ -53,13 +53,17 @@ public class ChieftainCrab extends WaterAnimal implements NeutralMob, Bucketable
 
 	public static AttributeSupplier.@NotNull Builder createAttributes() {
 		return Mob.createMobAttributes()
-				.add(Attributes.MAX_HEALTH, 30.0D)
-				.add(Attributes.MOVEMENT_SPEED, 0.15D)
-				.add(Attributes.ATTACK_DAMAGE, 8.0D)
-				.add(Attributes.ATTACK_KNOCKBACK, 0.5D)
-				.add(Attributes.ARMOR, 3.0D)
-				.add(Attributes.ARMOR_TOUGHNESS, 2.0D)
-				.add(Attributes.KNOCKBACK_RESISTANCE, 0.5D);
+			.add(Attributes.MAX_HEALTH, 30.0D)
+			.add(Attributes.MOVEMENT_SPEED, 0.15D)
+			.add(Attributes.ATTACK_DAMAGE, 8.0D)
+			.add(Attributes.ATTACK_KNOCKBACK, 0.5D)
+			.add(Attributes.ARMOR, 3.0D)
+			.add(Attributes.ARMOR_TOUGHNESS, 2.0D)
+			.add(Attributes.KNOCKBACK_RESISTANCE, 0.5D);
+	}
+
+	public static boolean checkCrabSpawnRules(EntityType<ChieftainCrab> crab, ServerLevelAccessor level, MobSpawnType type, BlockPos pos, RandomSource rand) {
+		return level.getBlockState(pos.below()).is(CRBlockTags.CRAB_SPAWNABLE_ON);
 	}
 
 	@Override
@@ -193,10 +197,6 @@ public class ChieftainCrab extends WaterAnimal implements NeutralMob, Bucketable
 		} else {
 			this.updatePersistentAnger((ServerLevel) this.level(), true);
 		}
-	}
-
-	public static boolean checkCrabSpawnRules(EntityType<ChieftainCrab> crab, ServerLevelAccessor level, MobSpawnType type, BlockPos pos, RandomSource rand) {
-		return level.getBlockState(pos.below()).is(CRBlockTags.CRAB_SPAWNABLE_ON);
 	}
 
 	@Override

@@ -12,13 +12,13 @@ public class CRSoundEvents {
 	public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, CollectorsReap.MODID);
 
 	public static final RegistryObject<SoundEvent> URCHIN_DART_THROW = SOUNDS.register("urchin_dart_throw",
-			() -> SoundEvent.createVariableRangeEvent(Util.cr("entity.urchin_dart.throw")));
+		() -> SoundEvent.createVariableRangeEvent(Util.cr("entity.urchin_dart.throw")));
 	public static final RegistryObject<SoundEvent> URCHIN_DART_HIT = SOUNDS.register("urchin_dart_hit",
-			() -> SoundEvent.createVariableRangeEvent(Util.cr("entity.urchin_dart.hit")));
+		() -> SoundEvent.createVariableRangeEvent(Util.cr("entity.urchin_dart.hit")));
 	public static final RegistryObject<SoundEvent> SHIMMERING_PEARL_THROW = SOUNDS.register("shimmering_pearl_throw",
-			() -> SoundEvent.createVariableRangeEvent(Util.cr("entity.shimmering_pearl.throw")));
+		() -> SoundEvent.createVariableRangeEvent(Util.cr("entity.shimmering_pearl.throw")));
 	public static final RegistryObject<SoundEvent> SHIMMERING_PEARL_BREAK = SOUNDS.register("shimmering_pearl_break",
-			() -> SoundEvent.createVariableRangeEvent(Util.cr("entity.shimmering_pearl.break")));
+		() -> SoundEvent.createVariableRangeEvent(Util.cr("entity.shimmering_pearl.break")));
 
 	public static void create(IEventBus bus) {
 		SOUNDS.register(bus);

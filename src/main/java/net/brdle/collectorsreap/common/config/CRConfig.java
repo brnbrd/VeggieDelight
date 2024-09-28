@@ -18,6 +18,31 @@ public class CRConfig {
 	public static ForgeConfigSpec.BooleanValue POMEGRANATE_POLLINATION;
 	public static ForgeConfigSpec.BooleanValue FAST_POLLINATE;
 
+	static {
+		ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
+
+		COMMON_BUILDER.comment("Enabled items").push("Items");
+		CRItems.ITEMS.getEntries().stream()
+			.map(obj -> obj.getId().getPath())
+			.sorted()
+			.forEach(name -> put(COMMON_BUILDER, name));
+		COMMON_BUILDER.pop();
+
+		COMMON_BUILDER.push("Behavior");
+		LIME_POLLINATION = COMMON_BUILDER
+			.comment("Whether Lime Bushes require Bee pollination to reach final growth stage.")
+			.define("lime_pollination", true);
+		POMEGRANATE_POLLINATION = COMMON_BUILDER
+			.comment("Whether Pomegranate Bushes require Bee pollination to reach final growth stage in the Overworld.")
+			.define("pomegranate_pollination", true);
+		FAST_POLLINATE = COMMON_BUILDER
+			.comment("Whether bee pollination of bushes should occur much quicker (when Bee collides with it) rather than on Bee's AI scheduled timing. Use this if having issues with pollination.")
+			.define("fast_pollinate", false);
+		COMMON_BUILDER.pop();
+
+		COMMON = COMMON_BUILDER.build();
+	}
+
 	public static boolean verify(String item) {
 		return contains(item) && ITEMS.get(item).get();
 	}
@@ -28,31 +53,6 @@ public class CRConfig {
 
 	public static boolean verify(Item item) {
 		return verify(Util.name(item));
-	}
-
-	static {
-		ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
-
-		COMMON_BUILDER.comment("Enabled items").push("Items");
-		CRItems.ITEMS.getEntries().stream()
-				.map(obj -> obj.getId().getPath())
-				.sorted()
-				.forEach(name -> put(COMMON_BUILDER, name));
-		COMMON_BUILDER.pop();
-
-		COMMON_BUILDER.push("Behavior");
-		LIME_POLLINATION = COMMON_BUILDER
-				.comment("Whether Lime Bushes require Bee pollination to reach final growth stage.")
-				.define("lime_pollination", true);
-		POMEGRANATE_POLLINATION = COMMON_BUILDER
-				.comment("Whether Pomegranate Bushes require Bee pollination to reach final growth stage in the Overworld.")
-				.define("pomegranate_pollination", true);
-		FAST_POLLINATE = COMMON_BUILDER
-				.comment("Whether bee pollination of bushes should occur much quicker (when Bee collides with it) rather than on Bee's AI scheduled timing. Use this if having issues with pollination.")
-				.define("fast_pollinate", false);
-		COMMON_BUILDER.pop();
-
-		COMMON = COMMON_BUILDER.build();
 	}
 
 	private static void put(ForgeConfigSpec.Builder builder, String name) {

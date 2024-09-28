@@ -30,8 +30,8 @@ public class Clam extends WaterGroundCreature {
 
 	public static AttributeSupplier.@NotNull Builder createAttributes() {
 		return Mob.createMobAttributes()
-				.add(Attributes.MOVEMENT_SPEED, 0.0D)
-				.add(Attributes.MAX_HEALTH, 10.0D);
+			.add(Attributes.MOVEMENT_SPEED, 0.0D)
+			.add(Attributes.MAX_HEALTH, 10.0D);
 	}
 
 	public int getVariant() {

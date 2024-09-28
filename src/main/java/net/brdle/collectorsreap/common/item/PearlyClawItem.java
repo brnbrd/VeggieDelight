@@ -8,8 +8,8 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.common.ForgeMod;
-import java.util.UUID;
 import org.jetbrains.annotations.NotNull;
+import java.util.UUID;
 
 public class PearlyClawItem extends PearlItem {
 	private static final UUID BLOCK_REACH = UUID.fromString("6ba3d68d-2e14-4b88-92c8-5a6796650af3");

@@ -45,7 +45,7 @@ public class LimeBushBlock extends FruitBushBlock {
 			case 0 -> SMALL_SHAPE;
 			case 1 -> MEDIUM_SHAPE;
 			default -> state.hasProperty(HALF) && state.getValue(HALF) == DoubleBlockHalf.UPPER ?
-					SHAPE_UPPER : SHAPE_LOWER;
+				SHAPE_UPPER : SHAPE_LOWER;
 		};
 	}
 
@@ -70,10 +70,10 @@ public class LimeBushBlock extends FruitBushBlock {
 		int age = state.getValue(AGE);
 		if (
 			!(CRConfig.LIME_POLLINATION.get() && age == MAX_AGE - 1) && // Making sure we aren't a flowering state bush that needs pollination
-			age < MAX_AGE &&
-			state.getValue(HALF) == DoubleBlockHalf.LOWER && !state.getValue(STUNTED) &&
-			level.getRawBrightness(pos.above().above(), 0) >= 9 &&
-			ForgeHooks.onCropsGrowPre(level, pos, state, random.nextInt(9) == 0)
+				age < MAX_AGE &&
+				state.getValue(HALF) == DoubleBlockHalf.LOWER && !state.getValue(STUNTED) &&
+				level.getRawBrightness(pos.above().above(), 0) >= 9 &&
+				ForgeHooks.onCropsGrowPre(level, pos, state, random.nextInt(9) == 0)
 		) {
 			this.performBonemeal(level, random, pos, state);
 			ForgeHooks.onCropsGrowPost(level, pos, state);
@@ -91,11 +91,11 @@ public class LimeBushBlock extends FruitBushBlock {
 	public void entityInside(@NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Entity e) {
 		if (
 			!pLevel.isClientSide() &&
-			CRConfig.LIME_POLLINATION.get() &&
-			CRConfig.FAST_POLLINATE.get() &&
-			e instanceof Bee &&
-			pState.getValue(AGE) == MAX_AGE - 1 &&
-			pLevel.getRandom().nextInt(150) == 0
+				CRConfig.LIME_POLLINATION.get() &&
+				CRConfig.FAST_POLLINATE.get() &&
+				e instanceof Bee &&
+				pState.getValue(AGE) == MAX_AGE - 1 &&
+				pLevel.getRandom().nextInt(150) == 0
 		) {
 			this.performBonemeal((ServerLevel) pLevel, pLevel.getRandom(), pPos, pState);
 		}

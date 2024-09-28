@@ -1,9 +1,6 @@
 package net.brdle.collectorsreap.common.item.food;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import net.brdle.collectorsreap.common.item.PearlItem;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
@@ -14,8 +11,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.brdle.collectorsreap.common.item.PearlItem;
 import org.jetbrains.annotations.NotNull;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ShimmeringAppleItem extends PearlItem {
 	public ShimmeringAppleItem(Properties properties) {
@@ -51,11 +51,11 @@ public class ShimmeringAppleItem extends PearlItem {
 				active.forEach((mobEffect, instance) -> {
 					if (
 						!instance.isAmbient() &&
-						!instance.isInfiniteDuration() &&
-						instance.getDuration() > 200 &&
-						instance.isVisible() &&
-						instance.showIcon() &&
-						!mobEffect.isInstantenous()
+							!instance.isInfiniteDuration() &&
+							instance.getDuration() > 200 &&
+							instance.isVisible() &&
+							instance.showIcon() &&
+							!mobEffect.isInstantenous()
 					) {
 						List<MobEffect> effectList;
 						if (mobEffect.getCategory() == MobEffectCategory.BENEFICIAL) {

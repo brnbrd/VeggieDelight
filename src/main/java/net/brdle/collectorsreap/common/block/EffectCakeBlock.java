@@ -34,6 +34,17 @@ public class EffectCakeBlock extends CakeBlock {
 		this.slice = slice;
 	}
 
+	public static void addEatEffect(ItemStack pFood, Level pLevel, Player p) {
+		Item item = pFood.getItem();
+		if (item.isEdible() && pFood.getFoodProperties(p) != null) {
+			for (Pair<MobEffectInstance, Float> pair : Objects.requireNonNull(pFood.getFoodProperties(p)).getEffects()) {
+				if (!pLevel.isClientSide && pair.getFirst() != null && pLevel.random.nextFloat() < pair.getSecond()) {
+					p.addEffect(new MobEffectInstance(pair.getFirst()));
+				}
+			}
+		}
+	}
+
 	public Item getSlice() {
 		return slice.get();
 	}
@@ -43,9 +54,9 @@ public class EffectCakeBlock extends CakeBlock {
 		ItemStack itemstack = player.getItemInHand(hand);
 		if (
 			itemstack.is(ItemTags.CANDLES) &&
-			state.getValue(BITES) == 0 &&
-			Block.byItem(itemstack.getItem()) instanceof CandleBlock candle &&
-			EffectCandleCakeBlock.exists(this, candle)
+				state.getValue(BITES) == 0 &&
+				Block.byItem(itemstack.getItem()) instanceof CandleBlock candle &&
+				EffectCandleCakeBlock.exists(this, candle)
 		) {
 			if (!player.isCreative()) {
 				itemstack.shrink(1);
@@ -109,16 +120,5 @@ public class EffectCakeBlock extends CakeBlock {
 		Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), this.getSlice().getDefaultInstance());
 		level.playSound(null, pos, SoundEvents.WOOL_BREAK, SoundSource.PLAYERS, 0.8F, 0.8F);
 		return InteractionResult.SUCCESS;
-	}
-
-	public static void addEatEffect(ItemStack pFood, Level pLevel, Player p) {
-		Item item = pFood.getItem();
-		if (item.isEdible() && pFood.getFoodProperties(p) != null) {
-			for (Pair<MobEffectInstance, Float> pair : Objects.requireNonNull(pFood.getFoodProperties(p)).getEffects()) {
-				if (!pLevel.isClientSide && pair.getFirst() != null && pLevel.random.nextFloat() < pair.getSecond()) {
-					p.addEffect(new MobEffectInstance(pair.getFirst()));
-				}
-			}
-		}
 	}
 }

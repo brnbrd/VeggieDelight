@@ -19,35 +19,35 @@ public class CRLootModifierProvider extends GlobalLootModifierProvider {
 	@Override
 	protected void start() {
 		add("cr_fishing", new CRFishingLoot(
-				new LootItemCondition[]{
-						LootTableIdCondition.builder(Util.rl("minecraft", "gameplay/fishing")).build()
-				},
-				CRLootModifiers.getLootTableReference("collectorsreap:gameplay/fishing/fishing"),
-				0.2F
+			new LootItemCondition[]{
+				LootTableIdCondition.builder(Util.rl("minecraft", "gameplay/fishing")).build()
+			},
+			CRLootModifiers.getLootTableReference("collectorsreap:gameplay/fishing/fishing"),
+			0.2F
 		));
 		add("lime_in_abandoned_mineshaft", new AddItemLootModifier(
-				new LootItemCondition[]{
-						LootTableIdCondition.builder(Util.rl("chests/abandoned_mineshaft")).build()
-				},
-				CRItems.LIME.get(), 1, 2, 0.3F
+			new LootItemCondition[]{
+				LootTableIdCondition.builder(Util.rl("chests/abandoned_mineshaft")).build()
+			},
+			CRItems.LIME.get(), 1, 2, 0.3F
 		));
 		add("lime_seeds_in_dungeon", new AddItemLootModifier(
-				new LootItemCondition[]{
-						LootTableIdCondition.builder(Util.rl("chests/simple_dungeon")).build()
-				},
-				CRItems.LIME_SEEDS.get(), 2, 4, 0.4F
+			new LootItemCondition[]{
+				LootTableIdCondition.builder(Util.rl("chests/simple_dungeon")).build()
+			},
+			CRItems.LIME_SEEDS.get(), 2, 4, 0.4F
 		));
 		add("pomegranate_slice_in_bastion_hoglin_stable", new AddItemLootModifier(
-				new LootItemCondition[]{
-						LootTableIdCondition.builder(Util.rl("chests/bastion_hoglin_stable")).build()
-				},
-				CRItems.POMEGRANATE_SLICE.get(), 4, 12, 0.45F
+			new LootItemCondition[]{
+				LootTableIdCondition.builder(Util.rl("chests/bastion_hoglin_stable")).build()
+			},
+			CRItems.POMEGRANATE_SLICE.get(), 4, 12, 0.45F
 		));
 		add("pomegranate_seeds_in_bastion_other", new AddItemLootModifier(
-				new LootItemCondition[]{
-						LootTableIdCondition.builder(Util.rl("chests/bastion_other")).build()
-				},
-				CRItems.POMEGRANATE_SEEDS.get(), 6, 16, 0.3F
+			new LootItemCondition[]{
+				LootTableIdCondition.builder(Util.rl("chests/bastion_other")).build()
+			},
+			CRItems.POMEGRANATE_SEEDS.get(), 6, 16, 0.3F
 		));
 	}
 }

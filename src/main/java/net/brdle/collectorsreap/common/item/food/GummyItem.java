@@ -14,8 +14,8 @@ import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.FarmersDelight;
 
 public class GummyItem extends Item {
-	String modid;
 	private static final int MAX_NEARBY = 3;
+	String modid;
 
 	public GummyItem(Properties prop, @Nullable String modid) {
 		super(prop);
@@ -39,10 +39,10 @@ public class GummyItem extends Item {
 	public @NotNull ItemStack finishUsingItem(@NotNull ItemStack stack, @NotNull Level worldIn, @NotNull LivingEntity entity) {
 		if (stack.is(CRItems.ADZUKI_GUMMY.get())) {
 			worldIn.getNearbyEntities(LivingEntity.class, TargetingConditions.DEFAULT.selector((living) -> {
-						return (living != entity && living.getEffect(ModCompat.getVanillaScent().get()) == null);
-					}), entity, entity.getBoundingBox().inflate(6.0D, 2.0D, 6.0D))
-					.stream().limit(MAX_NEARBY)
-					.forEach(n -> n.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 200, 3)));
+					return (living != entity && living.getEffect(ModCompat.getVanillaScent().get()) == null);
+				}), entity, entity.getBoundingBox().inflate(6.0D, 2.0D, 6.0D))
+				.stream().limit(MAX_NEARBY)
+				.forEach(n -> n.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 200, 3)));
 		} else if (stack.is(CRItems.STRAWBERRY_GUMMY.get())) {
 			entity.heal(3.0F);
 		} else if (stack.is(CRItems.ALOE_GUMMY.get())) {

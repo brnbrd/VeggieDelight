@@ -65,10 +65,10 @@ public class CRItemModelProvider extends ItemModelProvider {
 
 	private boolean isBasic(RegistryObject<Item> entry) {
 		return entry == CRItems.PORTOBELLO_QUICHE ||
-				entry == CRItems.LIME_PIE ||
-				entry == CRItems.LIME_CAKE ||
-				entry == CRItems.POMEGRANATE_CAKE ||
-				entry == CRItems.LIME_SEEDS ||
-				entry == CRItems.POMEGRANATE_SEEDS;
+			entry == CRItems.LIME_PIE ||
+			entry == CRItems.LIME_CAKE ||
+			entry == CRItems.POMEGRANATE_CAKE ||
+			entry == CRItems.LIME_SEEDS ||
+			entry == CRItems.POMEGRANATE_SEEDS;
 	}
 }

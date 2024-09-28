@@ -22,8 +22,8 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.util.ITeleporter;
 import net.minecraftforge.event.ForgeEventFactory;
-import javax.annotation.Nullable;
 import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nullable;
 
 public class ThrownShimmeringPearl extends ThrowableItemProjectile {
 	public ThrownShimmeringPearl(EntityType<? extends ThrownShimmeringPearl> type, Level level) {
@@ -115,7 +115,7 @@ public class ThrownShimmeringPearl extends ThrowableItemProjectile {
 			}
 			if (!this.isNoGravity()) {
 				Vec3 vec31 = this.getDeltaMovement();
-				this.setDeltaMovement(vec31.x, vec31.y - (double)this.getGravity(), vec31.z);
+				this.setDeltaMovement(vec31.x, vec31.y - (double) this.getGravity(), vec31.z);
 			}
 			this.setPos(d2, d0, d1);
 		}

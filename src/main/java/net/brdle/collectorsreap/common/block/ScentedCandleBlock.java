@@ -41,6 +41,12 @@ public class ScentedCandleBlock extends AbstractCandleBlock implements SimpleWat
 		this.registerDefaultState(this.stateDefinition.any().setValue(LIT, false).setValue(WATERLOGGED, false));
 	}
 
+	public static boolean canLight(BlockState pState) {
+		return pState.is(BlockTags.CANDLES, (c) -> {
+			return c.hasProperty(LIT) && c.hasProperty(WATERLOGGED);
+		}) && !pState.getValue(LIT) && !pState.getValue(WATERLOGGED);
+	}
+
 	@Override
 	public @NotNull InteractionResult use(@NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, Player pPlayer, @NotNull InteractionHand pHand, @NotNull BlockHitResult pHit) {
 		if (pPlayer.getAbilities().mayBuild && pPlayer.getItemInHand(pHand).isEmpty() && pState.getValue(LIT)) {
@@ -106,12 +112,6 @@ public class ScentedCandleBlock extends AbstractCandleBlock implements SimpleWat
 		} else {
 			return false;
 		}
-	}
-
-	public static boolean canLight(BlockState pState) {
-		return pState.is(BlockTags.CANDLES, (c) -> {
-			return c.hasProperty(LIT) && c.hasProperty(WATERLOGGED);
-		}) && !pState.getValue(LIT) && !pState.getValue(WATERLOGGED);
 	}
 
 	@Override

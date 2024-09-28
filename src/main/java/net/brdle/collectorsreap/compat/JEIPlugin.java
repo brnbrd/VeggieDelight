@@ -30,9 +30,9 @@ public class JEIPlugin implements IModPlugin {
 	public void registerRecipes(IRecipeRegistration registration) {
 		// Remove all disabled Items from JEI
 		var items = CRItems.ITEMS.getEntries().stream()
-				.filter(Predicate.not(CRConfig::verify)) // Keep only Items that are not enabled in the config
-				.map(Util::gs) // Get ItemStack
-				.toList();
+			.filter(Predicate.not(CRConfig::verify)) // Keep only Items that are not enabled in the config
+			.map(Util::gs) // Get ItemStack
+			.toList();
 		if (!items.isEmpty()) {
 			registration.getIngredientManager().removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK, items);
 		}
@@ -40,8 +40,8 @@ public class JEIPlugin implements IModPlugin {
 
 		if (!ModList.get().isLoaded("farmersrespite")) {
 			registration.getIngredientManager().removeIngredientsAtRuntime(ForgeTypes.FLUID_STACK, List.of(
-					new FluidStack(CRFluids.LIME_GREEN_TEA.get(), 1000),
-					new FluidStack(CRFluids.POMEGRANATE_BLACK_TEA.get(), 1000)
+				new FluidStack(CRFluids.LIME_GREEN_TEA.get(), 1000),
+				new FluidStack(CRFluids.POMEGRANATE_BLACK_TEA.get(), 1000)
 			));
 		}
 

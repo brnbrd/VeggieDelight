@@ -29,7 +29,7 @@ public class PortobelloBlock extends MushroomBlock {
 	@Override
 	public void randomTick(@NotNull BlockState state, ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource rand) {
 		if (
-				!level.isClientSide() &&
+			!level.isClientSide() &&
 				level.getBlockState(pos.below()).is(ModTags.MUSHROOM_COLONY_GROWABLE_ON)
 		) {
 			level.setBlockAndUpdate(pos, CRBlocks.PORTOBELLO_COLONY.get().defaultBlockState());
@@ -43,7 +43,7 @@ public class PortobelloBlock extends MushroomBlock {
 		BlockPos blockpos = pos.below();
 		BlockState blockstate = level.getBlockState(blockpos);
 		return (
-				(blockstate.is(CRBlockTags.PORTOBELLO_SPAWNABLE_ON)) ||
+			(blockstate.is(CRBlockTags.PORTOBELLO_SPAWNABLE_ON)) ||
 				(blockstate.canSustainPlant(level, blockpos, Direction.UP, this))
 		);
 	}

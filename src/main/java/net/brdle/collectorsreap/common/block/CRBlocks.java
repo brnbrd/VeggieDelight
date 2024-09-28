@@ -26,14 +26,14 @@ public class CRBlocks {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, CollectorsReap.MODID);
 
 	public static final RegistryObject<Block> PORTOBELLO = registerBlock("portobello",
-			() -> new PortobelloBlock(copy(Blocks.BROWN_MUSHROOM)
-					.noCollission().randomTicks().instabreak().sound(SoundType.GRASS).lightLevel((l) -> 1).hasPostProcess(CRBlocks::always)));
+		() -> new PortobelloBlock(copy(Blocks.BROWN_MUSHROOM)
+			.noCollission().randomTicks().instabreak().sound(SoundType.GRASS).lightLevel((l) -> 1).hasPostProcess(CRBlocks::always)));
 	public static final RegistryObject<Block> PORTOBELLO_COLONY = registerBlock("portobello_colony",
-			() -> new PortobelloColonyBlock(copy(ModBlocks.BROWN_MUSHROOM_COLONY), CRItems.PORTOBELLO));
+		() -> new PortobelloColonyBlock(copy(ModBlocks.BROWN_MUSHROOM_COLONY), CRItems.PORTOBELLO));
 	public static final RegistryObject<Block> PORTOBELLO_QUICHE = registerBlock("portobello_quiche",
-			() -> new PieBlock(copy(ModBlocks.APPLE_PIE), CRItems.PORTOBELLO_QUICHE_SLICE));
+		() -> new PieBlock(copy(ModBlocks.APPLE_PIE), CRItems.PORTOBELLO_QUICHE_SLICE));
 	public static final RegistryObject<Block> LIME_PIE = registerBlock("lime_pie",
-			() -> new PieBlock(copy(ModBlocks.APPLE_PIE), CRItems.LIME_PIE_SLICE));
+		() -> new PieBlock(copy(ModBlocks.APPLE_PIE), CRItems.LIME_PIE_SLICE));
 
 	public static final RegistryObject<Block> LIME_CAKE = registerBlock("lime_cake", () -> new EffectCakeBlock(copy(Blocks.CAKE), CRItems.LIME_CAKE_SLICE));
 	public static final RegistryObject<Block> CANDLE_LIME_CAKE = registerBlock("candle_lime_cake", () -> new EffectCandleCakeBlock(CRBlocks.LIME_CAKE.get(), Blocks.CANDLE, copy(Blocks.CAKE).lightLevel(litBlockEmission(3))));
@@ -74,52 +74,52 @@ public class CRBlocks {
 	public static final RegistryObject<Block> BLACK_CANDLE_POMEGRANATE_CAKE = registerBlock("black_candle_pomegranate_cake", () -> new EffectCandleCakeBlock(CRBlocks.POMEGRANATE_CAKE.get(), Blocks.BLACK_CANDLE, copy(CANDLE_POMEGRANATE_CAKE.get())));
 
 	public static final RegistryObject<Block> LIME_BUSH = registerBlock("lime_bush",
-			() -> new LimeBushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).forceSolidOff().instabreak().sound(SoundType.SWEET_BERRY_BUSH).noOcclusion().pushReaction(PushReaction.DESTROY)));
+		() -> new LimeBushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).forceSolidOff().instabreak().sound(SoundType.SWEET_BERRY_BUSH).noOcclusion().pushReaction(PushReaction.DESTROY)));
 	public static final RegistryObject<Block> POMEGRANATE_BUSH = registerBlock("pomegranate_bush",
-			() -> new PomegranateBushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).forceSolidOff().instabreak().sound(SoundType.SWEET_BERRY_BUSH).noOcclusion().pushReaction(PushReaction.DESTROY)));
+		() -> new PomegranateBushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).forceSolidOff().instabreak().sound(SoundType.SWEET_BERRY_BUSH).noOcclusion().pushReaction(PushReaction.DESTROY)));
 	public static final RegistryObject<Block> LIME_CRATE = BLOCKS.register("lime_crate",
-			() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+		() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
 	public static final RegistryObject<Block> POMEGRANATE_CRATE = BLOCKS.register("pomegranate_crate",
-			() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+		() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
 	public static final RegistryObject<Block> LIME_ICE_CREAM_BLOCK = BLOCKS.register("lime_ice_cream_block",
-			() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).strength(0.2F).sound(SoundType.SNOW)));
+		() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).strength(0.2F).sound(SoundType.SNOW)));
 	public static final RegistryObject<Block> POMEGRANATE_ICE_CREAM_BLOCK = BLOCKS.register("pomegranate_ice_cream_block",
-			() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(0.2F).sound(SoundType.SNOW)));
+		() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(0.2F).sound(SoundType.SNOW)));
 	public static final RegistryObject<Block> LIME_MILKSHAKE_CAULDRON = BLOCKS.register("lime_milkshake_cauldron",
-			() -> new CRMilkshakeCauldronBlock(
-					ModList.get().isLoaded("neapolitan") ?
-							CRCauldronInteractions.LIME_MILKSHAKE.map() :
-							CauldronInteraction.newInteractionMap())
+		() -> new CRMilkshakeCauldronBlock(
+			ModList.get().isLoaded("neapolitan") ?
+				CRCauldronInteractions.LIME_MILKSHAKE.map() :
+				CauldronInteraction.newInteractionMap())
 	);
 	public static final RegistryObject<Block> POMEGRANATE_MILKSHAKE_CAULDRON = BLOCKS.register("pomegranate_milkshake_cauldron",
-			() -> new CRMilkshakeCauldronBlock(
-					ModList.get().isLoaded("neapolitan") ?
-							CRCauldronInteractions.POMEGRANATE_MILKSHAKE.map() :
-							CauldronInteraction.newInteractionMap())
+		() -> new CRMilkshakeCauldronBlock(
+			ModList.get().isLoaded("neapolitan") ?
+				CRCauldronInteractions.POMEGRANATE_MILKSHAKE.map() :
+				CauldronInteraction.newInteractionMap())
 	);
 
 	public static final RegistryObject<Block> URCHIN_TEST_BLOCK = registerBlock("urchin_test_block",
-			() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.GILDED_BLACKSTONE)));
+		() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.GILDED_BLACKSTONE)));
 	public static final RegistryObject<Block> URCHIN_TEST_BRICKS = registerBlock("urchin_test_bricks",
-			() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.GILDED_BLACKSTONE)));
-	public static final RegistryObject<Block> URCHIN_TEST_BRICK_SLAB = registerBlock("urchin_test_brick_slab",
-			() -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.GILDED_BLACKSTONE).strength(2.0F, 6.0F)));
+		() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.GILDED_BLACKSTONE)));
 	public static final RegistryObject<Block> URCHIN_TEST_BRICK_STAIRS = registerBlock("urchin_test_brick_stairs",
-			() -> new StairBlock(() -> URCHIN_TEST_BRICKS.get().defaultBlockState(),
-					BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.GILDED_BLACKSTONE)));
+		() -> new StairBlock(() -> URCHIN_TEST_BRICKS.get().defaultBlockState(),
+			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.GILDED_BLACKSTONE)));
+	public static final RegistryObject<Block> URCHIN_TEST_BRICK_SLAB = registerBlock("urchin_test_brick_slab",
+		() -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.GILDED_BLACKSTONE).strength(2.0F, 6.0F)));
 	public static final RegistryObject<Block> URCHIN_TEST_BRICK_WALL = registerBlock("urchin_test_brick_wall",
-			() -> new WallBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.GILDED_BLACKSTONE)));
+		() -> new WallBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.GILDED_BLACKSTONE)));
 	public static final RegistryObject<Block> CHISELED_URCHIN_TEST_BRICKS = registerBlock("chiseled_urchin_test_bricks",
-			() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.GILDED_BLACKSTONE)));
+		() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.GILDED_BLACKSTONE)));
 	public static final RegistryObject<Block> URCHIN_TEST_TILES = registerBlock("urchin_test_tiles",
-			() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.GILDED_BLACKSTONE)));
-	public static final RegistryObject<Block> URCHIN_TEST_TILE_SLAB = registerBlock("urchin_test_tile_slab",
-			() -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.GILDED_BLACKSTONE).strength(2.0F, 6.0F)));
+		() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.GILDED_BLACKSTONE)));
 	public static final RegistryObject<Block> URCHIN_TEST_TILE_STAIRS = registerBlock("urchin_test_tile_stairs",
-			() -> new StairBlock(() -> URCHIN_TEST_TILES.get().defaultBlockState(),
-					BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.GILDED_BLACKSTONE)));
+		() -> new StairBlock(() -> URCHIN_TEST_TILES.get().defaultBlockState(),
+			BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.GILDED_BLACKSTONE)));
+	public static final RegistryObject<Block> URCHIN_TEST_TILE_SLAB = registerBlock("urchin_test_tile_slab",
+		() -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.GILDED_BLACKSTONE).strength(2.0F, 6.0F)));
 	public static final RegistryObject<Block> URCHIN_TEST_TILE_WALL = registerBlock("urchin_test_tile_wall",
-			() -> new WallBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.GILDED_BLACKSTONE)));
+		() -> new WallBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.GILDED_BLACKSTONE)));
 
 	public static RegistryObject<Block> registerBlock(String name, Supplier<Block> block) {
 		return BLOCKS.register(name, block);

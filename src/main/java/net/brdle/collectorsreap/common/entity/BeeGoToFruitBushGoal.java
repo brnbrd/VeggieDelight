@@ -26,10 +26,10 @@ public class BeeGoToFruitBushGoal extends MoveToBlockGoal {
 
 	public boolean canBeeUse() {
 		return (
-				!this.getBee().hasRestriction() &&
-						!this.getBee().isAngry() &&
-						this.getBee().getCropsGrownSincePollination() < 10 &&
-						this.getBee().hasNectar()
+			!this.getBee().hasRestriction() &&
+				!this.getBee().isAngry() &&
+				this.getBee().getCropsGrownSincePollination() < 10 &&
+				this.getBee().hasNectar()
 		);
 	}
 
@@ -47,11 +47,11 @@ public class BeeGoToFruitBushGoal extends MoveToBlockGoal {
 	protected boolean isValidTarget(LevelReader level, @NotNull BlockPos pos) {
 		BlockState state = level.getBlockState(pos);
 		return (
-				state.getBlock() instanceof FruitBushBlock &&
-						state.hasProperty(FruitBushBlock.HALF) &&
-						state.getValue(FruitBushBlock.HALF) == DoubleBlockHalf.UPPER &&
-						state.hasProperty(FruitBushBlock.AGE) &&
-						state.getValue(FruitBushBlock.AGE) == FruitBushBlock.MAX_AGE - 1
+			state.getBlock() instanceof FruitBushBlock &&
+				state.hasProperty(FruitBushBlock.HALF) &&
+				state.getValue(FruitBushBlock.HALF) == DoubleBlockHalf.UPPER &&
+				state.hasProperty(FruitBushBlock.AGE) &&
+				state.getValue(FruitBushBlock.AGE) == FruitBushBlock.MAX_AGE - 1
 		);
 	}
 }

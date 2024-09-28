@@ -18,8 +18,8 @@ public abstract class WaterGroundCreature extends WaterCreature {
 
 	public static boolean checkWaterGroundSpawnRules(EntityType<? extends WaterAnimal> creature, LevelAccessor level, MobSpawnType type, BlockPos pos, RandomSource rand) {
 		return level.getFluidState(pos).is(FluidTags.WATER) &&
-				level.getFluidState(pos.above()).is(FluidTags.WATER) &&
-				pos.getY() < level.getSeaLevel() - 3;
+			level.getFluidState(pos.above()).is(FluidTags.WATER) &&
+			pos.getY() < level.getSeaLevel() - 3;
 	}
 
 	@Override

@@ -5,8 +5,8 @@ import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import javax.annotation.Nullable;
 import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nullable;
 
 public class FruitSeedsItem extends ItemNameBlockItem {
 	public FruitSeedsItem(Block block, Properties properties) {

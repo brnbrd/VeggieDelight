@@ -24,8 +24,8 @@ public class Urchin extends WaterGroundCreature {
 
 	public static AttributeSupplier.@NotNull Builder createAttributes() {
 		return Mob.createMobAttributes()
-				.add(Attributes.MOVEMENT_SPEED, 0.1D)
-				.add(Attributes.MAX_HEALTH, 10.0D);
+			.add(Attributes.MOVEMENT_SPEED, 0.1D)
+			.add(Attributes.MAX_HEALTH, 10.0D);
 	}
 
 	@Override
@@ -57,10 +57,10 @@ public class Urchin extends WaterGroundCreature {
 	public boolean hurt(@NotNull DamageSource source, float pAmount) {
 		Entity entity = source.getEntity();
 		if (
-				!this.level().isClientSide() &&
-						entity instanceof LivingEntity living &&
-						!this.isInvulnerableTo(source) &&
-						!source.isIndirect()
+			!this.level().isClientSide() &&
+				entity instanceof LivingEntity living &&
+				!this.isInvulnerableTo(source) &&
+				!source.isIndirect()
 		) {
 			DamageSource thorns = living.damageSources().thorns(this);
 			if (!living.isInvulnerableTo(thorns)) {

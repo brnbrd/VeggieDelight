@@ -50,6 +50,20 @@ public class EffectCandleCakeBlock extends AbstractCandleBlock {
 		this.cake = (EffectCakeBlock) cake;
 	}
 
+	private static boolean candleHit(BlockHitResult pHit) {
+		return pHit.getLocation().y - pHit.getBlockPos().getY() > 0.5D;
+	}
+
+	public static boolean exists(CakeBlock cake, CandleBlock candle) {
+		return BY_CAKE_CANDLE.containsKey(Pair.of(cake, candle));
+	}
+
+	public static @NotNull BlockState byCakeCandle(CakeBlock cake, CandleBlock candle) {
+		return exists(cake, candle) ?
+			BY_CAKE_CANDLE.get(Pair.of(cake, candle)).defaultBlockState() :
+			cake.defaultBlockState();
+	}
+
 	public EffectCakeBlock getCake() {
 		return cake;
 	}
@@ -111,10 +125,6 @@ public class EffectCandleCakeBlock extends AbstractCandleBlock {
 		return InteractionResult.SUCCESS;
 	}
 
-	private static boolean candleHit(BlockHitResult pHit) {
-		return pHit.getLocation().y - pHit.getBlockPos().getY() > 0.5D;
-	}
-
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
 		pBuilder.add(LIT);
@@ -124,16 +134,6 @@ public class EffectCandleCakeBlock extends AbstractCandleBlock {
 	@Override
 	public @NotNull ItemStack getCloneItemStack(@NotNull BlockGetter pLevel, @NotNull BlockPos pPos, @NotNull BlockState pState) {
 		return this.getCake().getSlice().getDefaultInstance();
-	}
-
-	public static boolean exists(CakeBlock cake, CandleBlock candle) {
-		return BY_CAKE_CANDLE.containsKey(Pair.of(cake, candle));
-	}
-
-	public static @NotNull BlockState byCakeCandle(CakeBlock cake, CandleBlock candle) {
-		return exists(cake, candle) ?
-			BY_CAKE_CANDLE.get(Pair.of(cake, candle)).defaultBlockState() :
-			cake.defaultBlockState();
 	}
 
 	/**

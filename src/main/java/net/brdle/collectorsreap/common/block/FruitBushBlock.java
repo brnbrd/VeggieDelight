@@ -1,6 +1,5 @@
 package net.brdle.collectorsreap.common.block;
 
-import java.util.Objects;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -35,6 +34,7 @@ import net.minecraftforge.common.PlantType;
 import net.minecraftforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import java.util.Objects;
 
 public abstract class FruitBushBlock extends DoublePlantBlock implements BonemealableBlock {
 
@@ -49,6 +49,22 @@ public abstract class FruitBushBlock extends DoublePlantBlock implements Bonemea
 			.setValue(HALF, DoubleBlockHalf.LOWER)
 			.setValue(STUNTED, false)
 		);
+	}
+
+	public static void placeAt(LevelAccessor level, BlockState state, BlockPos pos, int flags) {
+		BlockState belowState = state.setValue(HALF, DoubleBlockHalf.LOWER).setValue(STUNTED, false);
+		if (!belowState.hasProperty(AGE)) {
+			belowState.setValue(AGE, MAX_AGE);
+		}
+		if (belowState.getValue(AGE) <= 1) {
+			level.setBlock(pos, copyWaterloggedFrom(level, pos, belowState), flags);
+		} else if (
+			belowState.getValue(AGE) > 1 &&
+				belowState.getBlock() instanceof FruitBushBlock fruit &&
+				fruit.canSurvive(state, level, pos)
+		) {
+			DoublePlantBlock.placeAt(level, belowState, pos, flags);
+		}
 	}
 
 	@Override
@@ -104,8 +120,8 @@ public abstract class FruitBushBlock extends DoublePlantBlock implements Bonemea
 		int chance = this.getSpecialChance();
 		return (
 			this.getSpecialFruit() != null &&
-			chance != 0 &&
-			level.getRandom().nextInt(chance) == 0
+				chance != 0 &&
+				level.getRandom().nextInt(chance) == 0
 		);
 	}
 
@@ -174,21 +190,5 @@ public abstract class FruitBushBlock extends DoublePlantBlock implements Bonemea
 			stack = new ItemStack(this.getFruit(), this.getNumFruit(additional));
 		}
 		Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), stack);
-	}
-
-	public static void placeAt(LevelAccessor level, BlockState state, BlockPos pos, int flags) {
-		BlockState belowState = state.setValue(HALF, DoubleBlockHalf.LOWER).setValue(STUNTED, false);
-		if (!belowState.hasProperty(AGE)) {
-			belowState.setValue(AGE, MAX_AGE);
-		}
-		if (belowState.getValue(AGE) <= 1) {
-			level.setBlock(pos, copyWaterloggedFrom(level, pos, belowState), flags);
-		} else if (
-			belowState.getValue(AGE) > 1 &&
-				belowState.getBlock() instanceof FruitBushBlock fruit &&
-				fruit.canSurvive(state, level, pos)
-		) {
-			DoublePlantBlock.placeAt(level, belowState, pos, flags);
-		}
 	}
 }

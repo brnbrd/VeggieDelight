@@ -1,6 +1,6 @@
 {
-  "pack": {
-    "description": "Collector's Reap resources",
-    "pack_format": 15
-  }
+	"pack": {
+		"description": "Collector's Reap resources",
+		"pack_format": 15
+	}
 }

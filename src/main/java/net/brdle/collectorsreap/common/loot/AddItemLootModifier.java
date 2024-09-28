@@ -17,12 +17,12 @@ import java.util.function.Supplier;
 
 public class AddItemLootModifier extends LootModifier {
 	public static final Supplier<Codec<AddItemLootModifier>> CODEC = Suppliers.memoize(() ->
-			RecordCodecBuilder.create(inst -> codecStart(inst)
-					.and(ForgeRegistries.ITEMS.getCodec().fieldOf("item").forGetter(g -> g.item))
-					.and(Codec.INT.fieldOf("minAmount").forGetter(g -> g.minAmount))
-					.and(Codec.INT.fieldOf("maxAmount").forGetter(g -> g.maxAmount))
-					.and(Codec.FLOAT.fieldOf("chance").forGetter(g -> g.chance))
-					.apply(inst, AddItemLootModifier::new))
+		RecordCodecBuilder.create(inst -> codecStart(inst)
+			.and(ForgeRegistries.ITEMS.getCodec().fieldOf("item").forGetter(g -> g.item))
+			.and(Codec.INT.fieldOf("minAmount").forGetter(g -> g.minAmount))
+			.and(Codec.INT.fieldOf("maxAmount").forGetter(g -> g.maxAmount))
+			.and(Codec.FLOAT.fieldOf("chance").forGetter(g -> g.chance))
+			.apply(inst, AddItemLootModifier::new))
 	);
 	protected final Item item;
 	protected final int minAmount;

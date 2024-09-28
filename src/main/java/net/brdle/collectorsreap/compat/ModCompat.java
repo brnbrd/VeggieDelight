@@ -63,37 +63,37 @@ public class ModCompat {
 
 	public static Supplier<MobEffect> getStuffed() {
 		return (ModList.get().isLoaded("seasonals")) ?
-				() -> ForgeRegistries.MOB_EFFECTS.getValue(Util.rl("seasonals", "stuffed")) :
-				() -> MobEffects.CONFUSION;
+			() -> ForgeRegistries.MOB_EFFECTS.getValue(Util.rl("seasonals", "stuffed")) :
+			() -> MobEffects.CONFUSION;
 	}
 
 	public static Supplier<MobEffect> getThornResistance() {
 		return (ModList.get().isLoaded("seasonals")) ?
-				() -> ForgeRegistries.MOB_EFFECTS.getValue(Util.rl("seasonals", "thorn_resistance")) :
-				() -> MobEffects.FIRE_RESISTANCE;
+			() -> ForgeRegistries.MOB_EFFECTS.getValue(Util.rl("seasonals", "thorn_resistance")) :
+			() -> MobEffects.FIRE_RESISTANCE;
 	}
 
 	public static Supplier<MobEffect> getRooted() {
 		return (ModList.get().isLoaded("seasonals")) ?
-				() -> ForgeRegistries.MOB_EFFECTS.getValue(Util.rl("seasonals", "rooted")) :
-				() -> MobEffects.DAMAGE_RESISTANCE;
+			() -> ForgeRegistries.MOB_EFFECTS.getValue(Util.rl("seasonals", "rooted")) :
+			() -> MobEffects.DAMAGE_RESISTANCE;
 	}
 
 	public static Supplier<MobEffect> getVitality() {
 		return (ModList.get().isLoaded("respiteful")) ?
-				() -> ForgeRegistries.MOB_EFFECTS.getValue(Util.rl("respiteful", "vitality")) :
-				() -> MobEffects.DIG_SPEED;
+			() -> ForgeRegistries.MOB_EFFECTS.getValue(Util.rl("respiteful", "vitality")) :
+			() -> MobEffects.DIG_SPEED;
 	}
 
 	public static Supplier<MobEffect> getTenacity() {
 		return (ModList.get().isLoaded("respiteful")) ?
-				() -> ForgeRegistries.MOB_EFFECTS.getValue(Util.rl("respiteful", "tenacity")) :
-				() -> MobEffects.DAMAGE_RESISTANCE;
+			() -> ForgeRegistries.MOB_EFFECTS.getValue(Util.rl("respiteful", "tenacity")) :
+			() -> MobEffects.DAMAGE_RESISTANCE;
 	}
 
 	public static Supplier<MobEffect> getMaturity() {
 		return (ModList.get().isLoaded("respiteful")) ?
-				() -> ForgeRegistries.MOB_EFFECTS.getValue(Util.rl("respiteful", "maturity")) :
-				getCaffeinated();
+			() -> ForgeRegistries.MOB_EFFECTS.getValue(Util.rl("respiteful", "maturity")) :
+			getCaffeinated();
 	}
 }

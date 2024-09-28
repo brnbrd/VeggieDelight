@@ -23,8 +23,8 @@ public class PlatinumBass extends AbstractFish {
 
 	public static AttributeSupplier.@NotNull Builder createAttributes() {
 		return Mob.createMobAttributes()
-				.add(Attributes.MOVEMENT_SPEED, 1.0D)
-				.add(Attributes.MAX_HEALTH, 8.0D);
+			.add(Attributes.MOVEMENT_SPEED, 1.0D)
+			.add(Attributes.MAX_HEALTH, 8.0D);
 	}
 
 	@Override
