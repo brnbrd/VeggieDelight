@@ -10,6 +10,8 @@ import net.brdle.collectorsreap.data.CREntityTags;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.TamableAnimal;
@@ -111,7 +113,9 @@ public class ForgeEvents {
 				e.getSource().getEntity() != null &&
 				!victim.level().isClientSide() &&
 				victim.level() instanceof ServerLevel server &&
+				!victim.hasEffect(MobEffects.DAMAGE_RESISTANCE) &&
 				e.getSource().getEntity() instanceof LivingEntity attacker &&
+				attacker != victim &&
 				validateVolatile(attacker)
 		) {
 			server.sendParticles(CRParticleTypes.SHOCKWAVE.get(), victim.getX(), victim.getY(), victim.getZ(), 1, 0.0D, 0.0D, 0.0D, 0.0D);
@@ -128,6 +132,7 @@ public class ForgeEvents {
 			if (!mobs.isEmpty()) {
 				float hurtAmount = (e.getAmount() + ((float) (level - 1)) * 0.65F) / mobs.size();
 				mobs.forEach(mob -> {
+					mob.forceAddEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20, 0), null);
 					Vec3 vec32 = mob.getEyePosition().subtract(victim.position().add(0.0D, 1.0F, 0.0D)).normalize();
 					mob.playSound(SoundEvents.LIGHTNING_BOLT_THUNDER, 0.2F, 1.75F);
 					mob.hurt(e.getSource(), hurtAmount);
