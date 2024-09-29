@@ -19,7 +19,7 @@ public class CRTrimMaterials {
 	}
 
 	public static void bootstrap(BootstapContext<TrimMaterial> context) {
-		register(context, PEARL, CRItems.SHIMMERING_PEARL, Style.EMPTY.withColor(15715308), 0.2F);
+		register(context, PEARL, CRItems.LUNAR_PEARL, Style.EMPTY.withColor(15715308), 0.2F);
 	}
 
 	private static void register(BootstapContext<TrimMaterial> context, ResourceKey<TrimMaterial> trimKey, RegistryObject<Item> trimItem, Style color, float itemModelIndex) {
