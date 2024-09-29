@@ -13,13 +13,13 @@ public class StygianPomegranateItem extends CompatConsumable {
 
 	@Override
 	public @NotNull Rarity getRarity(@NotNull ItemStack stack) {
-		return Rarity.UNCOMMON;
+		return Rarity.RARE;
 	}
 
 	@Override
 	public @NotNull ItemStack finishUsingItem(@NotNull ItemStack stack, @NotNull Level level, @NotNull LivingEntity entity) {
-		if (this.loaded()) {
-			level.explode(entity, entity.getX(), entity.getY(), entity.getZ(), 3.0F, Level.ExplosionInteraction.MOB);
+		if (this.loaded() && !level.isClientSide()) {
+			level.explode(entity, entity.getX(), entity.getY(), entity.getZ(), 3.0F, Level.ExplosionInteraction.NONE);
 		}
 		return super.finishUsingItem(stack, level, entity);
 	}

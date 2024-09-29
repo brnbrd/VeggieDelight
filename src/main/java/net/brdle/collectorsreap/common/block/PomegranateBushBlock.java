@@ -10,6 +10,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.animal.Bee;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
@@ -66,18 +67,13 @@ public class PomegranateBushBlock extends FruitBushBlock {
 		return CRItems.POMEGRANATE.get();
 	}
 
-	public Item getSpecialFruit() {
-		return CRItems.STYGIAN_POMEGRANATE.get();
+	public ItemStack getSpecialFruit() {
+		return new ItemStack(CRItems.STYGIAN_POMEGRANATE.get(), 1);
 	}
 
 	@Override
 	public int getSpecialChance() {
-		return 5;
-	}
-
-	@Override
-	public int getNumFruit(int add) {
-		return 1 + add;
+		return 6;
 	}
 
 	// Can receive boost from Nether or block below.

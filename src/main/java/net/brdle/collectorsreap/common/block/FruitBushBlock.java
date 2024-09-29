@@ -108,8 +108,8 @@ public abstract class FruitBushBlock extends DoublePlantBlock implements Bonemea
 		return new ItemStack(this.getSeeds());
 	}
 
-	public @Nullable Item getSpecialFruit() {
-		return null;
+	public ItemStack getSpecialFruit() {
+		return ItemStack.EMPTY;
 	}
 
 	public int getSpecialChance() {
@@ -119,9 +119,9 @@ public abstract class FruitBushBlock extends DoublePlantBlock implements Bonemea
 	public boolean isSpecial(Level level, BlockPos pos) {
 		int chance = this.getSpecialChance();
 		return (
-			this.getSpecialFruit() != null &&
-				chance != 0 &&
-				level.getRandom().nextInt(chance) == 0
+			!this.getSpecialFruit().isEmpty() &&
+			chance != 0 &&
+			level.getRandom().nextInt(chance) == 0
 		);
 	}
 
@@ -178,15 +178,15 @@ public abstract class FruitBushBlock extends DoublePlantBlock implements Bonemea
 	}
 
 	public int getNumFruit(int add) {
-		return 2 + add;
+		return 1 + add;
 	}
 
 	public void dropFruit(Level level, BlockPos pos) {
 		ItemStack stack;
-		if (this.isSpecial(level, pos)) { // Null-checks getSpecialFruit
-			stack = new ItemStack(Objects.requireNonNull(this.getSpecialFruit()), 1);
+		if (this.isSpecial(level, pos)) { // Empty-checks getSpecialFruit
+			stack = this.getSpecialFruit().copy();
 		} else {
-			int additional = level.getRandom().nextInt(2);
+			int additional = level.getRandom().nextIntBetweenInclusive(1, 2);
 			stack = new ItemStack(this.getFruit(), this.getNumFruit(additional));
 		}
 		Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), stack);

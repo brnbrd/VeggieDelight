@@ -45,7 +45,7 @@ public class Nutrition {
 		.nutrition(4).saturationMod(0.5F)
 		.effect(() -> new MobEffectInstance(CREffects.VOLATILITY.get(), 200, 0), 1.0F).build();
 	public static final FoodProperties STYGIAN_POMEGRANATE = (new FoodProperties.Builder())
-		.nutrition(10).saturationMod(0.4F)
+		.nutrition(10).saturationMod(0.4F).alwaysEat()
 		.effect(() -> new MobEffectInstance(CREffects.VOLATILITY.get(), 400, 4), 1.0F)
 		.effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 400, 0), 1.0F)
 		.effect(() -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 400, 0), 1.0F)
