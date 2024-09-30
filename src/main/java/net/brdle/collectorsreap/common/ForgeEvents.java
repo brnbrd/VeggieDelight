@@ -130,9 +130,9 @@ public class ForgeEvents {
 					victim, victim.getBoundingBox().inflate(4.0D + ((double) level), 2.0D, 4.0D + ((double) level)))
 				.stream().limit(3 + level).toList();
 			if (!mobs.isEmpty()) {
-				float hurtAmount = (e.getAmount() + ((float) (level - 1)) * 0.65F) / mobs.size();
+				float hurtAmount = Math.round(((e.getAmount() + ((level + 2.0F) * 0.85F)) / (mobs.size() + 1)) * 2.0F) / 2.0F;
 				mobs.forEach(mob -> {
-					mob.forceAddEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20, 0), null);
+					mob.forceAddEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 10, 0), null);
 					Vec3 vec32 = mob.getEyePosition().subtract(victim.position().add(0.0D, 1.0F, 0.0D)).normalize();
 					mob.playSound(SoundEvents.LIGHTNING_BOLT_THUNDER, 0.2F, 1.75F);
 					mob.hurt(e.getSource(), hurtAmount);
