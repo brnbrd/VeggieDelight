@@ -73,7 +73,7 @@ public class PomegranateBushBlock extends FruitBushBlock {
 
 	@Override
 	public int getSpecialChance() {
-		return 6;
+		return 10;
 	}
 
 	// Can receive boost from Nether or block below.
