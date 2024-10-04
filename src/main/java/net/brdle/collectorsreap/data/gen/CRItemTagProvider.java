@@ -139,6 +139,8 @@ public class CRItemTagProvider extends ItemTagsProvider {
 			.addOptional(Util.rl("deep_aether", "quail_egg"));
 		this.tag(ForgeTags.EGGS)
 			.addTag(CRItemTags.EGGS_BIRD);
+		this.tag(CRItemTags.DART_SHOOTERS)
+			.add(Items.BAMBOO);
 
 		// Neapolitan
 		this.addSelf(CRItemTags.BANANA);

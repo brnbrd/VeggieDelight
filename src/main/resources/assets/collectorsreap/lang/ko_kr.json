@@ -64,6 +64,7 @@
   "desc.collectorsreap.pomegranate.pollination": "A flowering Pomegranate Bush will grow fruit in the Overworld when pollinated by a Bee.",
   "desc.collectorsreap.portobello": "목초지에서 발견할 수 있습니다.",
   "desc.collectorsreap.stygian_pomegranate": "Stygian Pomegranates are a dangerous variant that can be occasionally picked from Pomegranate Bushes growing on Resurgent Soil.",
+  "desc.collectorsreap.urchin_dart": "Urchin Darts are throwable projectiles that poison enemies for five seconds upon contact. Holding a bamboo in your offhand shoots a faster dart.",
   "effect.collectorsreap.corrosion": "Corrosion",
   "effect.collectorsreap.corrosion.description": "Provides the user a defensive acid shield, corroding projectiles and damaging attack weapons.",
   "effect.collectorsreap.volatility": "Volatility",

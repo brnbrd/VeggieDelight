@@ -48,7 +48,7 @@ public class JEIPlugin implements IModPlugin {
 		// Lime
 		String limeTranslationKey = "desc." + CollectorsReap.MODID + "." + Util.name(CRItems.LIME);
 		List<ItemStack> limeStack = List.of(Util.gs(CRItems.LIME), Util.gs(CRItems.LIME_SLICE));
-		if (CRConfig.LIME_POLLINATION.get()) {
+		if (CRConfig.verify(CRItems.LIME) && CRConfig.LIME_POLLINATION.get()) {
 			registration.addItemStackInfo(limeStack, Component.translatable(limeTranslationKey),
 				Component.translatable(limeTranslationKey + ".pollination")
 			);
@@ -59,13 +59,21 @@ public class JEIPlugin implements IModPlugin {
 		// Pomegranate
 		String pomTranslationKey = "desc." + CollectorsReap.MODID + "." + Util.name(CRItems.POMEGRANATE);
 		List<ItemStack> pomStack = List.of(Util.gs(CRItems.POMEGRANATE), Util.gs(CRItems.POMEGRANATE_SLICE));
-		if (CRConfig.POMEGRANATE_POLLINATION.get()) {
-			registration.addItemStackInfo(pomStack,
-				Component.translatable(pomTranslationKey),
-				Component.translatable(pomTranslationKey + ".pollination")
-			);
-		} else {
-			registration.addItemStackInfo(pomStack, Component.translatable(pomTranslationKey));
+		if (CRConfig.verify(CRItems.POMEGRANATE)) {
+			if (CRConfig.POMEGRANATE_POLLINATION.get()) {
+				registration.addItemStackInfo(pomStack,
+					Component.translatable(pomTranslationKey),
+					Component.translatable(pomTranslationKey + ".pollination")
+				);
+			} else {
+				registration.addItemStackInfo(pomStack, Component.translatable(pomTranslationKey));
+			}
+		}
+
+		// Urchin Dart
+		String dartTranslationKey = "desc." + CollectorsReap.MODID + "." + Util.name(CRItems.URCHIN_DART);
+		if (CRConfig.verify(CRItems.URCHIN_DART)) {
+			registration.addItemStackInfo(Util.gs(CRItems.URCHIN_DART), Component.translatable(dartTranslationKey));
 		}
 
 		if (ModList.get().isLoaded("mynethersdelight")) {

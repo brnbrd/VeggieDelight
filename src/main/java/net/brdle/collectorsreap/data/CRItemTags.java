@@ -37,6 +37,7 @@ public class CRItemTags {
 	public static final TagKey<Item> GUMMIES = cr("gummies");
 	public static final TagKey<Item> LIME_OR_SLICE = cr("lime_or_slice");
 	public static final TagKey<Item> HOT_NETHER_FRUIT = cr("hot_nether_fruit");
+	public static final TagKey<Item> DART_SHOOTERS = cr("dart_shooters");
 
 	// Diet
 	public static final TagKey<Item> DIET_FRUITS = Util.it("diet", "fruits");

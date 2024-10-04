@@ -1,7 +1,8 @@
-// 1.20.1	2024-09-29T06:53:48.3346164	Tags for minecraft:item mod id collectorsreap
+// 1.20.1	2024-10-03T14:37:57.8359469	Tags for minecraft:item mod id collectorsreap
 ae7e08f92dd075f34544c04d30c8a274b27bd792 data/atmospheric/tags/items/aloe_leaves.json
 b1c02044b6eb4060b19a0ed4f40cbeaca19822c9 data/atmospheric/tags/items/passion_fruit.json
 a740abeb613a7024a35910efe912a50a6ee62045 data/atmospheric/tags/items/yucca_fruit.json
+578dd629e6c69bf5641983afdf5f54ca2d3b5882 data/collectorsreap/tags/items/dart_shooters.json
 22441868a2c5fde8be95de5573f16aacdf8fecb2 data/collectorsreap/tags/items/gummies.json
 88055c196d1b1d1dc8d81f028dba0bb58d473524 data/collectorsreap/tags/items/hot_nether_fruit.json
 3aadbf88623a2fde7e33b2e4942a79d1e72c9cbf data/collectorsreap/tags/items/lime_or_slice.json

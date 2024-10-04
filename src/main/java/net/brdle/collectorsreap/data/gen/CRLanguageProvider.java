@@ -46,6 +46,7 @@ public class CRLanguageProvider extends LanguageProvider {
 		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.POMEGRANATE), "Pomegranates can be found as a wild bush in warped forests.");
 		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.POMEGRANATE) + ".pollination", "A flowering Pomegranate Bush will grow fruit in the Overworld when pollinated by a Bee.");
 		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.STYGIAN_POMEGRANATE), "Stygian Pomegranates are a dangerous variant that can be rarely picked from Pomegranate Bushes growing on Resurgent Soil.");
+		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.URCHIN_DART), "Urchin Darts are throwable projectiles that poison enemies for five seconds upon contact. Holding a bamboo in your offhand shoots a faster dart.");
 		add("config.jade.plugin_" + CollectorsReap.MODID + ".crop_progress", "Crop Progress");
 		add(CollectorsReap.MODID + ".subtitle.urchin_dart.throw", "Urchin Dart thrown");
 		add(CollectorsReap.MODID + ".subtitle.urchin_dart.hit", "Urchin Dart hits");

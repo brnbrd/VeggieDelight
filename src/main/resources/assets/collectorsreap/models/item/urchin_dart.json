@@ -5,21 +5,17 @@
   },
   "display": {
     "thirdperson_righthand": {
-      "rotation": [
-        0,
-        45,
-        -90
-      ],
-      "translation": [
-        0,
-        3,
-        1
-      ],
-      "scale": [
-        0.55,
-        0.55,
-        0.55
-      ]
+      "rotation": [0, 90, -135],
+      "translation": [0, 0.75, -0.25],
+      "scale": [0.55, 0.55, 0.55]
     }
-  }
+  },
+  "groups": [
+    {
+      "name": "urchin_dart",
+      "origin": [8, 8, 8],
+      "color": 0,
+      "children": []
+    }
+  ]
 }
