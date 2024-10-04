@@ -211,6 +211,7 @@ public class CRItemTagProvider extends ItemTagsProvider {
 			.addOptional(Util.rl("mynethersdelight", "crimson_fungus_colony"));
 	}
 
+	@SuppressWarnings("UnusedReturnValue")
 	private TagsProvider.TagAppender<Item> addSelf(TagKey<Item> item) {
 		return this.tag(item).addOptional(item.location());
 	}
