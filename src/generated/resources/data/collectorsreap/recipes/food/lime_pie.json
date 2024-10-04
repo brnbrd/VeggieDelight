@@ -19,7 +19,7 @@
             "tag": "forge:eggs/bird"
           },
           "l": {
-            "tag": "forge:fruits/lime"
+            "tag": "collectorsreap:lime_or_slice"
           },
           "m": {
             "tag": "forge:milk"
@@ -29,9 +29,9 @@
           }
         },
         "pattern": [
-          "ese",
+          "ele",
           "lll",
-          "mcm"
+          "scm"
         ],
         "result": {
           "item": "collectorsreap:lime_pie"

@@ -602,16 +602,16 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
 				.unlockedBy("has_portobello_quiche_slice", has(CRItems.PORTOBELLO_QUICHE_SLICE.get())),
 			"food/portobello_quiche_from_slices", finished, enabled(CRItems.PORTOBELLO_QUICHE), enabled(CRItems.PORTOBELLO_QUICHE_SLICE));
 		wrap(shaped(RecipeCategory.FOOD, CRItems.LIME_PIE)
-				.pattern("ese")
+				.pattern("ele")
 				.pattern("lll")
-				.pattern("mcm")
+				.pattern("scm")
+				.define('l', CRItemTags.LIME_OR_SLICE)
 				.define('e', CRItemTags.EGGS_BIRD)
-				.define('m', ForgeTags.MILK)
-				.define('l', CRItemTags.FRUITS_LIME)
 				.define('s', Items.SUGAR)
+				.define('m', ForgeTags.MILK)
 				.define('c', ModItems.PIE_CRUST.get())
-				.unlockedBy("has_lime", has(CRItemTags.FRUITS_LIME)),
-			"food/lime_pie", finished, enabled("lime_pie"));
+				.unlockedBy("has_lime", has(CRItemTags.LIME_OR_SLICE)),
+			"food/lime_pie", finished, enabled(CRItems.LIME_PIE));
 		wrap(ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, CRItems.LIME_PIE.get(), 1)
 				.requires(CRItems.LIME_PIE_SLICE.get(), 4)
 				.unlockedBy("has_lime_pie_slice", has(CRItems.LIME_PIE_SLICE.get())),
@@ -632,7 +632,7 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
 				.define('s', Items.SUGAR)
 				.define('w', ForgeTags.GRAIN_WHEAT)
 				.unlockedBy("has_lime", has(CRItemTags.FRUITS_LIME)),
-			"food/lime_cake", finished, enabled("lime_cake"));
+			"food/lime_cake", finished, enabled(CRItems.LIME_CAKE));
 		wrap(ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, CRItems.LIME_CAKE.get(), 1)
 				.requires(CRItems.LIME_CAKE_SLICE.get(), 7)
 				.unlockedBy("has_lime_cake_slice", has(CRItems.LIME_CAKE_SLICE.get())),
