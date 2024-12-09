@@ -277,12 +277,12 @@ public class Nutrition {
 		.build();
 	public static final FoodProperties FISH_MIX = (new FoodProperties.Builder()).nutrition(8).saturationMod(0.85F).build();
 	public static final FoodProperties CHIEFTAIN_CLAW = (new FoodProperties.Builder()).nutrition(5).saturationMod(0.5F).build();
-	public static final FoodProperties CHIEFTAIN_LEG = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.5F).build();
+	public static final FoodProperties CHIEFTAIN_LEG = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.75F).build();
 	public static final FoodProperties CHIEFTAIN_CRAB_MEAT = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.5F).build();
 	public static final FoodProperties CRAB_MISO = (new FoodProperties.Builder()).nutrition(9).saturationMod(1.0F).build();
 	public static final FoodProperties CRAB_NOODLES = (new FoodProperties.Builder()).nutrition(13).saturationMod(0.95F).build();
 	public static final FoodProperties CRAB_LASAGNA = (new FoodProperties.Builder()).nutrition(10).saturationMod(0.7F).build();
-	public static final FoodProperties BUTTERED_LEGS = (new FoodProperties.Builder()).nutrition(8).saturationMod(0.75F).build();
+	public static final FoodProperties BUTTERED_LEGS = (new FoodProperties.Builder()).nutrition(10).saturationMod(0.95F).build();
 	public static final FoodProperties BIG_RICE_BALL = (new FoodProperties.Builder()).nutrition(10).saturationMod(0.9F).build();
 	public static final FoodProperties LAND_AND_SEA_BURGER = (new FoodProperties.Builder())
 		.nutrition(15).saturationMod(0.85F)

@@ -21,7 +21,6 @@ public class CRItemTags {
 	public static final TagKey<Item> TEA_LEAVES_YELLOW = forge("tea_leaves/yellow");
 	public static final TagKey<Item> TEA_LEAVES_BLACK = forge("tea_leaves/black");
 	public static final TagKey<Item> COFFEE_BEANS = forge("coffee_beans");
-	public static final TagKey<Item> CRAB_LEGS = forge("crab_legs");
 	public static final TagKey<Item> CRAB_MEAT = forge("crab_meat");
 	public static final TagKey<Item> RAW_CLAM = forge("raw_clam");
 	public static final TagKey<Item> RAW_PRAWN = forge("raw_prawn");
