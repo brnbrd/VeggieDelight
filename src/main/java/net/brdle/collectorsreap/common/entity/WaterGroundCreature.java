@@ -23,11 +23,6 @@ public abstract class WaterGroundCreature extends WaterCreature {
 	}
 
 	@Override
-	public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
-		return false;
-	}
-
-	@Override
 	public void jumpInFluid(FluidType type) {
 	}
 
