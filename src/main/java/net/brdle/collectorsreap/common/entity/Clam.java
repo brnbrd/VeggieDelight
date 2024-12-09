@@ -28,6 +28,11 @@ public class Clam extends WaterGroundCreature {
 		super(type, level);
 	}
 
+	@Override
+	public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
+		return !this.fromBucket() && !this.hasCustomName();
+	}
+
 	public static AttributeSupplier.@NotNull Builder createAttributes() {
 		return Mob.createMobAttributes()
 			.add(Attributes.MOVEMENT_SPEED, 0.0D)
