@@ -236,7 +236,7 @@ public class CRItems extends ModItems {
 	public static final RegistryObject<Item> CLAM_ROLL = registerFood("clam_roll", Nutrition.CLAM_ROLL);
 	public static final RegistryObject<Item> CLAM_CHOWDER = registerItem("clam_chowder",
 		() -> new ConsumableItem(new Item.Properties().food(
-			Nutrition.CLAM_CHOWDER).craftRemainder(Items.BREAD).stacksTo(16), false));
+			Nutrition.CLAM_CHOWDER).stacksTo(16), false));
 	public static final RegistryObject<Item> CLAM_PASTA = registerItem("clam_pasta",
 		() -> new ConsumableItem(bowlFoodItem(
 			Nutrition.CLAM_PASTA), false));
