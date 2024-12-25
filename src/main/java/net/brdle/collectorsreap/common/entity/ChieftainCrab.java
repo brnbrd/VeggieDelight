@@ -121,8 +121,7 @@ public class ChieftainCrab extends WaterAnimal implements NeutralMob, Bucketable
 
 	@Override
 	public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
-		//return !this.fromBucket() && !this.hasCustomName();
-		return false;
+		return !this.fromBucket() && !this.hasCustomName();
 	}
 
 	@Override
