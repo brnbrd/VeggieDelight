@@ -19,7 +19,7 @@
     "1.3": "Added Chieftain Crab, Platinum Bass, Tide Clam, Tiger Prawn, Urchin and related foods. Added support for My Nether's Delight.",
     "1.3.1": "Fixed Lime, Pomegranate, and Portobello spawns. Added Gummies for Seasonals. Decreased mob spawns to prevent bloating spawn cap.",
     "1.3.2": "Update bush textures and growth mechanics. Removed colonies from Portobello patch spawns. Add Jade support to bushes.",
-    "1.3.3": "Added Urchin Dart, Shimmering Apple, and Shimmering Pearl, and Pearl armor trim material."
+    "1.3.3": "Added Urchin Dart, Shimmering Apple, and Shimmering Pearl, and Pearl armor trim material. Fixed tea recipes."
   },
   "promos": {
     "1.19-latest": "1.2.4",
