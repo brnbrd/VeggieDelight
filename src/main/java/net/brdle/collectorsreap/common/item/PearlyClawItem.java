@@ -19,14 +19,22 @@ public class PearlyClawItem extends PearlItem {
 	public PearlyClawItem(Properties properties) {
 		super(properties);
 		ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-		builder.put(ForgeMod.BLOCK_REACH.get(), new AttributeModifier(BLOCK_REACH, "Claw modifier", 2.0, AttributeModifier.Operation.ADDITION));
-		builder.put(ForgeMod.ENTITY_REACH.get(), new AttributeModifier(ENTITY_REACH, "Claw modifier", 2.0, AttributeModifier.Operation.ADDITION));
+		builder.put(ForgeMod.BLOCK_REACH.get(),
+			new AttributeModifier(BLOCK_REACH, "Claw modifier", 2.0,
+			AttributeModifier.Operation.ADDITION));
+		builder.put(ForgeMod.ENTITY_REACH.get(),
+			new AttributeModifier(ENTITY_REACH, "Claw modifier", 2.0,
+			AttributeModifier.Operation.ADDITION));
 		this.attributes = builder.build();
 	}
 
 	@Override
 	public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
-		return slot.getType() == EquipmentSlot.Type.HAND ? this.attributes : super.getAttributeModifiers(slot, stack);
+		return (
+			slot.getType() == EquipmentSlot.Type.HAND ?
+			this.attributes :
+			super.getAttributeModifiers(slot, stack)
+		);
 	}
 
 	@Override
