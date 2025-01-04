@@ -1,5 +1,25 @@
 {
   "values": [
-    "#forge:eggs/bird"
+    "minecraft:turtle_egg",
+    {
+      "id": "sullysmod:tortoise_egg",
+      "required": false
+    },
+    {
+      "id": "naturalist:tortoise_egg",
+      "required": false
+    },
+    {
+      "id": "naturalist:duck_egg",
+      "required": false
+    },
+    {
+      "id": "autumnity:turkey_egg",
+      "required": false
+    },
+    {
+      "id": "deep_aether:quail_egg",
+      "required": false
+    }
   ]
 }

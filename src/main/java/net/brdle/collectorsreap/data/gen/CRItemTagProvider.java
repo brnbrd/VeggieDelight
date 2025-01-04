@@ -127,13 +127,13 @@ public class CRItemTagProvider extends ItemTagsProvider {
 			.add(CRItems.LIME_COOKIE.get());
 		this.tag(CRItemTags.SUPP_COOKIES)
 			.addTag(CRItemTags.COOKIES);
-		this.tag(CRItemTags.EGGS_BIRD)
-			.add(Items.EGG)
+		this.tag(Tags.Items.EGGS)
+			.add(Items.TURTLE_EGG)
+			.addOptional(Util.rl("sullysmod", "tortoise_egg"))
+			.addOptional(Util.rl("naturalist", "tortoise_egg"))
 			.addOptional(Util.rl("naturalist", "duck_egg"))
 			.addOptional(Util.rl("autumnity", "turkey_egg"))
 			.addOptional(Util.rl("deep_aether", "quail_egg"));
-		this.tag(ForgeTags.EGGS)
-			.addTag(CRItemTags.EGGS_BIRD);
 		this.tag(CRItemTags.DART_SHOOTERS)
 			.add(Items.BAMBOO);
 

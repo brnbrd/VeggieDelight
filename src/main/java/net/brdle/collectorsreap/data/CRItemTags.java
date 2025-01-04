@@ -4,6 +4,7 @@ import net.brdle.collectorsreap.CollectorsReap;
 import net.brdle.collectorsreap.Util;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.common.Tags;
 
 public class CRItemTags {
 
@@ -30,7 +31,6 @@ public class CRItemTags {
 	public static final TagKey<Item> RAW_HOGLIN = forge("raw_hoglin");
 	public static final TagKey<Item> RAW_STRIDER = forge("raw_strider");
 	public static final TagKey<Item> COOKIES = forge("cookies");
-	public static final TagKey<Item> EGGS_BIRD = forge("eggs/bird");
 
 	// CR
 	public static final TagKey<Item> GUMMIES = cr("gummies");
