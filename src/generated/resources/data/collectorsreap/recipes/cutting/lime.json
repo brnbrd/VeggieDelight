@@ -28,10 +28,6 @@
           {
             "count": 2,
             "item": "collectorsreap:lime_slice"
-          },
-          {
-            "chance": 0.5,
-            "item": "minecraft:lime_dye"
           }
         ],
         "tool": {

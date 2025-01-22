@@ -4,11 +4,13 @@
       "advancement": {
         "parent": "minecraft:recipes/root",
         "criteria": {
-          "has_crab_meat": {
+          "has_baked_portobello_cap": {
             "conditions": {
               "items": [
                 {
-                  "tag": "forge:crab_meat"
+                  "items": [
+                    "collectorsreap:baked_portobello_cap"
+                  ]
                 }
               ]
             },
@@ -16,23 +18,23 @@
           },
           "has_the_recipe": {
             "conditions": {
-              "recipe": "collectorsreap:food/crab_lasagna"
+              "recipe": "collectorsreap:food/portobello_quiche_from_milk"
             },
             "trigger": "minecraft:recipe_unlocked"
           }
         },
         "requirements": [
           [
-            "has_crab_meat",
+            "has_baked_portobello_cap",
             "has_the_recipe"
           ]
         ],
         "rewards": {
           "recipes": [
-            "collectorsreap:food/crab_lasagna"
+            "collectorsreap:food/portobello_quiche_from_milk"
           ]
         },
-        "sends_telemetry_event": true
+        "sends_telemetry_event": false
       },
       "conditions": [
         {
@@ -40,14 +42,11 @@
           "values": [
             {
               "type": "collectorsreap:enabled",
-              "value": "crab_lasagna"
+              "value": "portobello_quiche"
             },
             {
-              "type": "forge:not",
-              "value": {
-                "type": "forge:tag_empty",
-                "tag": "forge:cheese"
-              }
+              "type": "forge:tag_empty",
+              "tag": "forge:cheese"
             }
           ]
         }

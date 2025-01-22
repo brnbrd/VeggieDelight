@@ -16,7 +16,7 @@
           },
           "has_the_recipe": {
             "conditions": {
-              "recipe": "collectorsreap:food/crab_lasagna"
+              "recipe": "collectorsreap:food/crab_lasagna_from_milk"
             },
             "trigger": "minecraft:recipe_unlocked"
           }
@@ -29,7 +29,7 @@
         ],
         "rewards": {
           "recipes": [
-            "collectorsreap:food/crab_lasagna"
+            "collectorsreap:food/crab_lasagna_from_milk"
           ]
         },
         "sends_telemetry_event": true
@@ -43,11 +43,8 @@
               "value": "crab_lasagna"
             },
             {
-              "type": "forge:not",
-              "value": {
-                "type": "forge:tag_empty",
-                "tag": "forge:cheese"
-              }
+              "type": "forge:tag_empty",
+              "tag": "forge:cheese"
             }
           ]
         }

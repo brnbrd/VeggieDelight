@@ -29,6 +29,7 @@
             "item": "collectorsreap:lime_seeds"
           },
           {
+            "chance": 0.5,
             "item": "minecraft:lime_dye"
           }
         ],

@@ -39,13 +39,18 @@ public class CRItemTagProvider extends ItemTagsProvider {
 		this.tag(ItemTags.STAIRS)
 			.add(CRItems.URCHIN_TEST_BRICK_STAIRS.get())
 			.add(CRItems.URCHIN_TEST_TILE_STAIRS.get());
+		this.tag(ItemTags.TRIM_MATERIALS)
+			.add(CRItems.SHIMMERING_PEARL.get());
 		this.tag(ItemTags.FISHES)
 			.addTag(CRItemTags.RAW_FISHES_BASS)
 			.addTag(CRItemTags.COOKED_FISHES_BASS);
-		this.tag(ItemTags.TRIM_MATERIALS)
-			.add(CRItems.SHIMMERING_PEARL.get());
 
 		// Forge
+		this.tag(CRItemTags.CHEESE).addOptional(Util.rl("brewinandchewin", "flaxen_cheese_wedge"));
+		this.tag(ForgeTags.RAW_FISHES)
+			.addTag(CRItemTags.RAW_FISHES_BASS);
+		this.tag(ForgeTags.COOKED_FISHES)
+			.addTag(CRItemTags.COOKED_FISHES_BASS);
 		this.tag(CRItemTags.FRUITS_POMEGRANATE)
 			.add(CRItems.POMEGRANATE_SLICE.get());
 		this.tag(CRItemTags.FRUITS_LIME)
@@ -71,8 +76,7 @@ public class CRItemTagProvider extends ItemTagsProvider {
 			.add(CRItems.PORTOBELLO.get());
 		this.tag(Tags.Items.MUSHROOMS)
 			.addTag(CRItemTags.MUSHROOMS_PORTOBELLO);
-		this.tag(CRItemTags.TORTILLA)
-			.addOptional(Util.rl("culturaldelights", "tortilla"));
+		this.tag(CRItemTags.TORTILLA).addOptional(Util.rl("culturaldelights", "tortilla"));
 		this.tag(CRItemTags.ICE_CREAM)
 			.add(CRItems.LIME_ICE_CREAM.get())
 			.add(CRItems.POMEGRANATE_ICE_CREAM.get());

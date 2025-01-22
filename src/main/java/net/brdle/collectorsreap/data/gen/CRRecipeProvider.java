@@ -55,12 +55,11 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
 				CRItems.PORTOBELLO.get(), 5),
 			"cutting/portobello_colony", finished, enabled(CRItems.PORTOBELLO));
 		wrap(CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(CRItems.LIME.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES),
-					CRItems.LIME_SLICE.get(), 2)
-				.addResultWithChance(Items.LIME_DYE, 0.5f),
+					CRItems.LIME_SLICE.get(), 2),
 			"cutting/lime", finished, enabled(CRItems.LIME), enabled(CRItems.LIME_SLICE));
 		wrap(CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(CRItems.LIME_SLICE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES),
 					CRItems.LIME_SEEDS.get(), 1)
-				.addResult(Items.LIME_DYE, 1),
+				.addResultWithChance(Items.LIME_DYE, 0.5f),
 			"cutting/lime_slice", finished, enabled(CRItems.LIME), enabled(CRItems.LIME_SLICE));
 		wrap(CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(CRItems.LIME_PIE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES),
 				CRItems.LIME_PIE_SLICE.get(), 4),
@@ -231,12 +230,19 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
 				.unlockedBy("has_crab_bucket", has(CRItems.CHIEFTAIN_CRAB_BUCKET.get())),
 			"food/chieftain_crab", finished, enabled("chieftain_crab"));
 		wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.CRAB_LASAGNA.get(), 1, 200, 1.0F, Items.BOWL)
-				.addIngredient(Ingredient.of(CRItemTags.CRAB_MEAT), 3)
-				.addIngredient(ForgeTags.DOUGH)
+				.addIngredient(CRItemTags.CHEESE)
 				.addIngredient(ModItems.TOMATO_SAUCE.get())
-				.addIngredient(ForgeTags.MILK)
+				.addIngredient(ForgeTags.PASTA_RAW_PASTA)
+				.addIngredient(Ingredient.of(CRItemTags.CRAB_MEAT), 2)
 				.unlockedBy("has_crab_meat", has(CRItemTags.CRAB_MEAT)),
-			"food/crab_lasagna", finished, enabled(CRItems.CRAB_LASAGNA));
+			"food/crab_lasagna", finished, enabled(CRItems.CRAB_LASAGNA), not(tagEmpty(CRItemTags.CHEESE)));
+		wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.CRAB_LASAGNA.get(), 1, 200, 1.0F, Items.BOWL)
+				.addIngredient(ForgeTags.MILK)
+				.addIngredient(ModItems.TOMATO_SAUCE.get())
+				.addIngredient(ForgeTags.PASTA_RAW_PASTA)
+				.addIngredient(Ingredient.of(CRItemTags.CRAB_MEAT), 2)
+				.unlockedBy("has_crab_meat", has(CRItemTags.CRAB_MEAT)),
+			"food/crab_lasagna_from_milk", finished, enabled(CRItems.CRAB_LASAGNA), tagEmpty(CRItemTags.CHEESE));
 		wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.CRAB_NOODLES.get(), 1, 200, 1.0F, Items.BOWL)
 				.addIngredient(Ingredient.of(CRItemTags.CRAB_MEAT), 2)
 				.addIngredient(ForgeTags.PASTA)
@@ -587,16 +593,28 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
 				.unlockedBy("has_chieftain_claw", has(CRItems.CHIEFTAIN_CLAW.get())),
 			"pearly_claw", finished, enabled(CRItems.PEARLY_CLAW));
 		wrap(shaped(RecipeCategory.FOOD, CRItems.PORTOBELLO_QUICHE)
-				.pattern("eme")
-				.pattern("ooo")
-				.pattern("pcp")
-				.define('e', Tags.Items.EGGS)
-				.define('m', ForgeTags.MILK)
-				.define('o', ForgeTags.VEGETABLES_ONION)
+				.pattern("pop")
+				.pattern("mcm")
+				.pattern("ere")
 				.define('p', CRItems.BAKED_PORTOBELLO_CAP.get())
-				.define('c', ModItems.PIE_CRUST.get())
+				.define('o', ForgeTags.VEGETABLES_ONION)
+				.define('m', ForgeTags.MILK)
+				.define('c', CRItemTags.CHEESE)
+				.define('e', Tags.Items.EGGS)
+				.define('r', ModItems.PIE_CRUST.get())
 				.unlockedBy("has_baked_portobello_cap", has(CRItems.BAKED_PORTOBELLO_CAP.get())),
-			"food/portobello_quiche", finished, enabled(CRItems.PORTOBELLO_QUICHE));
+			"food/portobello_quiche", finished, enabled(CRItems.PORTOBELLO_QUICHE), not(tagEmpty(CRItemTags.CHEESE)));
+		wrap(shaped(RecipeCategory.FOOD, CRItems.PORTOBELLO_QUICHE)
+				.pattern("pop")
+				.pattern("mmm")
+				.pattern("ere")
+				.define('p', CRItems.BAKED_PORTOBELLO_CAP.get())
+				.define('o', ForgeTags.VEGETABLES_ONION)
+				.define('m', ForgeTags.MILK)
+				.define('e', Tags.Items.EGGS)
+				.define('r', ModItems.PIE_CRUST.get())
+				.unlockedBy("has_baked_portobello_cap", has(CRItems.BAKED_PORTOBELLO_CAP.get())),
+			"food/portobello_quiche_from_milk", finished, enabled(CRItems.PORTOBELLO_QUICHE), tagEmpty(CRItemTags.CHEESE));
 		wrap(ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, CRItems.PORTOBELLO_QUICHE.get(), 1)
 				.requires(CRItems.PORTOBELLO_QUICHE_SLICE.get(), 4)
 				.unlockedBy("has_portobello_quiche_slice", has(CRItems.PORTOBELLO_QUICHE_SLICE.get())),

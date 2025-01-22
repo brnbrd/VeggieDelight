@@ -11,11 +11,8 @@
               "value": "portobello_quiche"
             },
             {
-              "type": "forge:not",
-              "value": {
-                "type": "forge:tag_empty",
-                "tag": "forge:cheese"
-              }
+              "type": "forge:tag_empty",
+              "tag": "forge:cheese"
             }
           ]
         }
@@ -24,9 +21,6 @@
         "type": "minecraft:crafting_shaped",
         "category": "misc",
         "key": {
-          "c": {
-            "tag": "forge:cheese"
-          },
           "e": {
             "tag": "forge:eggs"
           },
@@ -45,7 +39,7 @@
         },
         "pattern": [
           "pop",
-          "mcm",
+          "mmm",
           "ere"
         ],
         "result": {
