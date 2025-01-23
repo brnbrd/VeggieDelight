@@ -21,8 +21,6 @@ public class PearlyClawItem extends PearlItem {
 			ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
 			builder.put(ForgeMod.BLOCK_REACH.get(), new AttributeModifier(Util.BLOCK_REACH,
 				"Block reach modifier", 2.0D, AttributeModifier.Operation.ADDITION));
-			builder.put(ForgeMod.ENTITY_REACH.get(), new AttributeModifier(Util.ENTITY_REACH,
-				"Entity reach modifier", 2.0D, AttributeModifier.Operation.ADDITION));
 			return builder.build();
 		});
 	}

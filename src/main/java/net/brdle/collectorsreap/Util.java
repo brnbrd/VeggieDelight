@@ -16,7 +16,6 @@ import java.util.function.Supplier;
 
 public class Util {
 	public static final UUID BLOCK_REACH = UUID.fromString("6ba3d68d-2e14-4b88-92c8-5a6796650af3");
-	public static final UUID ENTITY_REACH = UUID.fromString("d646b38f-546d-4f8a-8fe6-bda88d7e7bab");
 
 	public static ResourceLocation rl(String modid, String path) {
 		return new ResourceLocation(modid, path);
