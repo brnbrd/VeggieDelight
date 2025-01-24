@@ -37,7 +37,7 @@
             "tag": "forge:vegetables/onion"
           },
           "p": {
-            "item": "collectorsreap:baked_portobello_cap"
+            "tag": "forge:mushrooms/portobello"
           },
           "r": {
             "item": "farmersdelight:pie_crust"

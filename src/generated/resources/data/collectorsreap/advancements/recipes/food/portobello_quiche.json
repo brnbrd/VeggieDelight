@@ -4,13 +4,11 @@
       "advancement": {
         "parent": "minecraft:recipes/root",
         "criteria": {
-          "has_baked_portobello_cap": {
+          "has_portobello": {
             "conditions": {
               "items": [
                 {
-                  "items": [
-                    "collectorsreap:baked_portobello_cap"
-                  ]
+                  "tag": "forge:mushrooms/portobello"
                 }
               ]
             },
@@ -25,7 +23,7 @@
         },
         "requirements": [
           [
-            "has_baked_portobello_cap",
+            "has_portobello",
             "has_the_recipe"
           ]
         ],

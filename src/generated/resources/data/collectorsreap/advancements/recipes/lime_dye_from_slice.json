@@ -18,7 +18,7 @@
           },
           "has_the_recipe": {
             "conditions": {
-              "recipe": "collectorsreap:lime_seeds_from_slice"
+              "recipe": "collectorsreap:lime_dye_from_slice"
             },
             "trigger": "minecraft:recipe_unlocked"
           }
@@ -31,7 +31,7 @@
         ],
         "rewards": {
           "recipes": [
-            "collectorsreap:lime_seeds_from_slice"
+            "collectorsreap:lime_dye_from_slice"
           ]
         },
         "sends_telemetry_event": false
@@ -47,10 +47,6 @@
             {
               "type": "collectorsreap:enabled",
               "value": "lime_slice"
-            },
-            {
-              "type": "collectorsreap:enabled",
-              "value": "lime_seeds"
             }
           ]
         }

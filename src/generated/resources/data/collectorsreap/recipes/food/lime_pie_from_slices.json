@@ -8,6 +8,10 @@
           "values": [
             {
               "type": "collectorsreap:enabled",
+              "value": "lime"
+            },
+            {
+              "type": "collectorsreap:enabled",
               "value": "lime_pie"
             },
             {

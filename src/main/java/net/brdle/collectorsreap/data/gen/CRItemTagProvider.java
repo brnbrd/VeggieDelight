@@ -39,43 +39,35 @@ public class CRItemTagProvider extends ItemTagsProvider {
 		this.tag(ItemTags.STAIRS)
 			.add(CRItems.URCHIN_TEST_BRICK_STAIRS.get())
 			.add(CRItems.URCHIN_TEST_TILE_STAIRS.get());
-		this.tag(ItemTags.TRIM_MATERIALS)
-			.add(CRItems.SHIMMERING_PEARL.get());
+		this.tag(ItemTags.TRIM_MATERIALS).add(CRItems.SHIMMERING_PEARL.get());
+
+		// Fish
+		this.tag(ForgeTags.RAW_FISHES).addTag(CRItemTags.RAW_FISHES_BASS);
+		this.tag(ForgeTags.COOKED_FISHES).addTag(CRItemTags.COOKED_FISHES_BASS);
 		this.tag(ItemTags.FISHES)
 			.addTag(CRItemTags.RAW_FISHES_BASS)
 			.addTag(CRItemTags.COOKED_FISHES_BASS);
 
 		// Forge
 		this.tag(CRItemTags.CHEESE).addOptional(Util.rl("brewinandchewin", "flaxen_cheese_wedge"));
-		this.tag(ForgeTags.RAW_FISHES)
-			.addTag(CRItemTags.RAW_FISHES_BASS);
-		this.tag(ForgeTags.COOKED_FISHES)
-			.addTag(CRItemTags.COOKED_FISHES_BASS);
-		this.tag(CRItemTags.FRUITS_POMEGRANATE)
-			.add(CRItems.POMEGRANATE_SLICE.get());
+		this.tag(CRItemTags.FRUITS_POMEGRANATE).add(CRItems.POMEGRANATE_SLICE.get());
 		this.tag(CRItemTags.FRUITS_LIME)
-			.add(CRItems.LIME.get());
-		this.tag(CRItemTags.LIME_OR_SLICE)
-			.addTag(CRItemTags.FRUITS_LIME)
+			.add(CRItems.LIME.get())
 			.add(CRItems.LIME_SLICE.get());
 		this.tag(CRItemTags.FRUITS_CITRUS)
-			.addTag(CRItemTags.LIME_OR_SLICE)
+			.addTag(CRItemTags.FRUITS_LIME)
 			.addOptionalTag(Util.rl("forge", "fruits/lemon"))
 			.addOptional(Util.rl("fruitsdelight", "lemon_slice"));
 		this.tag(CRItemTags.FRUITS)
-			.addTag(CRItemTags.FRUITS_POMEGRANATE)
-			.addTag(CRItemTags.FRUITS_LIME);
-		this.tag(CRItemTags.SEEDS_LIME)
-			.add(CRItems.LIME_SEEDS.get());
-		this.tag(CRItemTags.SEEDS_POMEGRANATE)
-			.add(CRItems.POMEGRANATE_SEEDS.get());
+			.addTag(CRItemTags.FRUITS_CITRUS)
+			.addTag(CRItemTags.FRUITS_POMEGRANATE);
+		this.tag(CRItemTags.SEEDS_LIME).add(CRItems.LIME_SEEDS.get());
+		this.tag(CRItemTags.SEEDS_POMEGRANATE).add(CRItems.POMEGRANATE_SEEDS.get());
 		this.tag(Tags.Items.SEEDS)
 			.addTag(CRItemTags.SEEDS_LIME)
 			.addTag(CRItemTags.SEEDS_POMEGRANATE);
-		this.tag(CRItemTags.MUSHROOMS_PORTOBELLO)
-			.add(CRItems.PORTOBELLO.get());
-		this.tag(Tags.Items.MUSHROOMS)
-			.addTag(CRItemTags.MUSHROOMS_PORTOBELLO);
+		this.tag(CRItemTags.MUSHROOMS_PORTOBELLO).add(CRItems.PORTOBELLO.get());
+		this.tag(Tags.Items.MUSHROOMS).addTag(CRItemTags.MUSHROOMS_PORTOBELLO);
 		this.tag(CRItemTags.TORTILLA).addOptional(Util.rl("culturaldelights", "tortilla"));
 		this.tag(CRItemTags.ICE_CREAM)
 			.add(CRItems.LIME_ICE_CREAM.get())
@@ -138,8 +130,7 @@ public class CRItemTagProvider extends ItemTagsProvider {
 			.addOptional(Util.rl("naturalist", "duck_egg"))
 			.addOptional(Util.rl("autumnity", "turkey_egg"))
 			.addOptional(Util.rl("deep_aether", "quail_egg"));
-		this.tag(CRItemTags.DART_SHOOTERS)
-			.add(Items.BAMBOO);
+		this.tag(CRItemTags.DART_SHOOTERS).add(Items.BAMBOO);
 
 		// Neapolitan
 		this.addSelf(CRItemTags.BANANA);
@@ -182,23 +173,16 @@ public class CRItemTagProvider extends ItemTagsProvider {
 		this.addSelf(CRItemTags.PUMPKIN_PUREE);
 
 		// Serene Seasons
-		this.tag(CRItemTags.WINTER_CROPS);
-		this.tag(CRItemTags.SUMMER_CROPS)
-			.add(CRItems.POMEGRANATE_SEEDS.get());
-		this.tag(CRItemTags.AUTUMN_CROPS)
-			.add(CRItems.POMEGRANATE_SEEDS.get());
-		this.tag(CRItemTags.SPRING_CROPS)
-			.add(CRItems.LIME_SEEDS.get());
+		//this.tag(CRItemTags.WINTER_CROPS);
+		this.tag(CRItemTags.SUMMER_CROPS).add(CRItems.POMEGRANATE_SEEDS.get());
+		this.tag(CRItemTags.AUTUMN_CROPS).add(CRItems.POMEGRANATE_SEEDS.get());
+		this.tag(CRItemTags.SPRING_CROPS).add(CRItems.LIME_SEEDS.get());
 
 		// Tea and Coffee
-		this.tag(CRItemTags.TEA_LEAVES_GREEN)
-			.addOptional(Util.rl("farmersrespite", "green_tea_leaves"));
-		this.tag(CRItemTags.TEA_LEAVES_YELLOW)
-			.addOptional(Util.rl("farmersrespite", "yellow_tea_leaves"));
-		this.tag(CRItemTags.TEA_LEAVES_BLACK)
-			.addOptional(Util.rl("farmersrespite", "black_tea_leaves"));
-		this.tag(CRItemTags.COFFEE_BEANS)
-			.addOptional(Util.rl("farmersrespite", "coffee_beans"));
+		this.tag(CRItemTags.TEA_LEAVES_GREEN).addOptional(Util.rl("farmersrespite", "green_tea_leaves"));
+		this.tag(CRItemTags.TEA_LEAVES_YELLOW).addOptional(Util.rl("farmersrespite", "yellow_tea_leaves"));
+		this.tag(CRItemTags.TEA_LEAVES_BLACK).addOptional(Util.rl("farmersrespite", "black_tea_leaves"));
+		this.tag(CRItemTags.COFFEE_BEANS).addOptional(Util.rl("farmersrespite", "coffee_beans"));
 
 		// SAS
 		this.addSelf(CRItemTags.BURGER_BUN);

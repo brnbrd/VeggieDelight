@@ -4,8 +4,21 @@
     {
       "conditions": [
         {
-          "type": "collectorsreap:enabled",
-          "value": "pomegranate_cake"
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "collectorsreap:enabled",
+              "value": "pomegranate"
+            },
+            {
+              "type": "collectorsreap:enabled",
+              "value": "pomegranate_slice"
+            },
+            {
+              "type": "collectorsreap:enabled",
+              "value": "pomegranate_cake"
+            }
+          ]
         }
       ],
       "recipe": {
@@ -19,7 +32,7 @@
             "tag": "forge:milk"
           },
           "p": {
-            "tag": "forge:fruits/pomegranate"
+            "item": "collectorsreap:pomegranate_slice"
           },
           "s": {
             "item": "minecraft:sugar"

@@ -23,7 +23,7 @@
         "experience": 1.0,
         "ingredients": [
           {
-            "tag": "forge:fruits/lime"
+            "item": "collectorsreap:lime"
           },
           {
             "item": "minecraft:sugar"

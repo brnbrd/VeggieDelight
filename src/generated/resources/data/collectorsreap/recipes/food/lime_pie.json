@@ -4,8 +4,17 @@
     {
       "conditions": [
         {
-          "type": "collectorsreap:enabled",
-          "value": "lime_pie"
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "collectorsreap:enabled",
+              "value": "lime"
+            },
+            {
+              "type": "collectorsreap:enabled",
+              "value": "lime_pie"
+            }
+          ]
         }
       ],
       "recipe": {
@@ -19,7 +28,7 @@
             "tag": "forge:eggs"
           },
           "l": {
-            "tag": "collectorsreap:lime_or_slice"
+            "item": "collectorsreap:lime"
           },
           "m": {
             "tag": "forge:milk"

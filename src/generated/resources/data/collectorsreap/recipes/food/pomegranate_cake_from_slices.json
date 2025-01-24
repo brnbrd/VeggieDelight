@@ -8,6 +8,14 @@
           "values": [
             {
               "type": "collectorsreap:enabled",
+              "value": "pomegranate"
+            },
+            {
+              "type": "collectorsreap:enabled",
+              "value": "pomegranate_slice"
+            },
+            {
+              "type": "collectorsreap:enabled",
               "value": "pomegranate_cake"
             },
             {
