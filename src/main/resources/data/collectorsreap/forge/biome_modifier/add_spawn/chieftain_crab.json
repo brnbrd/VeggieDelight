@@ -3,8 +3,8 @@
   "biomes": "#collectorsreap:has_spawn/chieftain_crab",
   "spawners": {
     "type": "collectorsreap:chieftain_crab",
-    "maxCount": 4,
-    "minCount": 2,
-    "weight": 3
+    "maxCount": 2,
+    "minCount": 1,
+    "weight": 2
   }
 }
