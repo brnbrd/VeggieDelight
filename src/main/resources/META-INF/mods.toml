@@ -58,3 +58,10 @@ configBackground = "collectorsreap:textures/block/pomegranate_ice_cream_block.pn
 	versionRange = "[1.20.1-2.1,)"
 	ordering = "AFTER"
 	side = "BOTH"
+
+[[dependencies.collectorsreap]]
+	modId = "botanypots"
+	mandatory = false
+	versionRange = "[13,)"
+	ordering = "AFTER"
+	side = "BOTH"

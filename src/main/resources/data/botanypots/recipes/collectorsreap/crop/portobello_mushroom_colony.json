@@ -1,0 +1,45 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "botanypots"
+        }
+      ],
+      "recipe": {
+        "type": "botanypots:crop",
+        "seed": {
+          "item": "collectorsreap:portobello_colony"
+        },
+        "categories": [
+          "mushroom"
+        ],
+        "growthTicks": 1400,
+        "display": {
+          "type": "botanypots:aging",
+          "block": "collectorsreap:portobello_colony"
+        },
+        "drops": [
+          {
+            "chance": 1.00,
+            "output": {
+              "item": "collectorsreap:portobello"
+            },
+            "minRolls": 1,
+            "maxRolls": 3
+          },
+          {
+            "chance": 0.05,
+            "output": {
+              "item": "collectorsreap:portobello"
+            },
+            "minRolls": 1,
+            "maxRolls": 2
+          }
+        ]
+      }
+    }
+  ]
+}
