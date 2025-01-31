@@ -1,0 +1,6 @@
+{
+  "parent": "brewinandchewin:block/coaster_glass_mug",
+  "textures": {
+    "mug": "collectorsreap:block/coaster/berry_limeade"
+  }
+}

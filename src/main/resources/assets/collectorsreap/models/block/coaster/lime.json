@@ -1,0 +1,35 @@
+{
+  "credit": "Made with Blockbench",
+  "textures": {
+    "particle": "collectorsreap:block/coaster/lime",
+    "lime": "collectorsreap:block/coaster/lime"
+  },
+  "elements": [
+    {
+      "from": [6, 0, 6],
+      "to": [10, 4, 10],
+      "rotation": {"angle": 0, "axis": "y", "origin": [6, 0, 6]},
+      "faces": {
+        "north": {"uv": [2, 3, 6, 7], "texture": "#lime"},
+        "east": {"uv": [2, 3, 6, 7], "texture": "#lime"},
+        "south": {"uv": [2, 3, 6, 7], "texture": "#lime"},
+        "west": {"uv": [2, 3, 6, 7], "texture": "#lime"},
+        "up": {"uv": [2, 8, 6, 12], "texture": "#lime"},
+        "down": {"uv": [7, 3, 11, 7], "texture": "#lime"}
+      }
+    },
+    {
+      "from": [7, 4, 7],
+      "to": [9, 5, 9],
+      "rotation": {"angle": 0, "axis": "y", "origin": [7, 4, 7]},
+      "faces": {
+        "north": {"uv": [3, 2, 5, 3], "texture": "#lime"},
+        "east": {"uv": [3, 2, 5, 3], "texture": "#lime"},
+        "south": {"uv": [3, 2, 5, 3], "texture": "#lime"},
+        "west": {"uv": [3, 2, 5, 3], "texture": "#lime"},
+        "up": {"uv": [8, 9, 10, 11], "texture": "#lime"},
+        "down": {"uv": [8, 9, 10, 11], "texture": "#lime"}
+      }
+    }
+  ]
+}
