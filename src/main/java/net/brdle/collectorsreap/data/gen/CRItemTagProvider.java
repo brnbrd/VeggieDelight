@@ -39,7 +39,7 @@ public class CRItemTagProvider extends ItemTagsProvider {
 		this.tag(ItemTags.STAIRS)
 			.add(CRItems.URCHIN_TEST_BRICK_STAIRS.get())
 			.add(CRItems.URCHIN_TEST_TILE_STAIRS.get());
-		this.tag(ItemTags.TRIM_MATERIALS).add(CRItems.SHIMMERING_PEARL.get());
+		this.tag(ItemTags.TRIM_MATERIALS).add(CRItems.LUNAR_PEARL.get());
 
 		// Fish
 		this.tag(ForgeTags.RAW_FISHES).addTag(CRItemTags.RAW_FISHES_BASS);

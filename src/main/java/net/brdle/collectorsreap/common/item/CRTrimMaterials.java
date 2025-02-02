@@ -23,7 +23,12 @@ public class CRTrimMaterials {
 	}
 
 	private static void register(BootstapContext<TrimMaterial> context, ResourceKey<TrimMaterial> trimKey, RegistryObject<Item> trimItem, Style color, float itemModelIndex) {
-		TrimMaterial material = new TrimMaterial(trimKey.location().getPath(), trimItem.getHolder().get(), itemModelIndex, Map.of(), Component.translatable("trim_material." + trimKey.location().toLanguageKey()).withStyle(color));
-		context.register(trimKey, material);
+		context.register(trimKey, new TrimMaterial(
+			trimKey.location().getPath(),
+			trimItem.getHolder().get(),
+			itemModelIndex,
+			Map.of(),
+			Component.translatable("trim_material." + trimKey.location().toLanguageKey()).withStyle(color)
+		));
 	}
 }

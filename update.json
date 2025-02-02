@@ -20,7 +20,7 @@
     "1.3.1": "Fixed Lime, Pomegranate, and Portobello spawns. Added Gummies for Seasonals. Decreased mob spawns to prevent bloating spawn cap.",
     "1.3.2": "Update bush textures and growth mechanics. Removed colonies from Portobello patch spawns. Add Jade support to bushes.",
     "1.3.3": "Added Stygian Pomegranate, Urchin Dart, Shimmering Apple, and Shimmering Pearl, Pearly Claw, and Pearl armor trim material. Recipe/tag/mob spawn fixes.",
-    "1.3.4": "Added Coaster models (for Brewin' and Chewin') and support for Botany Pots. Slightly reduced some mob spawns."
+    "1.3.4": "Added Coaster models (for Brewin' and Chewin') and support for Botany Pots. Fixed pearl armor trim using wrong item. Slightly reduced some mob spawns."
   },
   "promos": {
     "1.19-latest": "1.2.4",
