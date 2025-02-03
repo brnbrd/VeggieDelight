@@ -1,0 +1,62 @@
+{
+  "credit": "Made with Blockbench",
+  "texture_size": [32, 16],
+  "textures": {
+    "clam": "collectorsreap:block/coaster/clam",
+    "particle": "collectorsreap:block/coaster/clam"
+  },
+  "elements": [
+    {
+      "from": [5, 1, 5],
+      "to": [11, 5, 11],
+      "rotation": {"angle": 0, "axis": "y", "origin": [6, 1, 6]},
+      "faces": {
+        "north": {"uv": [4.5, 3, 7.5, 7], "texture": "#clam"},
+        "east": {"uv": [0.5, 3, 3.5, 7], "texture": "#clam"},
+        "south": {"uv": [0.5, 10, 3.5, 14], "texture": "#clam"},
+        "west": {"uv": [0.5, 3, 3.5, 7], "texture": "#clam"},
+        "up": {"uv": [8.5, 8, 11.5, 14], "texture": "#clam"},
+        "down": {"uv": [4.5, 9, 7.5, 15], "texture": "#clam"}
+      }
+    },
+    {
+      "from": [6, 0, 6],
+      "to": [10, 1, 10],
+      "rotation": {"angle": 0, "axis": "y", "origin": [6, 0, 6]},
+      "faces": {
+        "north": {"uv": [5, 7, 7, 8], "texture": "#clam"},
+        "east": {"uv": [1, 7, 3, 8], "texture": "#clam"},
+        "south": {"uv": [1, 14, 3, 15], "texture": "#clam"},
+        "west": {"uv": [1, 7, 3, 8], "texture": "#clam"},
+        "up": {"uv": [0, 0, 2, 4], "texture": "#clam"},
+        "down": {"uv": [5, 10, 7, 14], "texture": "#clam"}
+      }
+    },
+    {
+      "from": [6, 5, 6],
+      "to": [10, 6, 10],
+      "rotation": {"angle": 0, "axis": "y", "origin": [6, 5, 6]},
+      "faces": {
+        "north": {"uv": [5, 2, 7, 3], "texture": "#clam"},
+        "east": {"uv": [1, 2, 3, 3], "texture": "#clam"},
+        "south": {"uv": [1, 9, 3, 10], "texture": "#clam"},
+        "west": {"uv": [1, 2, 3, 3], "texture": "#clam"},
+        "up": {"uv": [9, 9, 11, 13], "texture": "#clam"},
+        "down": {"uv": [0, 0, 2, 4], "texture": "#clam"}
+      }
+    },
+    {
+      "from": [6, 2, 11],
+      "to": [10, 4, 13],
+      "rotation": {"angle": 0, "axis": "y", "origin": [8, 2, 11]},
+      "faces": {
+        "north": {"uv": [0, 0, 2, 2], "texture": "#clam"},
+        "east": {"uv": [3.5, 4, 4.5, 6], "texture": "#clam"},
+        "south": {"uv": [9, 6, 11, 8], "texture": "#clam"},
+        "west": {"uv": [3.5, 4, 4.5, 6], "texture": "#clam"},
+        "up": {"uv": [10.5, 2, 12.5, 4], "texture": "#clam"},
+        "down": {"uv": [10.5, 2, 12.5, 4], "texture": "#clam"}
+      }
+    }
+  ]
+}
