@@ -28,7 +28,7 @@ public class CREntities {
 	public static final RegistryObject<EntityType<Clam>> CLAM = reg("clam",
 		Clam::new, MobCategory.WATER_AMBIENT, 1.0F, 0.5F);
 	public static final RegistryObject<EntityType<ChieftainCrab>> CHIEFTAIN_CRAB = reg("chieftain_crab",
-		ChieftainCrab::new, MobCategory.WATER_AMBIENT, 0.85F, 0.65F);
+		ChieftainCrab::new, MobCategory.CREATURE, 0.85F, 0.65F);
 	public static final RegistryObject<EntityType<UrchinDart>> URCHIN_DART = ENTITY_TYPES.register("urchin_dart",
 		() -> EntityType.Builder.<UrchinDart>of(UrchinDart::new, MobCategory.MISC)
 			.sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20).build(CollectorsReap.MODID + ".urchin_dart"));

@@ -40,11 +40,10 @@ import java.util.UUID;
 public class ChieftainCrab extends Animal implements NeutralMob, Bucketable {
 	private static final EntityDataAccessor<Boolean> FROM_BUCKET = SynchedEntityData.defineId(ChieftainCrab.class, EntityDataSerializers.BOOLEAN);
 	private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
+	private int remainingPersistentAngerTime;
+	@Nullable private UUID persistentAngerTarget;
 	public final AnimationState idleAnimationState = new AnimationState();
 	public final AnimationState movingAnimationState = new AnimationState();
-	private int remainingPersistentAngerTime;
-	@Nullable
-	private UUID persistentAngerTarget;
 
 	public ChieftainCrab(EntityType<? extends Animal> type, Level level) {
 		super(type, level);
@@ -53,23 +52,13 @@ public class ChieftainCrab extends Animal implements NeutralMob, Bucketable {
 
 	public static AttributeSupplier.@NotNull Builder createAttributes() {
 		return Mob.createMobAttributes()
-			.add(Attributes.MAX_HEALTH, 30.0D)
-			.add(Attributes.MOVEMENT_SPEED, 0.15D)
-			.add(Attributes.ATTACK_DAMAGE, 8.0D)
-			.add(Attributes.ATTACK_KNOCKBACK, 0.5D)
-			.add(Attributes.ARMOR, 3.0D)
-			.add(Attributes.ARMOR_TOUGHNESS, 2.0D)
-			.add(Attributes.KNOCKBACK_RESISTANCE, 0.5D);
+			.add(Attributes.MAX_HEALTH, 25.0D)
+			.add(Attributes.MOVEMENT_SPEED, 0.25D)
+			.add(Attributes.ATTACK_DAMAGE, 2.0D);
 	}
 
 	public static boolean checkCrabSpawnRules(EntityType<ChieftainCrab> crab, ServerLevelAccessor level, MobSpawnType type, BlockPos pos, RandomSource rand) {
 		return level.getBlockState(pos.below()).is(CRBlockTags.CRAB_SPAWNABLE_ON);
-	}
-
-	@Override
-	public float getSpeed() {
-		float speed = super.getSpeed();
-		return this.isInWater() ? speed * 3F : speed;
 	}
 
 	@Override
@@ -78,20 +67,13 @@ public class ChieftainCrab extends Animal implements NeutralMob, Bucketable {
 	}
 
 	protected void registerGoals() {
-		this.goalSelector.addGoal(0, new MeleeAttackGoal(this, 2.0D, true));
-		this.goalSelector.addGoal(1, new PanicGoal(this, 1.25D));
+		this.goalSelector.addGoal(0, new FloatGoal(this));
+		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Player.class, 8.0F, 2.0D, 2.0D));
 		this.goalSelector.addGoal(2, new RandomStrollGoal(this, 1.0D));
 		this.goalSelector.addGoal(3, new RandomSwimmingGoal(this, 1.5D, 40));
-		this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 6.0F));
+		this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
 		this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-	}
-
-	@Override
-	public void aiStep() {
-		if (this.isInWater() && !this.onGround()) {
-			this.sinkInFluid(ForgeMod.WATER_TYPE.get());
-		}
-		super.aiStep();
 	}
 
 	@Override
@@ -101,7 +83,7 @@ public class ChieftainCrab extends Animal implements NeutralMob, Bucketable {
 
 	@Override
 	public float getStepHeight() {
-		return 1.125F;
+		return 1.15F;
 	}
 
 	@Override
@@ -179,6 +161,14 @@ public class ChieftainCrab extends Animal implements NeutralMob, Bucketable {
 	}
 
 	@Override
+	public void aiStep() {
+		if (this.isInWater() && !this.onGround()) {
+			this.sinkInFluid(ForgeMod.WATER_TYPE.get());
+		}
+		super.aiStep();
+	}
+
+	@Override
 	public void tick() {
 		super.tick();
 		if (this.level().isClientSide()) {
@@ -210,6 +200,11 @@ public class ChieftainCrab extends Animal implements NeutralMob, Bucketable {
 	@Override
 	public boolean canBreatheUnderwater() {
 		return true;
+	}
+
+	@Override
+	protected float getWaterSlowDown() {
+		return 0.98F;
 	}
 
 	@Override
@@ -273,8 +268,14 @@ public class ChieftainCrab extends Animal implements NeutralMob, Bucketable {
 		this.setRemainingPersistentAngerTime(PERSISTENT_ANGER_TIME.sample(this.getRandom()));
 	}
 
+	@Nullable
 	@Override
-	public @Nullable AgeableMob getBreedOffspring(@NotNull ServerLevel serverLevel, @NotNull AgeableMob ageableMob) {
+	public AgeableMob getBreedOffspring(@NotNull ServerLevel serverLevel, @NotNull AgeableMob ageableMob) {
 		return null;
+	}
+
+	@Override
+	public boolean isFood(@NotNull ItemStack stack) {
+		return false;
 	}
 }
