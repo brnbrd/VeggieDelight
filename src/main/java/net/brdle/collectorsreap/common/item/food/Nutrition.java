@@ -15,10 +15,12 @@ public class Nutrition {
 		.nutrition(1).saturationMod(0.2F).fast()
 		.effect(() -> new MobEffectInstance(CREffects.CORROSION.get(), 60, 0), 1.0F).build();
 	public static final FoodProperties LIME_PIE_SLICE = (new FoodProperties.Builder())
-		.nutrition(3).saturationMod(0.2F).fast()
+		.nutrition(3).saturationMod(0.2F)
+		.fast()
 		.effect(() -> new MobEffectInstance(CREffects.CORROSION.get(), 200, 1), 1.0F).build();
 	public static final FoodProperties LIME_POPSICLE = (new FoodProperties.Builder())
-		.nutrition(3).saturationMod(0.2F).fast()
+		.nutrition(3).saturationMod(0.2F)
+		.fast()
 		.effect(() -> new MobEffectInstance(CREffects.CORROSION.get(), 900, 0), 1.0F).build();
 	public static final FoodProperties LIME_COOKIE = (new FoodProperties.Builder())
 		.nutrition(3).saturationMod(0.2F)
@@ -71,7 +73,7 @@ public class Nutrition {
 	public static final FoodProperties PORTOBELLO_WRAP = (new FoodProperties.Builder())
 		.nutrition(10).saturationMod(0.8F).build();
 	public static final FoodProperties PORTOBELLO_QUICHE_SLICE = (new FoodProperties.Builder())
-		.nutrition(3).saturationMod(0.2F).build();
+		.nutrition(4).saturationMod(0.4F).build();
 	public static final FoodProperties PORTOBELLO_BURGER = (new FoodProperties.Builder()).nutrition(12).saturationMod(0.8F)
 		.effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 600, 0), 1.0F).build();
 	public static final FoodProperties CRIMSON_CARROT_ROAST = (new FoodProperties.Builder())
@@ -147,10 +149,14 @@ public class Nutrition {
 		.build();
 	public static final FoodProperties LIME_CAKE_SLICE = (new FoodProperties.Builder())
 		.nutrition(2).saturationMod(0.1F)
+		.fast()
+		.effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 400, 0), 1.0F)
 		.effect(() -> new MobEffectInstance(CREffects.CORROSION.get(), 300, 0), 1.0F)
 		.build();
 	public static final FoodProperties POMEGRANATE_CAKE_SLICE = (new FoodProperties.Builder())
 		.nutrition(2).saturationMod(0.1F)
+		.fast()
+		.effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 400, 0), 1.0F)
 		.effect(() -> new MobEffectInstance(CREffects.VOLATILITY.get(), 300, 0), 1.0F)
 		.build();
 	public static final FoodProperties LIME_ICE_CREAM = (new FoodProperties.Builder())

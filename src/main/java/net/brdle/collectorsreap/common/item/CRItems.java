@@ -76,8 +76,8 @@ public class CRItems extends ModItems {
 		() -> new ConsumableItem((new Item.Properties()).food(
 			Nutrition.CANDIED_LIME), true));
 	public static final RegistryObject<Item> LIME_PIE = registerBlock(CRBlocks.LIME_PIE);
-	public static final RegistryObject<Item> LIME_PIE_SLICE = registerFood("lime_pie_slice",
-		Nutrition.LIME_PIE_SLICE);
+	public static final RegistryObject<Item> LIME_PIE_SLICE = registerItem("lime_pie_slice", () ->
+		new EffectSliceItem((new Item.Properties()).food(Nutrition.LIME_PIE_SLICE)));
 	public static final RegistryObject<Item> LIME_POPSICLE = registerItem("lime_popsicle",
 		() -> new ConsumableItem((new Item.Properties()).food(
 			Nutrition.LIME_POPSICLE), true));
@@ -138,12 +138,12 @@ public class CRItems extends ModItems {
 	public static final RegistryObject<Item> POMEGRANATE_SMOOTHIE = registerItem("pomegranate_smoothie", () ->
 		new CompatDrinkable((new Item.Properties()).food(
 			Nutrition.POMEGRANATE_SMOOTHIE), true, false, "neapolitan"));
-	public static final RegistryObject<Item> LIME_CAKE_SLICE = registerFood("lime_cake_slice",
-		Nutrition.LIME_CAKE_SLICE);
-	public static final RegistryObject<Item> POMEGRANATE_CAKE_SLICE = registerFood("pomegranate_cake_slice",
-		Nutrition.POMEGRANATE_CAKE_SLICE);
 	public static final RegistryObject<Item> LIME_CAKE = registerItem("lime_cake", () -> new BlockItem(CRBlocks.LIME_CAKE.get(), ((new Item.Properties()).stacksTo(1))));
+	public static final RegistryObject<Item> LIME_CAKE_SLICE = registerItem("lime_cake_slice", () ->
+		new EffectSliceItem((new Item.Properties()).food(Nutrition.LIME_CAKE_SLICE)));
 	public static final RegistryObject<Item> POMEGRANATE_CAKE = registerItem("pomegranate_cake", () -> new BlockItem(CRBlocks.POMEGRANATE_CAKE.get(), ((new Item.Properties()).stacksTo(1))));
+	public static final RegistryObject<Item> POMEGRANATE_CAKE_SLICE = registerItem("pomegranate_cake_slice", () ->
+		new EffectSliceItem((new Item.Properties()).food(Nutrition.POMEGRANATE_CAKE_SLICE)));
 	public static final RegistryObject<Item> LIME_CRATE = registerBlock(CRBlocks.LIME_CRATE);
 	public static final RegistryObject<Item> POMEGRANATE_CRATE = registerBlock(CRBlocks.POMEGRANATE_CRATE);
 
