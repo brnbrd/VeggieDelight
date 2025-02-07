@@ -24,12 +24,6 @@
           },
           {
             "tag": "forge:fruits/lime"
-          },
-          {
-            "tag": "forge:vegetables/onion"
-          },
-          {
-            "item": "minecraft:dried_kelp"
           }
         ],
         "result": {

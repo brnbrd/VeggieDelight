@@ -115,9 +115,8 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
 				.addIngredient(ForgeTags.GRAIN_RICE)
 				.addIngredient(ForgeTags.VEGETABLES_ONION)
 				.addIngredient(ForgeTags.VEGETABLES_CARROT)
-				.addIngredient(Items.DRIED_KELP)
 				.unlockedBy("has_baked_portobello_cap", has(CRItems.BAKED_PORTOBELLO_CAP.get())),
-			"food/portobello_rice_soup", finished, enabled("portobello_rice_soup"));
+			"food/portobello_rice_soup", finished, enabled(CRItems.PORTOBELLO_RICE_SOUP));
 		wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.STUFFED_PORTOBELLO_CAP.get(), 1, 200, 1.0F, CRItems.BAKED_PORTOBELLO_CAP.get())
 				.addIngredient(Items.BROWN_MUSHROOM)
 				.addIngredient(ForgeTags.VEGETABLES_ONION)
@@ -274,7 +273,6 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
 				.addIngredient(ModItems.MINCED_BEEF.get())
 				.addIngredient(ModItems.TOMATO_SAUCE.get())
 				.addIngredient(ForgeTags.VEGETABLES_CARROT)
-				.addIngredient(ForgeTags.COOKED_EGGS)
 				.unlockedBy("has_clam_meat", has(CRItems.CLAM_MEAT.get())),
 			"food/clam_meatball_stew", finished, enabled(CRItems.CLAM_MEATBALL_STEW));
 		wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.PRAWN_NOODLES.get(), 1, 200, 1.0F, Items.BOWL)
@@ -284,14 +282,6 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
 				.addIngredient(Items.DRIED_KELP)
 				.unlockedBy("has_cooked_prawn", has(CRItemTags.COOKED_PRAWN)),
 			"food/prawn_noodles", finished, enabled(CRItems.PRAWN_NOODLES));
-		wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.PRAWN_STEW.get(), 1, 200, 1.0F, Items.BOWL)
-				.addIngredient(CRItemTags.COOKED_PRAWN)
-				.addIngredient(ModItems.TOMATO_SAUCE.get())
-				.addIngredient(ForgeTags.MILK)
-				.addIngredient(Tags.Items.EGGS)
-				.addIngredient(ForgeTags.VEGETABLES_POTATO)
-				.unlockedBy("has_cooked_prawn", has(CRItemTags.COOKED_PRAWN)),
-			"food/prawn_stew", finished, enabled(CRItems.PRAWN_STEW));
 		wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.SALMON_WRAPPED_PRAWN.get(), 1, 200, 1.0F)
 				.addIngredient(CRItemTags.COOKED_PRAWN)
 				.addIngredient(ModItems.SALMON_SLICE.get())
@@ -299,13 +289,18 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
 				.addIngredient(Items.HONEY_BOTTLE)
 				.unlockedBy("has_cooked_prawn", has(CRItemTags.COOKED_PRAWN)),
 			"food/salmon_wrapped_prawn", finished, enabled(CRItems.SALMON_WRAPPED_PRAWN));
+		wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.PRAWN_STEW.get(), 1, 200, 1.0F, Items.BOWL)
+				.addIngredient(CRItemTags.COOKED_PRAWN)
+				.addIngredient(ForgeTags.MILK)
+				.addIngredient(Tags.Items.EGGS)
+				.addIngredient(ForgeTags.VEGETABLES_POTATO)
+				.unlockedBy("has_cooked_prawn", has(CRItemTags.COOKED_PRAWN)),
+			"food/prawn_stew", finished, enabled(CRItems.PRAWN_STEW));
 		wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.PLATINUM_BASS_STEW.get(), 1, 200, 1.0F)
 				.addIngredient(CRItems.PLATINUM_BASS_HEAD.get())
 				.addIngredient(CRItems.PLATINUM_BASS_SLICE.get())
 				.addIngredient(ForgeTags.GRAIN_RICE)
 				.addIngredient(CRItemTags.FRUITS_LIME)
-				.addIngredient(ForgeTags.VEGETABLES_ONION)
-				.addIngredient(Items.DRIED_KELP)
 				.unlockedBy("has_platinum_bass_head", has(CRItems.PLATINUM_BASS_HEAD.get())),
 			"food/platinum_bass_stew", finished, enabled(CRItems.PLATINUM_BASS_STEW));
 

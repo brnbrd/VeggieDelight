@@ -27,9 +27,6 @@
           },
           {
             "tag": "forge:vegetables/carrot"
-          },
-          {
-            "item": "minecraft:dried_kelp"
           }
         ],
         "result": {

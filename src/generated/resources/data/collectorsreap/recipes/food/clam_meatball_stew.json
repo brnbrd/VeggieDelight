@@ -27,9 +27,6 @@
           },
           {
             "tag": "forge:vegetables/carrot"
-          },
-          {
-            "tag": "forge:cooked_eggs"
           }
         ],
         "result": {
