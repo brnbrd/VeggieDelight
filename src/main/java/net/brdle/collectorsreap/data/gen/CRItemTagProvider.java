@@ -89,7 +89,11 @@ public class CRItemTagProvider extends ItemTagsProvider {
 			.add(CRItems.BEETROOT_GUMMY.get())
 			.add(CRItems.ALOE_GUMMY.get())
 			.add(CRItems.PASSION_FRUIT_GUMMY.get())
-			.add(CRItems.YUCCA_GUMMY.get());
+			.add(CRItems.YUCCA_GUMMY.get())
+			.add(CRItems.GREEN_TEA_GUMMY.get())
+			.add(CRItems.YELLOW_TEA_GUMMY.get())
+			.add(CRItems.BLACK_TEA_GUMMY.get())
+			.add(CRItems.COFFEE_GUMMY.get());
 		this.tag(CRItemTags.CRAB_MEAT)
 			.add(CRItems.CHIEFTAIN_CRAB_MEAT.get())
 			.addOptional(Util.rl("ecologics", "crab_meat"));

@@ -26,8 +26,8 @@ public class GummyItem extends CompatConsumable {
 		super(prop, true, true, heal);
 	}
 
-	public GummyItem(Properties prop, float heal, String modid) {
-		super(prop, true, true, heal, modid);
+	public GummyItem(Properties prop, boolean hasFoodEffectTooltip, boolean hasCustomTooltip, float heal, String modid) {
+		super(prop, hasFoodEffectTooltip, hasCustomTooltip, heal, modid);
 	}
 
 	@Override
