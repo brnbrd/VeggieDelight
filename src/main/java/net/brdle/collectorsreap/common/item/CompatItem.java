@@ -30,7 +30,7 @@ public class CompatItem extends Item {
 				return true;
 			}
 		}
-		return false;
+		return this.getModid().length < 1;
 	}
 
 	@Override

@@ -3,6 +3,7 @@ package net.brdle.collectorsreap.common;
 import net.brdle.collectorsreap.common.block.CRCauldronInteractions;
 import net.brdle.collectorsreap.common.crafting.EnabledCondition;
 import net.brdle.collectorsreap.common.item.CRItems;
+import net.brdle.collectorsreap.common.item.CompatItem;
 import net.brdle.collectorsreap.common.item.food.CompatConsumable;
 import net.brdle.collectorsreap.common.item.food.CompatDrinkable;
 import net.brdle.collectorsreap.common.item.food.GummyItem;
@@ -69,8 +70,9 @@ public class ModEvents {
 			CRItems.ITEMS.getEntries().stream().filter(RegistryObject::isPresent).forEach(object -> {
 				Item item = object.get();
 				if (
+					item instanceof CompatItem compat && !compat.loaded() ||
 					item instanceof CompatConsumable consume && !consume.loaded() ||
-						item instanceof CompatDrinkable drink && !drink.loaded()
+					item instanceof CompatDrinkable drink && !drink.loaded()
 				) {
 					return;
 				}

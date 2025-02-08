@@ -33,7 +33,7 @@ public class CompatDrinkable extends DrinkableItem {
 				return true;
 			}
 		}
-		return false;
+		return this.getModid().length < 1;
 	}
 
 	@Override
