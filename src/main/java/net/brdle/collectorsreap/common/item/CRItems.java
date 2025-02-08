@@ -286,15 +286,17 @@ public class CRItems extends ModItems {
 		() -> new BlockItem(CRBlocks.POMEGRANATE_ICE_CREAM_BLOCK.get(), (new Item.Properties())));
 
 	// Gummies
-	public static final RegistryObject<Item> LIME_GUMMY = registerGummy("lime", Nutrition.LIME_GUMMY, FarmersDelight.MODID);
-	public static final RegistryObject<Item> POMEGRANATE_GUMMY = registerGummy("pomegranate", Nutrition.POMEGRANATE_GUMMY, FarmersDelight.MODID);
-	public static final RegistryObject<Item> MELON_GUMMY = registerGummy("melon", Nutrition.MELON_GUMMY, FarmersDelight.MODID);
-	public static final RegistryObject<Item> APPLE_GUMMY = registerGummy("apple", Nutrition.APPLE_GUMMY, FarmersDelight.MODID);
-	public static final RegistryObject<Item> GLOW_BERRY_GUMMY = registerGummy("glow_berry", Nutrition.GLOW_BERRY_GUMMY, FarmersDelight.MODID);
+	public static final RegistryObject<Item> LIME_GUMMY = registerGummy("lime", Nutrition.LIME_GUMMY);
+	public static final RegistryObject<Item> POMEGRANATE_GUMMY = registerGummy("pomegranate", Nutrition.POMEGRANATE_GUMMY);
+	public static final RegistryObject<Item> APPLE_GUMMY = registerGummy("apple", Nutrition.APPLE_GUMMY);
+	public static final RegistryObject<Item> GLOW_BERRY_GUMMY = registerGummy("glow_berry", Nutrition.GLOW_BERRY_GUMMY);
+	public static final RegistryObject<Item> MELON_GUMMY = registerItem("melon_gummy",
+		() -> new MelonGummyItem((new Item.Properties()).food(Nutrition.MELON_GUMMY)));
+	public static final RegistryObject<Item> STRAWBERRY_GUMMY = registerItem("strawberry_gummy",
+		() -> new StrawberryGummyItem((new Item.Properties()).food(Nutrition.STRAWBERRY_GUMMY)));
 	public static final RegistryObject<Item> BANANA_GUMMY = registerGummy("banana", Nutrition.BANANA_GUMMY, "neapolitan");
 	public static final RegistryObject<Item> VANILLA_GUMMY = registerGummy("vanilla", Nutrition.VANILLA_GUMMY, "neapolitan");
 	public static final RegistryObject<Item> CHOCOLATE_GUMMY = registerGummy("chocolate", Nutrition.CHOCOLATE_GUMMY, "neapolitan");
-	public static final RegistryObject<Item> STRAWBERRY_GUMMY = registerGummy("strawberry", Nutrition.STRAWBERRY_GUMMY, "neapolitan");
 	public static final RegistryObject<Item> MINT_GUMMY = registerGummy("mint", Nutrition.MINT_GUMMY, "neapolitan");
 	public static final RegistryObject<Item> ADZUKI_GUMMY = registerGummy("adzuki", Nutrition.ADZUKI_GUMMY, "neapolitan");
 	public static final RegistryObject<Item> PUMPKIN_GUMMY = registerGummy("pumpkin", Nutrition.PUMPKIN_GUMMY, "seasonals");
@@ -327,10 +329,14 @@ public class CRItems extends ModItems {
 		return registerItem(name, () -> new BlockItem(block.get(), (new Item.Properties())));
 	}
 
-	public static RegistryObject<Item> registerGummy(String name, FoodProperties properties, @Nullable String modid) {
+	public static RegistryObject<Item> registerGummy(String name, FoodProperties properties) {
 		return registerItem(name + "_gummy", () ->
-			new GummyItem((new Item.Properties())
-				.food(properties), modid));
+			new GummyItem((new Item.Properties()).food(properties)));
+	}
+
+	public static RegistryObject<Item> registerGummy(String name, FoodProperties properties, String modid) {
+		return registerItem(name + "_gummy", () ->
+			new GummyItem((new Item.Properties()).food(properties), modid));
 	}
 
 	public static RegistryObject<Item> registerFood(String name, FoodProperties properties) {

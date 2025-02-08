@@ -4,6 +4,7 @@ import net.brdle.collectorsreap.common.block.CRCauldronInteractions;
 import net.brdle.collectorsreap.common.crafting.EnabledCondition;
 import net.brdle.collectorsreap.common.item.CRItems;
 import net.brdle.collectorsreap.common.item.food.CompatConsumable;
+import net.brdle.collectorsreap.common.item.food.CompatDrinkable;
 import net.brdle.collectorsreap.common.item.food.GummyItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -65,14 +66,15 @@ public class ModEvents {
 	@SubscribeEvent
 	public void buildContents(BuildCreativeModeTabContentsEvent event) {
 		if (event.getTabKey() == ModCreativeTabs.TAB_FARMERS_DELIGHT.getKey()) {
-			CRItems.ITEMS.getEntries().stream().filter(RegistryObject::isPresent).forEach((item) -> {
-				Item i = item.get();
-				if (i instanceof CompatConsumable compat && !compat.loaded()) {
-					return;
-				} else if (i instanceof GummyItem gummy && !ModList.get().isLoaded(gummy.getModid())) {
+			CRItems.ITEMS.getEntries().stream().filter(RegistryObject::isPresent).forEach(object -> {
+				Item item = object.get();
+				if (
+					item instanceof CompatConsumable consume && !consume.loaded() ||
+						item instanceof CompatDrinkable drink && !drink.loaded()
+				) {
 					return;
 				}
-				event.accept(i.getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+				event.accept(item.getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 			});
 		}
 	}

@@ -2,32 +2,32 @@ package net.brdle.collectorsreap.common.item.food;
 
 import net.brdle.collectorsreap.common.item.CRItems;
 import net.brdle.collectorsreap.compat.ModCompat;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-import vectorwing.farmersdelight.FarmersDelight;
 
-public class GummyItem extends Item {
+public class GummyItem extends CompatConsumable {
 	private static final int MAX_NEARBY = 3;
-	String modid;
 
-	public GummyItem(Properties prop, @Nullable String modid) {
-		super(prop);
-		if (modid == null) {
-			this.modid = FarmersDelight.MODID;
-		} else {
-			this.modid = modid;
-		}
+	public GummyItem(Properties prop) {
+		super(prop, true, false);
 	}
 
-	public String getModid() {
-		return this.modid;
+	public GummyItem(Properties prop, String modid) {
+		super(prop, true, false, modid);
+	}
+
+	public GummyItem(Properties prop, float heal) {
+		super(prop, true, true, heal);
+	}
+
+	public GummyItem(Properties prop, float heal, String modid) {
+		super(prop, true, true, heal, modid);
 	}
 
 	@Override
@@ -36,18 +36,23 @@ public class GummyItem extends Item {
 	}
 
 	@Override
-	public @NotNull ItemStack finishUsingItem(@NotNull ItemStack stack, @NotNull Level worldIn, @NotNull LivingEntity entity) {
-		if (stack.is(CRItems.ADZUKI_GUMMY.get())) {
-			worldIn.getNearbyEntities(LivingEntity.class, TargetingConditions.DEFAULT.selector((living) -> {
-					return (living != entity && living.getEffect(ModCompat.getVanillaScent().get()) == null);
-				}), entity, entity.getBoundingBox().inflate(6.0D, 2.0D, 6.0D))
+	public void affectConsumer(@NotNull ItemStack stack, @NotNull Level level, @NotNull LivingEntity consumer) {
+		super.affectConsumer(stack, level, consumer);
+		if (loaded()) {
+			if (stack.is(CRItems.ALOE_GUMMY.get())) {
+				consumer.clearFire();
+			} else if (stack.is(CRItems.ADZUKI_GUMMY.get())) {
+				MobEffect vanilla = ModCompat.getVanillaScent().get();
+				level.getNearbyEntities(LivingEntity.class, TargetingConditions.DEFAULT.selector(near ->
+					near != consumer &&
+					(
+						near.getEffect(vanilla) == null ||
+						!near.hasEffect(ModCompat.getVanillaScent().get())
+					)
+				), consumer, consumer.getBoundingBox().inflate(6.0D, 2.0D, 6.0D))
 				.stream().limit(MAX_NEARBY)
 				.forEach(n -> n.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 200, 3)));
-		} else if (stack.is(CRItems.STRAWBERRY_GUMMY.get())) {
-			entity.heal(3.0F);
-		} else if (stack.is(CRItems.ALOE_GUMMY.get())) {
-			entity.clearFire();
+			}
 		}
-		return super.finishUsingItem(stack, worldIn, entity);
 	}
 }

@@ -14,7 +14,6 @@ import vectorwing.farmersdelight.common.item.ConsumableItem;
 import java.util.List;
 
 public class CompatConsumable extends ConsumableItem {
-
 	private final String[] modid;
 	private final float heal;
 
@@ -40,7 +39,7 @@ public class CompatConsumable extends ConsumableItem {
 				return true;
 			}
 		}
-		return false;
+		return this.getModid().length < 1;
 	}
 
 	@Override
@@ -53,10 +52,10 @@ public class CompatConsumable extends ConsumableItem {
 	}
 
 	@Override
-	public @NotNull ItemStack finishUsingItem(@NotNull ItemStack stack, @NotNull Level worldIn, @NotNull LivingEntity entity) {
+	public void affectConsumer(@NotNull ItemStack stack, @NotNull Level level, @NotNull LivingEntity consumer) {
+		super.affectConsumer(stack, level, consumer);
 		if (this.loaded() && this.heal > 0.0F) {
-			entity.heal(this.heal);
+			consumer.heal(this.heal);
 		}
-		return super.finishUsingItem(stack, worldIn, entity);
 	}
 }

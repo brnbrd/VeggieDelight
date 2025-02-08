@@ -17,10 +17,17 @@ public class StygianPomegranateItem extends CompatConsumable {
 	}
 
 	@Override
-	public @NotNull ItemStack finishUsingItem(@NotNull ItemStack stack, @NotNull Level level, @NotNull LivingEntity entity) {
-		if (this.loaded() && !level.isClientSide()) {
-			level.explode(entity, entity.getX(), entity.getY(), entity.getZ(), 3.0F, Level.ExplosionInteraction.NONE);
+	public void affectConsumer(@NotNull ItemStack stack, @NotNull Level level, @NotNull LivingEntity consumer) {
+		super.affectConsumer(stack, level, consumer);
+		if (this.loaded()) {
+			level.explode(
+				consumer,
+				consumer.getX(),
+				consumer.getY(),
+				consumer.getZ(),
+				3.0F,
+				Level.ExplosionInteraction.NONE
+			);
 		}
-		return super.finishUsingItem(stack, level, entity);
 	}
 }
