@@ -42,9 +42,9 @@ public class ForgeEvents {
 	private static boolean validateVolatile(LivingEntity attacker) {
 		return (
 			attacker != null &&
-				attacker.hasEffect(CREffects.VOLATILITY.get()) &&
-				!attacker.getType().is(CREntityTags.INVOLATILE) &&
-				!(attacker instanceof Player p && p.getAttackStrengthScale(0F) != 1F)
+			attacker.hasEffect(CREffects.VOLATILITY.get()) &&
+			!attacker.getType().is(CREntityTags.INVOLATILE) &&
+			!(attacker instanceof Player p && p.getAttackStrengthScale(0F) != 1F)
 		);
 	}
 
@@ -82,8 +82,8 @@ public class ForgeEvents {
 	public void onCorrodeProjectile(ProjectileImpactEvent e) {
 		if (
 			e.getRayTraceResult().getType() == HitResult.Type.ENTITY &&
-				((EntityHitResult) e.getRayTraceResult()).getEntity() instanceof LivingEntity victim &&
-				victim.hasEffect(CREffects.CORROSION.get())
+			((EntityHitResult) e.getRayTraceResult()).getEntity() instanceof LivingEntity victim &&
+			victim.hasEffect(CREffects.CORROSION.get())
 		) {
 			Projectile proj = e.getProjectile();
 			if (proj.getType().is(CREntityTags.CORROSION_IMMUNE)) {
@@ -110,22 +110,22 @@ public class ForgeEvents {
 		LivingEntity victim = e.getEntity();
 		if (
 			victim instanceof Mob &&
-				e.getSource().getEntity() != null &&
-				!victim.level().isClientSide() &&
-				victim.level() instanceof ServerLevel server &&
-				!victim.hasEffect(MobEffects.DAMAGE_RESISTANCE) &&
-				e.getSource().getEntity() instanceof LivingEntity attacker &&
-				attacker != victim &&
-				validateVolatile(attacker)
+			e.getSource().getEntity() != null &&
+			!victim.level().isClientSide() &&
+			victim.level() instanceof ServerLevel server &&
+			!victim.hasEffect(MobEffects.DAMAGE_RESISTANCE) &&
+			e.getSource().getEntity() instanceof LivingEntity attacker &&
+			attacker != victim &&
+			validateVolatile(attacker)
 		) {
 			server.sendParticles(CRParticleTypes.SHOCKWAVE.get(), victim.getX(), victim.getY(), victim.getZ(), 1, 0.0D, 0.0D, 0.0D, 0.0D);
 			int level = Objects.requireNonNull(attacker.getEffect(CREffects.VOLATILITY.get())).getAmplifier();
 			List<Mob> mobs = server.getNearbyEntities(Mob.class,
 					TargetingConditions.DEFAULT.selector(mob -> (
 						mob != attacker &&
-							mob != victim &&
-							!mob.getType().is(CREntityTags.VOLATILITY_IMMUNE) &&
-							!(mob instanceof TamableAnimal tame && tame.isTame())
+						mob != victim &&
+						!mob.getType().is(CREntityTags.VOLATILITY_IMMUNE) &&
+						!(mob instanceof TamableAnimal tame && tame.isTame())
 					)),
 					victim, victim.getBoundingBox().inflate(4.0D + ((double) level), 2.0D, 4.0D + ((double) level)))
 				.stream().limit(3 + level).toList();

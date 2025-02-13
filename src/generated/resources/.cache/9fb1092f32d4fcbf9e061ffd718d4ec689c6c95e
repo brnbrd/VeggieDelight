@@ -1,4 +1,4 @@
-// 1.20.1	2025-02-07T12:22:08.8022456	Recipes
+// 1.20.1	2025-02-12T11:16:40.873552	Recipes
 6bed5b7d715399840f10473875efca57540c42e3 data/collectorsreap/advancements/recipes/chiseled_urchin_test_bricks.json
 ffff41205e9b83cc8ab9d38ce39c06fa7e8f6ae7 data/collectorsreap/advancements/recipes/cutting/chieftain_claw.json
 51d613fd6d246740518e1ed57afea6e6deea518e data/collectorsreap/advancements/recipes/cutting/chieftain_crab.json
@@ -20,7 +20,7 @@ bb6636a967ba227015b992e4233fa3aef85ca4b1 data/collectorsreap/advancements/recipe
 6f1c4843add4ba6d1992dab4ac83513f4cd8d738 data/collectorsreap/advancements/recipes/food/berry_limeade.json
 94de5e900943017fe10e1ddc3e5494094871eed5 data/collectorsreap/advancements/recipes/food/berry_limeade_from_limeade.json
 18dfb7d81b6fda6ad07bae2cc7238b8a493e7ab6 data/collectorsreap/advancements/recipes/food/big_rice_ball.json
-d25333be9ebd33795247366fccfef5846f3d5ea9 data/collectorsreap/advancements/recipes/food/buttered_legs.json
+9b36d3bc945416c7ae4caa543a55cbf0997ae8e5 data/collectorsreap/advancements/recipes/food/buttered_legs.json
 27f42b13ae3ff7237a69835b26eb7655d595839d data/collectorsreap/advancements/recipes/food/candied_lime.json
 6fff03532ad79e57b6d91dba3445068f42c7ed35 data/collectorsreap/advancements/recipes/food/chieftain_crab.json
 6d6a10a2dd4437d4046de81876d17c74cbb78bcf data/collectorsreap/advancements/recipes/food/chocolate_arils.json
@@ -170,7 +170,7 @@ d3087b6d82b105c928fb27d0bd25dfbd58e24a11 data/collectorsreap/recipes/cutting/pom
 8aa3561bbe5faa8ff9bc0f0399c823ce0279f72e data/collectorsreap/recipes/food/berry_limeade.json
 eec63244d32e567ba31c8ff1681d431806d53919 data/collectorsreap/recipes/food/berry_limeade_from_limeade.json
 f599f08f9897f7633d9f72ab5cf7aa5b16ad26fe data/collectorsreap/recipes/food/big_rice_ball.json
-50ad2c9dbbe261e61893b54edeef4d0ef1d58757 data/collectorsreap/recipes/food/buttered_legs.json
+452bdcf5fa6b43eba377934edb03398617a55d89 data/collectorsreap/recipes/food/buttered_legs.json
 bf3d330e826a83f8adc625d3511148ccfdabc132 data/collectorsreap/recipes/food/candied_lime.json
 c22fdf3e9d57fc6bd8c10e5ac0ea1788cae4b772 data/collectorsreap/recipes/food/chieftain_crab.json
 0cc3a18e12ec2af4bff56273e575505f75ee836f data/collectorsreap/recipes/food/chocolate_arils.json

@@ -52,7 +52,9 @@ public class CRBlockTagProvider extends BlockTagsProvider {
 			.addTag(BlockTags.SAND)
 			.addTag(Tags.Blocks.GRAVEL)
 			.add(Blocks.WATER)
-			.add(Blocks.CLAY);
+			.add(Blocks.CLAY)
+			.addOptionalTag(Util.rl("quark", "crab_spawnable"))
+			.addOptionalTag(Util.rl("crabbersdelight", "crab_spawn_on"));
 
 		// Minecraft
 		this.tag(BlockTags.BEE_GROWABLES)

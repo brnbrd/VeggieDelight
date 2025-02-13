@@ -248,9 +248,9 @@ public class CRRecipeProvider extends RecipeProvider implements IConditionBuilde
 				.unlockedBy("has_crab_meat", has(CRItemTags.CRAB_MEAT)),
 			"food/crab_noodles", finished, enabled(CRItems.CRAB_NOODLES));
 		wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.BUTTERED_LEGS.get(), 1, 200, 1.0F, Items.BOWL)
-				.addIngredient(CRItems.CHIEFTAIN_LEG.get(), 3)
+				.addIngredient(Ingredient.of(CRItemTags.CRAB_LEG), 3)
 				.addIngredient(ForgeTags.MILK)
-				.unlockedBy("has_chieftain_legs", has(CRItems.CHIEFTAIN_LEG.get())),
+				.unlockedBy("has_crab_legs", has(CRItemTags.CRAB_LEG)),
 			"food/buttered_legs", finished, enabled(CRItems.BUTTERED_LEGS));
 		wrap(CookingPotRecipeBuilder.cookingPotRecipe(CRItems.CLAM_CHOWDER.get(), 1, 200, 1.0F, Items.BREAD)
 				.addIngredient(CRItemTags.RAW_CLAM)

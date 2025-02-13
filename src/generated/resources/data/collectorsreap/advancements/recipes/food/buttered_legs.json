@@ -4,13 +4,11 @@
       "advancement": {
         "parent": "minecraft:recipes/root",
         "criteria": {
-          "has_chieftain_legs": {
+          "has_crab_legs": {
             "conditions": {
               "items": [
                 {
-                  "items": [
-                    "collectorsreap:chieftain_leg"
-                  ]
+                  "tag": "forge:crab_leg"
                 }
               ]
             },
@@ -25,7 +23,7 @@
         },
         "requirements": [
           [
-            "has_chieftain_legs",
+            "has_crab_legs",
             "has_the_recipe"
           ]
         ],

@@ -60,8 +60,8 @@ public abstract class FruitBushBlock extends DoublePlantBlock implements Bonemea
 			level.setBlock(pos, copyWaterloggedFrom(level, pos, belowState), flags);
 		} else if (
 			belowState.getValue(AGE) > 1 &&
-				belowState.getBlock() instanceof FruitBushBlock fruit &&
-				fruit.canSurvive(state, level, pos)
+			belowState.getBlock() instanceof FruitBushBlock fruit &&
+			fruit.canSurvive(state, level, pos)
 		) {
 			DoublePlantBlock.placeAt(level, belowState, pos, flags);
 		}
@@ -84,8 +84,8 @@ public abstract class FruitBushBlock extends DoublePlantBlock implements Bonemea
 		Level level = context.getLevel();
 		return (
 			blockpos.getY() < level.getMaxBuildHeight() &&
-				level.getBlockState(blockpos.above()).canBeReplaced(context) ?
-				this.defaultBlockState() : null
+			level.getBlockState(blockpos.above()).canBeReplaced(context) ?
+			this.defaultBlockState() : null
 		);
 
 	}

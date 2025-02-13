@@ -1,4 +1,4 @@
-// 1.20.1	2025-02-08T14:37:55.2129772	Tags for minecraft:item mod id collectorsreap
+// 1.20.1	2025-02-12T11:16:40.8797148	Tags for minecraft:item mod id collectorsreap
 ae7e08f92dd075f34544c04d30c8a274b27bd792 data/atmospheric/tags/items/aloe_leaves.json
 b1c02044b6eb4060b19a0ed4f40cbeaca19822c9 data/atmospheric/tags/items/passion_fruit.json
 a740abeb613a7024a35910efe912a50a6ee62045 data/atmospheric/tags/items/yucca_fruit.json
@@ -15,6 +15,7 @@ fcf99e6f110fcae994598f43ef0f6aef5f03c708 data/forge/tags/items/cooked_fishes.jso
 d0e079fbaabb8a11fc5541c60876765c04dbbe59 data/forge/tags/items/cooked_fishes/bass.json
 824d63187983d41e32a95b9690792003758245ee data/forge/tags/items/cooked_prawn.json
 7104c9e7bbc91243f65e443d91a4f12d11ba75d9 data/forge/tags/items/cookies.json
+31d087985d7bf608879d05a18b73af0c289465a1 data/forge/tags/items/crab_leg.json
 14d6fc1de29292b23a30a4290f741045aec41515 data/forge/tags/items/crab_meat.json
 ebd61208c46d8566aa1b8d9a574e938b725b71b9 data/forge/tags/items/eggs.json
 7858b92268002e26fb60279c2afb6dd5ffc7d211 data/forge/tags/items/fruits.json

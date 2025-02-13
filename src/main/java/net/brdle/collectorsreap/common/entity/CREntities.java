@@ -1,7 +1,6 @@
 package net.brdle.collectorsreap.common.entity;
 
 import net.brdle.collectorsreap.CollectorsReap;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacements;
@@ -19,26 +18,43 @@ import net.minecraftforge.registries.RegistryObject;
 public class CREntities {
 	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, CollectorsReap.MODID);
 
-	public static final RegistryObject<EntityType<TigerPrawn>> TIGER_PRAWN = reg("tiger_prawn",
-		TigerPrawn::new, MobCategory.WATER_AMBIENT, 0.8F, 0.4F);
-	public static final RegistryObject<EntityType<Urchin>> URCHIN = reg("urchin",
-		Urchin::new, MobCategory.WATER_AMBIENT, 0.5F, 0.5F);
-	public static final RegistryObject<EntityType<PlatinumBass>> PLATINUM_BASS = reg("platinum_bass",
-		PlatinumBass::new, MobCategory.WATER_AMBIENT, 1.2F, 0.5F);
-	public static final RegistryObject<EntityType<Clam>> CLAM = reg("clam",
-		Clam::new, MobCategory.WATER_AMBIENT, 1.0F, 0.5F);
-	public static final RegistryObject<EntityType<ChieftainCrab>> CHIEFTAIN_CRAB = reg("chieftain_crab",
-		ChieftainCrab::new, MobCategory.CREATURE, 0.85F, 0.65F);
+	public static final RegistryObject<EntityType<TigerPrawn>> TIGER_PRAWN = ENTITY_TYPES.register("tiger_prawn",
+		() -> EntityType.Builder.of(TigerPrawn::new, MobCategory.WATER_AMBIENT)
+			.sized(0.8F, 0.4F)
+			.clientTrackingRange(4)
+			.build(CollectorsReap.MODID + ".tiger_prawn"));
+	public static final RegistryObject<EntityType<Urchin>> URCHIN = ENTITY_TYPES.register("urchin",
+		() -> EntityType.Builder.of(Urchin::new, MobCategory.WATER_AMBIENT)
+			.sized(0.5F, 0.5F)
+			.clientTrackingRange(4)
+			.build(CollectorsReap.MODID + ".urchin"));
+	public static final RegistryObject<EntityType<PlatinumBass>> PLATINUM_BASS = ENTITY_TYPES.register("platinum_bass",
+		() -> EntityType.Builder.of(PlatinumBass::new, MobCategory.WATER_AMBIENT)
+			.sized(1.2F, 0.5F)
+			.clientTrackingRange(4)
+			.build(CollectorsReap.MODID + ".platinum_bass"));
+	public static final RegistryObject<EntityType<Clam>> CLAM = ENTITY_TYPES.register("clam",
+		() -> EntityType.Builder.of(Clam::new, MobCategory.WATER_AMBIENT)
+			.sized(1F, 0.5F)
+			.clientTrackingRange(8)
+			.build(CollectorsReap.MODID + ".clam"));
+	public static final RegistryObject<EntityType<ChieftainCrab>> CHIEFTAIN_CRAB = ENTITY_TYPES.register("chieftain_crab",
+	 	() -> EntityType.Builder.of(ChieftainCrab::new, MobCategory.CREATURE)
+			.sized(0.85F, 0.65F)
+			.clientTrackingRange(10)
+			.build(CollectorsReap.MODID + ".chieftain_crab"));
 	public static final RegistryObject<EntityType<UrchinDart>> URCHIN_DART = ENTITY_TYPES.register("urchin_dart",
 		() -> EntityType.Builder.<UrchinDart>of(UrchinDart::new, MobCategory.MISC)
-			.sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20).build(CollectorsReap.MODID + ".urchin_dart"));
+			.sized(0.5F, 0.5F)
+			.clientTrackingRange(4)
+			.updateInterval(20)
+			.build(CollectorsReap.MODID + ".urchin_dart"));
 	public static final RegistryObject<EntityType<ThrownShimmeringPearl>> SHIMMERING_PEARL = ENTITY_TYPES.register("shimmering_pearl",
 		() -> EntityType.Builder.<ThrownShimmeringPearl>of(ThrownShimmeringPearl::new, MobCategory.MISC)
-			.sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10).build(CollectorsReap.MODID + ".shimmering_pearl"));
-
-	private static <T extends Entity> RegistryObject<EntityType<T>> reg(String name, EntityType.EntityFactory<T> fact, MobCategory category, float width, float height) {
-		return ENTITY_TYPES.register(name, () -> EntityType.Builder.of(fact, category).sized(width, height).build(CollectorsReap.MODID + "." + name));
-	}
+			.sized(0.25F, 0.25F)
+			.clientTrackingRange(4)
+			.updateInterval(10)
+			.build(CollectorsReap.MODID + ".shimmering_pearl"));
 
 	@SubscribeEvent
 	public static void registerAttributes(EntityAttributeCreationEvent event) {
@@ -55,7 +71,7 @@ public class CREntities {
 		event.register(TIGER_PRAWN.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, TigerPrawn::checkSurfaceWaterAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
 		event.register(URCHIN.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Urchin::checkWaterGroundSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
 		event.register(CLAM.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Clam::checkWaterGroundSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
-		event.register(CHIEFTAIN_CRAB.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ChieftainCrab::checkCrabSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+		event.register(CHIEFTAIN_CRAB.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.WORLD_SURFACE, ChieftainCrab::checkCrabSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
 	}
 
 	public static void create(IEventBus bus) {

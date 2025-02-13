@@ -54,16 +54,6 @@ public abstract class WaterCreature extends WaterAnimal implements Bucketable {
 		} else {
 			super.travel(pTravelVector);
 		}
-
-	}
-
-	/**
-	 * Called every tick so the entity can update its state as required. For example, zombies and skeletons use this to
-	 * react to sunlight and start to burn.
-	 */
-	@Override
-	public void aiStep() {
-		super.aiStep();
 	}
 
 	@Override
@@ -92,13 +82,13 @@ public abstract class WaterCreature extends WaterAnimal implements Bucketable {
 	}
 
 	@Override
-	public void saveToBucketTag(@NotNull ItemStack pStack) {
-		Bucketable.saveDefaultDataToBucketTag(this, pStack);
+	public void saveToBucketTag(@NotNull ItemStack stack) {
+		Bucketable.saveDefaultDataToBucketTag(this, stack);
 	}
 
 	@Override
-	public void loadFromBucketTag(@NotNull CompoundTag pTag) {
-		Bucketable.loadDefaultDataFromBucketTag(this, pTag);
+	public void loadFromBucketTag(@NotNull CompoundTag tag) {
+		Bucketable.loadDefaultDataFromBucketTag(this, tag);
 	}
 
 	@Override
@@ -123,9 +113,6 @@ public abstract class WaterCreature extends WaterAnimal implements Bucketable {
 		pCompound.putBoolean("FromBucket", this.fromBucket());
 	}
 
-	/**
-	 * (abstract) Protected helper method to read subclass entity data from NBT.
-	 */
 	@Override
 	public void readAdditionalSaveData(@NotNull CompoundTag pCompound) {
 		super.readAdditionalSaveData(pCompound);

@@ -23,7 +23,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
-import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Bucketable;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -37,7 +36,7 @@ import org.jetbrains.annotations.Nullable;
 import javax.annotation.Nonnull;
 import java.util.UUID;
 
-public class ChieftainCrab extends Animal implements NeutralMob, Bucketable {
+public class ChieftainCrab extends PathfinderMob implements NeutralMob, Bucketable {
 	private static final EntityDataAccessor<Boolean> FROM_BUCKET = SynchedEntityData.defineId(ChieftainCrab.class, EntityDataSerializers.BOOLEAN);
 	private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
 	private int remainingPersistentAngerTime;
@@ -45,16 +44,18 @@ public class ChieftainCrab extends Animal implements NeutralMob, Bucketable {
 	public final AnimationState idleAnimationState = new AnimationState();
 	public final AnimationState movingAnimationState = new AnimationState();
 
-	public ChieftainCrab(EntityType<? extends Animal> type, Level level) {
+	public ChieftainCrab(EntityType<? extends ChieftainCrab> type, Level level) {
 		super(type, level);
 		this.setAirSupply(300);
 	}
 
 	public static AttributeSupplier.@NotNull Builder createAttributes() {
-		return Mob.createMobAttributes()
-			.add(Attributes.MAX_HEALTH, 25.0D)
-			.add(Attributes.MOVEMENT_SPEED, 0.25D)
-			.add(Attributes.ATTACK_DAMAGE, 2.0D);
+		return (
+			Mob.createMobAttributes()
+				.add(Attributes.MAX_HEALTH, 25.0D)
+				.add(Attributes.MOVEMENT_SPEED, 0.25D)
+				.add(Attributes.ATTACK_DAMAGE, 2.0D)
+		);
 	}
 
 	public static boolean checkCrabSpawnRules(EntityType<ChieftainCrab> crab, ServerLevelAccessor level, MobSpawnType type, BlockPos pos, RandomSource rand) {
@@ -69,10 +70,10 @@ public class ChieftainCrab extends Animal implements NeutralMob, Bucketable {
 	protected void registerGoals() {
 		this.goalSelector.addGoal(0, new FloatGoal(this));
 		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Player.class, 8.0F, 2.0D, 2.0D));
-		this.goalSelector.addGoal(2, new RandomStrollGoal(this, 1.0D));
-		this.goalSelector.addGoal(3, new RandomSwimmingGoal(this, 1.5D, 40));
+		this.goalSelector.addGoal(2, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(3, new RandomStrollGoal(this, 1.0D));
 		this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 6.0F));
-		this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(6, new RandomSwimmingGoal(this, 0.75D, 50));
 		this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
 	}
 
@@ -266,16 +267,5 @@ public class ChieftainCrab extends Animal implements NeutralMob, Bucketable {
 	@Override
 	public void startPersistentAngerTimer() {
 		this.setRemainingPersistentAngerTime(PERSISTENT_ANGER_TIME.sample(this.getRandom()));
-	}
-
-	@Nullable
-	@Override
-	public AgeableMob getBreedOffspring(@NotNull ServerLevel serverLevel, @NotNull AgeableMob ageableMob) {
-		return null;
-	}
-
-	@Override
-	public boolean isFood(@NotNull ItemStack stack) {
-		return false;
 	}
 }

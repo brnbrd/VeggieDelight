@@ -7,7 +7,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 
 public class CRBlockTags {
-
 	// Collector's Reap
 	public static final TagKey<Block> PORTOBELLO_SPAWNABLE_ON = bind(CollectorsReap.MODID, "portobello_spawnable_on");
 	public static final TagKey<Block> POMEGRANATE_FAST_ON = bind(CollectorsReap.MODID, "pomegranate_fast_on");

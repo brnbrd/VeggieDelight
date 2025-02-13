@@ -3,6 +3,14 @@
     "#minecraft:sand",
     "#forge:gravel",
     "minecraft:water",
-    "minecraft:clay"
+    "minecraft:clay",
+    {
+      "id": "#quark:crab_spawnable",
+      "required": false
+    },
+    {
+      "id": "#crabbersdelight:crab_spawn_on",
+      "required": false
+    }
   ]
 }

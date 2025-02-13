@@ -17,13 +17,13 @@
         "experience": 1.0,
         "ingredients": [
           {
-            "item": "collectorsreap:chieftain_leg"
+            "tag": "forge:crab_leg"
           },
           {
-            "item": "collectorsreap:chieftain_leg"
+            "tag": "forge:crab_leg"
           },
           {
-            "item": "collectorsreap:chieftain_leg"
+            "tag": "forge:crab_leg"
           },
           {
             "tag": "forge:milk"
