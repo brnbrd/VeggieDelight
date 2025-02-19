@@ -16,17 +16,22 @@ import java.util.function.Supplier;
 
 public class Util {
 	public static final UUID BLOCK_REACH = UUID.fromString("6ba3d68d-2e14-4b88-92c8-5a6796650af3");
-
-	public static ResourceLocation rl(String modid, String path) {
-		return new ResourceLocation(modid, path);
-	}
+	public static final String MC = "minecraft";
 
 	public static ResourceLocation rl(String separated) {
 		return new ResourceLocation(separated);
 	}
 
+	public static ResourceLocation rl(String modid, String path) {
+		return new ResourceLocation(modid, path);
+	}
+
 	public static ResourceLocation cr(String path) {
-		return new ResourceLocation(CollectorsReap.MODID, path);
+		return rl(CollectorsReap.MODID, path);
+	}
+
+	public static ResourceLocation mc(String path) {
+		return rl(MC, path);
 	}
 
 	public static TagKey<Item> it(String modid, String path) {

@@ -22,7 +22,6 @@ import vectorwing.farmersdelight.common.tag.ForgeTags;
 import java.util.concurrent.CompletableFuture;
 
 public class CRItemTagProvider extends ItemTagsProvider {
-
 	public CRItemTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> provider, CompletableFuture<TagLookup<Block>> blockTagProvider, @Nullable ExistingFileHelper existingFileHelper) {
 		super(output, provider, blockTagProvider, CollectorsReap.MODID, existingFileHelper);
 	}
@@ -47,6 +46,21 @@ public class CRItemTagProvider extends ItemTagsProvider {
 		this.tag(ItemTags.FISHES)
 			.addTag(CRItemTags.RAW_FISHES_BASS)
 			.addTag(CRItemTags.COOKED_FISHES_BASS);
+		this.tag(CRItemTags.ROE_FISH)
+			.add(CRItems.PLATINUM_BASS_ROE.get())
+			.addOptional(Util.rl("letfishlove", "tropical_fish_roe"))
+			.addOptional(Util.rl("letfishlove", "salmon_roe"))
+			.addOptional(Util.rl("letfishlove", "pufferfish_roe"))
+			.addOptional(Util.rl("letfishlove", "cod_roe"))
+			.addOptional(Util.rl("letmorefishlove", "lanternfish_roe"))
+			.addOptional(Util.rl("letmorefishlove", "catfish_roe"))
+			.addOptional(Util.rl("letmorefishlove", "bass_roe"))
+			.addOptional(Util.rl("letmorefishlove", "pike_roe"))
+			.addOptional(Util.rl("letmorefishlove", "lionfish_roe"))
+			.addOptional(Util.rl("letmorefishlove", "perch_roe"));
+		this.tag(CRItemTags.ROE)
+			.addTag(CRItemTags.ROE_FISH);
+			//.addTag(CRItemTags.ROE_PRAWN)
 
 		// Forge
 		this.tag(CRItemTags.CHEESE).addOptional(Util.rl("brewinandchewin", "flaxen_cheese_wedge"));
@@ -199,6 +213,9 @@ public class CRItemTagProvider extends ItemTagsProvider {
 			.add(CRItems.PORTOBELLO_COLONY.get())
 			.addOptional(Util.rl("mynethersdelight", "warped_fungus_colony"))
 			.addOptional(Util.rl("mynethersdelight", "crimson_fungus_colony"));
+
+		// Let Fish Love
+		this.tag(CRItemTags.FISH_FOOD_PLATINUM_BASS).add(CRItems.TIGER_PRAWN.get());
 	}
 
 	@SuppressWarnings("UnusedReturnValue")

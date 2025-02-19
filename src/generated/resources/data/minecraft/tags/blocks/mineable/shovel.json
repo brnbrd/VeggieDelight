@@ -1,6 +1,10 @@
 {
   "values": [
     "collectorsreap:lime_ice_cream_block",
-    "collectorsreap:pomegranate_ice_cream_block"
+    "collectorsreap:pomegranate_ice_cream_block",
+    {
+      "id": "#letfishlove:fish_roe/collectorsreap/platinum_bass",
+      "required": false
+    }
   ]
 }

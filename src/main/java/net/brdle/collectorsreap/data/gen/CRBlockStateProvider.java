@@ -29,6 +29,11 @@ public class CRBlockStateProvider extends BlockStateProvider {
 		return Util.cr("block/" + path);
 	}
 
+	// Adapted from: https://github.com/vectorwing/FarmersDelight/blob/1.19/src/main/java/vectorwing/farmersdelight/data/BlockStates.java
+	public static ResourceLocation vanillaBlock(String path) {
+		return Util.mc("block/" + path);
+	}
+
 	@Override
 	protected void registerStatesAndModels() {
 		this.pieBlock(CRBlocks.PORTOBELLO_QUICHE);
@@ -90,23 +95,24 @@ public class CRBlockStateProvider extends BlockStateProvider {
 		this.slabBlock((SlabBlock) CRBlocks.URCHIN_TEST_TILE_SLAB.get(), resourceBlock("urchin_test_tiles"), resourceBlock("urchin_test_tiles"));
 		this.stairsBlock((StairBlock) CRBlocks.URCHIN_TEST_TILE_STAIRS.get(), resourceBlock("urchin_test_tiles"));
 		this.wallBlock((WallBlock) CRBlocks.URCHIN_TEST_TILE_WALL.get(), resourceBlock("urchin_test_tiles"));
+		this.roeBlock(CRBlocks.PLATINUM_BASS_ROE.get());
 	}
 
-	public void crateBlock(Block block, String cropName) {
+	private void crateBlock(Block block, String cropName) {
 		this.simpleBlock(block, this.models().cubeBottomTop(Util.name(block), resourceBlock(cropName + "_crate_side"), Util.rl(FarmersDelight.MODID, "block/crate_bottom"), resourceBlock(cropName + "_crate_top")));
 	}
 
-	public ModelFile existingModel(String path) {
+	private ModelFile existingModel(String path) {
 		return new ModelFile.ExistingModelFile(resourceBlock(path), models().existingFileHelper);
 	}
 
-	public void cross(Block block) {
+	private void cross(Block block) {
 		this.simpleBlock(block, models().cross("block/" + Util.name(block),
 			CRBlockStateProvider.resourceBlock(Util.name(block))).renderType("cutout"));
 	}
 
 	// Adapted from: https://github.com/vectorwing/FarmersDelight/blob/1.19/src/main/java/vectorwing/farmersdelight/data/BlockStates.java
-	public void stageBlock(Block block, IntegerProperty ageProperty, Property<?>... ignored) {
+	private void stageBlock(Block block, IntegerProperty ageProperty, Property<?>... ignored) {
 		getVariantBuilder(block).forAllStatesExcept(state -> {
 			String stageName = Util.name(block) + "_stage" + state.getValue(ageProperty);
 			return ConfiguredModel.builder()
@@ -114,7 +120,7 @@ public class CRBlockStateProvider extends BlockStateProvider {
 		}, ignored);
 	}
 
-	public void upperLowerStageBlock(Block block, IntegerProperty ageProperty, EnumProperty<DoubleBlockHalf> halfProperty, Property<?> ignored) {
+	private void upperLowerStageBlock(Block block, IntegerProperty ageProperty, EnumProperty<DoubleBlockHalf> halfProperty, Property<?> ignored) {
 		getVariantBuilder(block).forAllStatesExcept(state -> {
 			String name = Util.name(block) + "_" + state.getValue(halfProperty).getSerializedName();
 			var mod = models()
@@ -129,7 +135,7 @@ public class CRBlockStateProvider extends BlockStateProvider {
 		}, ignored);
 	}
 
-	public void pomegranateBushBlock(Block block, IntegerProperty ageProperty, EnumProperty<DoubleBlockHalf> halfProperty) {
+	private void pomegranateBushBlock(Block block, IntegerProperty ageProperty, EnumProperty<DoubleBlockHalf> halfProperty) {
 		getVariantBuilder(block).forAllStates(state -> {
 			String halfStageName = Util.name(block) + "_" + state.getValue(halfProperty).getSerializedName() + "_stage" + state.getValue(ageProperty);
 			String name = Util.name(block) + "_stage" + state.getValue(ageProperty);
@@ -142,7 +148,7 @@ public class CRBlockStateProvider extends BlockStateProvider {
 	}
 
 	// Adapted from: https://github.com/vectorwing/FarmersDelight/blob/1.19/src/main/java/vectorwing/farmersdelight/data/BlockStates.java
-	public void pieBlock(RegistryObject<Block> block) {
+	private void pieBlock(RegistryObject<Block> block) {
 		getVariantBuilder(block.get()).forAllStates(state -> {
 				int bites = state.getValue(PieBlock.BITES);
 				String name = Util.name(block);
@@ -162,7 +168,7 @@ public class CRBlockStateProvider extends BlockStateProvider {
 		);
 	}
 
-	public void cakeBlock(RegistryObject<Block> block) {
+	private void cakeBlock(RegistryObject<Block> block) {
 		getVariantBuilder(block.get()).forAllStates(state -> {
 				int bites = state.getValue(CakeBlock.BITES);
 				String name = Util.name(block);
@@ -181,19 +187,31 @@ public class CRBlockStateProvider extends BlockStateProvider {
 		);
 	}
 
-	public void candleCakeBlock(RegistryObject<Block> block, RegistryObject<Block> cake) {
+	private void candleCakeBlock(RegistryObject<Block> block, RegistryObject<Block> cake) {
 		getVariantBuilder(block.get()).forAllStates(state -> {
 			String lit = state.getValue(AbstractCandleBlock.LIT) ? "_lit" : "";
 			String name = Util.name(block);
 			String cakeName = Util.name(cake);
 			String candle = name.replace("_" + cakeName, "") + lit;
 			return ConfiguredModel.builder().modelFile(models()
-				.withExistingParent("block/" + name + lit, Util.rl("minecraft", "template_cake_with_candle"))
+				.withExistingParent("block/" + name + lit, Util.mc("template_cake_with_candle"))
 				.texture("bottom", resourceBlock(cakeName + "_bottom"))
-				.texture("candle", Util.rl("minecraft", "block/" + candle))
+				.texture("candle", vanillaBlock(candle))
 				.texture("particle", resourceBlock(cakeName + "_side"))
 				.texture("side", resourceBlock(cakeName + "_side"))
 				.texture("top", resourceBlock(cakeName + "_top"))).build();
+		});
+	}
+
+	private void roeBlock(Block block) {
+		getVariantBuilder(block).forAllStates(state -> {
+			String name = Util.name(block);
+			return ConfiguredModel.builder().modelFile(models()
+				.withExistingParent(name, vanillaBlock("frogspawn"))
+				.texture("particle", resourceBlock(name))
+				.texture("texture", resourceBlock(name))
+				.renderType("translucent")
+			).build();
 		});
 	}
 }

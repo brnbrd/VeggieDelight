@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/frogspawn",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "particle": "collectorsreap:block/platinum_bass_roe_block",
+    "texture": "collectorsreap:block/platinum_bass_roe_block"
+  }
+}

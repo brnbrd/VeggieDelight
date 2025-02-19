@@ -1,8 +1,9 @@
 package net.brdle.collectorsreap.common.entity;
 
+import net.brdle.collectorsreap.common.CRSoundEvents;
 import net.brdle.collectorsreap.common.item.CRItems;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
@@ -12,6 +13,7 @@ import net.minecraft.world.entity.animal.AbstractFish;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public class PlatinumBass extends AbstractFish {
 	public final AnimationState swimAnimationState = new AnimationState();
@@ -28,8 +30,20 @@ public class PlatinumBass extends AbstractFish {
 	}
 
 	@Override
-	protected SoundEvent getFlopSound() {
-		return SoundEvents.SALMON_FLOP;
+	protected @NotNull SoundEvent getFlopSound() {
+		return CRSoundEvents.PLATINUM_BASS_FLOP.get();
+	}
+
+	@Nullable
+	@Override
+	protected SoundEvent getDeathSound() {
+		return CRSoundEvents.PLATINUM_BASS_DEATH.get();
+	}
+
+	@Nullable
+	@Override
+	protected SoundEvent getHurtSound(@NotNull DamageSource source) {
+		return CRSoundEvents.PLATINUM_BASS_HURT.get();
 	}
 
 	@Override

@@ -5,6 +5,8 @@ import net.brdle.collectorsreap.Util;
 import net.brdle.collectorsreap.common.block.CRBlocks;
 import net.brdle.collectorsreap.common.entity.CREntities;
 import net.brdle.collectorsreap.common.item.food.*;
+import net.brdle.collectorsreap.compat.letfishlove.CRRoeItem;
+import net.brdle.collectorsreap.compat.letfishlove.LetFishLoveCompat;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
@@ -15,11 +17,10 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import org.jetbrains.annotations.Nullable;
-import vectorwing.farmersdelight.FarmersDelight;
 import vectorwing.farmersdelight.common.item.ConsumableItem;
 import vectorwing.farmersdelight.common.item.DrinkableItem;
 import vectorwing.farmersdelight.common.item.MushroomColonyItem;
@@ -27,7 +28,6 @@ import vectorwing.farmersdelight.common.registry.ModItems;
 import java.util.function.Supplier;
 
 public class CRItems extends ModItems {
-
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, CollectorsReap.MODID);
 
 	public static final RegistryObject<Item> PORTOBELLO_COLONY = registerItem("portobello_colony",
@@ -146,7 +146,6 @@ public class CRItems extends ModItems {
 		new EffectSliceItem((new Item.Properties()).food(Nutrition.POMEGRANATE_CAKE_SLICE)));
 	public static final RegistryObject<Item> LIME_CRATE = registerBlock(CRBlocks.LIME_CRATE);
 	public static final RegistryObject<Item> POMEGRANATE_CRATE = registerBlock(CRBlocks.POMEGRANATE_CRATE);
-
 
 	public static final RegistryObject<Item> SEA_WRAP = registerFood("sea_wrap", Nutrition.SEA_WRAP);
 
@@ -320,6 +319,13 @@ public class CRItems extends ModItems {
 	public static final RegistryObject<Item> URCHIN_TEST_TILE_SLAB = registerBlock("urchin_test_tile_slab", CRBlocks.URCHIN_TEST_TILE_SLAB);
 	public static final RegistryObject<Item> URCHIN_TEST_TILE_STAIRS = registerBlock("urchin_test_tile_stairs", CRBlocks.URCHIN_TEST_TILE_STAIRS);
 	public static final RegistryObject<Item> URCHIN_TEST_TILE_WALL = registerBlock("urchin_test_tile_wall", CRBlocks.URCHIN_TEST_TILE_WALL);
+
+	// Let Fish Love
+	public static final RegistryObject<Item> PLATINUM_BASS_ROE = registerItem("platinum_bass_roe", () ->
+		ModList.get().isLoaded("letfishlove") ?
+		LetFishLoveCompat.roeItem() :
+		new CompatItem(new Item.Properties(), "letfishlove")
+	);
 
 	public static RegistryObject<Item> registerBlock(RegistryObject<Block> block) {
 		return registerBlock(Util.name(block), block);

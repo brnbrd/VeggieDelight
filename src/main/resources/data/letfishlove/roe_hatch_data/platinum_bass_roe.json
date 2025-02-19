@@ -1,0 +1,7 @@
+{
+  "registry_name": "collectorsreap:platinum_bass_roe_block",
+  "minHatchAmount": 1,
+  "maxHatchAmount": 3,
+  "minHatchDuration": 3600,
+  "maxHatchDuration": 12000
+}

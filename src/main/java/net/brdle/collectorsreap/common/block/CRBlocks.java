@@ -2,6 +2,7 @@ package net.brdle.collectorsreap.common.block;
 
 import net.brdle.collectorsreap.CollectorsReap;
 import net.brdle.collectorsreap.common.item.CRItems;
+import net.brdle.collectorsreap.compat.letfishlove.LetFishLoveCompat;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.world.level.BlockGetter;
@@ -22,7 +23,6 @@ import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
 
 public class CRBlocks {
-
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, CollectorsReap.MODID);
 
 	public static final RegistryObject<Block> PORTOBELLO = registerBlock("portobello",
@@ -120,6 +120,13 @@ public class CRBlocks {
 		() -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.GILDED_BLACKSTONE).strength(2.0F, 6.0F)));
 	public static final RegistryObject<Block> URCHIN_TEST_TILE_WALL = registerBlock("urchin_test_tile_wall",
 		() -> new WallBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.GILDED_BLACKSTONE)));
+
+	// Let Fish Love
+	public static final RegistryObject<Block> PLATINUM_BASS_ROE = BLOCKS.register("platinum_bass_roe_block", () ->
+		ModList.get().isLoaded("letfishlove") ?
+		LetFishLoveCompat.roeBlock() :
+		new Block(BlockBehaviour.Properties.of())
+	);
 
 	public static RegistryObject<Block> registerBlock(String name, Supplier<Block> block) {
 		return BLOCKS.register(name, block);

@@ -1,4 +1,4 @@
-// 1.20.1	2025-01-24T15:41:32.6343417	Item Models: collectorsreap
+// 1.20.1	2025-02-14T13:11:28.2226451	Item Models: collectorsreap
 b183daae948efe76cbf209119af41701e5b72e95 assets/collectorsreap/models/item/adzuki_gummy.json
 56db9a7317e6d5a63c63af71a4011b16c66c00e7 assets/collectorsreap/models/item/aloe_gummy.json
 b27cb012c75da3137768f12a8074eab65874647a assets/collectorsreap/models/item/apple_gummy.json
@@ -71,6 +71,7 @@ af50504de896b1973158a3155c5e644d4053eb54 assets/collectorsreap/models/item/pearl
 d15323f24282273a5eeb030b02299f5ebb84128d assets/collectorsreap/models/item/platinum_bass.json
 1ea1761e7cf163cb117b7ed86f2c0a03fedfee93 assets/collectorsreap/models/item/platinum_bass_bucket.json
 5e6ee2417feb469dcb777398d939ec4182f975c5 assets/collectorsreap/models/item/platinum_bass_head.json
+bca3be1e2559167e752afddc2be7df99ea786b42 assets/collectorsreap/models/item/platinum_bass_roe.json
 d4efc3bc159cf4a106364d6649a0f5ae76fc5392 assets/collectorsreap/models/item/platinum_bass_slice.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/collectorsreap/models/item/platinum_bass_spawn_egg.json
 de1dc749396a3ed266e3349ded6ba54da03341dc assets/collectorsreap/models/item/platinum_bass_stew.json

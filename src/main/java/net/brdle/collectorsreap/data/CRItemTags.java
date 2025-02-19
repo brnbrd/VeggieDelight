@@ -2,11 +2,11 @@ package net.brdle.collectorsreap.data;
 
 import net.brdle.collectorsreap.CollectorsReap;
 import net.brdle.collectorsreap.Util;
+import net.brdle.collectorsreap.common.entity.CREntities;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 
 public class CRItemTags {
-
 	// Forge
 	public static final TagKey<Item> FRUITS = forge("fruits");
 	public static final TagKey<Item> FRUITS_CITRUS = forge("fruits/citrus");
@@ -32,6 +32,9 @@ public class CRItemTags {
 	public static final TagKey<Item> RAW_STRIDER = forge("raw_strider");
 	public static final TagKey<Item> COOKIES = forge("cookies");
 	public static final TagKey<Item> CHEESE = forge("cheese");
+	public static final TagKey<Item> ROE = forge("roe");
+	public static final TagKey<Item> ROE_FISH = forge("roe/fish");
+	public static final TagKey<Item> ROE_PRAWN = forge("roe/prawn");
 
 	// CR
 	public static final TagKey<Item> GUMMIES = cr("gummies");
@@ -73,6 +76,9 @@ public class CRItemTags {
 	// Supplementaries
 	public static final TagKey<Item> FLOWER_BOX_PLANTABLE = Util.it("supplementaries", "flower_box_plantable");
 	public static final TagKey<Item> SUPP_COOKIES = Util.it("supplementaries", "cookies");
+
+	// Let Fish Love
+	public static final TagKey<Item> FISH_FOOD_PLATINUM_BASS = Util.it("letfishlove", "fish_food/" + CollectorsReap.MODID + "/" + CREntities.PLATINUM_BASS.getId().getPath());
 
 	private static TagKey<Item> cr(String name) {
 		return Util.it(CollectorsReap.MODID, name);

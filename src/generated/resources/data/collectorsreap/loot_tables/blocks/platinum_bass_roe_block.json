@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "collectorsreap:platinum_bass_roe"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "collectorsreap:blocks/platinum_bass_roe_block"
+}

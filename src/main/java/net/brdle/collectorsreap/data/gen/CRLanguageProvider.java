@@ -22,6 +22,7 @@ public class CRLanguageProvider extends LanguageProvider {
 		addEffects();
 		addBlocks();
 		addItems();
+		addSubtitles();
 	}
 
 	private void addEntities() {
@@ -50,10 +51,6 @@ public class CRLanguageProvider extends LanguageProvider {
 		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.STYGIAN_POMEGRANATE), "A dangerous variant that can be rarely picked from Pomegranate Bushes growing on Resurgent Soil.");
 		add("desc." + CollectorsReap.MODID + "." + Util.name(CRItems.URCHIN_DART), "Throwable projectiles that poison enemies for five seconds upon contact. Holding a bamboo in your offhand shoots the dart for higher velocity.");
 		add("config.jade.plugin_" + CollectorsReap.MODID + ".crop_progress", "Crop Progress");
-		add(CollectorsReap.MODID + ".subtitle.urchin_dart.throw", "Urchin Dart thrown");
-		add(CollectorsReap.MODID + ".subtitle.urchin_dart.hit", "Urchin Dart hits");
-		add(CollectorsReap.MODID + ".subtitle.shimmering_pearl.throw", "Shimmering Pearl flies");
-		add(CollectorsReap.MODID + ".subtitle.shimmering_pearl.break", "Shimmering Pearl shatters");
 	}
 
 	private void addEffects() {
@@ -118,6 +115,7 @@ public class CRLanguageProvider extends LanguageProvider {
 		addBlock(CRBlocks.URCHIN_TEST_TILE_SLAB, "Urchin Test Tile Slab");
 		addBlock(CRBlocks.URCHIN_TEST_TILE_STAIRS, "Urchin Test Tile Stairs");
 		addBlock(CRBlocks.URCHIN_TEST_TILE_WALL, "Urchin Test Tile Wall");
+		addBlock(CRBlocks.PLATINUM_BASS_ROE, "Platinum Bass Roe");
 	}
 
 	private void addItems() {
@@ -243,5 +241,15 @@ public class CRLanguageProvider extends LanguageProvider {
 		addItem(CRItems.CLAM_PASTA, "Pasta with Clams");
 		addItem(CRItems.CLAM_MEATBALL_STEW, "Clam and Meatball Stew");
 		addItem(CRItems.SEA_WRAP, "Sea Wrap");
+	}
+
+	private void addSubtitles() {
+		add(CollectorsReap.MODID + ".subtitle.urchin_dart.throw", "Urchin Dart thrown");
+		add(CollectorsReap.MODID + ".subtitle.urchin_dart.hit", "Urchin Dart hits");
+		add(CollectorsReap.MODID + ".subtitle.shimmering_pearl.throw", "Shimmering Pearl flies");
+		add(CollectorsReap.MODID + ".subtitle.shimmering_pearl.break", "Shimmering Pearl shatters");
+		add(CollectorsReap.MODID + ".subtitle.platinum_bass.death", "Platinum Bass dies");
+		add(CollectorsReap.MODID + ".subtitle.platinum_bass.flop", "Platinum Bass flops");
+		add(CollectorsReap.MODID + ".subtitle.platinum_bass.hurt", "Platinum Bass hurts");
 	}
 }

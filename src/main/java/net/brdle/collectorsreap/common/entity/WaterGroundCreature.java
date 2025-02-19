@@ -12,7 +12,6 @@ import net.minecraftforge.fluids.FluidType;
 import org.jetbrains.annotations.NotNull;
 
 public abstract class WaterGroundCreature extends WaterCreature {
-
 	public WaterGroundCreature(EntityType<? extends WaterGroundCreature> type, Level level) {
 		super(type, level);
 	}

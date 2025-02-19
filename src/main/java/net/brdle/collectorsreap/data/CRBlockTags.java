@@ -2,6 +2,7 @@ package net.brdle.collectorsreap.data;
 
 import net.brdle.collectorsreap.CollectorsReap;
 import net.brdle.collectorsreap.Util;
+import net.brdle.collectorsreap.common.entity.CREntities;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
@@ -22,6 +23,10 @@ public class CRBlockTags {
 	// My Nether's Delight
 	public static final TagKey<Block> SHOWCASE_ACTIVATORS = bind("mynethersdelight", "showcase_activators");
 	public static final TagKey<Block> NOT_PROPAGATE_PLANT = bind("mynethersdelight", "not_propagate_plant");
+
+	// Let Fish Love
+	public static final TagKey<Block> FISH_ROE_PLATINUM_BASS = bind("letfishlove",
+		"fish_roe/" + CollectorsReap.MODID + "/" + CREntities.PLATINUM_BASS.getId().getPath());
 
 	private static TagKey<Block> bind(String modid, String name) {
 		return BlockTags.create(Util.rl(modid, name));
