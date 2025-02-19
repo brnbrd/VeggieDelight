@@ -1,0 +1,45 @@
+{
+  "values": [
+    "collectorsreap:platinum_bass_roe",
+    {
+      "id": "letfishlove:tropical_fish_roe",
+      "required": false
+    },
+    {
+      "id": "letfishlove:salmon_roe",
+      "required": false
+    },
+    {
+      "id": "letfishlove:pufferfish_roe",
+      "required": false
+    },
+    {
+      "id": "letfishlove:cod_roe",
+      "required": false
+    },
+    {
+      "id": "letmorefishlove:lanternfish_roe",
+      "required": false
+    },
+    {
+      "id": "letmorefishlove:catfish_roe",
+      "required": false
+    },
+    {
+      "id": "letmorefishlove:bass_roe",
+      "required": false
+    },
+    {
+      "id": "letmorefishlove:pike_roe",
+      "required": false
+    },
+    {
+      "id": "letmorefishlove:lionfish_roe",
+      "required": false
+    },
+    {
+      "id": "letmorefishlove:perch_roe",
+      "required": false
+    }
+  ]
+}

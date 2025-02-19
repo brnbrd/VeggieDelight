@@ -1,4 +1,4 @@
-// 1.20.1	2025-02-12T14:15:37.6959134	Tags for minecraft:block mod id collectorsreap
+// 1.20.1	2025-02-14T13:11:28.2216444	Tags for minecraft:block mod id collectorsreap
 748e9338cb0e08e973af854da7e0a45c328db6fb data/autumnity/tags/blocks/snail_snacks.json
 6882be46df6274c3fa9ba4a4e7066427971a7fbd data/collectorsreap/tags/blocks/crab_spawnable_on.json
 9fcca766e6223fb4dff1774d187235e66cf1ee7b data/collectorsreap/tags/blocks/pomegranate_fast_on.json
@@ -8,11 +8,12 @@
 415e7acd9735c098449f477f80aab4c7b446c95c data/farmersdelight/tags/blocks/mineable/knife.json
 9ed15064ba35571c5cb978c62acf2534c5a3ab3d data/farmersdelight/tags/blocks/unaffected_by_rich_soil.json
 748e9338cb0e08e973af854da7e0a45c328db6fb data/immersive_weathering/tags/blocks/small_mushrooms.json
+4f52664d1fa40db311731da176fe4717b1669179 data/letfishlove/tags/blocks/fish_roe/collectorsreap/platinum_bass.json
 4d87b4a393ab3838dcb58ed62a1b411ef7830dca data/minecraft/tags/blocks/bee_growables.json
 bf7b13882111059a12f7b87d8409209a6757dfd1 data/minecraft/tags/blocks/candle_cakes.json
 9f6fcd78a0ec010be5e2077c2e711b7210fc5ddc data/minecraft/tags/blocks/cauldrons.json
 6ba1956304e9e0a96189f07680cb5335cb45c1b8 data/minecraft/tags/blocks/mineable/axe.json
-027f2fd0825264d8e30007a81e7749763a8d9be2 data/minecraft/tags/blocks/mineable/shovel.json
+555a19ad643148af02ac94c328a814abfea8d094 data/minecraft/tags/blocks/mineable/shovel.json
 461e5b7194fed599f65c8db456e0e887d9bf8e06 data/minecraft/tags/blocks/slabs.json
 9c66ee8eeb0c17ffabd4bed3839f9fead6387d5b data/minecraft/tags/blocks/stairs.json
 7d41522df67a59e91f4c46fc5b09bdd8baf8eff7 data/minecraft/tags/blocks/walls.json

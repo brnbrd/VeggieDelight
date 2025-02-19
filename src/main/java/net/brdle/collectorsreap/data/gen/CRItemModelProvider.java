@@ -15,6 +15,7 @@ import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.data.ItemModels;
+import java.util.List;
 
 public class CRItemModelProvider extends ItemModelProvider {
 	public CRItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
@@ -42,7 +43,7 @@ public class CRItemModelProvider extends ItemModelProvider {
 						wallInventory(id.getPath(), Util.rl(id.getNamespace(), "block/" + id.getPath().replace("_wall", "s")));
 						continue;
 					} else if (!(entry.get() instanceof ItemNameBlockItem)) {
-						withExistingParent(id.getPath(), Util.rl(this.modid, "block/" + id.getPath()));
+						withExistingParent(id.getPath(), Util.cr("block/" + id.getPath()));
 						continue;
 					}
 				}
@@ -64,11 +65,14 @@ public class CRItemModelProvider extends ItemModelProvider {
 	}
 
 	private boolean isBasic(RegistryObject<Item> entry) {
-		return entry == CRItems.PORTOBELLO_QUICHE ||
-			entry == CRItems.LIME_PIE ||
-			entry == CRItems.LIME_CAKE ||
-			entry == CRItems.POMEGRANATE_CAKE ||
-			entry == CRItems.LIME_SEEDS ||
-			entry == CRItems.POMEGRANATE_SEEDS;
+		return List.of(
+			CRItems.PORTOBELLO_QUICHE,
+			CRItems.LIME_PIE,
+			CRItems.LIME_CAKE,
+			CRItems.POMEGRANATE_CAKE,
+			CRItems.LIME_SEEDS,
+			CRItems.POMEGRANATE_SEEDS,
+			CRItems.PLATINUM_BASS_ROE
+		).contains(entry);
 	}
 }

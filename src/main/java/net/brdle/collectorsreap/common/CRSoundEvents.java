@@ -19,6 +19,12 @@ public class CRSoundEvents {
 		() -> SoundEvent.createVariableRangeEvent(Util.cr("entity.shimmering_pearl.throw")));
 	public static final RegistryObject<SoundEvent> SHIMMERING_PEARL_BREAK = SOUNDS.register("shimmering_pearl_break",
 		() -> SoundEvent.createVariableRangeEvent(Util.cr("entity.shimmering_pearl.break")));
+	public static final RegistryObject<SoundEvent> PLATINUM_BASS_DEATH = SOUNDS.register("platinum_bass_death",
+		() -> SoundEvent.createVariableRangeEvent(Util.cr("entity.platinum_bass.death")));
+	public static final RegistryObject<SoundEvent> PLATINUM_BASS_HURT = SOUNDS.register("platinum_bass_hurt",
+		() -> SoundEvent.createVariableRangeEvent(Util.cr("entity.platinum_bass.hurt")));
+	public static final RegistryObject<SoundEvent> PLATINUM_BASS_FLOP = SOUNDS.register("platinum_bass_flop",
+		() -> SoundEvent.createVariableRangeEvent(Util.cr("entity.platinum_bass.flop")));
 
 	public static void create(IEventBus bus) {
 		SOUNDS.register(bus);

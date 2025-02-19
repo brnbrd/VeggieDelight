@@ -65,3 +65,17 @@ configBackground = "collectorsreap:textures/block/pomegranate_ice_cream_block.pn
 	versionRange = "[13,)"
 	ordering = "AFTER"
 	side = "BOTH"
+
+[[dependencies.collectorsreap]]
+	modId = "letfishlove"
+	mandatory = false
+	versionRange = "[2.1,)"
+	ordering = "AFTER"
+	side = "BOTH"
+
+[[dependencies.collectorsreap]]
+	modId = "letmorefishlove"
+	mandatory = false
+	versionRange = "[2.0.1,)"
+	ordering = "AFTER"
+	side = "BOTH"

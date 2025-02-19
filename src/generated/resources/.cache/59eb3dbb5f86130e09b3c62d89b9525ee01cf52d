@@ -1,4 +1,4 @@
-// 1.20.1	2025-01-24T15:41:32.6353423	Loot Tables
+// 1.20.1	2025-02-14T13:11:28.2236458	Loot Tables
 f4a3c88fc95a893f684db7cc68e3f910e18b85fe data/collectorsreap/loot_tables/blocks/black_candle_lime_cake.json
 d1c4a614122d59c6e0b808daecf41bda624609db data/collectorsreap/loot_tables/blocks/black_candle_pomegranate_cake.json
 f88a0ece599f6eb71b969a4b3262f221540435a9 data/collectorsreap/loot_tables/blocks/blue_candle_lime_cake.json
@@ -32,6 +32,7 @@ a52bf56671c88678f9187a1ec56ba654c1a7640d data/collectorsreap/loot_tables/blocks/
 4d4be25655deec9c02d9bb7892ec38363cd4b886 data/collectorsreap/loot_tables/blocks/orange_candle_pomegranate_cake.json
 2d33aa8956eb02a8555d8234772f4c65a4209522 data/collectorsreap/loot_tables/blocks/pink_candle_lime_cake.json
 9a8c16d57a2b1dd241678744f8c6b1de51093912 data/collectorsreap/loot_tables/blocks/pink_candle_pomegranate_cake.json
+9448de63f12529d647c7e18e85955a283947aa54 data/collectorsreap/loot_tables/blocks/platinum_bass_roe_block.json
 eb1ba7d35c0931b576f9e9442de3017d54917a32 data/collectorsreap/loot_tables/blocks/pomegranate_bush.json
 2a917166ed936db02df1c56b6e27beda7e6fb60e data/collectorsreap/loot_tables/blocks/pomegranate_cake.json
 af6308437bab8a2604b37b6de9678ec798899cae data/collectorsreap/loot_tables/blocks/pomegranate_crate.json

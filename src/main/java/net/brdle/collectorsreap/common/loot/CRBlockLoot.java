@@ -123,6 +123,7 @@ public class CRBlockLoot extends BlockLootSubProvider {
 		this.dropSelf(CRBlocks.URCHIN_TEST_TILE_SLAB.get());
 		this.dropSelf(CRBlocks.URCHIN_TEST_TILE_STAIRS.get());
 		this.dropSelf(CRBlocks.URCHIN_TEST_TILE_WALL.get());
+		this.dropOther(CRBlocks.PLATINUM_BASS_ROE.get(), CRItems.PLATINUM_BASS_ROE.get());
 	}
 
 	@Override

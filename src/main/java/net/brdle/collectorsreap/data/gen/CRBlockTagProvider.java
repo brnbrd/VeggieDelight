@@ -57,6 +57,14 @@ public class CRBlockTagProvider extends BlockTagsProvider {
 			.addOptionalTag(Util.rl("crabbersdelight", "crab_spawn_on"));
 
 		// Minecraft
+		this.tag(BlockTags.MINEABLE_WITH_SHOVEL)
+			.add(CRBlocks.LIME_ICE_CREAM_BLOCK.get())
+			.add(CRBlocks.POMEGRANATE_ICE_CREAM_BLOCK.get())
+			.addOptionalTag(CRBlockTags.FISH_ROE_PLATINUM_BASS.location());
+		this.tag(BlockTags.MINEABLE_WITH_AXE)
+			.add(CRBlocks.PORTOBELLO.get())
+			.add(CRBlocks.LIME_CRATE.get())
+			.add(CRBlocks.POMEGRANATE_CRATE.get());
 		this.tag(BlockTags.BEE_GROWABLES)
 			.add(CRBlocks.LIME_BUSH.get())
 			.add(CRBlocks.POMEGRANATE_BUSH.get());
@@ -66,13 +74,6 @@ public class CRBlockTagProvider extends BlockTagsProvider {
 			.filter(b -> b instanceof EffectCandleCakeBlock)
 			.forEach(b -> this.tag(BlockTags.CANDLE_CAKES).add(b));
 		this.tag(BlockTags.CANDLE_CAKES);
-		this.tag(BlockTags.MINEABLE_WITH_SHOVEL)
-			.add(CRBlocks.LIME_ICE_CREAM_BLOCK.get())
-			.add(CRBlocks.POMEGRANATE_ICE_CREAM_BLOCK.get());
-		this.tag(BlockTags.MINEABLE_WITH_AXE)
-			.add(CRBlocks.PORTOBELLO.get())
-			.add(CRBlocks.LIME_CRATE.get())
-			.add(CRBlocks.POMEGRANATE_CRATE.get());
 		this.tag(BlockTags.WALLS)
 			.add(CRBlocks.URCHIN_TEST_BRICK_WALL.get())
 			.add(CRBlocks.URCHIN_TEST_TILE_WALL.get());
@@ -102,6 +103,9 @@ public class CRBlockTagProvider extends BlockTagsProvider {
 		this.tag(CRBlockTags.NOT_PROPAGATE_PLANT)
 			.add(CRBlocks.LIME_BUSH.get())
 			.add(CRBlocks.POMEGRANATE_BUSH.get());
+
+		// Let Fish Love
+		this.tag(CRBlockTags.FISH_ROE_PLATINUM_BASS).add(CRBlocks.PLATINUM_BASS_ROE.get());
 
 		// Other
 		this.tag(BlockTags.create(Util.rl("twilightforest", "portal/decoration"))).add(CRBlocks.PORTOBELLO.get());

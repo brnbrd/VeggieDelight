@@ -1,6 +1,7 @@
 package net.brdle.collectorsreap.data.gen;
 
 import net.brdle.collectorsreap.CollectorsReap;
+import net.brdle.collectorsreap.common.entity.CREntities;
 import net.brdle.collectorsreap.data.CREntityTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -21,7 +22,9 @@ public class CREntityTagProvider extends EntityTypeTagsProvider {
 			.add(EntityType.IRON_GOLEM)
 			.add(EntityType.WARDEN)
 			.add(EntityType.RAVAGER);
-		this.tag(CREntityTags.VOLATILITY_IMMUNE)
-			.add(EntityType.VILLAGER);
+		this.tag(CREntityTags.VOLATILITY_IMMUNE).add(EntityType.VILLAGER);
+		this.tag(CREntityTags.BREEDABLE_FISH)
+			.replace(false)
+			.add(CREntities.PLATINUM_BASS.get());
 	}
 }

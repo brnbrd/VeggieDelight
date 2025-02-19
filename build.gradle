@@ -102,6 +102,7 @@ dependencies {
     compileOnly fg.deobf("curse.maven:blueprint-382216:${blueprint_version}")
     compileOnly fg.deobf("curse.maven:neapolitan-382016:${neapolitan_version}")
     compileOnly fg.deobf("curse.maven:atmospheric-362393:${atmospheric_version}")
+	implementation fg.deobf("curse.maven:let-fish-love-941186:${let_fish_love_version}")
     implementation fg.deobf("curse.maven:farmers-respite-551453:${farmers_respite_version}")
 }
 
